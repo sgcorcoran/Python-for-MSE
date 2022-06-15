@@ -2,9 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
-options:
-  numbered: true
+root: index
 chapters:
 - file: MSE 2114 Problem Statements Spring 2022
 - file: MSE 3114 Problem Statements Fall 2021
@@ -13,6 +11,5 @@ chapters:
 - file: lessons_3114/Week 1/Lesson 1 video file notebook finished
   sections:
   - file: lessons_3114/Week 1/HW 1 solutions
-  - file: lessons_3114/Week 1/Lesson 1 video file notebook starter
     sections:
     - file: lessons_3114/Week 1/lesson 1
