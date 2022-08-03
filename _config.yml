@@ -1,14 +1,44 @@
-# Book settings
+# Book settings -- based off of book template created by: jb create localpath
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
-logo: logo.png
-
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+title: "Python for MSE"
+author: Sean Corcoran
+# logo: VT_Logo.jpg
+only_build_toc_files: true
+# exclude_patterns: [lessons_2114/*.md, data_for_practice/*]
 execute:
-  execute_notebooks: force
+  execute_notebooks: auto
+parse:
+  myst_enable_extensions: 
+    - amsmath
+    - html_image
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - linkify
+    - smartquotes
+sphinx:
+  config:
+    #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    #mathjax_path: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML 
+
+# HTML-specific settings
+html:
+  announcement              : "Announcement goes here..." # A banner announcement at the top of the site.
+  use_multitoc_numbering    : false   # Continuous numbering across parts/chapters
+  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar. 
+  extra_footer              : "extra footer text goes here"  # Will be displayed underneath the footer.
+  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/sgcorcoran/Python-for-MSE  # Online location of your book
+
+# path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: working  # Which branch of the repository should be used when creating links (optional)
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -18,15 +48,3 @@ latex:
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
-
-# Information about where the book exists on the web
-repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
-
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-html:
-  use_issues_button: true
-  use_repository_button: true
