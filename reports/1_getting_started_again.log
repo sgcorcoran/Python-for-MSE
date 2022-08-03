@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "C:\Users\Sean\anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\Sean\anaconda3\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from jupyterquiz import display_quiz
+
+# tags:  remove-input
+# menu: View/Cell toolbar/tags or in Jupyter lab use gear icon on top right
+# this will remove the code below when building Jupyter-book 
+# could also use remove-cell but this code has no output
+
+example=[{
+        "question": '''Self Test: Create a new Jupyter notebook and import the data from <b>Al7075_out.xlsx</b>. 
+            Plot stress vs strain (label your axes and use blue triangles for your data points).  
+            Were you successful?''',
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "code": "Yes",
+                "correct": True,
+                "feedback": "Awesome!"
+            },
+            {
+                "code": "No",
+                "correct": False,
+                "feedback": '''Take a look at lesson 3 from 2114 located in Canvas. You won't need
+                    to do all of the manipulation we did in this lesson.  You just need to plot the
+                    correct columns in Al7075_out.xlsx.  I've already added a column for stress and 
+                    one for strain.'''
+            }
+        ]
+    }]
+
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Input [1;32mIn [1][0m, in [0;36m<cell line: 1>[1;34m()[0m
+[1;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjupyterquiz[39;00m [38;5;28;01mimport[39;00m display_quiz
+[0;32m      3[0m [38;5;66;03m# tags:  remove-input[39;00m
+[0;32m      4[0m [38;5;66;03m# menu: View/Cell toolbar/tags or in Jupyter lab use gear icon on top right[39;00m
+[0;32m      5[0m [38;5;66;03m# this will remove the code below when building Jupyter-book [39;00m
+[0;32m      6[0m [38;5;66;03m# could also use remove-cell but this code has no output[39;00m
+[0;32m      8[0m example[38;5;241m=[39m[{
+[0;32m      9[0m         [38;5;124m"[39m[38;5;124mquestion[39m[38;5;124m"[39m: [38;5;124m'''[39m[38;5;124mSelf Test: Create a new Jupyter notebook and import the data from <b>Al7075_out.xlsx</b>. [39m
+[0;32m     10[0m [38;5;124m            Plot stress vs strain (label your axes and use blue triangles for your data points).  [39m
+[1;32m   (...)[0m
+[0;32m     27[0m         ]
+[0;32m     28[0m     }]
+
+[1;31mModuleNotFoundError[0m: No module named 'jupyterquiz'
+ModuleNotFoundError: No module named 'jupyterquiz'
+

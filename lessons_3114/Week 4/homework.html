@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Python for MSE</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="31. Lesson 3 Part 2 Digitizing data from an image" href="Lesson%203%20Part%202%20Digitizing%20data%20from%20the%20literature.html" />
+    <link rel="prev" title="24. Example of setting up an advanced grid layout of subplots." href="../Week%203/Plotting%20pandas%20DataFrame%20Groupby%20Examples.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Announcement goes here...</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Python for MSE</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 2114 Python for MSE I
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lessons_2114/week%203%20student%20lesson.html">
+   1. MSE 2114 Week 3: Student Lesson - Importing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lessons_2114/week%204%20student%20lesson.html">
+   2. You will need the following extensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lessons_2114/week%205%20student%20lesson.html">
+   8. Anisotropy of thermal expansion coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../python_cheat_sheet_example.html">
+   9. Example Python Cheat Sheet template
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MSE%202114%20Problem%20Statements%20Spring%202022.html">
+   10. MSE 2114 Math Methods I
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 3114 Python for MSE II
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/HW%201%20solutions.html">
+   1. Lesson 1 Homework Problem 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/Lesson%201%20video%20file%20notebook%20finished.html">
+   2. Creating your own functions for import
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/Lesson%201%20video%20file%20notebook%20starter.html">
+   3. Creating your own functions for import
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/lesson%201-Welcome.html">
+   4. Lesson 1 Welcome to MSE 3114
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/lesson%201.html">
+   5. Lesson 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%202/Lesson%202-%20In%20Class%20notebook%202021.html">
+   6. Week 2 In Class help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%202/Lesson%202-2020.html">
+   7. Week 2 Lesson
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%202/Lesson%202.html">
+   8. Week 2 Lesson
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Lesson%203%20homework%20solution%20%282%29.html">
+   9. Lesson 3 homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Lesson%203%20homework%20solution.html">
+   10. Lesson 3 homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Lesson%203%20Part%201%20final%20file%20%282%29.html">
+   11. Examples of using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .groupby
+    </span>
+   </code>
+   on pandas DataFrame data with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     bar
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pie
+    </span>
+   </code>
+   charts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Lesson%203%20Part%201%20final%20file.html">
+   12. Examples of using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .groupby
+    </span>
+   </code>
+   on pandas DataFrame data with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     bar
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pie
+    </span>
+   </code>
+   charts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Lesson%203%20Part%201%20starter%20file-Sean-2021.html">
+   13. Week 3 Lesson starter file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Lesson%203%20Part%201%20starter%20file.html">
+   14. Week 3 Lesson starter file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Lesson%203%20Part%202%20Grouping%20plots%20together-Sean-2021.html">
+   15. Week 3 Part 2 Creating multiple plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Lesson%203%20Part%202%20Grouping%20plots%20together.html">
+   16. Lesson 3 Part 2 Creating multiple plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Plotting%20pandas%20DataFrame%20Groupby%20Examples-Sean-2021.html">
+   17. Example of setting up an advanced grid layout of subplots.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%203/Plotting%20pandas%20DataFrame%20Groupby%20Examples.html">
+   24. Example of setting up an advanced grid layout of subplots.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20Part%202%20Digitizing%20data%20from%20the%20literature.html">
+   31. Lesson 3 Part 2 Digitizing data from an image
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week%204%20Selecting%20pixel%20positions%20from%20an%20image.html">
+   32. Lesson 4 Selecting pixel coordinates from an image file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%205/In%20class%20help.html">
+   33. Get pixel data (last weeks homework):
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%205/Week%205%20Digitizing%20data%20from%20the%20literature.html">
+   38. Week 5 Digitizing data from a copy of a data plot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/HW%20week%206%20solutions.html">
+   39. Week 6 Homework solutions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/Week%206%20Digitizing%20data%20part%202.html">
+   43. Week 6 Digitizing data from an image
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/Week%206%20editing%20select%20routine.html">
+   44. Week 6 editing selectdata()
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/Week%206%20homework.html">
+   45. Week 6 Homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/Week%206%20HW%20in%20class%20help.html">
+   46. Week 6 Homework in class hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%207/Applications.html">
+   47. Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%207/Week%207%20Lesson%20%26%20Homework%20solutions.html">
+   48. Week 7: Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%207/Week%207%20Lesson%20%26%20Homework.html">
+   54. Week 7: Lesson and Homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%208/Week%208%20lesson.html">
+   66. Week 8: Fitting part 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%208/Week%208%20solutions.html">
+   71. Week 7 Lesson 4 part 2: Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%209/week%209%20lesson%20%26%20homework.html">
+   76. Week 9: Lesson and Homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%209/week%209%20lesson%20and%20solutions%20prior%20to%202021.html">
+   81. Week 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%209/week%209%20lesson%20solution.html">
+   86. Week 9: Homework Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2010/grain%20size%20measurement-%20challenge%20problem.html">
+   91. Week 10: Image Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2010/grain%20size%20measurement-Copy1.html">
+   92. Week 10: Image Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2010/grain%20size%20measurement-Copy2.html">
+   94. Week 10: Image Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2010/grain%20size%20measurement.html">
+   96. Week 10: Image Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2011/Week%2011%20Lesson%20Analyzing%20Particles%20in%20a%20Matrix.html">
+   98. Week 11 Analyzing Particles in a Matrix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2011/Week%2011%20Lesson%20In%20Class%20Lecture.html">
+   100. Week 11 Analyzing Particles in a Matrix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2011/week%2011%20solution%20to%20application%201%20SiC-Al%20MMC.html">
+   101. Week 11 Solution to Application 1: Particle size in SiC - Al MMC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2011/Week%2011%20Solution%20to%20Application%202%20carbon%20fiber%20reinforced%20Al.html">
+   102. Week 11 Solution to Application 2: carbon fiber reinforced Al
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MSE%203114%20Problem%20Statements%20Fall%202021.html">
+   103. MSE 3114 Math Methods II (Fall 2021)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/Week 4/homework.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/lessons_3114/Week 4/homework.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><strong>Week 4: Due Thursday Sept 16 11:59pm</strong></p>
+<hr style="height: 3.0px"/>
+<p><strong>Problem 1:</strong>  Reproduce the shapes found in the image file “week 4 shapes.png”.</p>
+<ol class="simple">
+<li><p>Each shape outline should be colored as in the image file.</p></li>
+<li><p>Reduce your point size by plotting “.” rather than “o” for the point type.</p></li>
+<li><p>Add labels to the x &amp; y axes e.g. “x-pixel coordinate”, “y-pixel coordinate”</p></li>
+<li><p>Set your x &amp; y min,max values to correspond to the original image file dimensions.  You might have to look back to 2114 for this step.</p></li>
+</ol>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons_3114\Week 4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Week%203/Plotting%20pandas%20DataFrame%20Groupby%20Examples.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">24. </span>Example of setting up an advanced grid layout of subplots.</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lesson%203%20Part%202%20Digitizing%20data%20from%20the%20literature.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">31. </span>Lesson 3 Part 2 Digitizing data from an image</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Sean Corcoran<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      extra footer text goes here
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

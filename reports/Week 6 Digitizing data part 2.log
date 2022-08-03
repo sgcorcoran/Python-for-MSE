@@ -1,0 +1,43 @@
+Traceback (most recent call last):
+  File "C:\Users\Sean\anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\Sean\anaconda3\lib\asyncio\base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# cal(pixpts, plotpts, datatoconvert)
+plot_data=cal(pixel_positions[0:3], [[60,0],[0,0],[0,100]], pixel_positions[3:])
+
+plt.subplots(figsize=[5,4])
+plt.plot(plot_data[:,0], plot_data[:,1], 'ro');
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mIndexError[0m                                Traceback (most recent call last)
+Input [1;32mIn [5][0m, in [0;36m<cell line: 2>[1;34m()[0m
+[0;32m      1[0m [38;5;66;03m# cal(pixpts, plotpts, datatoconvert)[39;00m
+[1;32m----> 2[0m plot_data[38;5;241m=[39m[43mcal[49m[43m([49m[43mpixel_positions[49m[43m[[49m[38;5;241;43m0[39;49m[43m:[49m[38;5;241;43m3[39;49m[43m][49m[43m,[49m[43m [49m[43m[[49m[43m[[49m[38;5;241;43m60[39;49m[43m,[49m[38;5;241;43m0[39;49m[43m][49m[43m,[49m[43m[[49m[38;5;241;43m0[39;49m[43m,[49m[38;5;241;43m0[39;49m[43m][49m[43m,[49m[43m[[49m[38;5;241;43m0[39;49m[43m,[49m[38;5;241;43m100[39;49m[43m][49m[43m][49m[43m,[49m[43m [49m[43mpixel_positions[49m[43m[[49m[38;5;241;43m3[39;49m[43m:[49m[43m][49m[43m)[49m
+[0;32m      4[0m plt[38;5;241m.[39msubplots(figsize[38;5;241m=[39m[[38;5;241m5[39m,[38;5;241m4[39m])
+[0;32m      5[0m plt[38;5;241m.[39mplot(plot_data[:,[38;5;241m0[39m], plot_data[:,[38;5;241m1[39m], [38;5;124m'[39m[38;5;124mro[39m[38;5;124m'[39m)
+
+Input [1;32mIn [3][0m, in [0;36mcal[1;34m(pixpts, plotpts, datatoconvert)[0m
+[0;32m     37[0m [38;5;28;01mdef[39;00m [38;5;21mcal[39m(pixpts, plotpts, datatoconvert):    
+[1;32m---> 39[0m     xpx1, ypx1 [38;5;241m=[39m [43mpixpts[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m
+[0;32m     40[0m     x1, y1 [38;5;241m=[39m plotpts[[38;5;241m0[39m]
+[0;32m     41[0m     xpx2, ypx2 [38;5;241m=[39m pixpts[[38;5;241m1[39m]
+
+[1;31mIndexError[0m: list index out of range
+IndexError: list index out of range
+

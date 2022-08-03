@@ -1,0 +1,2503 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>17. Example of setting up an advanced grid layout of subplots. &#8212; Python for MSE</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="24. Example of setting up an advanced grid layout of subplots." href="Plotting%20pandas%20DataFrame%20Groupby%20Examples.html" />
+    <link rel="prev" title="16. Lesson 3 Part 2 Creating multiple plots" href="Lesson%203%20Part%202%20Grouping%20plots%20together.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Announcement goes here...</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Python for MSE</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 2114 Python for MSE I
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lessons_2114/week%203%20student%20lesson.html">
+   1. MSE 2114 Week 3: Student Lesson - Importing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lessons_2114/week%204%20student%20lesson.html">
+   2. You will need the following extensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lessons_2114/week%205%20student%20lesson.html">
+   8. Anisotropy of thermal expansion coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../python_cheat_sheet_example.html">
+   9. Example Python Cheat Sheet template
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MSE%202114%20Problem%20Statements%20Spring%202022.html">
+   10. MSE 2114 Math Methods I
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 3114 Python for MSE II
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/HW%201%20solutions.html">
+   1. Lesson 1 Homework Problem 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/Lesson%201%20video%20file%20notebook%20finished.html">
+   2. Creating your own functions for import
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/Lesson%201%20video%20file%20notebook%20starter.html">
+   3. Creating your own functions for import
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/lesson%201-Welcome.html">
+   4. Lesson 1 Welcome to MSE 3114
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%201/lesson%201.html">
+   5. Lesson 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%202/Lesson%202-%20In%20Class%20notebook%202021.html">
+   6. Week 2 In Class help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%202/Lesson%202-2020.html">
+   7. Week 2 Lesson
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%202/Lesson%202.html">
+   8. Week 2 Lesson
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20homework%20solution%20%282%29.html">
+   9. Lesson 3 homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20homework%20solution.html">
+   10. Lesson 3 homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20Part%201%20final%20file%20%282%29.html">
+   11. Examples of using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .groupby
+    </span>
+   </code>
+   on pandas DataFrame data with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     bar
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pie
+    </span>
+   </code>
+   charts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20Part%201%20final%20file.html">
+   12. Examples of using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .groupby
+    </span>
+   </code>
+   on pandas DataFrame data with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     bar
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pie
+    </span>
+   </code>
+   charts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20Part%201%20starter%20file-Sean-2021.html">
+   13. Week 3 Lesson starter file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20Part%201%20starter%20file.html">
+   14. Week 3 Lesson starter file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20Part%202%20Grouping%20plots%20together-Sean-2021.html">
+   15. Week 3 Part 2 Creating multiple plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson%203%20Part%202%20Grouping%20plots%20together.html">
+   16. Lesson 3 Part 2 Creating multiple plots
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   17. Example of setting up an advanced grid layout of subplots.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20pandas%20DataFrame%20Groupby%20Examples.html">
+   24. Example of setting up an advanced grid layout of subplots.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%204/Lesson%203%20Part%202%20Digitizing%20data%20from%20the%20literature.html">
+   31. Lesson 3 Part 2 Digitizing data from an image
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%204/Week%204%20Selecting%20pixel%20positions%20from%20an%20image.html">
+   32. Lesson 4 Selecting pixel coordinates from an image file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%205/In%20class%20help.html">
+   33. Get pixel data (last weeks homework):
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%205/Week%205%20Digitizing%20data%20from%20the%20literature.html">
+   38. Week 5 Digitizing data from a copy of a data plot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/HW%20week%206%20solutions.html">
+   39. Week 6 Homework solutions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/Week%206%20Digitizing%20data%20part%202.html">
+   43. Week 6 Digitizing data from an image
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/Week%206%20editing%20select%20routine.html">
+   44. Week 6 editing selectdata()
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/Week%206%20homework.html">
+   45. Week 6 Homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%206/Week%206%20HW%20in%20class%20help.html">
+   46. Week 6 Homework in class hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%207/Applications.html">
+   47. Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%207/Week%207%20Lesson%20%26%20Homework%20solutions.html">
+   48. Week 7: Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%207/Week%207%20Lesson%20%26%20Homework.html">
+   54. Week 7: Lesson and Homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%208/Week%208%20lesson.html">
+   66. Week 8: Fitting part 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%208/Week%208%20solutions.html">
+   71. Week 7 Lesson 4 part 2: Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%209/week%209%20lesson%20%26%20homework.html">
+   76. Week 9: Lesson and Homework
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%209/week%209%20lesson%20and%20solutions%20prior%20to%202021.html">
+   81. Week 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%209/week%209%20lesson%20solution.html">
+   86. Week 9: Homework Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2010/grain%20size%20measurement-%20challenge%20problem.html">
+   91. Week 10: Image Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2010/grain%20size%20measurement-Copy1.html">
+   92. Week 10: Image Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2010/grain%20size%20measurement-Copy2.html">
+   94. Week 10: Image Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2010/grain%20size%20measurement.html">
+   96. Week 10: Image Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2011/Week%2011%20Lesson%20Analyzing%20Particles%20in%20a%20Matrix.html">
+   98. Week 11 Analyzing Particles in a Matrix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2011/Week%2011%20Lesson%20In%20Class%20Lecture.html">
+   100. Week 11 Analyzing Particles in a Matrix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2011/week%2011%20solution%20to%20application%201%20SiC-Al%20MMC.html">
+   101. Week 11 Solution to Application 1: Particle size in SiC - Al MMC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week%2011/Week%2011%20Solution%20to%20Application%202%20carbon%20fiber%20reinforced%20Al.html">
+   102. Week 11 Solution to Application 2: carbon fiber reinforced Al
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MSE%203114%20Problem%20Statements%20Fall%202021.html">
+   103. MSE 3114 Math Methods II (Fall 2021)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/Week 3/Plotting pandas DataFrame Groupby Examples-Sean-2021.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/lessons_3114/Week 3/Plotting pandas DataFrame Groupby Examples-Sean-2021.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   17. Example of setting up an advanced grid layout of subplots.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-in-pandas-dataframe-format">
+   18. Data in pandas DataFrame format
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#given-data-in-a-pandas-dataframe-format-lets-generate-some-plots-in-a-grid-layout">
+   19. Given data in a pandas DataFrame format let’s generate some plots in a grid layout
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lets-look-at-reading-data-into-a-pandas-dataframe-format-and-manipulating-that-data-using-groupby">
+   20. Let’s look at reading data into a pandas DataFrame format and manipulating that data using groupby
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groupby-one-column-returns-another-dataframe">
+   21. .groupby one column returns another DataFrame
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groupby-2-columns-returns-a-multilevel-indexed-dataframe">
+   22. Groupby 2 columns returns a multilevel indexed DataFrame
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-need-to-unstack-this-data-so-we-have-a-single-index-for-the-rows">
+     22.1. We need to “unstack” this data so we have a single index for the rows
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grouby-three-columns-returns-a-multilevel-pandas-dataframe">
+   23. Grouby three columns returns a multilevel pandas DataFrame
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#need-to-unstack-twice">
+     23.1. Need to unstack twice
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#here-are-some-other-interesting-ways-of-looking-at-the-data">
+     23.2. Here are some other interesting ways of looking at the data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-looks-at-the-mean-fare-price-or-mean-age-of-females-and-males-that-died-or-survived">
+     23.3. This looks at the mean Fare price or mean Age of females and males that died or survived
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-fancy-labeling-of-each-slice-using-my-own-function">
+     23.4. more fancy labeling of each slice using my own function
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Example of setting up an advanced grid layout of subplots.</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   17. Example of setting up an advanced grid layout of subplots.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-in-pandas-dataframe-format">
+   18. Data in pandas DataFrame format
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#given-data-in-a-pandas-dataframe-format-lets-generate-some-plots-in-a-grid-layout">
+   19. Given data in a pandas DataFrame format let’s generate some plots in a grid layout
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lets-look-at-reading-data-into-a-pandas-dataframe-format-and-manipulating-that-data-using-groupby">
+   20. Let’s look at reading data into a pandas DataFrame format and manipulating that data using groupby
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groupby-one-column-returns-another-dataframe">
+   21. .groupby one column returns another DataFrame
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groupby-2-columns-returns-a-multilevel-indexed-dataframe">
+   22. Groupby 2 columns returns a multilevel indexed DataFrame
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-need-to-unstack-this-data-so-we-have-a-single-index-for-the-rows">
+     22.1. We need to “unstack” this data so we have a single index for the rows
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grouby-three-columns-returns-a-multilevel-pandas-dataframe">
+   23. Grouby three columns returns a multilevel pandas DataFrame
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#need-to-unstack-twice">
+     23.1. Need to unstack twice
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#here-are-some-other-interesting-ways-of-looking-at-the-data">
+     23.2. Here are some other interesting ways of looking at the data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-looks-at-the-mean-fare-price-or-mean-age-of-females-and-males-that-died-or-survived">
+     23.3. This looks at the mean Fare price or mean Age of females and males that died or survived
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-fancy-labeling-of-each-slice-using-my-own-function">
+     23.4. more fancy labeling of each slice using my own function
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-of-setting-up-an-advanced-grid-layout-of-subplots">
+<h1><span class="section-number">17. </span>Example of setting up an advanced grid layout of subplots.<a class="headerlink" href="#example-of-setting-up-an-advanced-grid-layout-of-subplots" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gridsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> <span class="c1">#overall size of figure</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_2_0.png" src="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_2_0.png" />
+</div>
+</div>
+<p>Now we just need to fill in the ax1…ax3 with plots.</p>
+</section>
+<section id="data-in-pandas-dataframe-format">
+<h1><span class="section-number">18. </span>Data in pandas DataFrame format<a class="headerlink" href="#data-in-pandas-dataframe-format" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate some random data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> <span class="c1">#generate 50 random integers between 1 and 10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1">#generate 50 random integers between 1 and 4 and add to x</span>
+<span class="c1"># putting our x and y arrays together as x,y pairs using column_stack and then converting to a pandas DataFrame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x data&#39;</span><span class="p">,</span><span class="s1">&#39;y data&#39;</span><span class="p">])</span>  <span class="c1">#zip creates an object of (x,y) pairs from our x,y series</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x data</th>
+      <th>y data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="given-data-in-a-pandas-dataframe-format-lets-generate-some-plots-in-a-grid-layout">
+<h1><span class="section-number">19. </span>Given data in a pandas DataFrame format let’s generate some plots in a grid layout<a class="headerlink" href="#given-data-in-a-pandas-dataframe-format-lets-generate-some-plots-in-a-grid-layout" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using data above in pandas DataFrame format</span>
+
+<span class="c1"># setup layout of subplots ax1, ax2, ax3</span>
+<span class="n">gridsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> <span class="c1">#overall size of figure</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Now fill subplots</span>
+
+<span class="c1"># ax1 scatter plot</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;x data&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;y data&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scatter: x versus y&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="c1"># ax2 histogram</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;x data&#39;</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequencies of x and y&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_left</span><span class="p">()</span>
+
+<span class="c1"># ax3 multiple histograms on one plot</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;x data&#39;</span><span class="p">],</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;y data&#39;</span><span class="p">]],</span><span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">))</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequencies of x and y&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_right</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_7_0.png" src="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_7_0.png" />
+</div>
+</div>
+</section>
+<section id="lets-look-at-reading-data-into-a-pandas-dataframe-format-and-manipulating-that-data-using-groupby">
+<h1><span class="section-number">20. </span>Let’s look at reading data into a pandas DataFrame format and manipulating that data using groupby<a class="headerlink" href="#lets-look-at-reading-data-into-a-pandas-dataframe-format-and-manipulating-that-data-using-groupby" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;titanic.csv&#39;</span>
+<span class="n">raw</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">raw</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># taking a subset of the data.  We could now make simple scatter plots of one column vs another as shown previously</span>
+<span class="n">data</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]]</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Fare</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>7.2500</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>71.2833</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>7.9250</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>53.1000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>8.0500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>8.4583</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>1</td>
+      <td>male</td>
+      <td>54.0</td>
+      <td>51.8625</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>2.0</td>
+      <td>21.0750</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>What is the average ticket price paid by those that died vs survived?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Survived&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pclass</th>
+      <th>Age</th>
+      <th>Fare</th>
+    </tr>
+    <tr>
+      <th>Survived</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.531876</td>
+      <td>30.626179</td>
+      <td>22.117887</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.950292</td>
+      <td>28.343690</td>
+      <td>48.395408</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>What is the average age of male &amp; female passengers in 3rd class?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Pclass</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>34.611765</td>
+      <td>28.722973</td>
+      <td>21.750000</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>41.281386</td>
+      <td>30.740707</td>
+      <td>26.507589</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>What is the average age of male passengers in 3rd class that died vs survived?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Survived</th>
+      <th colspan="3" halign="left">0</th>
+      <th colspan="3" halign="left">1</th>
+    </tr>
+    <tr>
+      <th>Pclass</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>25.666667</td>
+      <td>36.000000</td>
+      <td>23.818182</td>
+      <td>34.939024</td>
+      <td>28.080882</td>
+      <td>19.329787</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>44.581967</td>
+      <td>33.369048</td>
+      <td>27.255814</td>
+      <td>36.248000</td>
+      <td>16.022000</td>
+      <td>22.274211</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Pclass</th>
+      <th colspan="2" halign="left">1</th>
+      <th colspan="2" halign="left">2</th>
+      <th colspan="2" halign="left">3</th>
+    </tr>
+    <tr>
+      <th>Survived</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>25.666667</td>
+      <td>34.939024</td>
+      <td>36.000000</td>
+      <td>28.080882</td>
+      <td>23.818182</td>
+      <td>19.329787</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>44.581967</td>
+      <td>36.248000</td>
+      <td>33.369048</td>
+      <td>16.022000</td>
+      <td>27.255814</td>
+      <td>22.274211</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Sex</th>
+      <th colspan="2" halign="left">female</th>
+      <th colspan="2" halign="left">male</th>
+    </tr>
+    <tr>
+      <th>Survived</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>Pclass</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>25.666667</td>
+      <td>34.939024</td>
+      <td>44.581967</td>
+      <td>36.248000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>36.000000</td>
+      <td>28.080882</td>
+      <td>33.369048</td>
+      <td>16.022000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23.818182</td>
+      <td>19.329787</td>
+      <td>27.255814</td>
+      <td>22.274211</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Survived
+0    27.255814
+1    22.274211
+Name: 3, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforbar</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">#, where the slices will be ordered and plotted counter-clockwise:</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;female died&#39;</span><span class="p">,</span><span class="s1">&#39;female survived&#39;</span><span class="p">,</span> <span class="s1">&#39;male died&#39;</span><span class="p">,</span> <span class="s1">&#39;male survived&#39;</span><span class="p">]</span>
+
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">dataforbar</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;average age&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_20_0.png" src="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_20_0.png" />
+</div>
+</div>
+</section>
+<section id="groupby-one-column-returns-another-dataframe">
+<h1><span class="section-number">21. </span>.groupby one column returns another DataFrame<a class="headerlink" href="#groupby-one-column-returns-another-dataframe" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_age</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Age&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="c1"># .counts number of records for each column by Age</span>
+<span class="n">data_age</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Fare</th>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.42</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0.67</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0.75</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0.83</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0.92</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70.00</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>70.50</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>71.00</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>74.00</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>80.00</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>88 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># scatter plot of number of Fares (people) versus age from groupby data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_age</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_23_0.png" src="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># histogram plotted directly from Age data (not groupby)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_24_0.png" src="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_24_0.png" />
+</div>
+</div>
+</section>
+<section id="groupby-2-columns-returns-a-multilevel-indexed-dataframe">
+<h1><span class="section-number">22. </span>Groupby 2 columns returns a multilevel indexed DataFrame<a class="headerlink" href="#groupby-2-columns-returns-a-multilevel-indexed-dataframe" title="Permalink to this headline">#</a></h1>
+<section id="we-need-to-unstack-this-data-so-we-have-a-single-index-for-the-rows">
+<h2><span class="section-number">22.1. </span>We need to “unstack” this data so we have a single index for the rows<a class="headerlink" href="#we-need-to-unstack-this-data-so-we-have-a-single-index-for-the-rows" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_age_sex</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">data_age_sex</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Fare</th>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.42</th>
+      <th>male</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0.67</th>
+      <th>male</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0.75</th>
+      <th>female</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0.83</th>
+      <th>male</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0.92</th>
+      <th>male</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70.00</th>
+      <th>male</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>70.50</th>
+      <th>male</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>71.00</th>
+      <th>male</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>74.00</th>
+      <th>male</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>80.00</th>
+      <th>male</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>145 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_a_s_unstack</span><span class="o">=</span><span class="n">data_age_sex</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we can access the Fare data and we have a dataframe of the number of females and males by age</span>
+<span class="n">d_a_s_unstack</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Sex</th>
+      <th>female</th>
+      <th>male</th>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.42</th>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>0.67</th>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>0.75</th>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0.83</th>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>0.92</th>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70.00</th>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>70.50</th>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>71.00</th>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>74.00</th>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>80.00</th>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>88 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tt</span><span class="o">=</span><span class="n">d_a_s_unstack</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tt</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;female&#39;</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;female&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tt</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;male&#39;</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;male&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_29_0.png" src="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_29_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="grouby-three-columns-returns-a-multilevel-pandas-dataframe">
+<h1><span class="section-number">23. </span>Grouby three columns returns a multilevel pandas DataFrame<a class="headerlink" href="#grouby-three-columns-returns-a-multilevel-pandas-dataframe" title="Permalink to this headline">#</a></h1>
+<section id="need-to-unstack-twice">
+<h2><span class="section-number">23.1. </span>Need to unstack twice<a class="headerlink" href="#need-to-unstack-twice" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_age_sex_survived</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">data_age_sex_survived</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Pclass</th>
+      <th>Fare</th>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Survived</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.42</th>
+      <th>male</th>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0.67</th>
+      <th>male</th>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0.75</th>
+      <th>female</th>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0.83</th>
+      <th>male</th>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0.92</th>
+      <th>male</th>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Pclass</th>
+      <th colspan="2" halign="left">Age</th>
+      <th colspan="2" halign="left">Fare</th>
+    </tr>
+    <tr>
+      <th>Survived</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>81</td>
+      <td>233</td>
+      <td>64</td>
+      <td>197</td>
+      <td>81</td>
+      <td>233</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>468</td>
+      <td>109</td>
+      <td>360</td>
+      <td>93</td>
+      <td>468</td>
+      <td>109</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Survived</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>81</td>
+      <td>233</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>468</td>
+      <td>109</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we have data for male and female that died (0) and male and female that lived (1)</span>
+<span class="c1"># here would be the data for the male and females that died</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sex
+female     81
+male      468
+Name: 0, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="here-are-some-other-interesting-ways-of-looking-at-the-data">
+<h2><span class="section-number">23.2. </span>Here are some other interesting ways of looking at the data<a class="headerlink" href="#here-are-some-other-interesting-ways-of-looking-at-the-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="this-looks-at-the-mean-fare-price-or-mean-age-of-females-and-males-that-died-or-survived">
+<h2><span class="section-number">23.3. </span>This looks at the mean Fare price or mean Age of females and males that died or survived<a class="headerlink" href="#this-looks-at-the-mean-fare-price-or-mean-age-of-females-and-males-that-died-or-survived" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>  <span class="c1"># notice we used mean() here rather than count()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Pclass</th>
+      <th colspan="2" halign="left">Age</th>
+      <th colspan="2" halign="left">Fare</th>
+    </tr>
+    <tr>
+      <th>Survived</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>2.851852</td>
+      <td>1.918455</td>
+      <td>25.046875</td>
+      <td>28.847716</td>
+      <td>23.024385</td>
+      <td>51.938573</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>2.476496</td>
+      <td>2.018349</td>
+      <td>31.618056</td>
+      <td>27.276022</td>
+      <td>21.960993</td>
+      <td>40.821484</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Survived</th>
+      <th colspan="3" halign="left">0</th>
+      <th colspan="3" halign="left">1</th>
+    </tr>
+    <tr>
+      <th>Pclass</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>3</td>
+      <td>6</td>
+      <td>72</td>
+      <td>91</td>
+      <td>70</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>77</td>
+      <td>91</td>
+      <td>300</td>
+      <td>45</td>
+      <td>17</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Fare&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Survived</th>
+      <th colspan="2" halign="left">0</th>
+      <th colspan="2" halign="left">1</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th>female</th>
+      <th>male</th>
+      <th>female</th>
+      <th>male</th>
+    </tr>
+    <tr>
+      <th>Fare</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.0000</th>
+      <td>NaN</td>
+      <td>14.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4.0125</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5.0000</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6.2375</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6.4375</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>227.5250</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>247.5208</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>262.3750</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>263.0000</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>512.3292</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>248 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>Example pie chart</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass
+1    91
+2    70
+3    72
+Name: female, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforpie</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">]</span>
+
+<span class="c1"># Pie chart, where the slices will be ordered and plotted counter-clockwise:</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="n">dataforpie</span>
+<span class="n">explode</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># only &quot;explode&quot; the 3rd slice i.e. 3rd class tickets</span>
+
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">explode</span><span class="o">=</span><span class="n">explode</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>  <span class="c1"># Equal aspect ratio ensures that pie is drawn as a circle.</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_42_0.png" src="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_42_0.png" />
+</div>
+</div>
+</section>
+<section id="more-fancy-labeling-of-each-slice-using-my-own-function">
+<h2><span class="section-number">23.4. </span>more fancy labeling of each slice using my own function<a class="headerlink" href="#more-fancy-labeling-of-each-slice-using-my-own-function" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>well really a function I copied from: <a class="reference external" href="https://stackoverflow.com/questions/6170246/how-do-i-use-matplotlib-autopct">https://stackoverflow.com/questions/6170246/how-do-i-use-matplotlib-autopct</a></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_autopct</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">my_autopct</span><span class="p">(</span><span class="n">pct</span><span class="p">):</span> <span class="c1">#pct is supplied by the pie() function</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pct</span><span class="o">*</span><span class="n">total</span><span class="o">/</span><span class="mf">100.0</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{p:.2f}</span><span class="s1">%  (</span><span class="si">{v:d}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">pct</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">my_autopct</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforpie</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">]</span>
+
+<span class="c1"># Pie chart, where the slices will be ordered and plotted counter-clockwise:</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="n">dataforpie</span>
+<span class="n">explode</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># only &quot;explode&quot; the 3rd slice i.e. 3rd class tickets</span>
+
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">explode</span><span class="o">=</span><span class="n">explode</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="n">make_autopct</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span>
+        <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>  <span class="c1"># Equal aspect ratio ensures that pie is drawn as a circle.</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_45_0.png" src="../../_images/Plotting pandas DataFrame Groupby Examples-Sean-2021_45_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons_3114\Week 3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Lesson%203%20Part%202%20Grouping%20plots%20together.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">16. </span>Lesson 3 Part 2 Creating multiple plots</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Plotting%20pandas%20DataFrame%20Groupby%20Examples.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>Example of setting up an advanced grid layout of subplots.</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Sean Corcoran<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      extra footer text goes here
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
