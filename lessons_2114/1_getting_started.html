@@ -144,8 +144,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_3114/1_getting_started_again.html">
-   2. Lesson 1
+  <a class="reference internal" href="../lessons_3114/1_importing_your_own_functions.html">
+   2. Importing Data from Files &amp; Importing Your Own Functions
   </a>
  </li>
 </ul>
@@ -635,6 +635,15 @@ No, 19 is not divisible by 3
 </div>
 </div>
 </div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-author-note admonition">
+<p class="admonition-title">author-note</p>
+<ul class="simple">
+<li><p>add flashcards here for <code class="docutils literal notranslate"><span class="pre">np.log(10)</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log10(10)</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log10(100)</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log(np.e)</span></code>, <code class="docutils literal notranslate"><span class="pre">np.e</span></code></p></li>
+</ul>
+</div>
+</aside>
 </section>
 <section id="some-basic-looping">
 <h2><span class="section-number">1.6. </span>Some basic looping<a class="headerlink" href="#some-basic-looping" title="Permalink to this headline">#</a></h2>
@@ -643,7 +652,7 @@ No, 19 is not divisible by 3
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../_images/flow_for_loop.png"><img alt="../_images/flow_for_loop.png" src="../_images/flow_for_loop.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Visualizing the ‘for’ loop</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Visualizing the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </aside>
@@ -720,6 +729,33 @@ sum = 9 + 16  second iteration<br />
 sum = 25 + 36 third iteration</p>
 </div></blockquote>
 <p>and so on…</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-author-note admonition">
+<p class="admonition-title">author-note</p>
+<p>create quiz here asking students what the output for:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]:</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="o">+</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</aside>
 </section>
 <section id="special-loop-list-comprehension">
 <h2><span class="section-number">1.7. </span>Special loop: List Comprehension<a class="headerlink" href="#special-loop-list-comprehension" title="Permalink to this headline">#</a></h2>
