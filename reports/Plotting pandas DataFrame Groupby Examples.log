@@ -1,0 +1,110 @@
+Traceback (most recent call last):
+  File "C:\Users\Sean\anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\Sean\anaconda3\lib\asyncio\base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Sean\anaconda3\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# take the fare data 
+data_age_sex_survived_unstacktwice.loc[:,'Fare']
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mKeyError[0m                                  Traceback (most recent call last)
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\indexes\base.py:3621[0m, in [0;36mIndex.get_loc[1;34m(self, key, method, tolerance)[0m
+[0;32m   3620[0m [38;5;28;01mtry[39;00m:
+[1;32m-> 3621[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engine[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mcasted_key[49m[43m)[49m
+[0;32m   3622[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\_libs\index.pyx:136[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[1;34m()[0m
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\_libs\index.pyx:144[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[1;34m()[0m
+
+File [1;32mpandas\_libs\index_class_helper.pxi:20[0m, in [0;36mpandas._libs.index.Float64Engine._check_type[1;34m()[0m
+
+[1;31mKeyError[0m: 'Fare'
+
+The above exception was the direct cause of the following exception:
+
+[1;31mKeyError[0m                                  Traceback (most recent call last)
+Input [1;32mIn [23][0m, in [0;36m<cell line: 2>[1;34m()[0m
+[0;32m      1[0m [38;5;66;03m# take the fare data [39;00m
+[1;32m----> 2[0m [43mdata_age_sex_survived_unstacktwice[49m[38;5;241;43m.[39;49m[43mloc[49m[43m[[49m[43m:[49m[43m,[49m[38;5;124;43m'[39;49m[38;5;124;43mFare[39;49m[38;5;124;43m'[39;49m[43m][49m
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\indexing.py:961[0m, in [0;36m_LocationIndexer.__getitem__[1;34m(self, key)[0m
+[0;32m    959[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_is_scalar_access(key):
+[0;32m    960[0m         [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mobj[38;5;241m.[39m_get_value([38;5;241m*[39mkey, takeable[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39m_takeable)
+[1;32m--> 961[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_tuple[49m[43m([49m[43mkey[49m[43m)[49m
+[0;32m    962[0m [38;5;28;01melse[39;00m:
+[0;32m    963[0m     [38;5;66;03m# we by definition only have the 0th axis[39;00m
+[0;32m    964[0m     axis [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39maxis [38;5;129;01mor[39;00m [38;5;241m0[39m
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\indexing.py:1140[0m, in [0;36m_LocIndexer._getitem_tuple[1;34m(self, tup)[0m
+[0;32m   1138[0m [38;5;28;01mwith[39;00m suppress(IndexingError):
+[0;32m   1139[0m     tup [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_expand_ellipsis(tup)
+[1;32m-> 1140[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_lowerdim[49m[43m([49m[43mtup[49m[43m)[49m
+[0;32m   1142[0m [38;5;66;03m# no multi-index, so validate all of the indexers[39;00m
+[0;32m   1143[0m tup [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_validate_tuple_indexer(tup)
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\indexing.py:867[0m, in [0;36m_LocationIndexer._getitem_lowerdim[1;34m(self, tup)[0m
+[0;32m    863[0m [38;5;28;01mfor[39;00m i, key [38;5;129;01min[39;00m [38;5;28menumerate[39m(tup):
+[0;32m    864[0m     [38;5;28;01mif[39;00m is_label_like(key):
+[0;32m    865[0m         [38;5;66;03m# We don't need to check for tuples here because those are[39;00m
+[0;32m    866[0m         [38;5;66;03m#  caught by the _is_nested_tuple_indexer check above.[39;00m
+[1;32m--> 867[0m         section [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_axis[49m[43m([49m[43mkey[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[43mi[49m[43m)[49m
+[0;32m    869[0m         [38;5;66;03m# We should never have a scalar section here, because[39;00m
+[0;32m    870[0m         [38;5;66;03m#  _getitem_lowerdim is only called after a check for[39;00m
+[0;32m    871[0m         [38;5;66;03m#  is_scalar_access, which that would be.[39;00m
+[0;32m    872[0m         [38;5;28;01mif[39;00m section[38;5;241m.[39mndim [38;5;241m==[39m [38;5;28mself[39m[38;5;241m.[39mndim:
+[0;32m    873[0m             [38;5;66;03m# we're in the middle of slicing through a MultiIndex[39;00m
+[0;32m    874[0m             [38;5;66;03m# revise the key wrt to `section` by inserting an _NS[39;00m
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\indexing.py:1202[0m, in [0;36m_LocIndexer._getitem_axis[1;34m(self, key, axis)[0m
+[0;32m   1200[0m [38;5;66;03m# fall thru to straight lookup[39;00m
+[0;32m   1201[0m [38;5;28mself[39m[38;5;241m.[39m_validate_key(key, axis)
+[1;32m-> 1202[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_get_label[49m[43m([49m[43mkey[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m)[49m
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\indexing.py:1153[0m, in [0;36m_LocIndexer._get_label[1;34m(self, label, axis)[0m
+[0;32m   1151[0m [38;5;28;01mdef[39;00m [38;5;21m_get_label[39m([38;5;28mself[39m, label, axis: [38;5;28mint[39m):
+[0;32m   1152[0m     [38;5;66;03m# GH#5667 this will fail if the label is not present in the axis.[39;00m
+[1;32m-> 1153[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mobj[49m[38;5;241;43m.[39;49m[43mxs[49m[43m([49m[43mlabel[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m)[49m
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\generic.py:3849[0m, in [0;36mNDFrame.xs[1;34m(self, key, axis, level, drop_level)[0m
+[0;32m   3847[0m [38;5;28;01mif[39;00m axis [38;5;241m==[39m [38;5;241m1[39m:
+[0;32m   3848[0m     [38;5;28;01mif[39;00m drop_level:
+[1;32m-> 3849[0m         [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m[[49m[43mkey[49m[43m][49m
+[0;32m   3850[0m     index [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns
+[0;32m   3851[0m [38;5;28;01melse[39;00m:
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\frame.py:3505[0m, in [0;36mDataFrame.__getitem__[1;34m(self, key)[0m
+[0;32m   3503[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mnlevels [38;5;241m>[39m [38;5;241m1[39m:
+[0;32m   3504[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_getitem_multilevel(key)
+[1;32m-> 3505[0m indexer [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolumns[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mkey[49m[43m)[49m
+[0;32m   3506[0m [38;5;28;01mif[39;00m is_integer(indexer):
+[0;32m   3507[0m     indexer [38;5;241m=[39m [indexer]
+
+File [1;32m~\anaconda3\lib\site-packages\pandas\core\indexes\base.py:3623[0m, in [0;36mIndex.get_loc[1;34m(self, key, method, tolerance)[0m
+[0;32m   3621[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_engine[38;5;241m.[39mget_loc(casted_key)
+[0;32m   3622[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+[1;32m-> 3623[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[0;32m   3624[0m [38;5;28;01mexcept[39;00m [38;5;167;01mTypeError[39;00m:
+[0;32m   3625[0m     [38;5;66;03m# If we have a listlike key, _check_indexing_error will raise[39;00m
+[0;32m   3626[0m     [38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise[39;00m
+[0;32m   3627[0m     [38;5;66;03m#  the TypeError.[39;00m
+[0;32m   3628[0m     [38;5;28mself[39m[38;5;241m.[39m_check_indexing_error(key)
+
+[1;31mKeyError[0m: 'Fare'
+KeyError: 'Fare'
+

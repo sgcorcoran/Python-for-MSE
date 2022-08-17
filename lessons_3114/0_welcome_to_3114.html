@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Importing Data from Files &amp; Importing Your Own Functions" href="1_importing_your_own_functions.html" />
-    <link rel="prev" title="3. Working with Data" href="../lessons_2114/3_working_with_data.html" />
+    <link rel="prev" title="4. 2114 … under development" href="../lessons_2114/4_temp.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -131,6 +131,11 @@ const thebe_selector_output = ".output, .cell_output"
    3. Working with Data
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/4_temp.html">
+   4. 2114 … under development
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -146,6 +151,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="1_importing_your_own_functions.html">
    2. Importing Data from Files &amp; Importing Your Own Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_load_google_form_data.html">
+   3. Loading Survey Data Created in Google Forms
   </a>
  </li>
 </ul>
@@ -287,12 +297,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#updating-anaconda">
+   1.1. Updating Anaconda
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -304,6 +338,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#updating-anaconda">
+   1.1. Updating Anaconda
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -317,13 +364,24 @@ title="Print to PDF"
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ol class="simple">
+<li><p>Update (<a class="reference external" href="https://www.anaconda.com/blog/keeping-anaconda-date">https://www.anaconda.com/blog/keeping-anaconda-date</a>) or reinstall (<a class="reference external" href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a>) Anaconda</p></li>
 <li><p>Make sure your homework is formatted nicely using markdown cells and different headers as appropriate.  Use the lesson files as an example of this.</p></li>
 <li><p>When using variable names in your homework make sure they make sense.  This means you will often have to change them from the names used in lesson examples.  For example, if the lesson import stress data from an excel file and uses the variable “stress” or <span class="math notranslate nohighlight">\(\sigma\)</span> but your homework requires you to import time data change this variable to “time” or “t” etc.</p></li>
 <li><p>All unnecessary code and outputs should be removed before the homework is turned in.</p></li>
 <li><p>Recall when working through a lesson, you should try changing parameters to see what the code is doing.  Don’t treat the example codes I use as a black box.  You are expected to know what every line is doing.</p></li>
-<li><p>If you cut and paste code from the lesson, but don’t change variable names or remove unnecessary lines / procedures I will take off points.  Sorry.</p></li>
+<li><p>If you cut and paste code from the lesson, but don’t change variable names or remove unnecessary lines / procedures I will take off points.</p></li>
 </ol>
 </div>
+<section id="updating-anaconda">
+<span id="welcome-update"></span><h2><span class="section-number">1.1. </span>Updating Anaconda<a class="headerlink" href="#updating-anaconda" title="Permalink to this headline">#</a></h2>
+<p>First open Anaconda Navigator</p>
+<a class="reference internal image-reference" href="../_images/Screenshot135220.png" id="navigator"><img alt="../_images/Screenshot135220.png" id="navigator" src="../_images/Screenshot135220.png" style="height: 100px;" /></a>
+<p>Then launch the command prompt</p>
+<a class="reference internal image-reference" href="../_images/jupyLab_command_prompt.png" id="id1"><img alt="../_images/jupyLab_command_prompt.png" id="id1" src="../_images/jupyLab_command_prompt.png" style="height: 200px;" /></a>
+<p>At the prompt, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">--all</span></code> and press Enter</p>
+<a class="reference internal image-reference" href="../_images/update.png" id="id2"><img alt="../_images/update.png" id="id2" src="../_images/update.png" style="height: 100px;" /></a>
+<p>Problems?  see: <a class="reference external" href="https://www.anaconda.com/blog/keeping-anaconda-date">https://www.anaconda.com/blog/keeping-anaconda-date</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -353,11 +411,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../lessons_2114/3_working_with_data.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../lessons_2114/4_temp.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3. </span>Working with Data</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>2114 … under development</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="1_importing_your_own_functions.html" title="next page">
