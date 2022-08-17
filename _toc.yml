@@ -10,10 +10,11 @@ parts:
     - file: lessons_2114/1_getting_started
     - file: lessons_2114/2_Intro_Jupyter
     - file: lessons_2114/3_working_with_data
+    - file: lessons_2114/4_temp
   - caption: MSE 3114 Python for MSE II
     numbered: true
     chapters:
     - file: lessons_3114/0_welcome_to_3114
     - file: lessons_3114/1_importing_your_own_functions
-
+    - file: lessons_3114/2_load_google_form_data
 
