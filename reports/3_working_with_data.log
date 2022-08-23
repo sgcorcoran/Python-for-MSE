@@ -26,8 +26,8 @@ best_vals, covar = curve_fit(lin, sch_slice['num faculty'], sch_slice['credit_fa
 print(f'Our fit is given by {best_vals[0]:.2f} x + {best_vals[1]:.2f}')
 ------------------
 
-[1;31m----------------------------------------------------------------------[0m
-[1;31mNameError[0m                            Traceback (most recent call last)
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
 Input [1;32mIn [16][0m, in [0;36m<cell line: 6>[1;34m()[0m
 [0;32m      3[0m [38;5;28;01mdef[39;00m [38;5;21mlin[39m(x, m, b):
 [0;32m      4[0m     [38;5;28;01mreturn[39;00m m[38;5;241m*[39mx[38;5;241m+[39mb
