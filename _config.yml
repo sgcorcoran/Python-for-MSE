@@ -5,7 +5,7 @@ title: "Python for MSE"
 author: Sean Corcoran
 # logo: VT_Logo.jpg
 only_build_toc_files: true
-# exclude_patterns: [lessons_2114/*.md, data_for_practice/*] in .gitignore file
+# exclude_patterns: [lessons_2114/*.md, data_for_practice/*] don't need if previous is true
 execute:
   execute_notebooks: auto
 parse:
