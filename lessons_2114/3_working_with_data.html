@@ -144,18 +144,35 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_3114/0_welcome_to_3114.html">
+  <a class="reference internal" href="../lessons_3114/01_welcome_to_3114.html">
    1. Welcome to MSE 3114
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_3114/1_importing_your_own_functions.html">
+  <a class="reference internal" href="../lessons_3114/02_importing_your_own_functions.html">
    2. Importing Data from Files &amp; Importing Your Own Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_3114/2_load_google_form_data.html">
-   3. Loading Survey Data Created in Google Forms
+  <a class="reference internal" href="../lessons_3114/03_google_forms_and_pandas.html">
+   3. Google Forms and Pandas Data Import and Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_3114/04_closer_look_at_pandas.html">
+   4. Pandas DataFrames and Matplotlib Advanced Figure Layouts
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_3114/50_course_support_files.html">
+   1. 3114 Data Files
   </a>
  </li>
 </ul>
@@ -532,17 +549,17 @@ title="Print to PDF"
 <section id="how-to-define-file-paths">
 <h3><span class="section-number">3.1.1. </span>How to define file paths<a class="headerlink" href="#how-to-define-file-paths" title="Permalink to this headline">#</a></h3>
 <p>First we need to define our path to the file we want to import.  If you find the file on your machine, you can right click on it and select properties.</p>
-<p><img alt="title" src="images/week%203%20image%201.png" /></p>
+<a class="reference internal image-reference" href="../_images/file_properties.png" id="navigator"><img alt="../_images/file_properties.png" class="align-center" id="navigator" src="../_images/file_properties.png" style="height: 600px;" /></a>
 <p>By highlighting the text in the “location” box you can copy ctrl-c and paste directly in your notebook ctrl-v.  For me this would give:</p>
-<p>C:\Users\sgc\Google Drive\Teaching\2114 &amp; 3114 Math I &amp; II\git_2114_3114\data for practice</p>
+<p>C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\Course ebooks\Python-for-MSE\data_for_practice</p>
 <p>now I just need to add “\filename” to the end.  For example,</p>
-<p>C:\Users\sgc\Google Drive\Teaching\2114 &amp; 3114 Math I &amp; II\git_2114_3114\data for practice\Student credit hours dept numbers.xlsx</p>
+<p>C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\Course ebooks\Python-for-MSE\data_for_practice\Student credit hours dept numbers.xlsx</p>
 <p>It is very important to remember to include the file extension at the end.</p>
 <p>Below I define the path separate from the filename and then join them together.  This is often more convenient if you are grabbing multiple files from the same path.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>  <span class="c1">#we use this to join our file path to our filename</span>
-<span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\sgc\Google Drive\Teaching\2114 &amp; 3114 Math I &amp; II\2114 python&#39;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\Course ebooks\Python-for-MSE\data_for_practice&#39;</span>
 <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Al7075.xlsx&#39;</span>
 <span class="n">fullpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
 <span class="n">fullpath</span>
@@ -550,14 +567,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;C:\\Users\\sgc\\Google Drive\\Teaching\\2114 &amp; 3114 Math I &amp; II\\2114 python\\Al7075.xlsx&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;C:\\Users\\Sean\\OneDrive - Virginia Tech\\Documents\\Teaching\\Course ebooks\\Python-for-MSE\\data_for_practice\\Al7075.xlsx&#39;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="import-data-using-pandas">
-<h3><span class="section-number">3.1.2. </span>Import Data using Pandas<a class="headerlink" href="#import-data-using-pandas" title="Permalink to this headline">#</a></h3>
+<span id="import-data"></span><h3><span class="section-number">3.1.2. </span>Import Data using Pandas<a class="headerlink" href="#import-data-using-pandas" title="Permalink to this headline">#</a></h3>
 <p>Let’s take a look at some student credit hours taught for engineering departments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2277,7 +2294,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_27_0.png" src="../_images/3_working_with_data_27_0.png" />
+<img alt="../_images/3_working_with_data_30_0.png" src="../_images/3_working_with_data_30_0.png" />
 </div>
 </div>
 <p>It looks like a linear relationship exists for smaller departments.  Let’s fit the data for departments with faculty less than 30.</p>
@@ -2292,7 +2309,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_29_0.png" src="../_images/3_working_with_data_29_0.png" />
+<img alt="../_images/3_working_with_data_32_0.png" src="../_images/3_working_with_data_32_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2316,8 +2333,8 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">----------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
 <span class="nn">Input In [16],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span>
@@ -2350,7 +2367,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_33_0.png" src="../_images/3_working_with_data_33_0.png" />
+<img alt="../_images/3_working_with_data_36_0.png" src="../_images/3_working_with_data_36_0.png" />
 </div>
 </div>
 <p>Let’s add a horizontal line at 275</p>
@@ -2365,7 +2382,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_35_0.png" src="../_images/3_working_with_data_35_0.png" />
+<img alt="../_images/3_working_with_data_38_0.png" src="../_images/3_working_with_data_38_0.png" />
 </div>
 </div>
 </section>
@@ -2477,8 +2494,8 @@ Name: dept, dtype: object
 </div>
 </div>
 </div>
-<p>Here’s what my excel file looks like:
-<img alt="image.png" src="lessons_2114/attachment:image.png" /></p>
+<p>Here’s what my excel file looks like:</p>
+<a class="reference internal image-reference" href="../_images/excel_clip.png" id="id1"><img alt="../_images/excel_clip.png" class="align-center" id="id1" src="../_images/excel_clip.png" style="height: 400px;" /></a>
 </section>
 </section>
 <section id="lesson-part-2-practice">
@@ -2541,7 +2558,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_46_0.png" src="../_images/3_working_with_data_46_0.png" />
+<img alt="../_images/3_working_with_data_51_0.png" src="../_images/3_working_with_data_51_0.png" />
 </div>
 </div>
 </section>
@@ -2587,7 +2604,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_50_0.png" src="../_images/3_working_with_data_50_0.png" />
+<img alt="../_images/3_working_with_data_55_0.png" src="../_images/3_working_with_data_55_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2611,7 +2628,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_52_0.png" src="../_images/3_working_with_data_52_0.png" />
+<img alt="../_images/3_working_with_data_57_0.png" src="../_images/3_working_with_data_57_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
