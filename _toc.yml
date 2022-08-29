@@ -18,6 +18,7 @@ parts:
     - file: lessons_3114/02_importing_your_own_functions
     - file: lessons_3114/03_google_forms_and_pandas
     - file: lessons_3114/04_closer_look_at_pandas
+    - file: lessons_3114/05_closer_look_at_matplotlib
   - caption: Appendix
     numbered: true
     chapters:
