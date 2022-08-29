@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4. Pandas DataFrames and Matplotlib Advanced Figure Layouts &#8212; Python for MSE</title>
+    <title>4. Pandas DataFrames and Data Visualization &#8212; Python for MSE</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="next" title="5. matplotlib - Advanced Layouts" href="05_closer_look_at_matplotlib.html" />
     <link rel="prev" title="3. Google Forms and Pandas Data Import and Visualization" href="03_google_forms_and_pandas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -163,7 +163,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Pandas DataFrames and Matplotlib Advanced Figure Layouts
+   4. Pandas DataFrames and Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_closer_look_at_matplotlib.html">
+   5. matplotlib - Advanced Layouts
   </a>
  </li>
 </ul>
@@ -175,7 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="50_course_support_files.html">
-   1. 3114 Data Files
+   1. MSE 3114 Data Files
   </a>
  </li>
  <li class="toctree-l1">
@@ -424,7 +429,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Pandas DataFrames and Matplotlib Advanced Figure Layouts</h1>
+                <h1>Pandas DataFrames and Data Visualization</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -515,8 +520,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="pandas-dataframes-and-matplotlib-advanced-figure-layouts">
-<h1><span class="section-number">4. </span>Pandas DataFrames and Matplotlib Advanced Figure Layouts<a class="headerlink" href="#pandas-dataframes-and-matplotlib-advanced-figure-layouts" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-dataframes-and-data-visualization">
+<h1><span class="section-number">4. </span>Pandas DataFrames and Data Visualization<a class="headerlink" href="#pandas-dataframes-and-data-visualization" title="Permalink to this headline">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -650,7 +655,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Slicing DataFrames using .loc and .iloc
 </pre></div>
 </div>
-<div class="output text_html"><div id="TvGeogrXZDJR" data-shufflequestions="False"
+<div class="output text_html"><div id="lbWlCVMgYPlb" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -812,7 +817,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsTvGeogrXZDJR=[{"question": "For the DataFrame, \"raw\" above, how would you select the columns: \"Name\" and \"Age\" and only the first 10 entries?", "type": "multiple_choice", "answers": [{"code": "raw.loc[0:9,['Name','Age']]", "correct": true, "feedback": "Correct. Here we use .loc[] and not .iloc[] since we are using the column names.  We pass the column names as a list, ['Name','Age'], since we are skipping the column 'Sex.' If we wanted the columns Name, Sex, and Age, we could just write raw.loc[0:9,'Name':'Age']"}, {"code": "raw.iloc[0:9,[3,5]]", "correct": true, "feedback": "Yes this works but .loc[] is cleaner to read so you don't have to count the column number  to figure out which column is 3 or 5."}, {"code": "raw.iloc[1:10,['Name','Age']]", "correct": false, "feedback": "Not quite.  Remember the first row is labeled, '0' and if we are using column names we need .loc not .iloc"}]}];
+}</style><script type="text/Javascript">var questionslbWlCVMgYPlb=[{"question": "For the DataFrame, \"raw\" above, how would you select the columns: \"Name\" and \"Age\" and only the first 10 entries?", "type": "multiple_choice", "answers": [{"code": "raw.loc[0:9,['Name','Age']]", "correct": true, "feedback": "Correct. Here we use .loc[] and not .iloc[] since we are using the column names.  We pass the column names as a list, ['Name','Age'], since we are skipping the column 'Sex.' If we wanted the columns Name, Sex, and Age, we could just write raw.loc[0:9,'Name':'Age']"}, {"code": "raw.iloc[0:9,[3,5]]", "correct": true, "feedback": "Yes this works but .loc[] is cleaner to read so you don't have to count the column number  to figure out which column is 3 or 5."}, {"code": "raw.iloc[1:10,['Name','Age']]", "correct": false, "feedback": "Not quite.  Remember the first row is labeled, '0' and if we are using column names we need .loc not .iloc"}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1546,7 +1551,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsTvGeogrXZDJR,  TvGeogrXZDJR);
+        show_questions(questionslbWlCVMgYPlb,  lbWlCVMgYPlb);
         }
         </script>
 </div></div>
@@ -1636,7 +1641,7 @@ if (typeof version == 'undefined') {
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This would be a good place to test the code above.  Take a look at <a class="reference internal" href="#exercises-problem-1"><span class="std std-ref">Problem 1</span></a>.  Notice the use of the f-string and the syntax {data.shape[0]}.  What’s happening here? Why are we using curly braces?  What does .shape do? and why did we use .shape[0] and not just .shape or .shape[1]?</p>
+<p>This would be a good place to test the code above as outlined in <a class="reference internal" href="#exercises-problem-1"><span class="std std-ref">Problem 1</span></a>.  Notice the use of the f-string and the syntax {data.shape[0]}.  What’s happening here? Why are we using curly braces?  What does .shape do? and why did we use .shape[0] and not .shape or .shape[1]?</p>
 </div>
 </section>
 <section id="groupby-1-column">
@@ -1698,7 +1703,7 @@ if (typeof version == 'undefined') {
 <p>You can see this gives us the mean value of Pclass, Age, and Fare for all those with a 0 (died) or 1 (survived) in the Survived column.  The column values (0 or 1) have now been set as the row index.</p>
 <div class="admonition-something-to-try admonition">
 <p class="admonition-title">Something to try  </p>
-<p>What do you expect to get if you grouped by ‘Pclass’ rather than ‘Survived’ i.e. data.groupby(‘Pclass’).mean() ?  Think about it first and then try it and see. The mean values given for ‘Survived’ is quite interesting.  How would you interpret these results?</p>
+<p>What do you expect to get if you grouped by ‘Pclass’ rather than ‘Survived’ i.e. <code class="docutils literal notranslate"><span class="pre">data.groupby('Pclass').mean()</span></code> ?  Think about it first and then try it and see. The mean values given for ‘Survived’ is quite interesting.  How would you interpret these results?</p>
 </div>
 <p>Let’s get the mean Fare price for those that died and survived and present those results as a bar plot.</p>
 <div class="cell docutils container">
@@ -1730,7 +1735,7 @@ if (typeof version == 'undefined') {
 </section>
 <section id="groupby-2-columns">
 <h3><span class="section-number">4.1.3. </span>groupby 2 columns<a class="headerlink" href="#groupby-2-columns" title="Permalink to this headline">#</a></h3>
-<p>What is the average age of male and female passengers in 1st, 2nd, and 3rd class? So now we want to know about a feature “average age” broken out by two other features “Sex” and “Pclass.”  For this, we will groupby both Sex and Pclass.</p>
+<p>What is the average age of male and female passengers in 1st, 2nd, and 3rd class? To answer this we want to know about a feature “average age” broken out by two other features “Sex” and “Pclass.”  For this, we will groupby both Sex and Pclass.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
@@ -1886,7 +1891,7 @@ Name: Age, dtype: float64
 </div>
 </div>
 </div>
-<p>In this form, we get one column of data with 2 indices for eacgh row. I can see this if I ask for the index of this data:</p>
+<p>In this form, we get one column of data with 2 indices for each row. I can see this if I ask for the index of this data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
@@ -1918,7 +1923,7 @@ Name: Age, dtype: float64
 </div>
 </div>
 </div>
-<p>What is the <code class="docutils literal notranslate"><span class="pre">.unstack()</span></code> for?  This reduces the number of indices by moving the second indice “Pclass” back to columns.</p>
+<p>What is the <code class="docutils literal notranslate"><span class="pre">.unstack()</span></code> for?  This reduces the number of indices by moving the second indice “Pclass” back to the columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
@@ -2060,7 +2065,7 @@ Name: Age, dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>Compare this to the results we got <strong>without</strong> the <code class="docutils literal notranslate"><span class="pre">.unstack()</span></code></p>
+<p>Compare this to the results we got above <strong>without</strong> the <code class="docutils literal notranslate"><span class="pre">.unstack()</span></code> and printed out again below for your convenience.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
@@ -2080,7 +2085,7 @@ Name: Age, dtype: float64
 </div>
 </div>
 </div>
-<p>You can see this is the same data but the former gives a DataFrame back rather than a Series and it is easier to read and use. Let’s make a bar chart of our unstacked result. This data is the average age by ‘Sex’ and ‘Pclass’.  <strong>We will put the Pclass on the x-axis and plot a bar for each Sex (male or female) of the average Age (y-axis).</strong></p>
+<p>You can see this is the same data but the former gives a DataFrame back rather than a Series and it is easier to read and use. Let’s make a bar chart of our unstacked result. This data is the average age by ‘Sex’ and ‘Pclass’.  <strong>We will put the Pclass on the x-axis and plot a bar for each Sex (male or female) with a height given by the average Age (y-axis).</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforbar</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
@@ -2108,7 +2113,7 @@ Name: Age, dtype: float64
 <img alt="../_images/04_closer_look_at_pandas_40_0.png" src="../_images/04_closer_look_at_pandas_40_0.png" />
 </div>
 </div>
-<p>We did quite a bit of work here to get the bar chart to work out.  Since pandas specializes in working with DataFrames, we can use <strong>pandas</strong> to plot rather than matplotlib.  <strong>The code is much easier.</strong> In fact, pandas uses matplotlib to plot but has its own plot functions designed to work with dataframes.</p>
+<p>We did quite a bit of work above with matplotlib (i.e. plt) to get the bar chart to work out.  Since pandas specializes in working with DataFrames, we can use <strong>pandas</strong> to plot rather than matplotlib.  <strong>The code is much easier.</strong> In fact, pandas uses matplotlib to plot but has its own plot functions designed to work with dataframes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforbar</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
@@ -2125,7 +2130,7 @@ Name: Age, dtype: float64
 <img alt="../_images/04_closer_look_at_pandas_42_0.png" src="../_images/04_closer_look_at_pandas_42_0.png" />
 </div>
 </div>
-<p><strong>Wow!</strong>  That was much easier but notice that our x-axis and legend are reversed so let’s just reverse the order of our groupby command.</p>
+<p><strong>Wow!</strong>  That was much easier but notice that didn’t get back exactly the same plot. Notice the x-axis and legend are reversed comparing the two plots.  We can fix this easily by reversing the order of our groupby command from <code class="docutils literal notranslate"><span class="pre">.groupby(['Sex','Pclass'])</span></code> to <code class="docutils literal notranslate"><span class="pre">.groupby(['Pclass',</span> <span class="pre">'Sex'])</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforbar</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
@@ -2162,7 +2167,7 @@ etc…</p>
 </section>
 <section id="groupby-3-columns">
 <h3><span class="section-number">4.1.4. </span>groupby 3 columns<a class="headerlink" href="#groupby-3-columns" title="Permalink to this headline">#</a></h3>
-<p>What is the number of male and female passengers vs ticket class that died vs survived? So now we want to know about a feature “number of passengers” broken out by three other features “Sex”, “Pclass”, and “Survived.”  For this, we will <strong>groupby all three columns</strong> and <strong>use .count()</strong> rather than .mean() and we will use <strong>.unstack() twice</strong>.  We are also grabbing the count on the “Fare” data since this is complete while some records don’t have an age recorded.</p>
+<p>What is the number of male and female passengers vs ticket class that died vs survived? To answer this question, we want to know about a feature “number of passengers” broken out by three other features “Sex”, “Pclass”, and “Survived.”  For this, we will <strong>groupby all three columns</strong> and <strong>use .count()</strong> rather than .mean() and we will use <strong>.unstack() twice</strong>.  We are also grabbing the count on the “Fare” data since this is complete while some records don’t have an age recorded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s2">&quot;Fare&quot;</span><span class="p">]</span>
@@ -2244,8 +2249,8 @@ etc…</p>
 
 <span class="n">ax</span><span class="o">=</span><span class="n">dataforbar</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Passengers&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of Passengers that survived and died for ticket class and sex&#39;</span><span class="p">)</span>
-
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of Passengers that survived and died broken out by ticket class and sex&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;0 = Died, 1=Survived&quot;</span><span class="p">)</span>
 <span class="n">gg</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2256,7 +2261,7 @@ etc…</p>
 </div>
 <div class="admonition-try-this admonition" id="groupby-3-columns-try-1">
 <p class="admonition-title">Try this…  </p>
-<p>Replot the above but only using <strong>one</strong> .unstack() rather than two.  Notice how the labels and plot change relative to the groupby order: ‘Survived’,‘Sex’,‘Pclass’.  The last column in this list becomes the legend. The x-axis contains combinations of the first two with ‘Survived’ being ordered first so we get (died, female), (died,male), (survived, female), and (survived, male).</p>
+<p>Replot the above but only using <strong>one .unstack()</strong> rather than two.  Notice how the labels and plot change relative to the groupby order: ‘Survived’,‘Sex’,‘Pclass’.  The last column in this list, ‘Pclass’ becomes the legend. The x-axis contains combinations of the first two, ‘Survived’ and ‘Sex’ with ‘Survived’ being ordered first so we get (died, female), (died,male), (survived, female), and (survived, male).</p>
 </div>
 <p>A pie chart might be a good way to represent our data.  See the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.pie.html">pandas documentation</a> for more information and examples of the pie chart.</p>
 <div class="cell docutils container">
@@ -2335,7 +2340,7 @@ etc…</p>
 </table>
 </div></div></div>
 </div>
-<p>The pie chart uses only 1 column of data.  We want to plot the data across a row of either ‘died’ or ‘survived’ so let’s flip our table i.e. transpose.</p>
+<p>The pie chart uses only 1 column of data but the data we want to plot is represented above in rows so let’s exchange the x and y axes i.e., transpose the DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforpie</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -2410,12 +2415,12 @@ etc…</p>
 </table>
 </div></div></div>
 </div>
-<p>Now we can make a pie chart on the percentages of various classes of people that died or survived.  Let’s look at those that survived.</p>
+<p>Now we can make a pie chart on the percentages of various classes of people that died (0) or survived (1).  Let’s look at those that survived.</p>
 <section id="using-pandas-plot">
 <h4><span class="section-number">4.1.4.1. </span>Using pandas plot:<a class="headerlink" href="#using-pandas-plot" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">dataforpie</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">dataforpie</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># y = column_index</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2490,7 +2495,7 @@ d. Replace data.head() with data.head(2) and data.head(5).  How does this compar
 </section>
 <section id="problem-4">
 <h3><span class="section-number">4.2.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
-<p>a. Re-plot the <a class="reference internal" href="#groupby-3-columns-try-1"><span class="std std-ref">example in “groupby 3 columns”</span></a> but now only using <strong>one</strong> .unstack() rather than two.  Notice how the labels and plot change relative to the groupby order: ‘Survived’,‘Sex’,‘Pclass’.  The last column in this list becomes the legend. The x-axis contains combinations of the first two with ‘Survived’ being ordered first so we get (died, female), (died,male), (survived, female), and (survived, male). Make sure you include an appropriate title and y-label.</p>
+<p>a. Re-plot the <a class="reference internal" href="#groupby-3-columns-try-1"><span class="std std-ref">example in “groupby 3 columns”</span></a> but now only using <strong>one</strong> .unstack() rather than two. Notice how the labels and plot change relative to the groupby order: ‘Survived’,‘Sex’,‘Pclass’. The last column in this list, ‘Pclass’ becomes the legend. The x-axis contains combinations of the first two, ‘Survived’ and ‘Sex’ with ‘Survived’ being ordered first so we get (died, female), (died,male), (survived, female), and (survived, male). Make sure you include an appropriate title and y-label.</p>
 <p>b. Now change the order of the groupby columns to: [‘Sex’,‘Pclass’,‘Survived’] and replot again using only one unstack(). Comment on how the order of the groupby corresponds to changes in your x-axis and legend.</p>
 </section>
 <section id="problem-5">
@@ -2534,10 +2539,10 @@ d. Replace data.head() with data.head(2) and data.head(5).  How does this compar
             <p class="prev-next-title"><span class="section-number">3. </span>Google Forms and Pandas Data Import and Visualization</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <a class='right-next' id="next-link" href="05_closer_look_at_matplotlib.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>3114 Data Files</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>matplotlib - Advanced Layouts</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

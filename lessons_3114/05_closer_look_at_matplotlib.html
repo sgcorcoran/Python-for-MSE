@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Importing Data from Files &amp; Importing Your Own Functions &#8212; Python for MSE</title>
+    <title>5. matplotlib - Advanced Layouts &#8212; Python for MSE</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Google Forms and Pandas Data Import and Visualization" href="03_google_forms_and_pandas.html" />
-    <link rel="prev" title="1. Welcome to MSE 3114" href="01_welcome_to_3114.html" />
+    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="prev" title="4. Pandas DataFrames and Data Visualization" href="04_closer_look_at_pandas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -153,8 +151,8 @@ const thebe_selector_output = ".output, .cell_output"
    1. Welcome to MSE 3114
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_importing_your_own_functions.html">
    2. Importing Data from Files &amp; Importing Your Own Functions
   </a>
  </li>
@@ -168,8 +166,8 @@ const thebe_selector_output = ".output, .cell_output"
    4. Pandas DataFrames and Data Visualization
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05_closer_look_at_matplotlib.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    5. matplotlib - Advanced Layouts
   </a>
  </li>
@@ -249,7 +247,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/02_importing_your_own_functions.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/05_closer_look_at_matplotlib.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -292,7 +290,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/lessons_3114/02_importing_your_own_functions.ipynb"
+        <a href="../_sources/lessons_3114/05_closer_look_at_matplotlib.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -352,55 +350,48 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-data-from-excel">
-   2.1. Import data from Excel
+  <a class="reference internal nav-link" href="#data-file-for-lesson">
+   5.1. Data File for Lesson
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#writing-saving-and-importing-your-own-functions">
-   2.2. Writing, Saving, and Importing Your Own Functions
+  <a class="reference internal nav-link" href="#layout-using-subplot-figure-vs-axes">
+   5.2. Layout using subplot: Figure vs Axes
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-your-own-function-and-test-it">
-     2.2.1. Write your own function and test it
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copy-your-function-to-a-text-file-and-save-with-extension-py">
-     2.2.2. Copy your function to a text file and save with extension “.py”
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function">
-     2.2.3. Import your *.py file into a new Jupyter notebook and test your function
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-subplot-layouts-with-subplot2grid">
+   5.3. Advanced subplot layouts with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .subplot2grid()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-data-to-our-layout">
+   5.4. Adding Data to our Layout
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   2.3. Exercises
+   5.5. Exercises
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-1">
-     2.3.1. Problem 1
+     5.5.1. Problem 1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-2">
-     2.3.2. Problem 2
+     5.5.2. Problem 2
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-3">
-     2.3.3. Problem 3
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-4">
-     2.3.4. Problem 4
+     5.5.3. Problem 3
     </a>
    </li>
   </ul>
@@ -414,7 +405,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Importing Data from Files & Importing Your Own Functions</h1>
+                <h1>matplotlib - Advanced Layouts</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -425,55 +416,48 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-data-from-excel">
-   2.1. Import data from Excel
+  <a class="reference internal nav-link" href="#data-file-for-lesson">
+   5.1. Data File for Lesson
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#writing-saving-and-importing-your-own-functions">
-   2.2. Writing, Saving, and Importing Your Own Functions
+  <a class="reference internal nav-link" href="#layout-using-subplot-figure-vs-axes">
+   5.2. Layout using subplot: Figure vs Axes
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-your-own-function-and-test-it">
-     2.2.1. Write your own function and test it
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copy-your-function-to-a-text-file-and-save-with-extension-py">
-     2.2.2. Copy your function to a text file and save with extension “.py”
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function">
-     2.2.3. Import your *.py file into a new Jupyter notebook and test your function
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-subplot-layouts-with-subplot2grid">
+   5.3. Advanced subplot layouts with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .subplot2grid()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-data-to-our-layout">
+   5.4. Adding Data to our Layout
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   2.3. Exercises
+   5.5. Exercises
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-1">
-     2.3.1. Problem 1
+     5.5.1. Problem 1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-2">
-     2.3.2. Problem 2
+     5.5.2. Problem 2
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-3">
-     2.3.3. Problem 3
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-4">
-     2.3.4. Problem 4
+     5.5.3. Problem 3
     </a>
    </li>
   </ul>
@@ -488,31 +472,166 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="importing-data-from-files-importing-your-own-functions">
-<h1><span class="section-number">2. </span>Importing Data from Files &amp; Importing Your Own Functions<a class="headerlink" href="#importing-data-from-files-importing-your-own-functions" title="Permalink to this headline">#</a></h1>
-<hr style="height: 3.0px"/><div class="admonition-learning-objectives admonition">
+  <section class="tex2jax_ignore mathjax_ignore" id="matplotlib-advanced-layouts">
+<h1><span class="section-number">5. </span>matplotlib - Advanced Layouts<a class="headerlink" href="#matplotlib-advanced-layouts" title="Permalink to this headline">#</a></h1>
+<div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
-<li><p>Update your Anaconda software: see <a class="reference internal" href="01_welcome_to_3114.html#welcome-update"><span class="std std-ref">Updating Anaconda</span></a></p></li>
-<li><p>Be able to import an excel file and plot data using matplotlib</p></li>
-<li><p>Be able to write your own functions, store them in a *.py file, and import them in a new Jupyter notebook using <code class="docutils literal notranslate"><span class="pre">import</span></code></p></li>
+<li><p>Be able to use matplotlib’s <code class="docutils literal notranslate"><span class="pre">.subplot()</span></code> to layout plots in regular grid arrangements.</p></li>
+<li><p>Be able to use matplotlib’s <code class="docutils literal notranslate"><span class="pre">.subplot2grid()</span></code> to create more advanced layouts with plots spanning more than one “grid space.”</p></li>
 </ul>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>When working through a lesson / reading this textbook, you should have a blank Jupyter Notebook open to try the codes written here.  It is also important that you try changing parameters to see what the code is doing.  Don’t treat the example codes I use as a black box.  You are expected to know what every line is doing.</p>
+<p>Much of the information and many of the figures in this notebook come from: “Python Plotting With Matplotlib (Guide)” written by <em>Brad Solomon</em> and published on <a class="reference external" href="http://realpython.com">realpython.com</a> at <a class="reference external" href="https://realpython.com/python-matplotlib-guide">https://realpython.com/python-matplotlib-guide</a>.  The website <a class="reference external" href="https://realpython.com/">realpython.com</a> is a great way to learn python and is filled with resources.</p>
 </div>
-<section id="import-data-from-excel">
-<h2><span class="section-number">2.1. </span>Import data from Excel<a class="headerlink" href="#import-data-from-excel" title="Permalink to this headline">#</a></h2>
-<div class="cell tag_remove-input tag_remove-output docutils container">
+<section id="data-file-for-lesson">
+<h2><span class="section-number">5.1. </span>Data File for Lesson<a class="headerlink" href="#data-file-for-lesson" title="Permalink to this headline">#</a></h2>
+<p>You will need the following data file for this lesson:<br />
+<a class="reference external" href="https://drive.google.com/uc?id=1l4YCgMuYTx4y4ax7uUcHevYbOVlYtajx&amp;export=download">cal_housing.data</a><br />
+Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statistics and Probability Letters, Volume 33, Number 3, May 5 1997, p. 291-297.</p>
+<p>A description of the data columns included in this dataset are reprinted below.</p>
+<figure class="align-default" id="calif-dataset">
+<a class="reference internal image-reference" href="../_images/housing_data_description.png"><img alt="../_images/housing_data_description.png" src="../_images/housing_data_description.png" style="height: 900px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Reprinted from <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/california-housing-data-description">https://developers.google.com/machine-learning/crash-course/california-housing-data-description</a></span><a class="headerlink" href="#calif-dataset" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># column names according to the description above</span>
+<span class="n">column_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span> <span class="p">,</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span><span class="s1">&#39;housingMedianAge&#39;</span><span class="p">,</span><span class="s1">&#39;totalRooms&#39;</span><span class="p">,</span><span class="s1">&#39;totalBedrooms&#39;</span><span class="p">,</span><span class="s1">&#39;population&#39;</span><span class="p">,</span><span class="s1">&#39;households&#39;</span><span class="p">,</span><span class="s1">&#39;medianIncome ($10,000)&#39;</span><span class="p">,</span><span class="s1">&#39;medianHouseValue ($)&#39;</span><span class="p">]</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://drive.google.com/uc?id=1l4YCgMuYTx4y4ax7uUcHevYbOVlYtajx&quot;</span>
+<span class="n">raw</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">raw</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>housingMedianAge</th>
+      <th>totalRooms</th>
+      <th>totalBedrooms</th>
+      <th>population</th>
+      <th>households</th>
+      <th>medianIncome ($10,000)</th>
+      <th>medianHouseValue ($)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-122.23</td>
+      <td>37.88</td>
+      <td>41.0</td>
+      <td>880.0</td>
+      <td>129.0</td>
+      <td>322.0</td>
+      <td>126.0</td>
+      <td>8.3252</td>
+      <td>452600.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-122.22</td>
+      <td>37.86</td>
+      <td>21.0</td>
+      <td>7099.0</td>
+      <td>1106.0</td>
+      <td>2401.0</td>
+      <td>1138.0</td>
+      <td>8.3014</td>
+      <td>358500.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-122.24</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1467.0</td>
+      <td>190.0</td>
+      <td>496.0</td>
+      <td>177.0</td>
+      <td>7.2574</td>
+      <td>352100.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1274.0</td>
+      <td>235.0</td>
+      <td>558.0</td>
+      <td>219.0</td>
+      <td>5.6431</td>
+      <td>341300.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1627.0</td>
+      <td>280.0</td>
+      <td>565.0</td>
+      <td>259.0</td>
+      <td>3.8462</td>
+      <td>342200.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="layout-using-subplot-figure-vs-axes">
+<h2><span class="section-number">5.2. </span>Layout using subplot: Figure vs Axes<a class="headerlink" href="#layout-using-subplot-figure-vs-axes" title="Permalink to this headline">#</a></h2>
+<p>In matplotlib, a “<strong>figure</strong>” is the outer container that might contain multiple plots for example in a row or grid or it might contain just one plot as shown below.  The individual plots are referred to as “<strong>axes</strong>”.</p>
+<figure class="align-default" id="figure-axes">
+<a class="reference internal image-reference" href="../_images/Axes_Figures_schematic.png"><img alt="../_images/Axes_Figures_schematic.png" src="../_images/Axes_Figures_schematic.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">reprinted from <a class="reference external" href="https://realpython.com/python-matplotlib-guide/#the-matplotlib-object-hierarchy">https://realpython.com/python-matplotlib-guide/#the-matplotlib-object-hierarchy</a></span><a class="headerlink" href="#figure-axes" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If we name the Figure above “fig” and the Axes box as “ax”, we can create the layout with the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+</pre></div>
+</div>
+<p>Then we just need to fill “ax” for example, with a scatter plot of red circles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xdata</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Data File:  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=14uBqZM8ekl1RoFgx3nwCJM7fe9N144RI">Al7075_out.xlsx</a> and lesson help from 2114: <a class="reference internal" href="../lessons_2114/3_working_with_data.html#import-data"><span class="std std-ref">Importing Data using Pandas</span></a></p>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Click above to download the excel file needed for this exercise
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output text_html"><div id="JPpsPwGotdhv" data-shufflequestions="False"
+<div class="output text_html"><div id="eSBtmvsXhtti" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -674,7 +793,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsJPpsPwGotdhv=[{"question": "Create a new Jupyter notebook and import the data from Al7075_out.xlsx (The link\n            above will allow you to download the file). \n            Plot stress vs strain (label your axes and use blue triangles for your data points).  \n            Were you successful?", "type": "multiple_choice", "answers": [{"code": "Yes", "correct": true, "feedback": "Awesome!"}, {"code": "No", "correct": false, "feedback": "Take a look at lesson 3 from 2114 located in Canvas. You won't need\n                    to do all of the manipulation we did in this lesson.  You just need to plot the\n                    correct columns in Al7075_out.xlsx. I've already added a column for stress and \n                    one for strain."}]}];
+}</style><script type="text/Javascript">var questionseSBtmvsXhtti=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1408,243 +1527,378 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsJPpsPwGotdhv,  JPpsPwGotdhv);
+        show_questions(questionseSBtmvsXhtti,  eSBtmvsXhtti);
         }
         </script>
 </div></div>
 </div>
-<p>Were you able to successfully create and run a new jupyter notebook using your Cheat Sheet notebook from 2114?  <strong>If not, fix it now.</strong>  The cheat sheet won’t do you any good later if you can’t quickly get up to speed after only 3 months off.</p>
-<p>If you were, then awesome!</p>
-<a class="reference internal image-reference" href="../_images/awesome.png" id="navigator"><img alt="../_images/awesome.png" id="navigator" src="../_images/awesome.png" style="height: 100px;" /></a>
-</section>
-<section id="writing-saving-and-importing-your-own-functions">
-<h2><span class="section-number">2.2. </span>Writing, Saving, and Importing Your Own Functions<a class="headerlink" href="#writing-saving-and-importing-your-own-functions" title="Permalink to this headline">#</a></h2>
-<p>The steps are as follows:</p>
-<ol class="simple">
-<li><p>Write your own function in a jupyter notebook to make sure it works</p></li>
-<li><p>Copy the function and paste into a text file using notepad</p></li>
-<li><p>Save the file with a “.py” extension</p></li>
-</ol>
-<section id="write-your-own-function-and-test-it">
-<h3><span class="section-number">2.2.1. </span>Write your own function and test it<a class="headerlink" href="#write-your-own-function-and-test-it" title="Permalink to this headline">#</a></h3>
-<p>Let’s say we want to find the volume of the unit cell in a given crystal structure and we are given the lattice parameters.  If this was a cubic unit cell of edge length “a”, then the volume would just be <span class="math notranslate nohighlight">\(a^3\)</span>.</p>
-<p>What if our unit cell was triclinic with parameters a, b, c, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, <span class="math notranslate nohighlight">\(\gamma\)</span> ?  This is where we need the metric tensor, g, defined as:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} g=\begin{bmatrix}a^{2} &amp; ab \cos{(\gamma)}&amp;ac \cos (\beta) \\ab \cos(\gamma) &amp; b^2 &amp; bc \cos (\alpha) \\ ac  \cos(\beta) &amp; bc \cos(\alpha)&amp;c^2 \end{bmatrix}\end{split}\]</div>
-<p>The unit cell volume will then just be the square root of the determinate of g,  <span class="math notranslate nohighlight">\(\sqrt{\det(g)}\)</span></p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>When dealing with matrices, you will want to use the numpy.linalg package.  You can read the documentation here: <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.linalg.html">https://numpy.org/doc/stable/reference/routines.linalg.html</a></p>
-</div>
+<p>We can test our layout by running the above codes without adding plots to our axes.  Let’s try the vertical layout example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s start by importing numpy.  We will need this for the functions: array, cos, det, and rad2deg</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We want to work out the form of our metric tensor using variables but the array needs numbers so we will </span>
-<span class="c1"># use a simple for loop to replace our variables with numbers.  This looks like:</span>
-
-<span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span> <span class="ow">in</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">]]:</span>
-    
-    <span class="nb">print</span><span class="p">(</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-        <span class="p">[</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">beta</span><span class="p">)],</span>
-        <span class="p">[</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)],</span> 
-        <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">beta</span><span class="p">),</span><span class="n">c</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">]</span>
-                <span class="p">])</span>
-        <span class="p">)</span>
-          
-<span class="c1"># I tried to place a lot of spacing above so you could see how the brackets all align but we don&#39;t need to do this.  </span>
-<span class="c1"># Below I&#39;ll remove most of the space.  </span>
-<span class="c1"># Also notice our output isn&#39;t quite right.  The cos(90) should be zero. What is wrong?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">((</span><span class="n">ax1</span><span class="p">),(</span><span class="n">ax2</span><span class="p">))</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.         -0.89614723 -1.34422085]
- [-0.89614723  4.         -2.6884417 ]
- [-1.34422085 -2.6884417   9.        ]]
-</pre></div>
+<img alt="../_images/05_closer_look_at_matplotlib_17_0.png" src="../_images/05_closer_look_at_matplotlib_17_0.png" />
 </div>
 </div>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Remember that trig functions expect radians not degrees so let’s use the <code class="docutils literal notranslate"><span class="pre">deg2rad()</span></code> function to convert.</p>
-</div>
+<p>or how about 2 rows of 3 plots horizontally…  Here we need to use a 2D list of axes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span> <span class="ow">in</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">]]:</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">gamma</span><span class="p">)),</span> <span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">beta</span><span class="p">))],</span> 
-                 <span class="p">[</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">gamma</span><span class="p">)),</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alpha</span><span class="p">))],</span> 
-                 <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">beta</span><span class="p">)),</span><span class="n">c</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alpha</span><span class="p">)),</span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">]]))</span>
-    
-<span class="c1"># notice our off diagonal terms in the output below are 10^-16.  This is zero within our floating point precision.  </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">((</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">),(</span><span class="n">ax4</span><span class="p">,</span> <span class="n">ax5</span><span class="p">,</span> <span class="n">ax6</span><span class="p">))</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.0000000e+00 1.2246468e-16 1.8369702e-16]
- [1.2246468e-16 4.0000000e+00 3.6739404e-16]
- [1.8369702e-16 3.6739404e-16 9.0000000e+00]]
-</pre></div>
+<img alt="../_images/05_closer_look_at_matplotlib_19_0.png" src="../_images/05_closer_look_at_matplotlib_19_0.png" />
 </div>
 </div>
-</div>
-<p>Next we want to find the <em>sqrt of the determinant of the gmatrix</em>. This is the unit cell volume. The det() function is in the subpackage linalg of numpy, i.e. <code class="docutils literal notranslate"><span class="pre">np.linalg.det()</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span> <span class="ow">in</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">]]:</span>
-    
-    <span class="n">gmatrix</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">gamma</span><span class="p">)),</span> <span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">beta</span><span class="p">))],</span> 
-                 <span class="p">[</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">gamma</span><span class="p">)),</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alpha</span><span class="p">))],</span> 
-                 <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">beta</span><span class="p">)),</span><span class="n">c</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alpha</span><span class="p">)),</span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">]])</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">gmatrix</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.0
-</pre></div>
-</div>
-</div>
-</div>
-<p>The above cells were just to test our code for the gmatrix and the volume output.  Now we just need to write this as a function and remove the “for” statement.  We can also add some information about our function.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Don’t forget to include all import statements needed for the function to work. Your function will be copied into its own file so it needs to be self contained.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Unit Cell Volume</span>
-
-<span class="sd">The following function calculates the volume of a unit cell of any crystal system </span>
-<span class="sd">given the lattice parameters a,b,c,alpha,beta,gamma</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="k">def</span> <span class="nf">vuc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span><span class="p">):</span>
-    <span class="n">gmatrix</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">gamma</span><span class="p">)),</span> <span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">beta</span><span class="p">))],</span> 
-                 <span class="p">[</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">gamma</span><span class="p">)),</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alpha</span><span class="p">))],</span> 
-                 <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">beta</span><span class="p">)),</span><span class="n">c</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alpha</span><span class="p">)),</span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">]])</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">gmatrix</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vuc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.999999999999993
-</pre></div>
-</div>
-</div>
-</div>
-<p>We could clean things up a little bit if we just import the functions we need from numpy.  Then we won’t need to include np. before each call.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Unit Cell Volume</span>
-
-<span class="sd">The following function calculates the volume of a unit cell of any crystal system </span>
-<span class="sd">given the lattice parameters a,b,c,alpha,beta,gamma</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">deg2rad</span><span class="p">,</span> <span class="n">sqrt</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">det</span>
-
-<span class="k">def</span> <span class="nf">vuc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">,</span><span class="n">gamma</span><span class="p">):</span>
-    <span class="n">g</span><span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">gamma</span><span class="p">)),</span> <span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">beta</span><span class="p">))],</span> 
-                 <span class="p">[</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">gamma</span><span class="p">)),</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alpha</span><span class="p">))],</span> 
-                 <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">beta</span><span class="p">)),</span><span class="n">c</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">alpha</span><span class="p">)),</span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">]])</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">det</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vuc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.999999999999993
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="copy-your-function-to-a-text-file-and-save-with-extension-py">
-<h3><span class="section-number">2.2.2. </span>Copy your function to a text file and save with extension “.py”<a class="headerlink" href="#copy-your-function-to-a-text-file-and-save-with-extension-py" title="Permalink to this headline">#</a></h3>
-<p>Download notepad++ <a class="reference external" href="https://notepad-plus-plus.org/downloads/">https://notepad-plus-plus.org/downloads/</a></p>
-<p>Now that we know the above function works, we can use a text editor (notepad++) to paste it into a text file with the extension “.py”.  I called my file: “my_func.py”.  Make sure you save the file in the same directory as the notebook in which you want to import it. You can also tell windows to always open *.py files with notepad++ to make it easier to edit later.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some text file editors will save your file as “.py.txt”.  In this case, you will have to go back in with your file explorer and delete the .txt extension.</p>
+<p>Did you play around with the figsize=() in the above codes?  I hope you did.  You can’t learn by being a passive reader.  You need to type out and experiment with the code as your read this textbook.</p>
 </div>
-<p>Here is the contents of my text file named “my_functions.py”:</p>
-<a class="reference internal image-reference" href="../_images/py_file_contents.png" id="id1"><img alt="../_images/py_file_contents.png" id="id1" src="../_images/py_file_contents.png" style="height: 550px;" /></a>
+<p>Now let’s add plots.  First we need to generate some data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> <span class="c1">#generate 50 random integers between 1 and 10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1">#generate 50 random integers between 1 and 4 and add to x</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#with numpy arrays we use different notation to slice elements as compared to pandas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4,  6],
+       [ 1,  3],
+       [ 1,  2],
+       [ 1,  3],
+       [10, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">axes1</span><span class="p">,</span> <span class="n">axes2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scatter: x versus y&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="n">axes2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span><span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">))</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequencies of x and y&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_right</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05_closer_look_at_matplotlib_23_0.png" src="../_images/05_closer_look_at_matplotlib_23_0.png" />
+</div>
+</div>
+<p><strong>So many things to tweak in the above code…</strong>  For example, it might be nice to move that legend in the second plot.  Currently, it is overlapping our bars.  Also, ‘edgecolor’ looks like an interesting option in the first plot.</p>
 </section>
-<section id="import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function">
-<h3><span class="section-number">2.2.3. </span>Import your *.py file into a new Jupyter notebook and test your function<a class="headerlink" href="#import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function" title="Permalink to this headline">#</a></h3>
-<p>Open a new notebook and import your function file.  In my case, the command would be <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">my_functions</span></code>.  After importing, go ahead and test your function. In my case I would run <code class="docutils literal notranslate"><span class="pre">my_functions.vuc(2,3,4,90,90,90)</span></code>.  Add another function to the same text file and test it.</p>
-<p>I could also import using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">my_functions</span> <span class="pre">as</span> <span class="pre">mf</span></code>.  Then I can shorten the code to use vuc().  Now I would run <code class="docutils literal notranslate"><span class="pre">mf.vuc(2,3,4,90,90,90)</span></code>.</p>
-<a class="reference internal image-reference" href="../_images/import_my_functions.png" id="id2"><img alt="../_images/import_my_functions.png" id="id2" src="../_images/import_my_functions.png" style="height: 300px;" /></a>
+<section id="advanced-subplot-layouts-with-subplot2grid">
+<h2><span class="section-number">5.3. </span>Advanced subplot layouts with <code class="docutils literal notranslate"><span class="pre">.subplot2grid()</span></code><a class="headerlink" href="#advanced-subplot-layouts-with-subplot2grid" title="Permalink to this headline">#</a></h2>
+<p>If you need more advanced layout beyond simple grids of graphs, then Matplotlib’s gridspec module allows for more subplot customization. Pyplot’s <strong>subplot2grid()</strong> interacts with this module.</p>
+<p>Say we want this setup:</p>
+<a class="reference internal image-reference" href="../_images/3114_05_layout.png" id="advanced-layout"><img alt="../_images/3114_05_layout.png" id="advanced-layout" src="../_images/3114_05_layout.png" style="height: 500px;" /></a>
+<p>Always think of the layout in terms of a regular grid.  The above layout could be obtained from a 3x2 grid where <strong>ax1</strong> spans 2 columns and 2 rows as shown below.</p>
+<a class="reference internal image-reference" href="../_images/3114_05_layout_grid.png" id="id1"><img alt="../_images/3114_05_layout_grid.png" id="id1" src="../_images/3114_05_layout_grid.png" style="height: 500px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gridsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># setup our 3 x 2 grid</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> <span class="c1">#overall size of figure</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># span 2 col and 2 rows</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1">#3rd row, 1st col</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1">#3rd row, 2nd col</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05_closer_look_at_matplotlib_31_0.png" src="../_images/05_closer_look_at_matplotlib_31_0.png" />
+</div>
+</div>
+</section>
+<section id="adding-data-to-our-layout">
+<h2><span class="section-number">5.4. </span>Adding Data to our Layout<a class="headerlink" href="#adding-data-to-our-layout" title="Permalink to this headline">#</a></h2>
+<p>We already <a class="reference external" href="#Data-File-for-Lesson">read California housing data</a> into variable “raw”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">housing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>housingMedianAge</th>
+      <th>totalRooms</th>
+      <th>totalBedrooms</th>
+      <th>population</th>
+      <th>households</th>
+      <th>medianIncome ($10,000)</th>
+      <th>medianHouseValue ($)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-122.23</td>
+      <td>37.88</td>
+      <td>41.0</td>
+      <td>880.0</td>
+      <td>129.0</td>
+      <td>322.0</td>
+      <td>126.0</td>
+      <td>8.3252</td>
+      <td>452600.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-122.22</td>
+      <td>37.86</td>
+      <td>21.0</td>
+      <td>7099.0</td>
+      <td>1106.0</td>
+      <td>2401.0</td>
+      <td>1138.0</td>
+      <td>8.3014</td>
+      <td>358500.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-122.24</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1467.0</td>
+      <td>190.0</td>
+      <td>496.0</td>
+      <td>177.0</td>
+      <td>7.2574</td>
+      <td>352100.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1274.0</td>
+      <td>235.0</td>
+      <td>558.0</td>
+      <td>219.0</td>
+      <td>5.6431</td>
+      <td>341300.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1627.0</td>
+      <td>280.0</td>
+      <td>565.0</td>
+      <td>259.0</td>
+      <td>3.8462</td>
+      <td>342200.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20635</th>
+      <td>-121.09</td>
+      <td>39.48</td>
+      <td>25.0</td>
+      <td>1665.0</td>
+      <td>374.0</td>
+      <td>845.0</td>
+      <td>330.0</td>
+      <td>1.5603</td>
+      <td>78100.0</td>
+    </tr>
+    <tr>
+      <th>20636</th>
+      <td>-121.21</td>
+      <td>39.49</td>
+      <td>18.0</td>
+      <td>697.0</td>
+      <td>150.0</td>
+      <td>356.0</td>
+      <td>114.0</td>
+      <td>2.5568</td>
+      <td>77100.0</td>
+    </tr>
+    <tr>
+      <th>20637</th>
+      <td>-121.22</td>
+      <td>39.43</td>
+      <td>17.0</td>
+      <td>2254.0</td>
+      <td>485.0</td>
+      <td>1007.0</td>
+      <td>433.0</td>
+      <td>1.7000</td>
+      <td>92300.0</td>
+    </tr>
+    <tr>
+      <th>20638</th>
+      <td>-121.32</td>
+      <td>39.43</td>
+      <td>18.0</td>
+      <td>1860.0</td>
+      <td>409.0</td>
+      <td>741.0</td>
+      <td>349.0</td>
+      <td>1.8672</td>
+      <td>84700.0</td>
+    </tr>
+    <tr>
+      <th>20639</th>
+      <td>-121.24</td>
+      <td>39.37</td>
+      <td>16.0</td>
+      <td>2785.0</td>
+      <td>616.0</td>
+      <td>1387.0</td>
+      <td>530.0</td>
+      <td>2.3886</td>
+      <td>89400.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>20640 rows × 9 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a function to add a textbox to our bottom to plots</span>
+<span class="k">def</span> <span class="nf">add_titlebox</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">.55</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span>
+    <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+    <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">),</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create layout</span>
+<span class="n">gridsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span> <span class="c1">#overall size of figure</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">#fill layout with plots</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Home value as a function of home age &amp; area population&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">sctr</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s2">&quot;housingMedianAge&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s2">&quot;population&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;medianHouseValue ($)&quot;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sctr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;$</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s2">&quot;housingMedianAge&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s2">&quot;population&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">add_titlebox</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span> <span class="s1">&#39;Histogram: home age&#39;</span><span class="p">)</span>
+<span class="n">add_titlebox</span><span class="p">(</span><span class="n">ax3</span><span class="p">,</span> <span class="s1">&#39;Histogram: area population (log scl.)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05_closer_look_at_matplotlib_36_0.png" src="../_images/05_closer_look_at_matplotlib_36_0.png" />
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We have seen this syntax before. For example, we import the numpy package using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>, and then to use a function within numpy (such as arange()) we would use <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>.</p>
+<p>I’m sure you noticed these new options in the scatter plot coding above:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;medianHouseValue ($)&quot;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn&#39;</span>
+</pre></div>
 </div>
-</section>
+<p>“c” is the color which can be a single value like ‘r’ for red or it can be a list of values that get mapped to a color scale defined by “cmap”.  Here the color map is ‘RdYlGn’ or Red, Yellow, Green and the c values are the mean house value for each point.</p>
+</div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">2.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <section id="problem-1">
-<span id="id3"></span><h3><span class="section-number">2.3.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
-<p>Open a new Jupyter notebook and import the data from the excel file Al7075_out.xlsx. Using matplotlib, plot stress (y) vs strain (x), label your axes, and use blue triangles for your data points. Your plot should look like:</p>
+<h3><span class="section-number">5.5.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<p>Create two blank plots (axes) named “ax1” and “ax2” layed out next to each other horizontally.</p>
+</section>
+<section id="problem-2">
+<h3><span class="section-number">5.5.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<p>Import the stress-strain data from the excel file <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=14uBqZM8ekl1RoFgx3nwCJM7fe9N144RI">Al7075_out.xlsx</a>. 1) Reproduce the plot below <a class="reference internal" href="02_importing_your_own_functions.html#problem-1"><span class="std std-ref">see your previous weeks homework</span></a>. 2) Create an additional scatter plot where the stress is plotted to a maximum strain of 0.0075.  3) Layout these two plots next to each other horizontally.  4) Add x,y axis labels and title each plot. Your title for plot 2 should be descriptive of this “initial” region.</p>
 <figure class="align-default" id="figure-example">
-<a class="reference internal image-reference" href="../_images/hw1_stress_strain_plot.png"><img alt="../_images/hw1_stress_strain_plot.png" src="../_images/hw1_stress_strain_plot.png" style="height: 350px;" /></a>
+<a class="reference internal image-reference" href="../_images/hw1_stress_strain_plot.png"><img alt="../_images/hw1_stress_strain_plot.png" src="../_images/hw1_stress_strain_plot.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Stress-Strain response for Al7075 in tension.</span><a class="headerlink" href="#figure-example" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Stress-Strain response for Al7075 in tension.</span><a class="headerlink" href="#figure-example" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="problem-2">
-<h3><span class="section-number">2.3.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
-<p>Write a function that takes the variables: (applied_load, initial_area, initial_length, and length_under_load) and returns the elastic modulus in units of GPa.  Your function should include a comment area that specifies the units that are expected for each variable.</p>
-</section>
 <section id="problem-3">
-<h3><span class="section-number">2.3.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
-<p>Copy the function from the previous problem into a text file and save with the extension “.py”.  Open a new notebook, import your .py file, and calculate the elastic modulus for a sample under an applied load of 5600 N resulting in a sample elongation of <span class="math notranslate nohighlight">\(7.35 \times 10^{-2}\)</span> mm. The initial sample diameter and length are 10 mm and 100 mm respectively.</p>
-</section>
-<section id="problem-4">
-<h3><span class="section-number">2.3.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
-<p>Write a function that uses the metric tensor to find the angle <span class="math notranslate nohighlight">\(\theta\)</span> in degrees between 3 atoms as shown for example below.  Your function should allow you to enter the fractional coordinates of the three atoms, [x1,y1,z1], [x2,y2,z2], and [x3,y3,z3], and the lattice parameters, a,b,c,alpha,beta,gamma.  You can use the numbers below to test your code.  The Oxygen - <span class="math notranslate nohighlight">\(Si_1\)</span> bond length will be 1.60674 <span class="math notranslate nohighlight">\(\mathring{A}\)</span> and the Oxygen - <span class="math notranslate nohighlight">\(Si_2\)</span> bond length will be 1.61035 <span class="math notranslate nohighlight">\(\mathring{A}\)</span>.</p>
-<a class="reference internal image-reference" href="../_images/hw1_gmatrix_problem.png" id="id4"><img alt="../_images/hw1_gmatrix_problem.png" class="align-center" id="id4" src="../_images/hw1_gmatrix_problem.png" style="height: 450px;" /></a>
-<p>The vector, <span class="math notranslate nohighlight">\(\overline{v1}\)</span>, connecting the <span class="math notranslate nohighlight">\(Si_2\)</span> and O atoms is given by <span class="math notranslate nohighlight">\(\overline{v1}=Si_2 - O = \left[x2,y2,z2\right]-\left[x1,y1,z1\right]=\left[x2-x1,y2-y1,z2-z1\right]\)</span></p>
-<p>The magnitude of this vector (i.e. the bond length) is given by <span class="math notranslate nohighlight">\(\mid\overline{v1}\mid=\sqrt{\overline{v1}\cdot \overline{\overline{g}} \cdot\overline{v1}}\)</span> or in matrix format:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mid\overline{v1}\mid=\sqrt{\begin{bmatrix}x2-x1 &amp; y2-y1 &amp; z2-z1 \end{bmatrix}\cdot\begin{bmatrix}g11&amp;g12&amp;g13\\g21&amp;g22&amp;g23\\g31&amp;g32&amp;g33 \end{bmatrix}\cdot\begin{bmatrix}x2-x1 \\ y2-y1 \\ z2-z1 \end{bmatrix}}\end{split}\]</div>
-<p>Now the cosine of the angle between the <span class="math notranslate nohighlight">\(Si_2\)</span> - O - <span class="math notranslate nohighlight">\(Si_1\)</span> atoms would be given by:</p>
-<div class="math notranslate nohighlight">
-\[\cos{\theta}=\frac{\overline{v1}\cdot \overline{\overline{g}} \cdot \overline{v2}}{\mid\overline{v1}\mid\ \mid\overline{v2}\mid}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\overline{v2}=Si_1 - O\)</span></p>
-<p>When performing your dot products of <span class="math notranslate nohighlight">\(\overline{v2}\)</span>, <span class="math notranslate nohighlight">\(\overline{\overline{g}}\)</span>, and <span class="math notranslate nohighlight">\(\overline{v1}\)</span>, you can use either of the two formats below. You do not need to worry about making a column versus row vector.  Just define your vector as [1,2,3] for example.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">),</span> <span class="n">C</span><span class="p">)</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">multi_dot</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">])</span>
-</pre></div>
-</div>
+<h3><span class="section-number">5.5.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<p>Use the data from the titanic given in the previous lesson, to create 6 plots in the following layout:</p>
+<figure class="align-default" id="plot-layout">
+<a class="reference internal image-reference" href="../_images/3114_05_6_plot_layout.png"><img alt="../_images/3114_05_6_plot_layout.png" src="../_images/3114_05_6_plot_layout.png" style="height: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">6 plot layout template.</span><a class="headerlink" href="#plot-layout" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Plot 1</strong>: Scatter plot of ‘number of passengers’(y) vs ‘Age of passenger’(x).  You might try grouping by age and using .count().<br />
+<strong>Plot 2</strong>: Histogram of the Age of people on board.  You can use something like: <code class="docutils literal notranslate"><span class="pre">ax2.hist(place</span> <span class="pre">your</span> <span class="pre">age</span> <span class="pre">data</span> <span class="pre">here,</span> <span class="pre">bins=30)</span></code>.  Play around with the bins number to see what looks best to you.<br />
+<strong>Plot 3 - 5</strong>:  Reproduce plots shown below for plots 3, 4, and 5.<br />
+<strong>Plot 6</strong>: Pie chart of the number of females in 1st, 2nd and 3rd class that survived. Include the percentages in each pie piece.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/3114_05_ticket_price_sex_pclass.png"><img alt="../_images/3114_05_ticket_price_sex_pclass.png" src="../_images/3114_05_ticket_price_sex_pclass.png" style="height: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">Reproduce for Problem 3 Plot 3</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/3114_05_passengers_survived_sex.png"><img alt="../_images/3114_05_passengers_survived_sex.png" src="../_images/3114_05_passengers_survived_sex.png" style="height: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">Reproduce for Problem 3 Plot 4</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/3114_05_pie_died_sex_class.png"><img alt="../_images/3114_05_pie_died_sex_class.png" src="../_images/3114_05_pie_died_sex_class.png" style="height: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Reproduce for Problem 3 Plot 5</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 </section>
@@ -1676,17 +1930,17 @@ if (typeof version == 'undefined') {
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="01_welcome_to_3114.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04_closer_look_at_pandas.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">1. </span>Welcome to MSE 3114</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Pandas DataFrames and Data Visualization</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="03_google_forms_and_pandas.html" title="next page">
+    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Google Forms and Pandas Data Import and Visualization</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
