@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="next" title="6. Selecting pixel coordinates from an image file" href="06_selecting_pixel_coordinates.html" />
     <link rel="prev" title="4. Pandas DataFrames and Data Visualization" href="04_closer_look_at_pandas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -171,6 +171,11 @@ const thebe_selector_output = ".output, .cell_output"
    5. matplotlib - Advanced Layouts
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_selecting_pixel_coordinates.html">
+   6. Selecting pixel coordinates from an image file
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -261,6 +266,24 @@ title="Launch on Binder"
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
 
       </li>
       
@@ -631,7 +654,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output text_html"><div id="eSBtmvsXhtti" data-shufflequestions="False"
+<div class="output text_html"><div id="XugFhVBQrXwK" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -793,7 +816,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionseSBtmvsXhtti=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
+}</style><script type="text/Javascript">var questionsXugFhVBQrXwK=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1527,7 +1550,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionseSBtmvsXhtti,  eSBtmvsXhtti);
+        show_questions(questionsXugFhVBQrXwK,  XugFhVBQrXwK);
         }
         </script>
 </div></div>
@@ -1569,11 +1592,11 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4,  6],
-       [ 1,  3],
-       [ 1,  2],
-       [ 1,  3],
-       [10, 12]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 5],
+       [7, 8],
+       [3, 6],
+       [1, 5],
+       [5, 9]])
 </pre></div>
 </div>
 </div>
@@ -1907,8 +1930,8 @@ if (typeof version == 'undefined') {
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "sgcorcoran/Python-for-MSE",
+            ref: "working",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1937,10 +1960,10 @@ if (typeof version == 'undefined') {
             <p class="prev-next-title"><span class="section-number">4. </span>Pandas DataFrames and Data Visualization</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <a class='right-next' id="next-link" href="06_selecting_pixel_coordinates.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Selecting pixel coordinates from an image file</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

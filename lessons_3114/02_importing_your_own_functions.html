@@ -173,6 +173,11 @@ const thebe_selector_output = ".output, .cell_output"
    5. matplotlib - Advanced Layouts
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_selecting_pixel_coordinates.html">
+   6. Selecting pixel coordinates from an image file
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -263,6 +268,24 @@ title="Launch on Binder"
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
 
       </li>
       
@@ -512,7 +535,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Click above to download the excel file needed for this exercise
 </pre></div>
 </div>
-<div class="output text_html"><div id="JPpsPwGotdhv" data-shufflequestions="False"
+<div class="output text_html"><div id="bZEAmtolDQYt" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -674,7 +697,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsJPpsPwGotdhv=[{"question": "Create a new Jupyter notebook and import the data from Al7075_out.xlsx (The link\n            above will allow you to download the file). \n            Plot stress vs strain (label your axes and use blue triangles for your data points).  \n            Were you successful?", "type": "multiple_choice", "answers": [{"code": "Yes", "correct": true, "feedback": "Awesome!"}, {"code": "No", "correct": false, "feedback": "Take a look at lesson 3 from 2114 located in Canvas. You won't need\n                    to do all of the manipulation we did in this lesson.  You just need to plot the\n                    correct columns in Al7075_out.xlsx. I've already added a column for stress and \n                    one for strain."}]}];
+}</style><script type="text/Javascript">var questionsbZEAmtolDQYt=[{"question": "Create a new Jupyter notebook and import the data from Al7075_out.xlsx (The link\n            above will allow you to download the file). \n            Plot stress vs strain (label your axes and use blue triangles for your data points).  \n            Were you successful?", "type": "multiple_choice", "answers": [{"code": "Yes", "correct": true, "feedback": "Awesome!"}, {"code": "No", "correct": false, "feedback": "Take a look at lesson 3 from 2114 located in Canvas. You won't need\n                    to do all of the manipulation we did in this lesson.  You just need to plot the\n                    correct columns in Al7075_out.xlsx. I've already added a column for stress and \n                    one for strain."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1408,7 +1431,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsJPpsPwGotdhv,  JPpsPwGotdhv);
+        show_questions(questionsbZEAmtolDQYt,  bZEAmtolDQYt);
         }
         </script>
 </div></div>
@@ -1653,8 +1676,8 @@ if (typeof version == 'undefined') {
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "sgcorcoran/Python-for-MSE",
+            ref: "working",
         },
         codeMirrorConfig: {
             theme: "abcdef",

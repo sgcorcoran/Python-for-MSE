@@ -173,6 +173,11 @@ const thebe_selector_output = ".output, .cell_output"
    5. matplotlib - Advanced Layouts
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_3114/06_selecting_pixel_coordinates.html">
+   6. Selecting pixel coordinates from an image file
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -263,6 +268,24 @@ title="Launch on Binder"
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
 
       </li>
       
@@ -755,8 +778,8 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "sgcorcoran/Python-for-MSE",
+            ref: "working",
         },
         codeMirrorConfig: {
             theme: "abcdef",
