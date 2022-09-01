@@ -27,35 +27,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script type="text/x-thebe-config">
-       {
-         requestKernel: true,
-         binderOptions: {
-           repo: "matplotlib/ipympl",
-           ref: "0.6.1",
-           repoProvider: "github",
-         },
-        }
-     </script>
-     <script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
-
-<button id="activateButton" style="width: 120px; height: 40px; font-size: 1.5em;">
-  Activate
-</button>
-<script>
-var bootstrapThebe = function() {
-    thebe.bootstrap();
-}
-document.querySelector("#activateButton").addEventListener('click', bootstrapThebe)
-</script>
-
-<pre data-executable="true" data-language="python">
-%matplotlib widget
-
-</pre>
-
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
@@ -580,8 +552,6 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> ipympl
 </pre></div>
 </div>
 </div>
@@ -591,7 +561,8 @@ title="Print to PDF"
 <p>The image below was a screen capture from google maps showing property lines for various tax parcels.  We would like to know the total acreage of this property.  We display an image by using <code class="docutils literal notranslate"><span class="pre">.subplots()</span></code> to create the figure and axes frame as we have done before but now we read an image <code class="docutils literal notranslate"><span class="pre">.imshow()</span></code> into the axes rather than plotting a set of data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> widget
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/3114_06_smith_creek.png&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 <span class="n">imgsize</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span>  <span class="c1">#will use this below contains (ypixels, xpixels, colordepth)</span>
@@ -601,9 +572,10 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "2872ef64ada64748a695b1112c81f04d"}
+{"model_id": "f64ad86e26804981b9e55999ad8c4452", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
+<a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="navigator"><img alt="../_images/smith_creek_1.png" class="align-center" id="navigator" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
 <p>If you move your mouse around on the image above, you will see the pixel coordinates for that location displayed at the bottom of the figure. The values in the brackets are the color code and opacity.  We won’t need these.  One of the things to notice is that when an image is read, the data is plotted from the top left corner, across the row, and then down to the next row.  When dealing with coordinates for plots, we expect the origin to be located in the bottom-left corner so we will need to correct this next week when we read an image file of a data plot.</p>
 </section>
 <section id="selecting-data-from-our-image">
@@ -622,11 +594,34 @@ title="Print to PDF"
 </div>
 </div>
 <p>After running the above code, it might look like nothing happened.  Scroll back up to our image, and use the mouse to click somewhere.  You should now see a title show up showing you the location of your click.  Now continue clicking a few points on the image.  After this we can take a look at the points stored in the variable “pos.”</p>
+<a class="reference internal image-reference" href="../_images/smith_creek_2.png" id="id1"><img alt="../_images/smith_creek_2.png" class="align-center" id="id1" src="../_images/smith_creek_2.png" style="height: 500px;" /></a>
 <p>Now re-execute the previous two cells to make a new interactive plot so you can reselect points because we also need the points for the scale bar in the image. Let’s reclick on all your boundary points and then when finished with these click on the two ends of the scale bar.  This way we can just pull the last two points off of our “pos” values for the calibration.  We also should turn our list into a numpy array to make indexing easier when performing calculations.  The first point that we select is going to become a common vertice as we break our polygon into triangles so choose wisely.  Also the boundary points need to be chosen in order as you “walk” around the boundary.</p>
 <p>The plot below labels the points as chosen so we can see the order in which they were selected.  Also shown is how the polygon formed will be broken up into triangles.  We will use these to find the total bounded area.  If you have any overlapping triangles, then choose your points again at a different starting location.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># take all points except last 2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[97.53271352771536, 716.9389926874768],
+ [31.26412199934971, 90.22745566207607],
+ [192.20212999680916, 37.212582439383596],
+ [387.2211279231423, 65.61340738011177],
+ [633.3616107427861, 59.93324239196613],
+ [705.3103672592973, 292.8200069059368],
+ [873.8219285742842, 484.05222817350614],
+ [915.4764718206854, 514.3464414436162],
+ [1042.333489889271, 826.7555157916255],
+ [1106.708693088255, 828.6489041210074]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># take all points except last 2</span>
 <span class="n">calibration_bar_ends</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span> <span class="c1"># take only last 2 points</span>
 <span class="n">calibration_bar_length</span><span class="o">=</span><span class="mi">100</span> <span class="c1">#feet</span>
 <span class="n">scale</span><span class="o">=</span><span class="n">calibration_bar_length</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1">#feet/pixel</span>
@@ -647,18 +642,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">calibration_bar_ends</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span> <span class="c1"># take only last 2 points</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">calibration_bar_length</span><span class="o">=</span><span class="mi">100</span> <span class="c1">#feet</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">scale</span><span class="o">=</span><span class="n">calibration_bar_length</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1">#feet/pixel</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># making a copy of the first point and adding to our list to close our polygon when plotting</span>
-
-<span class="ne">IndexError</span>: too many indices for array: array is 1-dimensional, but 2 were indexed
-</pre></div>
-</div>
+<img alt="../_images/06_selecting_pixel_coordinates_18_0.png" src="../_images/06_selecting_pixel_coordinates_18_0.png" />
 </div>
 </div>
 </section>
@@ -675,7 +659,6 @@ title="Print to PDF"
 <span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># making a copy of the first point and adding to our list to close our polygon when plotting</span>
 <span class="n">vert_pos</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
 <span class="n">tri_data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pts</span><span class="p">[</span><span class="n">vertices</span><span class="p">]</span> <span class="k">for</span> <span class="n">vertices</span> <span class="ow">in</span> <span class="n">vert_pos</span><span class="p">])</span>
-<span class="n">plot_base</span>
 <span class="n">fig1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/3114_06_smith_creek.png&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> 
@@ -687,9 +670,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ef2d290f8e4e43c1a4a1896a6336013b", "version_major": 2, "version_minor": 0}
-</script></div>
+<img alt="../_images/06_selecting_pixel_coordinates_20_0.png" src="../_images/06_selecting_pixel_coordinates_20_0.png" />
+</div>
 </div>
 <p>Area of a triangle given the <span class="math notranslate nohighlight">\(\left(x,y\right)\)</span> coordinates of the vertices <span class="math notranslate nohighlight">\(A,B,C\)</span> =</p>
 <div class="math notranslate nohighlight">
@@ -709,8 +691,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The area is approximately 914066 square feet
-The area is approximately 21.0 acres
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The area is approximately 954676 square feet
+The area is approximately 21.9 acres
 </pre></div>
 </div>
 </div>
@@ -728,7 +710,7 @@ The area is approximately 21.0 acres
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/3114_06_smith_creek.png&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 <span class="n">imgsize</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span>  <span class="c1">#will use this below contains (ypixels, xpixels, colordepth)</span>
@@ -745,8 +727,31 @@ The area is approximately 21.0 acres
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "0e634f96960b45919463195b8a567e57", "version_major": 2, "version_minor": 0}
+{"model_id": "87a70acb6fa848f58e2b15976ec47e96", "version_major": 2, "version_minor": 0}
 </script></div>
+</div>
+<a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="id2"><img alt="../_images/smith_creek_1.png" class="align-center" id="id2" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[29.630662779471038, 88.75061150009503],
+ [168.4974442950987, 40.918720089156636],
+ [299.6494046154137, 51.71946976259437],
+ [631.3867160138575, 57.891326718844425],
+ [657.6171080779206, 147.38325258447117],
+ [531.094040474793, 153.55510954072133],
+ [369.08279537322755, 187.5003228000969],
+ [187.01301516384905, 267.7344632313485],
+ [57.40401908259656, 329.45303279384973],
+ [1041.8152036044905, 823.2015892938593],
+ [1106.6197016451167, 824.7445535329218]]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -760,7 +765,6 @@ The area is approximately 21.0 acres
 <span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># making a copy of the first point and adding to our list to close our polygon when plotting</span>
 <span class="n">vert_pos</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
 <span class="n">tri_data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pts</span><span class="p">[</span><span class="n">vertices</span><span class="p">]</span> <span class="k">for</span> <span class="n">vertices</span> <span class="ow">in</span> <span class="n">vert_pos</span><span class="p">])</span>
-<span class="n">plot_base</span>
 <span class="n">fig1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/3114_06_smith_creek.png&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> 
@@ -775,7 +779,7 @@ The area is approximately 21.0 acres
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06_selecting_pixel_coordinates_24_0.png" src="../_images/06_selecting_pixel_coordinates_24_0.png" />
+<img alt="../_images/06_selecting_pixel_coordinates_29_0.png" src="../_images/06_selecting_pixel_coordinates_29_0.png" />
 </div>
 </div>
 </section>
