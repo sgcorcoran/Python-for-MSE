@@ -576,7 +576,7 @@ title="Print to PDF"
 </script></div>
 </div>
 <a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="navigator"><img alt="../_images/smith_creek_1.png" class="align-center" id="navigator" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
-<p>If you move your mouse around on the image above, you will see the pixel coordinates for that location displayed at the bottom of the figure. The values in the brackets are the color code and opacity.  We won’t need these.  One of the things to notice is that when an image is read, the data is plotted from the top left corner, across the row, and then down to the next row.  When dealing with coordinates for plots, we expect the origin to be located in the bottom-left corner so we will need to correct this next week when we read an image file of a data plot.</p>
+<p>If you execute the code above in your own notebook and move your mouse around on the image, you will see the pixel coordinates for that location displayed at the bottom of the figure. The values in the brackets are the color code and opacity.  We won’t need these.  One of the things to notice is that when an image is read, the data is plotted from the top left corner, across the row, and then down to the next row.  When dealing with coordinates for plots, we expect the origin to be located in the bottom-left corner so we will need to correct this next week when we read an image file of a data plot.</p>
 </section>
 <section id="selecting-data-from-our-image">
 <h2><span class="section-number">6.2. </span>Selecting data from our image<a class="headerlink" href="#selecting-data-from-our-image" title="Permalink to this headline">#</a></h2>
@@ -593,31 +593,42 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>After running the above code, it might look like nothing happened.  Scroll back up to our image, and use the mouse to click somewhere.  You should now see a title show up showing you the location of your click.  Now continue clicking a few points on the image.  After this we can take a look at the points stored in the variable “pos.”</p>
+<p>After running the above code, it might look like nothing happened.  Scroll back up to the image plotted previously, and use the mouse to click somewhere.  You should now see a title show up showing you the location of your click (as shown in the figure below).  Now continue clicking a few points on the image.  After this we can take a look at the points stored in the variable “pos.”</p>
 <a class="reference internal image-reference" href="../_images/smith_creek_2.png" id="id1"><img alt="../_images/smith_creek_2.png" class="align-center" id="id1" src="../_images/smith_creek_2.png" style="height: 500px;" /></a>
-<p>Now re-execute the previous two cells to make a new interactive plot so you can reselect points because we also need the points for the scale bar in the image. Let’s reclick on all your boundary points and then when finished with these click on the two ends of the scale bar.  This way we can just pull the last two points off of our “pos” values for the calibration.  We also should turn our list into a numpy array to make indexing easier when performing calculations.  The first point that we select is going to become a common vertice as we break our polygon into triangles so choose wisely.  Also the boundary points need to be chosen in order as you “walk” around the boundary.</p>
-<p>The plot below labels the points as chosen so we can see the order in which they were selected.  Also shown is how the polygon formed will be broken up into triangles.  We will use these to find the total bounded area.  If you have any overlapping triangles, then choose your points again at a different starting location.</p>
+<p>Now start over, re-executing the previous cells to make a new interactive plot so we can include calibration points for the image scale bar. Let’s reclick on all your boundary points and then when finished with these click on the two ends of the scale bar.  This way we can just pull the last two points off of our “pos” values for the calibration.  We also should turn our list into a numpy array to make indexing easier when performing calculations.  The first point that we select is going to become a common vertice as we break our polygon into triangles so choose wisely.  Also the boundary points need to be chosen in order as you “walk” around the boundary.</p>
+<p>The points that I chose are shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>  
+
+<span class="p">[[</span><span class="mf">97.53271352771536</span><span class="p">,</span> <span class="mf">716.9389926874768</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">31.26412199934971</span><span class="p">,</span> <span class="mf">90.22745566207607</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">192.20212999680916</span><span class="p">,</span> <span class="mf">37.212582439383596</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">387.2211279231423</span><span class="p">,</span> <span class="mf">65.61340738011177</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">633.3616107427861</span><span class="p">,</span> <span class="mf">59.93324239196613</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">705.3103672592973</span><span class="p">,</span> <span class="mf">292.8200069059368</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">873.8219285742842</span><span class="p">,</span> <span class="mf">484.05222817350614</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">915.4764718206854</span><span class="p">,</span> <span class="mf">514.3464414436162</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">1042.333489889271</span><span class="p">,</span> <span class="mf">826.7555157916255</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">1106.708693088255</span><span class="p">,</span> <span class="mf">828.6489041210074</span><span class="p">]]</span>
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[97.53271352771536, 716.9389926874768],
- [31.26412199934971, 90.22745566207607],
- [192.20212999680916, 37.212582439383596],
- [387.2211279231423, 65.61340738011177],
- [633.3616107427861, 59.93324239196613],
- [705.3103672592973, 292.8200069059368],
- [873.8219285742842, 484.05222817350614],
- [915.4764718206854, 514.3464414436162],
- [1042.333489889271, 826.7555157916255],
- [1106.708693088255, 828.6489041210074]]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment below to test code without selecting your own points</span>
+<span class="c1"># pos=[[97.53271352771536, 716.9389926874768],</span>
+<span class="c1">#  [31.26412199934971, 90.22745566207607],</span>
+<span class="c1">#  [192.20212999680916, 37.212582439383596],</span>
+<span class="c1">#  [387.2211279231423, 65.61340738011177],</span>
+<span class="c1">#  [633.3616107427861, 59.93324239196613],</span>
+<span class="c1">#  [705.3103672592973, 292.8200069059368],</span>
+<span class="c1">#  [873.8219285742842, 484.05222817350614],</span>
+<span class="c1">#  [915.4764718206854, 514.3464414436162],</span>
+<span class="c1">#  [1042.333489889271, 826.7555157916255],</span>
+<span class="c1">#  [1106.708693088255, 828.6489041210074]]</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>… and plotted on top of our previous image.  I’ve also numbered the points in the order that I selected them.  The last two points are on the ends of the scale bar and shown in red.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -635,14 +646,16 @@ title="Print to PDF"
 <span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/3114_06_smith_creek.png&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> 
 <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ko-&#39;</span><span class="p">)</span>
-<span class="p">[</span><span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">*</span><span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">calibration_bar_ends</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">calibration_bar_ends</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">*</span><span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">),</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="n">backgroundcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+<span class="p">[</span><span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">*</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)]</span><span class="o">+</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">),</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="n">backgroundcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 <span class="c1">#[ax2.plot(tri_data[i][:,0], tri_data[i][:,1], &#39;-&#39;) for i in np.arange(len(tri_data))]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06_selecting_pixel_coordinates_18_0.png" src="../_images/06_selecting_pixel_coordinates_18_0.png" />
+<img alt="../_images/06_selecting_pixel_coordinates_20_0.png" src="../_images/06_selecting_pixel_coordinates_20_0.png" />
 </div>
 </div>
 </section>
@@ -670,7 +683,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06_selecting_pixel_coordinates_20_0.png" src="../_images/06_selecting_pixel_coordinates_20_0.png" />
+<img alt="../_images/06_selecting_pixel_coordinates_22_0.png" src="../_images/06_selecting_pixel_coordinates_22_0.png" />
 </div>
 </div>
 <p>Area of a triangle given the <span class="math notranslate nohighlight">\(\left(x,y\right)\)</span> coordinates of the vertices <span class="math notranslate nohighlight">\(A,B,C\)</span> =</p>
@@ -731,24 +744,34 @@ The area is approximately 21.9 acres
 </script></div>
 </div>
 <a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="id2"><img alt="../_images/smith_creek_1.png" class="align-center" id="id2" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span>
+<p>cursor points that I used</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">29.630662779471038</span><span class="p">,</span> <span class="mf">88.75061150009503</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">168.4974442950987</span><span class="p">,</span> <span class="mf">40.918720089156636</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">299.6494046154137</span><span class="p">,</span> <span class="mf">51.71946976259437</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">631.3867160138575</span><span class="p">,</span> <span class="mf">57.891326718844425</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">657.6171080779206</span><span class="p">,</span> <span class="mf">147.38325258447117</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">531.094040474793</span><span class="p">,</span> <span class="mf">153.55510954072133</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">369.08279537322755</span><span class="p">,</span> <span class="mf">187.5003228000969</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">187.01301516384905</span><span class="p">,</span> <span class="mf">267.7344632313485</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">57.40401908259656</span><span class="p">,</span> <span class="mf">329.45303279384973</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">1041.8152036044905</span><span class="p">,</span> <span class="mf">823.2015892938593</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">1106.6197016451167</span><span class="p">,</span> <span class="mf">824.7445535329218</span><span class="p">]]</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[29.630662779471038, 88.75061150009503],
- [168.4974442950987, 40.918720089156636],
- [299.6494046154137, 51.71946976259437],
- [631.3867160138575, 57.891326718844425],
- [657.6171080779206, 147.38325258447117],
- [531.094040474793, 153.55510954072133],
- [369.08279537322755, 187.5003228000969],
- [187.01301516384905, 267.7344632313485],
- [57.40401908259656, 329.45303279384973],
- [1041.8152036044905, 823.2015892938593],
- [1106.6197016451167, 824.7445535329218]]
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment below to test code without selecting your own points</span>
+<span class="c1"># pos=[[29.630662779471038, 88.75061150009503],</span>
+<span class="c1">#  [168.4974442950987, 40.918720089156636],</span>
+<span class="c1">#  [299.6494046154137, 51.71946976259437],</span>
+<span class="c1">#  [631.3867160138575, 57.891326718844425],</span>
+<span class="c1">#  [657.6171080779206, 147.38325258447117],</span>
+<span class="c1">#  [531.094040474793, 153.55510954072133],</span>
+<span class="c1">#  [369.08279537322755, 187.5003228000969],</span>
+<span class="c1">#  [187.01301516384905, 267.7344632313485],</span>
+<span class="c1">#  [57.40401908259656, 329.45303279384973],</span>
+<span class="c1">#  [1041.8152036044905, 823.2015892938593],</span>
+<span class="c1">#  [1106.6197016451167, 824.7445535329218]]</span>
 </pre></div>
 </div>
 </div>
@@ -779,7 +802,7 @@ The area is approximately 21.9 acres
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06_selecting_pixel_coordinates_29_0.png" src="../_images/06_selecting_pixel_coordinates_29_0.png" />
+<img alt="../_images/06_selecting_pixel_coordinates_32_0.png" src="../_images/06_selecting_pixel_coordinates_32_0.png" />
 </div>
 </div>
 </section>
