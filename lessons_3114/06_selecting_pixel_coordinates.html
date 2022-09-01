@@ -572,7 +572,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "f64ad86e26804981b9e55999ad8c4452", "version_major": 2, "version_minor": 0}
+{"model_id": "3c2ced8fd2be466fb3a01bbc896fc7e1", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="navigator"><img alt="../_images/smith_creek_1.png" class="align-center" id="navigator" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
@@ -611,23 +611,6 @@ title="Print to PDF"
  <span class="p">[</span><span class="mf">1106.708693088255</span><span class="p">,</span> <span class="mf">828.6489041210074</span><span class="p">]]</span>
 </pre></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment below to test code without selecting your own points</span>
-<span class="c1"># pos=[[97.53271352771536, 716.9389926874768],</span>
-<span class="c1">#  [31.26412199934971, 90.22745566207607],</span>
-<span class="c1">#  [192.20212999680916, 37.212582439383596],</span>
-<span class="c1">#  [387.2211279231423, 65.61340738011177],</span>
-<span class="c1">#  [633.3616107427861, 59.93324239196613],</span>
-<span class="c1">#  [705.3103672592973, 292.8200069059368],</span>
-<span class="c1">#  [873.8219285742842, 484.05222817350614],</span>
-<span class="c1">#  [915.4764718206854, 514.3464414436162],</span>
-<span class="c1">#  [1042.333489889271, 826.7555157916255],</span>
-<span class="c1">#  [1106.708693088255, 828.6489041210074]]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>… and plotted on top of our previous image.  I’ve also numbered the points in the order that I selected them.  The last two points are on the ends of the scale bar and shown in red.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -637,7 +620,7 @@ title="Print to PDF"
 <span class="n">calibration_bar_length</span><span class="o">=</span><span class="mi">100</span> <span class="c1">#feet</span>
 <span class="n">scale</span><span class="o">=</span><span class="n">calibration_bar_length</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1">#feet/pixel</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="c1">#plt.close(fig=&#39;all&#39;)</span>
 <span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># making a copy of the first point and adding to our list to close our polygon when plotting</span>
 <span class="n">vert_pos</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
 <span class="n">tri_data</span><span class="o">=</span><span class="p">[</span><span class="n">pts</span><span class="p">[</span><span class="n">vertices</span><span class="p">]</span> <span class="k">for</span> <span class="n">vertices</span> <span class="ow">in</span> <span class="n">vert_pos</span><span class="p">]</span>
@@ -668,7 +651,7 @@ title="Print to PDF"
 <span class="n">calibration_bar_length</span><span class="o">=</span><span class="mi">100</span> <span class="c1">#feet</span>
 <span class="n">scale</span><span class="o">=</span><span class="n">calibration_bar_length</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1">#feet/pixel</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="c1">#plt.close(fig=&#39;all&#39;)</span>
 <span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># making a copy of the first point and adding to our list to close our polygon when plotting</span>
 <span class="n">vert_pos</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
 <span class="n">tri_data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pts</span><span class="p">[</span><span class="n">vertices</span><span class="p">]</span> <span class="k">for</span> <span class="n">vertices</span> <span class="ow">in</span> <span class="n">vert_pos</span><span class="p">])</span>
@@ -740,7 +723,7 @@ The area is approximately 21.9 acres
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "87a70acb6fa848f58e2b15976ec47e96", "version_major": 2, "version_minor": 0}
+{"model_id": "6d2f42abc3e842ff905fa7d6ce914619", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="id2"><img alt="../_images/smith_creek_1.png" class="align-center" id="id2" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
@@ -757,24 +740,6 @@ The area is approximately 21.9 acres
  <span class="p">[</span><span class="mf">1041.8152036044905</span><span class="p">,</span> <span class="mf">823.2015892938593</span><span class="p">],</span>
  <span class="p">[</span><span class="mf">1106.6197016451167</span><span class="p">,</span> <span class="mf">824.7445535329218</span><span class="p">]]</span>
 </pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment below to test code without selecting your own points</span>
-<span class="c1"># pos=[[29.630662779471038, 88.75061150009503],</span>
-<span class="c1">#  [168.4974442950987, 40.918720089156636],</span>
-<span class="c1">#  [299.6494046154137, 51.71946976259437],</span>
-<span class="c1">#  [631.3867160138575, 57.891326718844425],</span>
-<span class="c1">#  [657.6171080779206, 147.38325258447117],</span>
-<span class="c1">#  [531.094040474793, 153.55510954072133],</span>
-<span class="c1">#  [369.08279537322755, 187.5003228000969],</span>
-<span class="c1">#  [187.01301516384905, 267.7344632313485],</span>
-<span class="c1">#  [57.40401908259656, 329.45303279384973],</span>
-<span class="c1">#  [1041.8152036044905, 823.2015892938593],</span>
-<span class="c1">#  [1106.6197016451167, 824.7445535329218]]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
