@@ -834,6 +834,15 @@ The area is approximately 21.9 acres
 </section>
 <section id="problem-8">
 <h3><span class="section-number">6.5.8. </span>Problem 8<a class="headerlink" href="#problem-8" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I come across code in the lesson that looks confusing such as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vert_pos</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">tri_data</span><span class="o">=</span><span class="p">[</span><span class="n">pts</span><span class="p">[</span><span class="n">vertices</span><span class="p">]</span> <span class="k">for</span> <span class="n">vertices</span> <span class="ow">in</span> <span class="n">vert_pos</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Parts (b) through (e) below are examples of how I might simplify the above code and increase the complexity step by step until I understand what each part of <code class="docutils literal notranslate"><span class="pre">[[0,i+1,i+2]</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">np.arange(len(pts)-3)]</span></code> means.  This is how you want to stop and read the text in the lessons.</p>
+</div>
 <p>Using scratch paper, a pen, and <strong>your brain (no python!)</strong>, write out the output for the following:<br />
 (a) for loop</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var1</span><span class="o">=</span><span class="p">[]</span>
