@@ -14,7 +14,14 @@ parts:
   - caption: MSE 3114 Python for MSE II
     numbered: true
     chapters:
-    - file: lessons_3114/0_welcome_to_3114
-    - file: lessons_3114/1_importing_your_own_functions
-    - file: lessons_3114/2_load_google_form_data
-
+    - file: lessons_3114/01_welcome_to_3114
+    - file: lessons_3114/02_importing_your_own_functions
+    - file: lessons_3114/03_google_forms_and_pandas
+    - file: lessons_3114/04_closer_look_at_pandas
+    - file: lessons_3114/05_closer_look_at_matplotlib
+    - file: lessons_3114/06_selecting_pixel_coordinates
+  - caption: Appendix
+    numbered: true
+    chapters:
+    - file: lessons_3114/50_course_support_files
+    - file: lessons_3114/51_LinkedIn_Learning_Recommendations
