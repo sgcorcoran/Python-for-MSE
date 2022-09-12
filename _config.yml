@@ -5,11 +5,12 @@ title: "Python for MSE"
 author: Sean Corcoran
 logo: Horizontal_VT_Full_Color_RGB.jpg
 only_build_toc_files: true
-# exclude_patterns: [lessons_2114/*.md, data_for_practice/*] don't need if previous is true
+#exclude_patterns: [data_for_practice/*] 
 execute:
   execute_notebooks: auto
   exclude_patterns: 
       - '06_selecting_pixel_coord*'
+      - '07_digitizing_literature_plots*'
 parse:
   myst_enable_extensions: 
     - amsmath

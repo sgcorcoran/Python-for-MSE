@@ -20,6 +20,7 @@ parts:
     - file: lessons_3114/04_closer_look_at_pandas
     - file: lessons_3114/05_closer_look_at_matplotlib
     - file: lessons_3114/06_selecting_pixel_coordinates
+    - file: lessons_3114/07_digitizing_literature_plots_part_1
   - caption: Appendix
     numbered: true
     chapters:
