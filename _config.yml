@@ -11,6 +11,7 @@ execute:
   exclude_patterns: 
       - '06_selecting_pixel_coord*'
       - '07_digitizing_literature_plots*'
+      - '08_digitizing_literature_plots*'
 parse:
   myst_enable_extensions: 
     - amsmath
