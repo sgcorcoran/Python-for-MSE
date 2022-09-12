@@ -176,6 +176,11 @@ const thebe_selector_output = ".output, .cell_output"
    6. Selecting pixel coordinates from an image file
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_digitizing_literature_plots_part_1.html">
+   7. Estimating Data Values from Plots in the Literature (Part 1)
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -266,24 +271,6 @@ title="Launch on Binder"
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="headerbtn__text-container">Live Code</span>
-</button>
 
       </li>
       
@@ -654,7 +641,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output text_html"><div id="FnojONkhNTEm" data-shufflequestions="False"
+<div class="output text_html"><div id="BxiZwJRXKDkr" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -816,7 +803,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsFnojONkhNTEm=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
+}</style><script type="text/Javascript">var questionsBxiZwJRXKDkr=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1550,7 +1537,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsFnojONkhNTEm,  FnojONkhNTEm);
+        show_questions(questionsBxiZwJRXKDkr,  BxiZwJRXKDkr);
         }
         </script>
 </div></div>
@@ -1592,11 +1579,11 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 6],
-       [2, 5],
-       [1, 2],
-       [2, 5],
-       [7, 8]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2],
+       [ 2,  4],
+       [ 9, 13],
+       [ 9, 12],
+       [ 3,  6]])
 </pre></div>
 </div>
 </div>
@@ -1930,8 +1917,8 @@ if (typeof version == 'undefined') {
     {
         requestKernel: true,
         binderOptions: {
-            repo: "sgcorcoran/Python-for-MSE",
-            ref: "working",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1977,9 +1964,6 @@ if (typeof version == 'undefined') {
     By Sean Corcoran<br/>
   
       &copy; Copyright 2022.<br/>
-    <div class="extra_footer">
-      extra footer text goes here
-    </div>
 </p>
         </footer>
     </div>

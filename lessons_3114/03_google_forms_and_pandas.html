@@ -176,6 +176,11 @@ const thebe_selector_output = ".output, .cell_output"
    6. Selecting pixel coordinates from an image file
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_digitizing_literature_plots_part_1.html">
+   7. Estimating Data Values from Plots in the Literature (Part 1)
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -266,24 +271,6 @@ title="Launch on Binder"
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="headerbtn__text-container">Live Code</span>
-</button>
 
       </li>
       
@@ -686,7 +673,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Do you remember how to slice a DataFrame using .loc and .iloc?
 </pre></div>
 </div>
-<div class="output text_html"><div id="HiApgWOtROaK" data-shufflequestions="False"
+<div class="output text_html"><div id="lLIGZbvyfpRa" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -848,7 +835,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsHiApgWOtROaK=[{"question": "For the DataFrame above named `raw`, how would you select the 3rd column?", "type": "multiple_choice", "answers": [{"code": "raw.iloc[:,2]", "correct": true, "feedback": "Correct. We could have used .loc[] rather than .iloc[] but then we would need to use the full column name, i.e. raw.loc[:,\"If I have to choose between Pepsi and Coke, I prefer to drink Pepsi. \"].  By using .iloc[], we can slice by index number. Columns begin with the index 0 so the third column has index = 2 and the ':' means all rows. "}, {"code": "raw.iloc[:,3]", "correct": false, "feedback": "Remember the index of the first column is 0 not 1."}]}];
+}</style><script type="text/Javascript">var questionslLIGZbvyfpRa=[{"question": "For the DataFrame above named `raw`, how would you select the 3rd column?", "type": "multiple_choice", "answers": [{"code": "raw.iloc[:,2]", "correct": true, "feedback": "Correct. We could have used .loc[] rather than .iloc[] but then we would need to use the full column name, i.e. raw.loc[:,\"If I have to choose between Pepsi and Coke, I prefer to drink Pepsi. \"].  By using .iloc[], we can slice by index number. Columns begin with the index 0 so the third column has index = 2 and the ':' means all rows. "}, {"code": "raw.iloc[:,3]", "correct": false, "feedback": "Remember the index of the first column is 0 not 1."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1582,7 +1569,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsHiApgWOtROaK,  HiApgWOtROaK);
+        show_questions(questionslLIGZbvyfpRa,  lLIGZbvyfpRa);
         }
         </script>
 </div></div>
@@ -1823,43 +1810,43 @@ if (typeof version == 'undefined') {
   <tbody>
     <tr>
       <th>count</th>
-      <td>28.000000</td>
-      <td>28.000000</td>
-      <td>28.000000</td>
+      <td>43.000000</td>
+      <td>43.000000</td>
+      <td>43.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>1.500000</td>
-      <td>3.321429</td>
-      <td>3.428571</td>
+      <td>1.604651</td>
+      <td>3.069767</td>
+      <td>3.534884</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>1.232282</td>
-      <td>0.944911</td>
-      <td>1.033820</td>
+      <td>1.311842</td>
+      <td>1.142165</td>
+      <td>0.908920</td>
     </tr>
     <tr>
       <th>min</th>
       <td>0.000000</td>
-      <td>1.000000</td>
+      <td>0.000000</td>
       <td>1.000000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>0.750000</td>
+      <td>0.500000</td>
       <td>3.000000</td>
-      <td>3.000000</td>
+      <td>3.500000</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>1.000000</td>
-      <td>4.000000</td>
+      <td>3.000000</td>
       <td>4.000000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>2.000000</td>
+      <td>3.000000</td>
       <td>4.000000</td>
       <td>4.000000</td>
     </tr>
@@ -1880,9 +1867,9 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PepsiNotCoke          1.500000
-SweetTeaNotUnsweet    3.321429
-WaterNotAlmondMilk    3.428571
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PepsiNotCoke          1.604651
+SweetTeaNotUnsweet    3.069767
+WaterNotAlmondMilk    3.534884
 Name: mean, dtype: float64
 </pre></div>
 </div>
@@ -1895,9 +1882,9 @@ Name: mean, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PepsiNotCoke          1.500000
-SweetTeaNotUnsweet    3.321429
-WaterNotAlmondMilk    3.428571
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PepsiNotCoke          1.604651
+SweetTeaNotUnsweet    3.069767
+WaterNotAlmondMilk    3.534884
 dtype: float64
 </pre></div>
 </div>
@@ -1911,9 +1898,9 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WaterNotAlmondMilk    3.428571
-SweetTeaNotUnsweet    3.321429
-PepsiNotCoke          1.500000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WaterNotAlmondMilk    3.534884
+SweetTeaNotUnsweet    3.069767
+PepsiNotCoke          1.604651
 dtype: float64
 </pre></div>
 </div>
@@ -2084,8 +2071,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-6.344409644902455
-8.581686416298982e-07
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-7.864527381622978
+8.658030462197927e-10
 </pre></div>
 </div>
 </div>
@@ -2100,8 +2087,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3983965248170263
-0.6934709751047783
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.0987673361786894
+0.041889394228187396
 </pre></div>
 </div>
 </div>
@@ -2292,8 +2279,8 @@ dtype: float64
     {
         requestKernel: true,
         binderOptions: {
-            repo: "sgcorcoran/Python-for-MSE",
-            ref: "working",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -2339,9 +2326,6 @@ dtype: float64
     By Sean Corcoran<br/>
   
       &copy; Copyright 2022.<br/>
-    <div class="extra_footer">
-      extra footer text goes here
-    </div>
 </p>
         </footer>
     </div>
