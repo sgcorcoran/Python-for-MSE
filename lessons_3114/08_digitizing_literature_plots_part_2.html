@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>8. Estimating Data Values from Plots in the Literature (Part 2) &#8212; Python for MSE</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="prev" title="7. Estimating Data Values from Plots in the Literature (Part 1)" href="07_digitizing_literature_plots_part_1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Virginia Tech MSE 3114 Fall 2022</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for MSE</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to MSE 3114 Math Programming for Materials Science and Engineering II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 2114 Python for MSE I
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/1_getting_started.html">
+   1. Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/2_Intro_Jupyter.html">
+   2. Intro to the Jupyter Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/3_working_with_data.html">
+   3. Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/4_temp.html">
+   4. 2114 … under development
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 3114 Python for MSE II
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_welcome_to_3114.html">
+   1. Welcome to MSE 3114
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_importing_your_own_functions.html">
+   2. Importing Data from Files &amp; Importing Your Own Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_google_forms_and_pandas.html">
+   3. Google Forms and Pandas Data Import and Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_closer_look_at_pandas.html">
+   4. Pandas DataFrames and Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_closer_look_at_matplotlib.html">
+   5. matplotlib - Advanced Layouts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_selecting_pixel_coordinates.html">
+   6. Selecting pixel coordinates from an image file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_digitizing_literature_plots_part_1.html">
+   7. Estimating Data Values from Plots in the Literature (Part 1)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Estimating Data Values from Plots in the Literature (Part 2)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50_course_support_files.html">
+   1. MSE 3114 Data Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">
+   2. LinkedIn Learning Recommendations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52_time_saving_tips.html">
+   3. Time Saving Tips &amp; Tricks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/08_digitizing_literature_plots_part_2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lessons_3114/08_digitizing_literature_plots_part_2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-solution-for-transformation-matrix-and-offset">
+   8.1. General solution for transformation matrix and offset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-new-functions-selectdata-and-cal">
+   8.2. Write new functions
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     selectdata()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cal()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-the-functions-selectdata-and-cal">
+   8.3. Test the functions
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     selectdata()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cal()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   8.4. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     8.4.1. Problem 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2">
+     8.4.2. Problem 2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Estimating Data Values from Plots in the Literature (Part 2)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-solution-for-transformation-matrix-and-offset">
+   8.1. General solution for transformation matrix and offset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-new-functions-selectdata-and-cal">
+   8.2. Write new functions
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     selectdata()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cal()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-the-functions-selectdata-and-cal">
+   8.3. Test the functions
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     selectdata()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cal()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   8.4. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     8.4.1. Problem 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2">
+     8.4.2. Problem 2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="estimating-data-values-from-plots-in-the-literature-part-2">
+<h1><span class="section-number">8. </span>Estimating Data Values from Plots in the Literature (Part 2)<a class="headerlink" href="#estimating-data-values-from-plots-in-the-literature-part-2" title="Permalink to this headline">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>After completing this lesson, you should be able to:<br />
+<strong>Part 1 (last lesson):</strong></p>
+<ol class="simple">
+<li><p>open an image file into an interactive widget e.g. screen capture of a data plot from the literature,</p></li>
+<li><p>find the pixel coordinates of the data points in the plot,</p></li>
+<li><p>transform the pixel coordinates into plot coordinates correcting for any skew or rotation caused by copying the original paper on a copy machine, and</p></li>
+<li><p>replot the data and compare to original.</p></li>
+</ol>
+<p><strong>Part 2 (this lesson):</strong></p>
+<ol class="simple">
+<li><p>write a function to select points from an image file,</p></li>
+<li><p>find a general solution for our calibration function so we can eliminate the need to setup and solve 6 equations each time we use the convert function,</p></li>
+<li><p>write a function to convert pixel points to plot units, and</p></li>
+<li><p>perform curve fitting using <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span> <span class="pre">import</span> <span class="pre">curve_fit</span></code></p></li>
+</ol>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">solve</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Matrix</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="general-solution-for-transformation-matrix-and-offset">
+<h2><span class="section-number">8.1. </span>General solution for transformation matrix and offset<a class="headerlink" href="#general-solution-for-transformation-matrix-and-offset" title="Permalink to this headline">#</a></h2>
+<p>Recall the general formula for transforming points from one coordinate system to another from the previous lesson:  <span class="math notranslate nohighlight">\(m \cdot \ (pixel\ coord - \text{pixel offset}) = plot\ values\)</span> where <span class="math notranslate nohighlight">\(m\)</span> is the transformation matrix. In matrix notation, we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}m11 &amp; m12 \\m21 &amp; m22 \end{bmatrix}\cdot \left( \left[\begin{array}{c}pixX\\ pixY\end{array}\right] - \left[\begin{array}{c}Ox\\ Oy\end{array}\right]\right)=\left[\begin{array}{c}Xvalue\\ Yvalue\end{array}\right]\end{split}\]</div>
+<p>Here we are going to solve for our unknowns, <em>m11, m12, m21, m22, Ox,</em> and <em>Oy</em> for a general image point <em>[pixX, pixY]</em> and its corresponding plot value <em>[X, Y]</em>. Recall that we need three sets of points in order to solve.  We will label these <em>[pixX1, pixY1], [pixX2, pixY2], [pixX3, pixY3]</em> and corresponding values <em>[X1,Y1}, [X2,Y2}, [X3,Y3}</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the symbols in our equations</span>
+<span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">Ox</span><span class="p">,</span> <span class="n">Oy</span><span class="p">,</span> <span class="n">pixX1</span><span class="p">,</span><span class="n">pixY1</span><span class="p">,</span><span class="n">pixX2</span><span class="p">,</span><span class="n">pixY2</span><span class="p">,</span><span class="n">pixX3</span><span class="p">,</span><span class="n">pixY3</span><span class="p">,</span><span class="n">X1</span><span class="p">,</span><span class="n">Y1</span><span class="p">,</span><span class="n">X2</span><span class="p">,</span><span class="n">Y2</span><span class="p">,</span><span class="n">X3</span><span class="p">,</span><span class="n">Y3</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;m11, m12, m21, m22, Ox, Oy,pixX1,pixY1,pixX2,pixY2,pixX3,pixY3,X1,Y1,X2,Y2,X3,Y3&#39;</span><span class="p">)</span>
+<span class="c1"># define transformation matrix and offset matrix</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">],[</span><span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">]])</span>
+<span class="n">offset</span><span class="o">=</span><span class="n">Matrix</span><span class="p">([</span><span class="n">Ox</span><span class="p">,</span><span class="n">Oy</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Our general equations: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eq1 = &#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="o">:=</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">Matrix</span><span class="p">([</span><span class="n">pixX1</span><span class="p">,</span><span class="n">pixY1</span><span class="p">])</span><span class="o">-</span><span class="n">offset</span><span class="p">),</span><span class="n">Matrix</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span><span class="n">Y1</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eq2 = &#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq2</span><span class="o">:=</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">Matrix</span><span class="p">([</span><span class="n">pixX2</span><span class="p">,</span><span class="n">pixY2</span><span class="p">])</span><span class="o">-</span><span class="n">offset</span><span class="p">),</span><span class="n">Matrix</span><span class="p">([</span><span class="n">X2</span><span class="p">,</span><span class="n">Y2</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eq3 = &#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq3</span><span class="o">:=</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">Matrix</span><span class="p">([</span><span class="n">pixX3</span><span class="p">,</span><span class="n">pixY3</span><span class="p">])</span><span class="o">-</span><span class="n">offset</span><span class="p">),</span><span class="n">Matrix</span><span class="p">([</span><span class="n">X3</span><span class="p">,</span><span class="n">Y3</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our general equations: 
+
+eq1 = 
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}m_{11} \left(- Ox + pixX_{1}\right) + m_{12} \left(- Oy + pixY_{1}\right)\\m_{21} \left(- Ox + pixX_{1}\right) + m_{22} \left(- Oy + pixY_{1}\right)\end{matrix}\right] = \left[\begin{matrix}X_{1}\\Y_{1}\end{matrix}\right]\end{split}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eq2 = 
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}m_{11} \left(- Ox + pixX_{2}\right) + m_{12} \left(- Oy + pixY_{2}\right)\\m_{21} \left(- Ox + pixX_{2}\right) + m_{22} \left(- Oy + pixY_{2}\right)\end{matrix}\right] = \left[\begin{matrix}X_{2}\\Y_{2}\end{matrix}\right]\end{split}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eq3 = 
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}m_{11} \left(- Ox + pixX_{3}\right) + m_{12} \left(- Oy + pixY_{3}\right)\\m_{21} \left(- Ox + pixX_{3}\right) + m_{22} \left(- Oy + pixY_{3}\right)\end{matrix}\right] = \left[\begin{matrix}X_{3}\\Y_{3}\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> The general solution: &#39;</span><span class="p">)</span>
+<span class="n">sol</span><span class="o">=</span><span class="n">solve</span><span class="p">([</span><span class="n">eq1</span><span class="p">,</span><span class="n">eq2</span><span class="p">,</span><span class="n">eq3</span><span class="p">],</span> <span class="p">[</span><span class="n">m11</span><span class="p">,</span><span class="n">m12</span><span class="p">,</span><span class="n">m21</span><span class="p">,</span><span class="n">m22</span><span class="p">,</span><span class="n">Ox</span><span class="p">,</span><span class="n">Oy</span><span class="p">])</span>
+<span class="p">[</span><span class="n">m_11</span><span class="p">,</span><span class="n">m_12</span><span class="p">,</span><span class="n">m_21</span><span class="p">,</span><span class="n">m_22</span><span class="p">,</span><span class="n">O_x</span><span class="p">,</span><span class="n">O_y</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+ 
+<span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">Matrix</span><span class="p">([</span><span class="n">m11</span><span class="p">,</span><span class="n">m12</span><span class="p">,</span><span class="n">m21</span><span class="p">,</span><span class="n">m22</span><span class="p">,</span><span class="n">Ox</span><span class="p">,</span><span class="n">Oy</span><span class="p">]),</span><span class="n">Matrix</span><span class="p">([</span><span class="n">m_11</span><span class="p">,</span><span class="n">m_12</span><span class="p">,</span><span class="n">m_21</span><span class="p">,</span><span class="n">m_22</span><span class="p">,</span><span class="n">O_x</span><span class="p">,</span><span class="n">O_y</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> The general solution: 
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}m_{11}\\m_{12}\\m_{21}\\m_{22}\\Ox\\Oy\end{matrix}\right] = \left[\begin{matrix}\frac{X_{1} pixY_{2} - X_{1} pixY_{3} - X_{2} pixY_{1} + X_{2} pixY_{3} + X_{3} pixY_{1} - X_{3} pixY_{2}}{pixX_{1} pixY_{2} - pixX_{1} pixY_{3} - pixX_{2} pixY_{1} + pixX_{2} pixY_{3} + pixX_{3} pixY_{1} - pixX_{3} pixY_{2}}\\- \frac{X_{1} pixX_{2} - X_{1} pixX_{3} - X_{2} pixX_{1} + X_{2} pixX_{3} + X_{3} pixX_{1} - X_{3} pixX_{2}}{pixX_{1} pixY_{2} - pixX_{1} pixY_{3} - pixX_{2} pixY_{1} + pixX_{2} pixY_{3} + pixX_{3} pixY_{1} - pixX_{3} pixY_{2}}\\\frac{Y_{1} pixY_{2} - Y_{1} pixY_{3} - Y_{2} pixY_{1} + Y_{2} pixY_{3} + Y_{3} pixY_{1} - Y_{3} pixY_{2}}{pixX_{1} pixY_{2} - pixX_{1} pixY_{3} - pixX_{2} pixY_{1} + pixX_{2} pixY_{3} + pixX_{3} pixY_{1} - pixX_{3} pixY_{2}}\\- \frac{Y_{1} pixX_{2} - Y_{1} pixX_{3} - Y_{2} pixX_{1} + Y_{2} pixX_{3} + Y_{3} pixX_{1} - Y_{3} pixX_{2}}{pixX_{1} pixY_{2} - pixX_{1} pixY_{3} - pixX_{2} pixY_{1} + pixX_{2} pixY_{3} + pixX_{3} pixY_{1} - pixX_{3} pixY_{2}}\\\frac{X_{1} Y_{2} pixX_{3} - X_{1} Y_{3} pixX_{2} - X_{2} Y_{1} pixX_{3} + X_{2} Y_{3} pixX_{1} + X_{3} Y_{1} pixX_{2} - X_{3} Y_{2} pixX_{1}}{X_{1} Y_{2} - X_{1} Y_{3} - X_{2} Y_{1} + X_{2} Y_{3} + X_{3} Y_{1} - X_{3} Y_{2}}\\\frac{X_{1} Y_{2} pixY_{3} - X_{1} Y_{3} pixY_{2} - X_{2} Y_{1} pixY_{3} + X_{2} Y_{3} pixY_{1} + X_{3} Y_{1} pixY_{2} - X_{3} Y_{2} pixY_{1}}{X_{1} Y_{2} - X_{1} Y_{3} - X_{2} Y_{1} + X_{2} Y_{3} + X_{3} Y_{1} - X_{3} Y_{2}}\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+</section>
+<section id="write-new-functions-selectdata-and-cal">
+<h2><span class="section-number">8.2. </span>Write new functions <code class="docutils literal notranslate"><span class="pre">selectdata()</span></code> and <code class="docutils literal notranslate"><span class="pre">cal()</span></code><a class="headerlink" href="#write-new-functions-selectdata-and-cal" title="Permalink to this headline">#</a></h2>
+<p>Now we take our code for converting pixel points to plot coordinates from the previous lesson and eliminate the solve step by directly defining our calibration variables with those above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>    
+
+<span class="k">def</span> <span class="nf">cal</span><span class="p">(</span><span class="n">pixpts</span><span class="p">,</span> <span class="n">plotpts</span><span class="p">,</span> <span class="n">datatoconvert</span><span class="p">):</span>    
+    <span class="sd">&#39;&#39;&#39; </span>
+<span class="sd">        Needs &quot;import numpy as np&quot;</span>
+<span class="sd">        pixpts = list of three pixel points (typically along axes)</span>
+<span class="sd">        plotpts = list of three points corresponding to pixpts but in plot units</span>
+<span class="sd">        datatoconvert = list of pixel points to convert to plot coordinates</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">xpx1</span><span class="p">,</span> <span class="n">ypx1</span> <span class="o">=</span> <span class="n">pixpts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">plotpts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">xpx2</span><span class="p">,</span> <span class="n">ypx2</span> <span class="o">=</span> <span class="n">pixpts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">plotpts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">xpx3</span><span class="p">,</span> <span class="n">ypx3</span> <span class="o">=</span> <span class="n">pixpts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span> <span class="o">=</span> <span class="n">plotpts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1"># general solution for calibration constants</span>
+    <span class="n">m11</span><span class="o">=</span><span class="p">(</span><span class="n">x1</span><span class="o">*</span><span class="n">ypx2</span> <span class="o">-</span> <span class="n">x1</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">-</span> <span class="n">x2</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">+</span> <span class="n">x2</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">+</span> <span class="n">x3</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">-</span> <span class="n">x3</span><span class="o">*</span><span class="n">ypx2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xpx1</span><span class="o">*</span><span class="n">ypx2</span> <span class="o">-</span> <span class="n">xpx1</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">-</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">+</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">+</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">-</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">ypx2</span><span class="p">)</span>
+    <span class="n">m12</span><span class="o">=-</span><span class="p">(</span><span class="n">x1</span><span class="o">*</span><span class="n">xpx2</span> <span class="o">-</span> <span class="n">x1</span><span class="o">*</span><span class="n">xpx3</span> <span class="o">-</span> <span class="n">x2</span><span class="o">*</span><span class="n">xpx1</span> <span class="o">+</span> <span class="n">x2</span><span class="o">*</span><span class="n">xpx3</span> <span class="o">+</span> <span class="n">x3</span><span class="o">*</span><span class="n">xpx1</span> <span class="o">-</span> <span class="n">x3</span><span class="o">*</span><span class="n">xpx2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xpx1</span><span class="o">*</span><span class="n">ypx2</span> <span class="o">-</span> <span class="n">xpx1</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">-</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">+</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">+</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">-</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">ypx2</span><span class="p">)</span>
+    <span class="n">m21</span><span class="o">=</span><span class="p">(</span><span class="n">y1</span><span class="o">*</span><span class="n">ypx2</span> <span class="o">-</span> <span class="n">y1</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">-</span> <span class="n">y2</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">+</span> <span class="n">y2</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">+</span> <span class="n">y3</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">-</span> <span class="n">y3</span><span class="o">*</span><span class="n">ypx2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xpx1</span><span class="o">*</span><span class="n">ypx2</span> <span class="o">-</span> <span class="n">xpx1</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">-</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">+</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">+</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">-</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">ypx2</span><span class="p">)</span>
+    <span class="n">m22</span><span class="o">=-</span><span class="p">(</span><span class="o">-</span><span class="n">xpx1</span><span class="o">*</span><span class="n">y2</span> <span class="o">+</span> <span class="n">xpx1</span><span class="o">*</span><span class="n">y3</span> <span class="o">+</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">y1</span> <span class="o">-</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">y3</span> <span class="o">-</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">y1</span> <span class="o">+</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">y2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">xpx1</span><span class="o">*</span><span class="n">ypx2</span> <span class="o">-</span> <span class="n">xpx1</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">-</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">+</span> <span class="n">xpx2</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">+</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">-</span> <span class="n">xpx3</span><span class="o">*</span><span class="n">ypx2</span><span class="p">)</span>
+    <span class="n">Ox</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">x1</span><span class="o">*</span><span class="n">xpx2</span><span class="o">*</span><span class="n">y3</span> <span class="o">+</span> <span class="n">x1</span><span class="o">*</span><span class="n">xpx3</span><span class="o">*</span><span class="n">y2</span> <span class="o">+</span> <span class="n">x2</span><span class="o">*</span><span class="n">xpx1</span><span class="o">*</span><span class="n">y3</span> <span class="o">-</span> <span class="n">x2</span><span class="o">*</span><span class="n">xpx3</span><span class="o">*</span><span class="n">y1</span> <span class="o">-</span> <span class="n">x3</span><span class="o">*</span><span class="n">xpx1</span><span class="o">*</span><span class="n">y2</span> <span class="o">+</span> <span class="n">x3</span><span class="o">*</span><span class="n">xpx2</span><span class="o">*</span><span class="n">y1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x1</span><span class="o">*</span><span class="n">y2</span> <span class="o">-</span> <span class="n">x1</span><span class="o">*</span><span class="n">y3</span> <span class="o">-</span> <span class="n">x2</span><span class="o">*</span><span class="n">y1</span> <span class="o">+</span> <span class="n">x2</span><span class="o">*</span><span class="n">y3</span> <span class="o">+</span> <span class="n">x3</span><span class="o">*</span><span class="n">y1</span> <span class="o">-</span> <span class="n">x3</span><span class="o">*</span><span class="n">y2</span><span class="p">)</span>
+    <span class="n">Oy</span><span class="o">=</span><span class="p">(</span><span class="n">x1</span><span class="o">*</span><span class="n">y2</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">-</span> <span class="n">x1</span><span class="o">*</span><span class="n">y3</span><span class="o">*</span><span class="n">ypx2</span> <span class="o">-</span> <span class="n">x2</span><span class="o">*</span><span class="n">y1</span><span class="o">*</span><span class="n">ypx3</span> <span class="o">+</span> <span class="n">x2</span><span class="o">*</span><span class="n">y3</span><span class="o">*</span><span class="n">ypx1</span> <span class="o">+</span> <span class="n">x3</span><span class="o">*</span><span class="n">y1</span><span class="o">*</span><span class="n">ypx2</span> <span class="o">-</span> <span class="n">x3</span><span class="o">*</span><span class="n">y2</span><span class="o">*</span><span class="n">ypx1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x1</span><span class="o">*</span><span class="n">y2</span> <span class="o">-</span> <span class="n">x1</span><span class="o">*</span><span class="n">y3</span> <span class="o">-</span> <span class="n">x2</span><span class="o">*</span><span class="n">y1</span> <span class="o">+</span> <span class="n">x2</span><span class="o">*</span><span class="n">y3</span> <span class="o">+</span> <span class="n">x3</span><span class="o">*</span><span class="n">y1</span> <span class="o">-</span> <span class="n">x3</span><span class="o">*</span><span class="n">y2</span><span class="p">)</span>
+    
+    <span class="c1"># define our calibrated transf matrix, m_cal, and our calibrated offset, offset_cal</span>
+    <span class="n">m_cal</span><span class="o">=</span><span class="p">[[</span><span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">],[</span><span class="n">m21</span><span class="p">,</span><span class="n">m22</span><span class="p">]]</span>
+    <span class="n">offset_cal</span><span class="o">=</span><span class="p">[</span><span class="n">Ox</span><span class="p">,</span> <span class="n">Oy</span><span class="p">]</span>
+    
+    <span class="c1"># return as numpy arrays</span>
+    <span class="c1"># return(np.array(m_cal), np.array(offset_cal))</span>
+    <span class="n">plot_data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">m_cal</span><span class="p">,</span> <span class="n">point</span><span class="o">-</span><span class="n">offset_cal</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">datatoconvert</span><span class="p">)])</span>
+
+    <span class="k">return</span><span class="p">(</span><span class="n">plot_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function to get more information about other functions.  If you want to include help in your own functions, include your message between triple quotes as shown above in the function <code class="docutils literal notranslate"><span class="pre">cal()</span></code>.  Then type <code class="docutils literal notranslate"><span class="pre">help(cal)</span></code> and you should see the following output:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Help on function cal in module __main__</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="l l-Scalar l-Scalar-Plain">cal(pixpts, plotpts, datatoconvert)</span><span class="w">  </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Needs &quot;import numpy as np&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">pixpts = list of three pixel points (typically along axes)</span><span class="w">  </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">plotpts = list of three points corresponding to pixpts but in plot units</span><span class="w">  </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">datatoconvert = list of pixel points to convert to plot coordinates</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<p>Now lets put our code for selecting pixel points from last lesson into a function called <code class="docutils literal notranslate"><span class="pre">selectdata</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">selectdata</span><span class="p">(</span><span class="n">path_to_image_file</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; </span>
+<span class="sd">        path_to_image_file example: r&quot;C:/Users/Sean/images&quot; </span>
+<span class="sd">        filename example: &quot;xrd data.png&quot;  </span>
+<span class="sd">        pixel data stored in global variable &quot;pixel_positions&quot;</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+    <span class="o">%</span><span class="k">matplotlib</span> widget
+
+    <span class="n">image_file</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_image_file</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    
+    <span class="c1">#now we have 1 row and 2 columns i.e. 2 figures in a row</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+    <span class="c1"># gridspec_kw={&#39;width_ratios&#39;: [2, 2]} can be used above if needed</span>
+
+    <span class="c1"># turn off the x, y axis on the image - the axis doesn&#39;t make sense for an image</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">img</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span> <span class="c1">#matplotlib</span>
+    <span class="c1"># .add_axes([left, bottom, width, height])</span>
+    <span class="n">image_axis</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.015</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span> <span class="c1">#zorder places figure on top of anything else in axes</span>
+    <span class="n">image_axis</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">image_axis</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># recall from part 1 that image files have coord in left top corner so we need to correct by the y-dimension of the file</span>
+    <span class="n">ydim</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># setting title and labels for ax1 (figure on the left)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Click on data you want to collect below&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x-pixel position&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y-pixel position&#39;</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">pixel_positions</span> <span class="c1">#makes pixel_positions a global variable so we have access to it outside this function</span>
+    <span class="n">pixel_positions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">pixel_positions</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="p">,</span><span class="n">ydim</span><span class="o">-</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">])</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Last click: [</span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ydim</span><span class="o">-</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydim</span><span class="o">-</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1">#adding scatter plot</span>
+    
+    <span class="n">cid</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="test-the-functions-selectdata-and-cal">
+<h2><span class="section-number">8.3. </span>Test the functions <code class="docutils literal notranslate"><span class="pre">selectdata()</span></code> and <code class="docutils literal notranslate"><span class="pre">cal()</span></code><a class="headerlink" href="#test-the-functions-selectdata-and-cal" title="Permalink to this headline">#</a></h2>
+<p>Let’s take a look at the x-ray pattern for BCC Tungsten.  The indices of the peaks (from left to right) are (110), (200), (211), (220), and (310). We will select the top of each peak so we can determine the angle 2<span class="math notranslate nohighlight">\(\theta\)</span>.  First we select our calibration points:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;../images&#39;</span><span class="p">,</span><span class="s1">&#39;diffraction.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f7c71fe488484178b004e49e8bb5722e", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calpixels</span><span class="o">=</span><span class="n">pixel_positions</span>
+<span class="n">display</span><span class="p">(</span><span class="n">calpixels</span><span class="p">)</span>
+<span class="n">calplot</span><span class="o">=</span><span class="p">[[</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1180.3437500000002, 147.73730942408247],
+ [80.93750000000001, 147.73730942408247],
+ [80.93750000000001, 755.803976090749]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we select the top of each peak.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;../images&#39;</span><span class="p">,</span><span class="s1">&#39;diffraction.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "9acc3e2c8fea437e9a88fd85d8c9fbec", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peakpix</span><span class="o">=</span><span class="n">pixel_positions</span>
+<span class="n">display</span><span class="p">(</span><span class="n">peakpix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[523.4145833333334, 505.5194010416666],
+ [724.2937500000002, 247.63398437499995],
+ [884.4541666666668, 353.50273437499993],
+ [1036.4708333333335, 234.0610677083332],
+ [1188.4875000000002, 288.35273437499995]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s convert the peakpix to plot units by using <code class="docutils literal notranslate"><span class="pre">cal()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">cal</span><span class="p">(</span><span class="n">calpixels</span><span class="p">,</span> <span class="n">calplot</span><span class="p">,</span> <span class="n">peakpix</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 40.24691358,   0.58839287],
+       [ 58.51851852,   0.16428573],
+       [ 73.08641975,   0.33839287],
+       [ 86.91358025,   0.1419643 ],
+       [100.74074074,   0.23125001]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get the following.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$2 \theta$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "a7cd031bc93c4df39fc4d339a349fcff", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p>The peak positions are stored in <code class="docutils literal notranslate"><span class="pre">data[:,0]</span></code>.  These positions are <span class="math notranslate nohighlight">\(2\theta\)</span>. Let’s calculate the d-spacing correspoonding to each peak and the lattice parameter, <span class="math notranslate nohighlight">\(a\)</span>, based on the d-spacing.  Ideally, <span class="math notranslate nohighlight">\(a\)</span> would be identical in each case but due to some inaccuracies in selecting the peak position we will see some variation in <span class="math notranslate nohighlight">\(a\)</span>.  Let’s find out how much.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+2\ d_{hkl}\ \sin(\theta)=n\ \lambda \\
+a=d_{hkl}\ \sqrt{h^2+k^2+l^2}
+\end{gather*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">dhkl</span><span class="o">=</span><span class="mf">0.1542</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
+<span class="n">planes</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+
+<span class="n">alist</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dhkl</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">hkl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">hkl</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">hkl</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="p">[</span><span class="n">dhkl</span><span class="p">,</span> <span class="n">hkl</span><span class="p">]</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dhkl</span><span class="p">,</span><span class="n">planes</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;d-spacings for (110), (200), (211), (220), and (310) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dhkl</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1"> nm </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;lattice parameter for (110), (200), (211), (220), and (310) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1"> nm </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The average lattice parameter is </span><span class="si">{</span><span class="n">alist</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> with a standard deviation of </span><span class="si">{</span><span class="n">alist</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The literature value for tungsten is 0.31652 nm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d-spacings for (110), (200), (211), (220), and (310) = [0.2241 0.1577 0.1295 0.1121 0.1001] nm 
+
+lattice parameter for (110), (200), (211), (220), and (310) = [0.3169 0.3155 0.3172 0.3171 0.3166] nm 
+
+The average lattice parameter is 0.3166 with a standard deviation of 0.000611
+The literature value for tungsten is 0.31652 nm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h2><span class="section-number">8.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<section id="problem-1">
+<h3><span class="section-number">8.4.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<p>Combine the data from the three plots below onto a single plot.  Use different colors and symbols for each dataset.  Label your axes including units.  Don’t connect the points. Include a legend on your plot where (a) 60 min; (b) 120 min; and (c) 480 min nitrocarburizing.  Set your y-scale to 400 min - 1200 max and your x-scale as 0 min 90 max.</p>
+<a class="reference internal image-reference" href="../_images/08_hardness_data.png" id="navigator"><img alt="../_images/08_hardness_data.png" class="align-center" id="navigator" src="../_images/08_hardness_data.png" style="height: 1600px;" /></a>
+</section>
+<section id="problem-2">
+<h3><span class="section-number">8.4.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<p>Determine the thickness of the dark and light regions in the multilayer film shown in the image below.  Use at least 10 points to determine the thickness for each region. Provide the average and standard deviation of your two datasets. Provide your answers in nanometers. Make sure your notebook is well documented so it is clear what your code is doing.</p>
+<a class="reference internal image-reference" href="../_images/08_multilayer.png" id="id1"><img alt="../_images/08_multilayer.png" class="align-center" id="id1" src="../_images/08_multilayer.png" style="height: 500px;" /></a>
+<p style="line-height:100%"><font size=2>Image from:</font>
+<font size=2>Sergiy Yulin, Torsten Feigl, Viatcheslav Nesterenko, Mark Schürmann, Marco Perske, Hagen Pauer, Tobias Fiedler and Norbert Kaiser. *EUV multilayer coatings: potentials and limits.* presentation at the 2012 International Workshop on EUV Lithography, Thursday, 7 June 2012. https://www.euvlitho.com/2012/P26.pdf accessed 15 Sept 2022 </font></p></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons_3114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="07_digitizing_literature_plots_part_1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Estimating Data Values from Plots in the Literature (Part 1)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Sean Corcoran<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
