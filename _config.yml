@@ -1,11 +1,19 @@
-# Book settings -- based off of book template created by: jb create localpath
-# Learn more at https://jupyterbook.org/customize/config.html
+# Book settings
+# Learn more at https://jupyterbook.org/en/stable/customize/config.html
 
-title: "Python for MSE"
-author: Sean Corcoran
-logo: Horizontal_VT_Full_Color_RGB.jpg
-only_build_toc_files: true
+#######################################################################################
+# Book settings
+title                       : "Python for MSE"
+author                      : Sean Corcoran
+copyright                   : "2022"  # Copyright year to be placed in the footer
+logo                        : Horizontal_VT_Full_Color_RGB.jpg
+# Auto-exclude files not in the toc
+only_build_toc_files        : true
+# Patterns to skip when building the book. Use if the above if false
 #exclude_patterns: [data_for_practice/*] 
+
+#######################################################################################
+# Execution settings
 execute:
   execute_notebooks: auto
   exclude_patterns: 
@@ -13,6 +21,9 @@ execute:
       - '07_digitizing_literature_plots*'
       - '08_digitizing_literature_plots*'
       - '09_*'
+
+#######################################################################################
+# Parse and render settings
 parse:
   myst_enable_extensions: 
     - amsmath
@@ -23,11 +34,11 @@ parse:
     - html_admonition
     - linkify
     - smartquotes
-sphinx:
-  config:
-    #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-    #mathjax_path: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML 
+    - tasklist
+  myst_dmath_double_inline: true
+  myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
 
+#######################################################################################
 # HTML-specific settings
 html:
   announcement              : "Virginia Tech MSE 3114 Fall 2022" # A banner announcement at the top of the site.
@@ -38,28 +49,41 @@ html:
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
   baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
 
+#######################################################################################
+# LaTeX-specific settings
+latex:
+  latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+  use_jupyterbook_latex     : true # use sphinx-jupyterbook-latex for pdf builds as default
+  latex_documents:
+    targetname: book.tex
+
 # Binder link settings
 # use_binder_button                : true  
 # use_show_widgets_button         : true 
 # use_thebelab_button : true  
 
+#######################################################################################
+# Launch button settings
 launch_buttons:
-#  thebe:  true
-#  notebook_interface: "jupyterlab"  # or "classic"
-#  colab_url: "https://colab.research.google.com"
-  binderhub_url: "https://mybinder.org"
-  
-# Information about where the book exists on the web
+  notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+  colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
+
 repository:
-  url: https://github.com/sgcorcoran/Python-for-MSE  # Online location of your book
-  #path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: working  # Which branch of the repository should be used when creating links (optional)
-
-# Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: book.tex
-
+  url                       : https://github.com/sgcorcoran/Python-for-MSE  # The URL to your book's repository
+  path_to_book              : ""  # A path to your book's folder, relative to the repository root.
+  branch                    : main # Which branch of the repository should be used when creating links
+  
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
+
+#######################################################################################
+# Advanced and power-user setting
+sphinx:
+  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
+  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
+  recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
+  config                    :   # key-value pairs to directly over-ride the Sphinx configuration 
