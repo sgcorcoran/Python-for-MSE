@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Welcome to MSE 3114 &#8212; Python for MSE</title>
+    <title>4. Updates &amp; FAQ &#8212; Python for MSE</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Importing Data from Files &amp; Importing Your Own Functions" href="02_importing_your_own_functions.html" />
-    <link rel="prev" title="4. 2114 … under development" href="../lessons_2114/4_temp.html" />
+    <link rel="prev" title="3. Time Saving Tips &amp; Tricks" href="52_time_saving_tips.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -145,9 +144,9 @@ const thebe_selector_output = ".output, .cell_output"
   MSE 3114 Python for MSE II
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_welcome_to_3114.html">
    1. Welcome to MSE 3114
   </a>
  </li>
@@ -192,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
   Appendix
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="50_course_support_files.html">
    1. MSE 3114 Data Files
@@ -208,8 +207,8 @@ const thebe_selector_output = ".output, .cell_output"
    3. Time Saving Tips &amp; Tricks
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="53_updates.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    4. Updates &amp; FAQ
   </a>
  </li>
@@ -272,7 +271,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/01_welcome_to_3114.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/53_updates.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -315,7 +314,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/lessons_3114/01_welcome_to_3114.ipynb"
+        <a href="../_sources/lessons_3114/53_updates.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -375,9 +374,16 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#updating-anaconda">
-   1.1. Updating Anaconda
+  <a class="reference internal nav-link" href="#chap-05-matplotlib-advanced-layouts">
+   4.1. Chap 05: matplotlib advanced layouts
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-pandas-plots-to-subplots-layout">
+     4.1.1. Adding pandas plots to subplots layout
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -388,7 +394,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Welcome to MSE 3114</h1>
+                <h1>Updates & FAQ</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -399,9 +405,16 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#updating-anaconda">
-   1.1. Updating Anaconda
+  <a class="reference internal nav-link" href="#chap-05-matplotlib-advanced-layouts">
+   4.1. Chap 05: matplotlib advanced layouts
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-pandas-plots-to-subplots-layout">
+     4.1.1. Adding pandas plots to subplots layout
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -413,25 +426,122 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-mse-3114">
-<h1><span class="section-number">1. </span>Welcome to MSE 3114<a class="headerlink" href="#welcome-to-mse-3114" title="Permalink to this headline">#</a></h1>
-<hr style="height: 3.0px"/><p>Welcome back!  I hope you had some time to play around with Python over the summer.  If not, you will probably feel like you are starting all over again.  If that is the case, please take a look at  <a class="reference external" href="https://www.linkedin.com/learning/python-quick-start">Getting Started with Python</a> for a refresher.  A list of recommended LinkedIn Learning videos can also be found in the <a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html#linkedin-learning-rec"><span class="std std-ref">Appendix</span></a>.  Your cheat sheet notebooks should also help you. Hopefully you still have one from MSE 2114 (the prerequisite to this course).</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="updates-faq">
+<h1><span class="section-number">4. </span>Updates &amp; FAQ<a class="headerlink" href="#updates-faq" title="Permalink to this headline">#</a></h1>
+<section id="chap-05-matplotlib-advanced-layouts">
+<h2><span class="section-number">4.1. </span>Chap 05: matplotlib advanced layouts<a class="headerlink" href="#chap-05-matplotlib-advanced-layouts" title="Permalink to this headline">#</a></h2>
+<section id="adding-pandas-plots-to-subplots-layout">
+<h3><span class="section-number">4.1.1. </span>Adding pandas plots to subplots layout<a class="headerlink" href="#adding-pandas-plots-to-subplots-layout" title="Permalink to this headline">#</a></h3>
+<p>Let’s create a dataframe to plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">############ here is an arbitrary dataframe to plot</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.9</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.9</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
+                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;species&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>length</th>
+      <th>width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.0</td>
+      <td>3.2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6.4</td>
+      <td>3.2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<ol class="simple">
-<li><p>See our <a class="reference external" href="https://canvas.vt.edu/courses/158894">course Canvas site</a> for information on homework requirements, due dates, course expectations, grading, regrading, and announcements.</p></li>
-</ol>
+<p>The format for matplotlib plots is:<br />
+<strong>axes_name</strong>.plot_type(xdata, ydata, options) e.g., <code class="docutils literal notranslate"><span class="pre">axes1.scatter(x=df['length'],</span> <span class="pre">y=df['width'],'k.')</span></code><br />
+The format for pandas plots is:<br />
+dataframe.plot.type(ax=<strong>axes_name</strong>, options) e.g., <code class="docutils literal notranslate"><span class="pre">df.plot.bar(ax=axes2)</span></code><br />
+Example code is given below. Notice the placement for the axes name in matplotlib vs pandas.</p>
 </div>
-<section id="updating-anaconda">
-<span id="welcome-update"></span><h2><span class="section-number">1.1. </span>Updating Anaconda<a class="headerlink" href="#updating-anaconda" title="Permalink to this headline">#</a></h2>
-<p>Directions for updating Anaconda is shown below and can also be found on the Anaconda web site (<a class="reference external" href="https://www.anaconda.com/blog/keeping-anaconda-date">https://www.anaconda.com/blog/keeping-anaconda-date</a>).  If you have any problems, you can always try a reinstall (<a class="reference external" href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a>) of Anaconda</p>
-<p>First open Anaconda Navigator</p>
-<a class="reference internal image-reference" href="../_images/Screenshot135220.png" id="navigator"><img alt="../_images/Screenshot135220.png" id="navigator" src="../_images/Screenshot135220.png" style="height: 100px;" /></a>
-<p>Then launch the command prompt</p>
-<a class="reference internal image-reference" href="../_images/jupyLab_command_prompt.png" id="id1"><img alt="../_images/jupyLab_command_prompt.png" id="id1" src="../_images/jupyLab_command_prompt.png" style="height: 200px;" /></a>
-<p>At the prompt, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">--all</span></code> and press Enter</p>
-<a class="reference internal image-reference" href="../_images/update.png" id="id2"><img alt="../_images/update.png" id="id2" src="../_images/update.png" style="height: 100px;" /></a>
-<p>Problems?  see: <a class="reference external" href="https://www.anaconda.com/blog/keeping-anaconda-date">https://www.anaconda.com/blog/keeping-anaconda-date</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">############# plotting side by side</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">axes1</span><span class="p">,</span> <span class="n">axes2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1">########## matplotlib scatter plot</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Title text here...&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="c1">########### pandas bar plot</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes2</span><span class="p">)</span> <span class="c1">#note the difference in format compared to scatter above</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Title text here...&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_right</span><span class="p">()</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53_updates_6_0.png" src="../_images/53_updates_6_0.png" />
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -462,19 +572,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../lessons_2114/4_temp.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="52_time_saving_tips.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>2114 … under development</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Time Saving Tips &amp; Tricks</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="02_importing_your_own_functions.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Importing Data from Files &amp; Importing Your Own Functions</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
