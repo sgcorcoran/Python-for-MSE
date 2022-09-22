@@ -683,7 +683,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Do you remember how to slice a DataFrame using .loc and .iloc?
 </pre></div>
 </div>
-<div class="output text_html"><div id="NDGcnoxleRTk" data-shufflequestions="False"
+<div class="output text_html"><div id="DniYmLoUPgfx" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -845,7 +845,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsNDGcnoxleRTk=[{"question": "For the DataFrame above named `raw`, how would you select the 3rd column?", "type": "multiple_choice", "answers": [{"code": "raw.iloc[:,2]", "correct": true, "feedback": "Correct. We could have used .loc[] rather than .iloc[] but then we would need to use the full column name, i.e. raw.loc[:,\"If I have to choose between Pepsi and Coke, I prefer to drink Pepsi. \"].  By using .iloc[], we can slice by index number. Columns begin with the index 0 so the third column has index = 2 and the ':' means all rows. "}, {"code": "raw.iloc[:,3]", "correct": false, "feedback": "Remember the index of the first column is 0 not 1."}]}];
+}</style><script type="text/Javascript">var questionsDniYmLoUPgfx=[{"question": "For the DataFrame above named `raw`, how would you select the 3rd column?", "type": "multiple_choice", "answers": [{"code": "raw.iloc[:,2]", "correct": true, "feedback": "Correct. We could have used .loc[] rather than .iloc[] but then we would need to use the full column name, i.e. raw.loc[:,\"If I have to choose between Pepsi and Coke, I prefer to drink Pepsi. \"].  By using .iloc[], we can slice by index number. Columns begin with the index 0 so the third column has index = 2 and the ':' means all rows. "}, {"code": "raw.iloc[:,3]", "correct": false, "feedback": "Remember the index of the first column is 0 not 1."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1579,7 +1579,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsNDGcnoxleRTk,  NDGcnoxleRTk);
+        show_questions(questionsDniYmLoUPgfx,  DniYmLoUPgfx);
         }
         </script>
 </div></div>
@@ -1820,21 +1820,21 @@ if (typeof version == 'undefined') {
   <tbody>
     <tr>
       <th>count</th>
-      <td>43.000000</td>
-      <td>43.000000</td>
-      <td>43.000000</td>
+      <td>44.000000</td>
+      <td>44.000000</td>
+      <td>44.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>1.604651</td>
-      <td>3.069767</td>
-      <td>3.534884</td>
+      <td>1.613636</td>
+      <td>3.068182</td>
+      <td>3.522727</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>1.311842</td>
-      <td>1.142165</td>
-      <td>0.908920</td>
+      <td>1.297868</td>
+      <td>1.128855</td>
+      <td>0.901901</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1844,13 +1844,13 @@ if (typeof version == 'undefined') {
     </tr>
     <tr>
       <th>25%</th>
-      <td>0.500000</td>
+      <td>0.750000</td>
       <td>3.000000</td>
-      <td>3.500000</td>
+      <td>3.000000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1.000000</td>
+      <td>1.500000</td>
       <td>3.000000</td>
       <td>4.000000</td>
     </tr>
@@ -1877,9 +1877,9 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PepsiNotCoke          1.604651
-SweetTeaNotUnsweet    3.069767
-WaterNotAlmondMilk    3.534884
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PepsiNotCoke          1.613636
+SweetTeaNotUnsweet    3.068182
+WaterNotAlmondMilk    3.522727
 Name: mean, dtype: float64
 </pre></div>
 </div>
@@ -1892,9 +1892,9 @@ Name: mean, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PepsiNotCoke          1.604651
-SweetTeaNotUnsweet    3.069767
-WaterNotAlmondMilk    3.534884
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PepsiNotCoke          1.613636
+SweetTeaNotUnsweet    3.068182
+WaterNotAlmondMilk    3.522727
 dtype: float64
 </pre></div>
 </div>
@@ -1908,9 +1908,9 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WaterNotAlmondMilk    3.534884
-SweetTeaNotUnsweet    3.069767
-PepsiNotCoke          1.604651
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WaterNotAlmondMilk    3.522727
+SweetTeaNotUnsweet    3.068182
+PepsiNotCoke          1.613636
 dtype: float64
 </pre></div>
 </div>
@@ -2081,8 +2081,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-7.864527381622978
-8.658030462197927e-10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-7.930669731369458
+5.944814884364967e-10
 </pre></div>
 </div>
 </div>
@@ -2097,8 +2097,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.0987673361786894
-0.041889394228187396
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.096837622792933
+0.041926052231806475
 </pre></div>
 </div>
 </div>
