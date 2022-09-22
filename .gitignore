@@ -1,4 +1,3 @@
-
 .ipynb_checkpoints/
 archive/
 tools/
@@ -8,6 +7,7 @@ _build/
 editing_shortcuts.txt
 instructor_resources/
 data_for_practice/
-04_instructor.ipynb
-08_*
-Week 7 Lesson*
+*_instructor.ipynb
+Readme Lesson*
+*_class_notes.txt
+09*
