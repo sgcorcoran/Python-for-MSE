@@ -22,7 +22,6 @@ parts:
     - file: lessons_3114/06_selecting_pixel_coordinates
     - file: lessons_3114/07_digitizing_literature_plots_part_1
     - file: lessons_3114/08_digitizing_literature_plots_part_2
-    - file: lessons_3114/09_applications
   - caption: Appendix
     numbered: true
     chapters:
