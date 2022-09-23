@@ -17,9 +17,9 @@ only_build_toc_files        : true
 execute:
   execute_notebooks: auto
   exclude_patterns: 
-      - '06_selecting_pixel_coord*'
-      - '07_digitizing_literature_plots*'
-      - '08_digitizing_literature_plots*'
+      - '06_*'
+      - '07_*'
+      - '08_*'
       - '09_*'
 
 #######################################################################################
