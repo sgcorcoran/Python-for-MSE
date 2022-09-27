@@ -274,7 +274,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/06_selecting_pixel_coordinates.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/06_selecting_pixel_coordinates.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -565,7 +565,7 @@ title="Print to PDF"
 <p><em>This is the first step in being able to reproduce and extract data from plots in the literature. Next week we will begin pulling data from publications, reanalyzing and then examing the validity of the author’s conclusions.  In Senior Design, you may want to do something like this to directly plot data you collect along with data found in the literature for comparison.</em></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>For this lesson, you will need to install a matplotlib extension to allow for interactive plots with jupyter lab. Open your powershell prompt from the Anaconda Navigator menu, type and execute the following:  <strong>conda install -c conda-forge ipymply</strong></p>
+<p>For this lesson, you will need to install a matplotlib extension to allow for interactive plots with jupyter lab. Open your powershell prompt from the Anaconda Navigator menu, type and execute the following:  <strong>conda install -c conda-forge ipympl</strong></p>
 <p>It may give you a message that Anaconda is being downgraded.  That is okay, type “yes” to proceed.  <em>Then after it is finished make sure you close down jupyterlab and restart it.</em></p>
 </div>
 <div class="cell docutils container">
@@ -595,12 +595,12 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "819f2ed919e943b799702381b15c73e5", "version_major": 2, "version_minor": 0}
+{"model_id": "3c2ced8fd2be466fb3a01bbc896fc7e1", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<a class="reference internal image-reference" href="../_images/3114_06_smith_creek.png"><img alt="../_images/3114_06_smith_creek.png" class="align-center" src="../_images/3114_06_smith_creek.png" style="width: 500px;" /></a>
-<br>
-If you execute the code above in your own notebook and move your mouse around on the image, you will see the pixel coordinates for that location displayed at the bottom of the figure. The values in the brackets are the color code and opacity.  We won't need these.  One of the things to notice is that when an image is read, the data is plotted from the top left corner, across the row, and then down to the next row.  When dealing with coordinates for plots, we expect the origin to be located in the bottom-left corner so we will need to correct this next week when we read an image file of a data plot.  </section>
+<a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="navigator"><img alt="../_images/smith_creek_1.png" class="align-center" id="navigator" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
+<p>If you execute the code above in your own notebook and move your mouse around on the image, you will see the pixel coordinates for that location displayed at the bottom of the figure. The values in the brackets are the color code and opacity.  We won’t need these.  One of the things to notice is that when an image is read, the data is plotted from the top left corner, across the row, and then down to the next row.  When dealing with coordinates for plots, we expect the origin to be located in the bottom-left corner so we will need to correct this next week when we read an image file of a data plot.</p>
+</section>
 <section id="selecting-data-from-our-image">
 <h2><span class="section-number">6.2. </span>Selecting data from our image<a class="headerlink" href="#selecting-data-from-our-image" title="Permalink to this headline">#</a></h2>
 <p>The following code will make the above plot interactive.  There are several “events” that matplotlib can “listen” for.  The one we use below is a simple mouse click event.  When the cursor is moved on to the image and the mouse is left-clicked, the coordinate for the cursor location is stored into a variable we defined below called “pos” (short for position).  We also add a title to the plot with the location of the cursor for the last click event.  This is the only event type we will use in this class so don’t worry about the code below just store it somewhere handy such as your cheatsheet for later use.</p>
@@ -617,10 +617,9 @@ If you execute the code above in your own notebook and move your mouse around on
 </div>
 </div>
 <p>After running the above code, it might look like nothing happened.  Scroll back up to the image plotted previously, and use the mouse to click somewhere.  You should now see a title show up showing you the location of your click (as shown in the figure below).  Now continue clicking a few points on the image.  After this we can take a look at the points stored in the variable “pos.”</p>
-<a class="reference internal image-reference" href="../_images/smith_creek_2.png"><img alt="../_images/smith_creek_2.png" class="align-center" src="../_images/smith_creek_2.png" style="width: 500px;" /></a>
-<p>Now start over, re-executing the previous cells to make a new interactive plot so we can include calibration points for the image scale bar. Let’s reclick on all the boundary points (shown in the figure below as points 0 through 7) and then when finished with these click on the two ends of the scale bar (shown below as points 8 &amp; 9).  This way we can just pull the last two points off of our “pos” values for the calibration.  We also should turn our list into a numpy array to make indexing easier when performing calculations.  The first point that we select is going to become a common vertice as we break our polygon into triangles so choose wisely.  Also the boundary points need to be chosen <strong>in order</strong> as you “walk” around the boundary.</p>
-<a class="reference internal image-reference" href="../_images/smith_creek_3.png"><img alt="../_images/smith_creek_3.png" class="align-center" src="../_images/smith_creek_3.png" style="width: 500px;" /></a>
-<p>The points that I chose corresponding to the numbers 0 through 9 are shown below.</p>
+<a class="reference internal image-reference" href="../_images/smith_creek_2.png" id="id1"><img alt="../_images/smith_creek_2.png" class="align-center" id="id1" src="../_images/smith_creek_2.png" style="height: 500px;" /></a>
+<p>Now start over, re-executing the previous cells to make a new interactive plot so we can include calibration points for the image scale bar. Let’s reclick on all your boundary points and then when finished with these click on the two ends of the scale bar.  This way we can just pull the last two points off of our “pos” values for the calibration.  We also should turn our list into a numpy array to make indexing easier when performing calculations.  The first point that we select is going to become a common vertice as we break our polygon into triangles so choose wisely.  Also the boundary points need to be chosen in order as you “walk” around the boundary.</p>
+<p>The points that I chose are shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>  
 
 <span class="p">[[</span><span class="mf">97.53271352771536</span><span class="p">,</span> <span class="mf">716.9389926874768</span><span class="p">],</span>
@@ -635,7 +634,7 @@ If you execute the code above in your own notebook and move your mouse around on
  <span class="p">[</span><span class="mf">1106.708693088255</span><span class="p">,</span> <span class="mf">828.6489041210074</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Below is the code for producing the plot shown above.</p>
+<p>… and plotted on top of our previous image.  I’ve also numbered the points in the order that I selected them.  The last two points are on the ends of the scale bar and shown in red.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -644,6 +643,7 @@ If you execute the code above in your own notebook and move your mouse around on
 <span class="n">calibration_bar_length</span><span class="o">=</span><span class="mi">100</span> <span class="c1">#feet</span>
 <span class="n">scale</span><span class="o">=</span><span class="n">calibration_bar_length</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">calibration_bar_ends</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>  <span class="c1">#feet/pixel</span>
 
+<span class="c1">#plt.close(fig=&#39;all&#39;)</span>
 <span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pts</span><span class="p">,[</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># making a copy of the first point and adding to our list to close our polygon when plotting</span>
 <span class="n">vert_pos</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
 <span class="n">tri_data</span><span class="o">=</span><span class="p">[</span><span class="n">pts</span><span class="p">[</span><span class="n">vertices</span><span class="p">]</span> <span class="k">for</span> <span class="n">vertices</span> <span class="ow">in</span> <span class="n">vert_pos</span><span class="p">]</span>
@@ -661,7 +661,7 @@ If you execute the code above in your own notebook and move your mouse around on
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06_selecting_pixel_coordinates_23_0.png" src="../_images/06_selecting_pixel_coordinates_23_0.png" />
+<img alt="../_images/06_selecting_pixel_coordinates_20_0.png" src="../_images/06_selecting_pixel_coordinates_20_0.png" />
 </div>
 </div>
 </section>
@@ -689,7 +689,7 @@ If you execute the code above in your own notebook and move your mouse around on
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06_selecting_pixel_coordinates_25_0.png" src="../_images/06_selecting_pixel_coordinates_25_0.png" />
+<img alt="../_images/06_selecting_pixel_coordinates_22_0.png" src="../_images/06_selecting_pixel_coordinates_22_0.png" />
 </div>
 </div>
 <p>Area of a triangle given the <span class="math notranslate nohighlight">\(\left(x,y\right)\)</span> coordinates of the vertices <span class="math notranslate nohighlight">\(A,B,C\)</span> =</p>
@@ -746,10 +746,10 @@ The area is approximately 21.9 acres
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "c0bdcff021614684aec6d8476a98e824", "version_major": 2, "version_minor": 0}
+{"model_id": "6d2f42abc3e842ff905fa7d6ce914619", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<a class="reference internal image-reference" href="../_images/3114_06_smith_creek.png"><img alt="../_images/3114_06_smith_creek.png" class="align-center" src="../_images/3114_06_smith_creek.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="id2"><img alt="../_images/smith_creek_1.png" class="align-center" id="id2" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
 <p>cursor points that I used</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">29.630662779471038</span><span class="p">,</span> <span class="mf">88.75061150009503</span><span class="p">],</span>
  <span class="p">[</span><span class="mf">168.4974442950987</span><span class="p">,</span> <span class="mf">40.918720089156636</span><span class="p">],</span>
@@ -790,7 +790,7 @@ The area is approximately 21.9 acres
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06_selecting_pixel_coordinates_35_0.png" src="../_images/06_selecting_pixel_coordinates_35_0.png" />
+<img alt="../_images/06_selecting_pixel_coordinates_32_0.png" src="../_images/06_selecting_pixel_coordinates_32_0.png" />
 </div>
 </div>
 </section>
