@@ -24,6 +24,7 @@ execute:
 
 #######################################################################################
 # Parse and render settings
+
 parse:
   myst_enable_extensions: 
     - amsmath
