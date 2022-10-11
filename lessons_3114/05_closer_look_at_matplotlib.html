@@ -186,6 +186,14 @@ const thebe_selector_output = ".output, .cell_output"
    8. Estimating Data Values from Plots in the Literature (Part 2)
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_applications.html">
+   9. Application:  Crystallization Kinetics of Amorphous
+   <span class="math notranslate nohighlight">
+    \(TiO_2\)
+   </span>
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -272,7 +280,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/05_closer_look_at_matplotlib.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/05_closer_look_at_matplotlib.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -656,7 +664,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output text_html"><div id="talkJypQNnCI" data-shufflequestions="False"
+<div class="output text_html"><div id="jUalGbdXBydf" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -818,7 +826,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionstalkJypQNnCI=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
+}</style><script type="text/Javascript">var questionsjUalGbdXBydf=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1552,7 +1560,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionstalkJypQNnCI,  talkJypQNnCI);
+        show_questions(questionsjUalGbdXBydf,  jUalGbdXBydf);
         }
         </script>
 </div></div>
@@ -1594,11 +1602,11 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10, 12],
-       [ 5,  8],
-       [10, 13],
-       [ 6,  9],
-       [ 6,  8]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 8, 12],
+       [ 1,  4],
+       [ 2,  3],
+       [ 7,  8],
+       [ 9, 12]])
 </pre></div>
 </div>
 </div>

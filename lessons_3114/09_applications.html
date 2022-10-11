@@ -1,0 +1,1186 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Application: Crystallization Kinetics of Amorphous \(TiO_2\) &#8212; Python for MSE</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="prev" title="8. Estimating Data Values from Plots in the Literature (Part 2)" href="08_digitizing_literature_plots_part_2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Virginia Tech MSE 3114 Fall 2022</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for MSE</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to MSE 3114 Math Programming for Materials Science and Engineering II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 2114 Python for MSE I
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/1_getting_started.html">
+   1. Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/2_Intro_Jupyter.html">
+   2. Intro to the Jupyter Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/3_working_with_data.html">
+   3. Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/4_temp.html">
+   4. 2114 … under development
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 3114 Python for MSE II
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_welcome_to_3114.html">
+   1. Welcome to MSE 3114
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_importing_your_own_functions.html">
+   2. Importing Data from Files &amp; Importing Your Own Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_google_forms_and_pandas.html">
+   3. Google Forms and Pandas Data Import and Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_closer_look_at_pandas.html">
+   4. Pandas DataFrames and Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_closer_look_at_matplotlib.html">
+   5. matplotlib - Advanced Layouts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_selecting_pixel_coordinates.html">
+   6. Selecting pixel coordinates from an image file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_digitizing_literature_plots_part_1.html">
+   7. Estimating Data Values from Plots in the Literature (Part 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_digitizing_literature_plots_part_2.html">
+   8. Estimating Data Values from Plots in the Literature (Part 2)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Application:  Crystallization Kinetics of Amorphous
+   <span class="math notranslate nohighlight">
+    \(TiO_2\)
+   </span>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50_course_support_files.html">
+   1. MSE 3114 Data Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">
+   2. LinkedIn Learning Recommendations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52_time_saving_tips.html">
+   3. Time Saving Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="53_updates.html">
+   4. Updates &amp; FAQ
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/09_applications.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lessons_3114/09_applications.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-description">
+   9.1. Application description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages-and-define-functions">
+   9.2. Load packages and define functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reproduce-the-normalized-intensity-vs-time-data">
+   9.3. Reproduce the normalized intensity vs time data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy">
+   9.4. Fit the data to the avrami equation using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     curve_fit()
+    </span>
+   </code>
+   from scipy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fiting-with-peak-functions">
+   9.5. Fiting with peak functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lets-reproduce-the-280-c-curve">
+     9.5.1. Let’s reproduce the 280 C curve
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-the-peak-data">
+   9.6. Fit the peak data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-the-area-under-a-function">
+   9.7. Finding the area under a function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-other-peak-fitting-functions">
+   9.8. Appendix: Other Peak Fitting Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian">
+     9.8.1. Gaussian
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#voigt">
+     9.8.2. Voigt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weighted-sum-of-gaussian-and-lorentz">
+     9.8.3. Weighted sum of Gaussian and Lorentz
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   9.9. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1-fit-to-avrami-equation">
+     9.9.1. Problem 1: Fit to Avrami equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2-requires-answer-from-problem-1">
+     9.9.2. Problem 2: (requires answer from problem 1)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-3-peak-fitting">
+     9.9.3. Problem 3: Peak fitting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-4-finding-the-area-under-a-curve-integrate-quad">
+     9.9.4. Problem 4: Finding the area under a curve
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       integrate.quad()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Application:  Crystallization Kinetics of Amorphous TiO_2</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-description">
+   9.1. Application description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages-and-define-functions">
+   9.2. Load packages and define functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reproduce-the-normalized-intensity-vs-time-data">
+   9.3. Reproduce the normalized intensity vs time data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy">
+   9.4. Fit the data to the avrami equation using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     curve_fit()
+    </span>
+   </code>
+   from scipy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fiting-with-peak-functions">
+   9.5. Fiting with peak functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lets-reproduce-the-280-c-curve">
+     9.5.1. Let’s reproduce the 280 C curve
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-the-peak-data">
+   9.6. Fit the peak data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-the-area-under-a-function">
+   9.7. Finding the area under a function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-other-peak-fitting-functions">
+   9.8. Appendix: Other Peak Fitting Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian">
+     9.8.1. Gaussian
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#voigt">
+     9.8.2. Voigt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weighted-sum-of-gaussian-and-lorentz">
+     9.8.3. Weighted sum of Gaussian and Lorentz
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   9.9. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1-fit-to-avrami-equation">
+     9.9.1. Problem 1: Fit to Avrami equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2-requires-answer-from-problem-1">
+     9.9.2. Problem 2: (requires answer from problem 1)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-3-peak-fitting">
+     9.9.3. Problem 3: Peak fitting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-4-finding-the-area-under-a-curve-integrate-quad">
+     9.9.4. Problem 4: Finding the area under a curve
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       integrate.quad()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="application-crystallization-kinetics-of-amorphous-tio-2">
+<h1><span class="section-number">9. </span>Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span><a class="headerlink" href="#application-crystallization-kinetics-of-amorphous-tio-2" title="Permalink to this headline">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>load functions from a different notebook using <code class="docutils literal notranslate"><span class="pre">%run</span></code></p></li>
+<li><p>perform Single Peak Fitting of XRD data using <code class="docutils literal notranslate"><span class="pre">Scipy</span> <span class="pre">curve_fit()</span></code></p></li>
+<li><p>integrate the area under a curve</p></li>
+<li><p>fit Transformation vs Time data to the Avrami Equation (see Chapter 10 of your Callister textbook for example)</p></li>
+<li><p>compare k and n fitting parameters to that of the paper</p></li>
+<li><p>recognize that literature papers can often contain mistakes.</p></li>
+</ul>
+</div>
+<p>For the next 3 weeks of lessons, we will look at several different methods of fitting data. All lessons will pull data from the literature using the digitizing functions (<code class="docutils literal notranslate"><span class="pre">selectdata()</span></code>, <code class="docutils literal notranslate"><span class="pre">cal()</span></code>) that we created in the last couple of lessons. These two functions are saved in file <code class="docutils literal notranslate"><span class="pre">getpix_utilities.ipynb</span></code> so we can import these into our notebooks using <code class="docutils literal notranslate"><span class="pre">%run</span></code>.  We can’t use our import method since these functions have interactive content.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>We need to use <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">getpix_utilities.ipynb</span></code> and not import to load our functions from the file getpix_utilities.ipynb.  This is because python import does not like “magic” commands such as %matplotlib widget.</p>
+</div>
+<p><strong>Download:</strong>  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1lrKrd5tqYUn88Cfh8_ntL4o8lAZTjmHG">getpix_utilities.ipynb</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> getpix_utilities.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+<section id="application-description">
+<h2><span class="section-number">9.1. </span>Application description<a class="headerlink" href="#application-description" title="Permalink to this headline">#</a></h2>
+<p>The data and figures for this lesson were taken from: (Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span>, <em>Thin Solid Films</em> 519 (2010) 1649-1654)</p>
+<a class="reference internal image-reference" href="../_images/09_reference.png"><img alt="../_images/09_reference.png" class="align-center" src="../_images/09_reference.png" style="width: 500px;" /></a>
+<br><p>The X-ray diffraction data below are for 180 nm samples of <span class="math notranslate nohighlight">\(TiO_2\)</span> that are initially amorphous at room temperature. The temperature of the amorphous sample was increased to the indicated temperatures for a fixed time which begins the crystallization process (the amorphous phase is unstable).  The presence of a peak in the X-ray data indicates the presence of the crystalline phase.  The area under each peak is proportional to the fraction of the sample that has been crystallized.  Notice that the peak no longer changes after 260 C.  This is because at this point the sample is 100% crystallized.  We can take the area under this curve or the 280 C curve to represent 100% crystalline <span class="math notranslate nohighlight">\(TiO_2\)</span>.</p>
+<a class="reference internal image-reference" href="../_images/09_xrd.png"><img alt="../_images/09_xrd.png" class="align-center" src="../_images/09_xrd.png" style="width: 400px;" /></a>
+<p>Another way to collect the data is to calculate the area under the peak at a fixed temperature as a function of time.  In this way we can get the fraction of the sample that has been crystallized as a function of time. This data is shown below.</p>
+<a class="reference internal image-reference" href="../_images/09_crystalliz_data.png"><img alt="../_images/09_crystalliz_data.png" class="align-center" src="../_images/09_crystalliz_data.png" style="width: 400px;" /></a>
+<p>Fitting the curves in the above figure to the <a class="reference external" href="https://en.wikipedia.org/wiki/Avrami_equation">avrami equation</a>, <span class="math notranslate nohighlight">\(Y=1-\exp(-K\ t^n)\)</span>, allows us to calculate the avrami constants, <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.  In this equation, <span class="math notranslate nohighlight">\(Y\)</span> is the fraction of crystallization (Normalized intensity) and <span class="math notranslate nohighlight">\(t\)</span> is the time in hours.  The authors had some trouble fitting the above data and so introduced an offset in time labeled <span class="math notranslate nohighlight">\(t_0\)</span>.  This was attributed to an incubation time.  This is not correct.  The incubation time is already part of the derivation of the avrami equation. Because of this, the values for <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(n\)</span> below are not correct.  We are going to fit the data above and correct the <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(n\)</span> values.</p>
+<a class="reference internal image-reference" href="../_images/09_avrami_numbers.png"><img alt="../_images/09_avrami_numbers.png" class="align-center" src="../_images/09_avrami_numbers.png" style="width: 400px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the Figure above, we are only interested in the filled squares (<span class="math notranslate nohighlight">\(n\)</span>) and the filled triangles (<span class="math notranslate nohighlight">\(K\)</span>).  We will compare these values to what we get by applying the avrami equation correctly.</p>
+</div>
+</section>
+<section id="load-packages-and-define-functions">
+<h2><span class="section-number">9.2. </span>Load packages and define functions<a class="headerlink" href="#load-packages-and-define-functions" title="Permalink to this headline">#</a></h2>
+<p>We have already loaded our functions  <code class="docutils literal notranslate"><span class="pre">selectdata()</span></code> and <code class="docutils literal notranslate"><span class="pre">cal()</span></code> previously:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">run</span> <span class="n">getpix_utilities</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+<p>If you haven’t, then do that now.</p>
+</section>
+<section id="reproduce-the-normalized-intensity-vs-time-data">
+<h2><span class="section-number">9.3. </span>Reproduce the normalized intensity vs time data<a class="headerlink" href="#reproduce-the-normalized-intensity-vs-time-data" title="Permalink to this headline">#</a></h2>
+<p>Recall that the author’s of the publication were not able to fit this data without creating an additional fitting parameter (which invalidated their analysis). The python fitting routine below will have no problem fitting the data giving us a more accurate measurement of the parameters <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> getpix_utilities.ipynb
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function cal in module __main__:
+
+cal(pixpts, plotpts, datatoconvert)
+    pixpts = list of three pixel points (typically along axes)
+    plotpts = list of three points corresponding to pixpts but in plot units
+    datatoconvert = list of pixel points to convert to plot coordinates
+
+Help on function selectdata in module __main__:
+
+selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
+    path_to_image_file example: r&quot;C:/Users/Sean/images/xrd data.png&quot;  
+    pixel data stored in global variable &quot;pixel_positions&quot;
+    fig_size_as_tuple e.g. (8,12) This adjusts the image size shown.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="s1">&#39;../images/09_crystalliz_data.png&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "dfd84faa9c5a4ae1891b3f88379c9f78", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data180_pix</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="c1">#last three points are the calibration pts</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cal_pix</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="c1"># calibration pts = last three</span>
+<span class="n">plt_pts</span><span class="o">=</span><span class="p">[[</span><span class="mi">150</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span> <span class="c1"># corresponding pts in plot units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>My data is shown below as small filled blue circles on the 180 nm data set.  You may need to expand the image by clicking on it to see my points since they are fairly small.</p>
+<a class="reference internal image-reference" href="../_images/09_crys_pts.png"><img alt="../_images/09_crys_pts.png" class="align-center" src="../_images/09_crys_pts.png" style="width: 500px;" /></a>
+<p>Calibrate and convert your data and plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plot_data1</span><span class="o">=</span><span class="n">cal</span><span class="p">(</span><span class="n">cal_pix</span><span class="p">,</span> <span class="n">plt_pts</span><span class="p">,</span> <span class="n">data180_pix</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/09_applications_32_0.png" src="../_images/09_applications_32_0.png" />
+</div>
+</div>
+</section>
+<section id="fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy">
+<h2><span class="section-number">9.4. </span>Fit the data to the avrami equation using <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> from scipy<a class="headerlink" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy" title="Permalink to this headline">#</a></h2>
+<p>Avrami equation (recall this from Callister, Chap 10)</p>
+<div class="math notranslate nohighlight">
+\[\large Y=1-e^{-K t^n}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#just making sure that the interactive plotting is off</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+
+<span class="c1"># in function definition the independent variable must come first, then the fitting parameters</span>
+<span class="c1"># notice &quot;t&quot; is first here, then &quot;k&quot; and &quot;n&quot;</span>
+<span class="k">def</span> <span class="nf">avrami</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">):</span> 
+    <span class="k">return</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="n">n</span><span class="p">))</span>
+
+<span class="c1"># nonlinear fits can be a bit sensitive so you may have to play with the initial guess &quot;p0&quot; to get a good fit</span>
+<span class="c1"># here I used an initial guess, p0, for the parameters, k &amp; n, rather than using bounds</span>
+<span class="n">popt1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">avrami</span><span class="p">,</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> 
+
+<span class="c1"># bounds can also be used by letting the routine know that the lower bound is zero i.e. k and n are positive</span>
+<span class="n">popt2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">avrami</span><span class="p">,</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">bounds</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;option 1: k = </span><span class="si">{</span><span class="n">popt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.3e</span><span class="si">}</span><span class="s1"> and n = </span><span class="si">{</span><span class="n">popt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;option 2: k = </span><span class="si">{</span><span class="n">popt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.3e</span><span class="si">}</span><span class="s1"> and n = </span><span class="si">{</span><span class="n">popt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">avrami</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">popt1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fit&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t, hrs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;crystallization fraction&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>option 1: k = 1.124e-05 and n = 2.48
+option 2: k = 1.125e-05 and n = 2.48
+</pre></div>
+</div>
+<img alt="../_images/09_applications_36_1.png" src="../_images/09_applications_36_1.png" />
+</div>
+</div>
+<p>Another option for fitting is to transform our equation to a linear equation by taking the ln of both sides twice to get <span class="math notranslate nohighlight">\(\log\left(\ln\left(\frac{1}{1-Y}\right)\right)=\log(K) + n \log(t)\)</span>.  So if we plot the <span class="math notranslate nohighlight">\(\log\left(\ln\left(\frac{1}{1-Y}\right)\right)\)</span> vs <span class="math notranslate nohighlight">\(\log(t)\)</span>, we should get a linear relationship that we can fit with a simple linear function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">logK</span><span class="p">):</span> 
+    <span class="k">return</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">logK</span><span class="p">)</span>
+<span class="n">tlog</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">Ylogln</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])))</span>
+
+<span class="c1"># nonlinear fits can be a bit sensitive so you may have to play with the initial guess &quot;p0&quot; to get a good fit</span>
+<span class="c1"># here I used an initial guess, p0, for the parameters, k &amp; n, rather than using bounds</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">lin</span><span class="p">,</span> <span class="n">tlog</span><span class="p">,</span> <span class="n">Ylogln</span><span class="p">)</span> 
+
+<span class="c1"># bounds can also be used by letting the routine know that the lower bound is zero i.e. k and n are positive</span>
+<span class="c1">#popt2, _ = curve_fit(avrami, plot_data1[:,0], plot_data1[:,1],bounds=([0,0],[np.inf,np.inf]))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; n = </span><span class="si">{</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1"> and logK = </span><span class="si">{</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> or K = </span><span class="si">{</span><span class="mi">10</span><span class="o">**</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlog</span><span class="p">,</span> <span class="n">Ylogln</span><span class="p">,</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlog</span><span class="p">,</span> <span class="n">lin</span><span class="p">(</span><span class="n">tlog</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fit&quot;</span><span class="p">);</span>
+<span class="c1">#plt.plot(tlog, lin(tlog, 2.48,np.log10(1.125e-5)), label=&quot;expfit&quot;);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log(t)$, hrs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log\left(\ln\left(\frac</span><span class="si">{1}</span><span class="s1">{1-Y}\right)\right)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> n = 2.59e+00 and logK = -5.17 or K = 6.81e-06
+</pre></div>
+</div>
+<img alt="../_images/09_applications_38_1.png" src="../_images/09_applications_38_1.png" />
+</div>
+</div>
+</section>
+<section id="fiting-with-peak-functions">
+<h2><span class="section-number">9.5. </span>Fiting with peak functions<a class="headerlink" href="#fiting-with-peak-functions" title="Permalink to this headline">#</a></h2>
+<section id="lets-reproduce-the-280-c-curve">
+<h3><span class="section-number">9.5.1. </span>Let’s reproduce the 280 C curve<a class="headerlink" href="#lets-reproduce-the-280-c-curve" title="Permalink to this headline">#</a></h3>
+<p>You can always use ctrl+“+” to increase the zoom level in your browser so you can pick points more accurately.  Ctrl+“-” will decrease your zoom level.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="s1">&#39;../images/09_xrd.png&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "b25011fb04bf4ebeb6ae7e22b0fc928f", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p>Your output from above should look something like this:</p>
+<a class="reference internal image-reference" href="../_images/09_pix_cal.png"><img alt="../_images/09_pix_cal.png" class="align-center" src="../_images/09_pix_cal.png" style="width: 500px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peak280_pix</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">cal_pix</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="c1"># calibration pts = last three</span>
+<span class="n">plt_pts</span><span class="o">=</span><span class="p">[[</span><span class="mf">25.8</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">24.3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">24.3</span><span class="p">,</span><span class="mi">20000</span><span class="p">]]</span> <span class="c1"># corresponding pts in plot units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plot_data1</span><span class="o">=</span><span class="n">cal</span><span class="p">(</span><span class="n">cal_pix</span><span class="p">,</span> <span class="n">plt_pts</span><span class="p">,</span> <span class="n">peak280_pix</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/09_applications_47_0.png" src="../_images/09_applications_47_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="fit-the-peak-data">
+<h2><span class="section-number">9.6. </span>Fit the peak data<a class="headerlink" href="#fit-the-peak-data" title="Permalink to this headline">#</a></h2>
+<p>There are several peak functions that can be used and I’ve given 3 more examples in the <a class="reference external" href="#appendix:-other-peak-fitting-functions">Appendix</a>.  The function below is Lorentzian distribution where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude, <span class="math notranslate nohighlight">\(\mu\)</span> is the position of the peak (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> defines the peak width (stddev).  For our data, <span class="math notranslate nohighlight">\(x\)</span> would be the angle, <span class="math notranslate nohighlight">\(2 \theta\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[f(x; A, \mu,\sigma)=\frac{A}{\pi}\left[\frac{\sigma}{(x-\mu)^2+\sigma^2}\right]\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>  <span class="c1">## we need our curve fitting routine from scipy</span>
+
+<span class="c1"># let&#39;s define a function that calculates the lorentzian</span>
+<span class="k">def</span> <span class="nf">lorentzian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">stddev</span><span class="o">/</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">stddev</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># let&#39;s curve fit our plot_data1. curve_fit returns two values we only need the first which we call</span>
+<span class="c1"># popt. The second we call &quot;__&quot; as a throw away variable.  </span>
+<span class="c1"># format here curve_fit(model_name, xdata, ydata, bounds_on_parameters)</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">lorentzian</span><span class="p">,</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">20000</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="c1"># the bounds in the fit above help the routine find a fit.  These are given as [[lower],[upper]]</span>
+<span class="c1"># where lower correspond to the lower bound for our three variables &quot;amplitude&quot;, &quot;mean&quot;, &amp; &quot;stddev&quot;</span>
+<span class="c1"># the order is taken from the order given in the function lorentzian above</span>
+<span class="c1"># for example the amplitude, mean, and stddev have lower bounds of 0, 24, and 0 respectively </span>
+<span class="c1"># and a corresponding upper bound of 20000, 26, and 2 respectively.    </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">lorentzian</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">popt</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/09_applications_50_0.png" src="../_images/09_applications_50_0.png" />
+</div>
+</div>
+<p>The lorentzian does not do a good job at fitting this type of peak.  We should probably use a different function as defined in the Appendix. Perhaps a <a class="reference external" href="#gaussian">Gaussian</a> function or a combination of the two.</p>
+</section>
+<section id="finding-the-area-under-a-function">
+<h2><span class="section-number">9.7. </span>Finding the area under a function<a class="headerlink" href="#finding-the-area-under-a-function" title="Permalink to this headline">#</a></h2>
+<p>Now we can work on integrating our fitted function over the peak position to find the area under the curve.  The area in this case is proportional to the fraction of crystallization.  We can use the area under the 280 C curve as our fully crystallized case and compare all other areas to this one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
+<span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">special</span>
+
+<span class="n">model</span><span class="o">=</span><span class="n">lorentzian</span> <span class="c1">#this is our function we defined previously</span>
+<span class="nb">min</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">max</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Integration from a 2theta of </span><span class="si">{</span><span class="nb">min</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="nb">max</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># we use integrate.quad()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Integration from a 2theta of 24.34 to 26.15
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6494.723506754889, 7.482246257402135e-05)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we were to find the area under the 240 degree peak and divide by the area of 6495 that we just found for the 280 degree peak.  This ratio would give the fraction of the sample that crystallized at 240 degrees.</p>
+<p>As mentioned before, other fitting functions are given in the appendix.  Below shows a fit to the peak data that is a linear combination of the lorentzian function and the gaussian function (both are given in the appendix).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="n">lorentzian</span>
+
+<span class="n">popt2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">plot_data2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">20000</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">24.25</span><span class="p">,</span> <span class="mf">26.5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">lorentzian</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">24.25</span><span class="p">,</span> <span class="mf">26.5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="o">*</span><span class="n">popt</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b.&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">24.25</span><span class="p">,</span> <span class="mf">26.5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">lorentzian</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">24.25</span><span class="p">,</span> <span class="mf">26.5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="o">*</span><span class="n">popt2</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>My output using a <a class="reference external" href="#weighted-sum-of-gaussian-and-lorentz">weighted lorentzian + gaussian model</a> does a nice job:</p>
+<a class="reference internal image-reference" href="../_images/09_lorentz_gauss_fit.png"><img alt="../_images/09_lorentz_gauss_fit.png" class="align-center" src="../_images/09_lorentz_gauss_fit.png" style="width: 450px;" /></a>
+</section>
+<section id="appendix-other-peak-fitting-functions">
+<h2><span class="section-number">9.8. </span>Appendix: Other Peak Fitting Functions<a class="headerlink" href="#appendix-other-peak-fitting-functions" title="Permalink to this headline">#</a></h2>
+<section id="gaussian">
+<h3><span class="section-number">9.8.1. </span>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[f(x; A, \mu,\sigma)=\frac{A}{\sigma \sqrt{2\pi}}e^{\left[-(x-\mu)^2/(2\sigma^2)\right]}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">stddev</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">popt</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">gaussian</span><span class="p">,</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">20000</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">popt</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gaussian model:</p>
+<a class="reference internal image-reference" href="../_images/09_gaussian.png"><img alt="../_images/09_gaussian.png" class="align-center" src="../_images/09_gaussian.png" style="width: 450px;" /></a>
+</section>
+<section id="voigt">
+<h3><span class="section-number">9.8.2. </span>Voigt<a class="headerlink" href="#voigt" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[f(x; A, \mu,\sigma,\gamma)=\frac{A\ Re[w(z)]}{\sigma \sqrt{2 \pi}}\]</div>
+<p>where
+$<span class="math notranslate nohighlight">\(z=\frac{x-\mu+i\gamma}{\sigma\sqrt{2}}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(w(z)=e^{-z^2}\ \text{erfc}(-i z)\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erfc</span>
+
+<span class="c1"># def voigt(x, amplitude, mean, stddev, gamma):</span>
+<span class="c1">#     z=(x-mean+gamma*1j)/(stddev*np.sqrt(2))</span>
+<span class="c1">#     w=np.exp(-1*z**2)*erfc(-z*1j)</span>
+<span class="c1">#     return amplitude * np.real(w)/(stddev*np.sqrt(2*np.pi))</span>
+
+<span class="k">def</span> <span class="nf">voigt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">gamma</span><span class="o">=</span><span class="n">c</span><span class="o">*</span><span class="n">stddev</span> <span class="c1">#gamma is often constrained to equal stddev this line lets us fit gamma but define it relative to stddev</span>
+    <span class="n">z</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">mean</span><span class="o">+</span><span class="n">gamma</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">stddev</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">erfc</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">stddev</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="n">popt</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">voigt</span><span class="p">,</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],[</span><span class="mi">20000</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">voigt</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">popt</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voigt model:</p>
+<a class="reference internal image-reference" href="../_images/09_voigt.png"><img alt="../_images/09_voigt.png" class="align-center" src="../_images/09_voigt.png" style="width: 450px;" /></a>
+</section>
+<section id="weighted-sum-of-gaussian-and-lorentz">
+<h3><span class="section-number">9.8.3. </span>Weighted sum of Gaussian and Lorentz<a class="headerlink" href="#weighted-sum-of-gaussian-and-lorentz" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[f(x; A, \mu,\sigma,\alpha)=\frac{\alpha A}{\pi}\left[\frac{\sigma}{(x-\mu)^2+\sigma^2}\right] + 
+\frac{(1-\alpha) A}{\sigma_g \sqrt{2\pi}}e^{\left[-(x-\mu)^2/(2\sigma_g^2)\right]}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_g=\frac{\sigma}{\sqrt{2 \ln(2)}}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="n">stddevg</span><span class="o">=</span><span class="n">stddev</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">stddevg</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">lorentzian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">alpha</span><span class="o">*</span><span class="n">amplitude</span> <span class="o">*</span> <span class="p">(</span><span class="n">stddev</span><span class="o">/</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">stddev</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span><span class="o">+</span><span class="n">lorentzian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span> <span class="n">alpha</span><span class="p">))</span>
+
+<span class="n">popt</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">20000</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">model</span><span class="p">(</span><span class="n">plot_data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">popt</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gaussian + Lorentzian fit</p>
+<a class="reference internal image-reference" href="../_images/09_gauss_lorentz.png"><img alt="../_images/09_gauss_lorentz.png" class="align-center" src="../_images/09_gauss_lorentz.png" style="width: 450px;" /></a>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">9.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the problems below, load the functions selectdata() and cal() by using the <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">notebook_name.ipynb</span></code> as shown in this lesson.  You don’t have to use my exact function definitions nor name them as I have but you need two functions, one to turn your pixel data into plot units and one to allow you to display an image file and select points.</p>
+</div>
+<section id="problem-1-fit-to-avrami-equation">
+<h3><span class="section-number">9.9.1. </span>Problem 1: Fit to Avrami equation<a class="headerlink" href="#problem-1-fit-to-avrami-equation" title="Permalink to this headline">#</a></h3>
+<p>Determine the values <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(K\)</span> of the Avrami equation, <span class="math notranslate nohighlight">\(Y=1-e^{-K t^n}\)</span> for the 440 nm data shown below. Remember it helps to give initial guesses for the values <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(K\)</span> when performing the fit.  You can expect <span class="math notranslate nohighlight">\(K\)</span> to be something like <span class="math notranslate nohighlight">\(10^{-4}\)</span> and <span class="math notranslate nohighlight">\(n\)</span> is a value typically between 2 and 3. <em>Include a plot of the 440 data and your Avrami fit on the same plot to give a feel for the goodness of fit.</em></p>
+<a class="reference internal image-reference" href="../_images/09_crystalliz_data.png"><img alt="../_images/09_crystalliz_data.png" class="align-center" src="../_images/09_crystalliz_data.png" style="width: 400px;" /></a>
+</section>
+<section id="problem-2-requires-answer-from-problem-1">
+<h3><span class="section-number">9.9.2. </span>Problem 2: (requires answer from problem 1)<a class="headerlink" href="#problem-2-requires-answer-from-problem-1" title="Permalink to this headline">#</a></h3>
+<p>Get the values for <span class="math notranslate nohighlight">\(n\)</span> from the plot below for the 180nm and 440nm thickness.  Then compare these to the values we obtained.  For the 180 nm sample, we found <span class="math notranslate nohighlight">\(n\)</span> = 2.48 in the lesson.  For the 440 nm sample, you found <span class="math notranslate nohighlight">\(n\)</span> from problem 1 above.  To compare values, you can present the difference as a percent i.e., <span class="math notranslate nohighlight">\(100*(paper\_value - our\_value)/our\_value\)</span>. <em>No plots required for this problem but your final answer should be a print statement using f-string formatting.</em>  Using an f-string print the following as your answer: <strong>“For the 440 nm thick sample, an avrami exponent of ## was obtained while the value in the paper was ##.  The paper value is in error by ##%”</strong> where the “##” are passed to the print statement using their variable names. Format your values for n and % to 2 decimals float e.g. <code class="docutils literal notranslate"><span class="pre">{n_value:.2f}</span></code>.  The values in the paper are a result of the authors fitting <span class="math notranslate nohighlight">\(y=1-exp(-k  (t-t_0)^n)\)</span>  rather than the avrami equation which should be <span class="math notranslate nohighlight">\(y=1-exp(-k  t^n).\)</span></p>
+<a class="reference internal image-reference" href="../_images/09_avrami_numbers.png"><img alt="../_images/09_avrami_numbers.png" class="align-center" src="../_images/09_avrami_numbers.png" style="width: 500px;" /></a>
+</section>
+<section id="problem-3-peak-fitting">
+<h3><span class="section-number">9.9.3. </span>Problem 3: Peak fitting<a class="headerlink" href="#problem-3-peak-fitting" title="Permalink to this headline">#</a></h3>
+<p>Reproduce the 240 C curve shown below.  You should use enough data points to fully define the peak function as shown below for the 280 C data.  Plot the 240 C data along with the 280 C data.  Label your axes and title your plot.  Also include a legend.  The 280 C pixel data is given below to save you some time.  Next, fit both sets of data to the <a class="reference external" href="#gaussian">gaussian model</a>.  Include these fitted results in your plot and add to the legend.</p>
+<a class="reference internal image-reference" href="../_images/09_pix_cal.png"><img alt="../_images/09_pix_cal.png" class="align-center" src="../_images/09_pix_cal.png" style="width: 500px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###### This is pixel data so you will need to run this through the same calibration routine</span>
+<span class="c1">###### that you used for your 240 C data.  </span>
+<span class="n">peak280_pix</span><span class="o">=</span><span class="p">[[</span><span class="mf">713.4247311827957</span><span class="p">,</span> <span class="mf">77.84331317204294</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">688.3978494623656</span><span class="p">,</span> <span class="mf">77.84331317204294</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">660.736559139785</span><span class="p">,</span> <span class="mf">79.16051747311826</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">623.8548387096774</span><span class="p">,</span> <span class="mf">79.16051747311826</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">594.8763440860215</span><span class="p">,</span> <span class="mf">80.47772177419353</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">568.5322580645161</span><span class="p">,</span> <span class="mf">83.11213037634406</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">543.505376344086</span><span class="p">,</span> <span class="mf">87.06374327956985</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">529.016129032258</span><span class="p">,</span> <span class="mf">96.28417338709676</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">513.2096774193549</span><span class="p">,</span> <span class="mf">122.6282594086021</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">505.30645161290323</span><span class="p">,</span> <span class="mf">154.24116263440857</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">497.40322580645153</span><span class="p">,</span> <span class="mf">191.1228830645161</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">492.1344086021505</span><span class="p">,</span> <span class="mf">225.37019489247308</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">486.8655913978494</span><span class="p">,</span> <span class="mf">263.56911962365587</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">481.59677419354836</span><span class="p">,</span> <span class="mf">300.4508400537634</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">476.3279569892473</span><span class="p">,</span> <span class="mf">346.55299059139776</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">472.37634408602145</span><span class="p">,</span> <span class="mf">379.4830981182795</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">467.1075268817204</span><span class="p">,</span> <span class="mf">415.04761424731174</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">463.15591397849454</span><span class="p">,</span> <span class="mf">438.75729166666656</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">459.2043010752688</span><span class="p">,</span> <span class="mf">461.1497647849461</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">455.25268817204295</span><span class="p">,</span> <span class="mf">476.9562163978494</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">452.6182795698924</span><span class="p">,</span> <span class="mf">488.8110551075267</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">447.34946236559136</span><span class="p">,</span> <span class="mf">495.3970766129031</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">439.4462365591398</span><span class="p">,</span> <span class="mf">495.3970766129031</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">434.1774193548387</span><span class="p">,</span> <span class="mf">491.44546370967737</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">431.5430107526882</span><span class="p">,</span> <span class="mf">482.22503360215046</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">427.59139784946234</span><span class="p">,</span> <span class="mf">467.7357862903225</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">424.9569892473118</span><span class="p">,</span> <span class="mf">451.9293346774192</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">421.00537634408596</span><span class="p">,</span> <span class="mf">426.9024529569891</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">414.4193548387097</span><span class="p">,</span> <span class="mf">388.7035282258064</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">409.1505376344085</span><span class="p">,</span> <span class="mf">347.870194892473</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">405.1989247311828</span><span class="p">,</span> <span class="mf">314.94008736559135</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">397.2956989247312</span><span class="p">,</span> <span class="mf">267.52073252688166</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">392.0268817204301</span><span class="p">,</span> <span class="mf">221.4185819892473</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">384.12365591397844</span><span class="p">,</span> <span class="mf">184.53686155913977</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">378.8548387096774</span><span class="p">,</span> <span class="mf">151.60675403225798</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">370.9516129032258</span><span class="p">,</span> <span class="mf">133.16589381720428</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">363.04838709677415</span><span class="p">,</span> <span class="mf">116.04223790322578</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">352.51075268817203</span><span class="p">,</span> <span class="mf">101.55299059139782</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">341.97311827956986</span><span class="p">,</span> <span class="mf">92.3325604838709</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">331.4354838709677</span><span class="p">,</span> <span class="mf">88.38094758064517</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">318.26344086021504</span><span class="p">,</span> <span class="mf">84.42933467741932</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">286.6505376344086</span><span class="p">,</span> <span class="mf">81.79492607526879</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">255.03763440860212</span><span class="p">,</span> <span class="mf">80.47772177419353</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">215.52150537634407</span><span class="p">,</span> <span class="mf">80.47772177419353</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">173.37096774193543</span><span class="p">,</span> <span class="mf">79.16051747311826</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">133.85483870967738</span><span class="p">,</span> <span class="mf">79.16051747311826</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-4-finding-the-area-under-a-curve-integrate-quad">
+<h3><span class="section-number">9.9.4. </span>Problem 4: Finding the area under a curve <code class="docutils literal notranslate"><span class="pre">integrate.quad()</span></code><a class="headerlink" href="#problem-4-finding-the-area-under-a-curve-integrate-quad" title="Permalink to this headline">#</a></h3>
+<p>Using the results from problem 3, find the area under both the 280 C and 240 C data. It is important that you integrate over the same <span class="math notranslate nohighlight">\(2\theta\)</span> values for both curves.  You can use 24.5 to 26.1. Present your final answer using the f-string statements shown below.  You will have to change the area240 and area280 to correspond to your variable names.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;If we take the curve at 280 C to represent completely crystalline with an area of </span><span class="si">{</span><span class="n">area280</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">,&#39;</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;then the percent crystallinity for the 240 C sample is 100 * </span><span class="si">{</span><span class="n">area240</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">area280</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">area240</span><span class="o">/</span><span class="n">area280</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons_3114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="08_digitizing_literature_plots_part_2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Estimating Data Values from Plots in the Literature (Part 2)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Sean Corcoran<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="next" title="9. Application: Crystallization Kinetics of Amorphous \(TiO_2\)" href="09_applications.html" />
     <link rel="prev" title="7. Estimating Data Values from Plots in the Literature (Part 1)" href="07_digitizing_literature_plots_part_1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -188,6 +188,14 @@ const thebe_selector_output = ".output, .cell_output"
    8. Estimating Data Values from Plots in the Literature (Part 2)
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_applications.html">
+   9. Application:  Crystallization Kinetics of Amorphous
+   <span class="math notranslate nohighlight">
+    \(TiO_2\)
+   </span>
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -274,7 +282,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/08_digitizing_literature_plots_part_2.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/08_digitizing_literature_plots_part_2.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -716,6 +724,7 @@ eq1 =
             <span class="n">pixel_positions</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="p">,</span><span class="n">ydim</span><span class="o">-</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">])</span>
             <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Last click: [</span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ydim</span><span class="o">-</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
             <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydim</span><span class="o">-</span><span class="n">event</span><span class="o">.</span><span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1">#adding scatter plot</span>
+        
     
     <span class="n">cid</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span> 
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -738,6 +747,7 @@ eq1 =
 {"model_id": "f7c71fe488484178b004e49e8bb5722e", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
+<a class="reference internal image-reference" href="../_images/08_select_data.png"><img alt="../_images/08_select_data.png" class="align-center" src="../_images/08_select_data.png" style="width: 700px;" /></a>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calpixels</span><span class="o">=</span><span class="n">pixel_positions</span>
@@ -766,6 +776,7 @@ eq1 =
 {"model_id": "9acc3e2c8fea437e9a88fd85d8c9fbec", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
+<a class="reference internal image-reference" href="../_images/08_select_data.png"><img alt="../_images/08_select_data.png" class="align-center" src="../_images/08_select_data.png" style="width: 700px;" /></a>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peakpix</span><span class="o">=</span><span class="n">pixel_positions</span>
@@ -807,7 +818,7 @@ eq1 =
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="n">v</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$2 \theta$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -818,6 +829,7 @@ eq1 =
 {"model_id": "a7cd031bc93c4df39fc4d339a349fcff", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
+<a class="reference internal image-reference" href="../_images/08_peak_plot.png"><img alt="../_images/08_peak_plot.png" class="align-center" src="../_images/08_peak_plot.png" style="width: 500px;" /></a>
 <p>The peak positions are stored in <code class="docutils literal notranslate"><span class="pre">data[:,0]</span></code>.  These positions are <span class="math notranslate nohighlight">\(2\theta\)</span>. Let’s calculate the d-spacing correspoonding to each peak and the lattice parameter, <span class="math notranslate nohighlight">\(a\)</span>, based on the d-spacing.  Ideally, <span class="math notranslate nohighlight">\(a\)</span> would be identical in each case but due to some inaccuracies in selecting the peak position we will see some variation in <span class="math notranslate nohighlight">\(a\)</span>.  Let’s find out how much.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}
@@ -855,12 +867,16 @@ The literature value for tungsten is 0.31652 nm
 <section id="problem-1">
 <h3><span class="section-number">8.4.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
 <p>Combine the data from the three plots below onto a single plot.  Use different colors and symbols for each dataset.  Label your axes including units.  Don’t connect the points. Include a legend on your plot where (a) 60 min; (b) 120 min; and (c) 480 min nitrocarburizing.  Set your y-scale to 400 min - 1200 max and your x-scale as 0 min 90 max.</p>
-<a class="reference internal image-reference" href="../_images/08_hardness_data.png" id="navigator"><img alt="../_images/08_hardness_data.png" class="align-center" id="navigator" src="../_images/08_hardness_data.png" style="height: 1600px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Click on the image below to download.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/08_hardness_data.png"><img alt="../_images/08_hardness_data.png" class="align-center" src="../_images/08_hardness_data.png" style="height: 1600px;" /></a>
 </section>
 <section id="problem-2">
 <h3><span class="section-number">8.4.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
 <p>Determine the thickness of the dark and light regions in the multilayer film shown in the image below.  Use at least 10 points to determine the thickness for each region. Provide the average and standard deviation of your two datasets. Provide your answers in nanometers. Make sure your notebook is well documented so it is clear what your code is doing.</p>
-<a class="reference internal image-reference" href="../_images/08_multilayer.png" id="id1"><img alt="../_images/08_multilayer.png" class="align-center" id="id1" src="../_images/08_multilayer.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/08_multilayer.png"><img alt="../_images/08_multilayer.png" class="align-center" src="../_images/08_multilayer.png" style="height: 500px;" /></a>
 <p style="line-height:100%"><font size=2>Image from:</font>
 <font size=2>Sergiy Yulin, Torsten Feigl, Viatcheslav Nesterenko, Mark Schürmann, Marco Perske, Hagen Pauer, Tobias Fiedler and Norbert Kaiser. *EUV multilayer coatings: potentials and limits.* presentation at the 2012 International Workshop on EUV Lithography, Thursday, 7 June 2012. https://www.euvlitho.com/2012/P26.pdf accessed 15 Sept 2022 </font></p></section>
 </section>
@@ -900,10 +916,10 @@ The literature value for tungsten is 0.31652 nm
             <p class="prev-next-title"><span class="section-number">7. </span>Estimating Data Values from Plots in the Literature (Part 1)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <a class='right-next' id="next-link" href="09_applications.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -188,6 +188,14 @@ const thebe_selector_output = ".output, .cell_output"
    8. Estimating Data Values from Plots in the Literature (Part 2)
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_applications.html">
+   9. Application:  Crystallization Kinetics of Amorphous
+   <span class="math notranslate nohighlight">
+    \(TiO_2\)
+   </span>
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -274,7 +282,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/06_selecting_pixel_coordinates.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/06_selecting_pixel_coordinates.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -573,13 +581,16 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">iio</span>
+<span class="kn">import</span> <span class="nn">io</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="load-and-display-our-image">
 <h2><span class="section-number">6.1. </span>Load and Display our image<a class="headerlink" href="#load-and-display-our-image" title="Permalink to this headline">#</a></h2>
-<p>The image below was a screen capture from google maps showing property lines for various tax parcels.  We would like to know the total acreage of this property.  We display an image by using <code class="docutils literal notranslate"><span class="pre">.subplots()</span></code> to create the figure and axes frame as we have done before but now we read an image <code class="docutils literal notranslate"><span class="pre">.imshow()</span></code> into the axes rather than plotting a set of data.</p>
+<p>The image below was a screen capture from google maps showing property lines for various tax parcels.  We would like to know the total acreage of this property.  We display an image by using <code class="docutils literal notranslate"><span class="pre">.subplots()</span></code> to create the figure and axes frame as we have done before but now we read an image <code class="docutils literal notranslate"><span class="pre">.imshow()</span></code> into the axes rather than plotting a set of data. Click on the image below to download so you can reproduce the code below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the following line gives an interactive plot; default is %matplotlib inline</span>
@@ -587,6 +598,7 @@ title="Print to PDF"
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/3114_06_smith_creek.png&#39;</span><span class="p">)</span>
+
 <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 <span class="n">imgsize</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span>  <span class="c1">#will use this below contains (ypixels, xpixels, colordepth)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -595,10 +607,10 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3c2ced8fd2be466fb3a01bbc896fc7e1", "version_major": 2, "version_minor": 0}
+{"model_id": "6b60a0ca8bdc4e4291f3d7044b7f2ce3", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="navigator"><img alt="../_images/smith_creek_1.png" class="align-center" id="navigator" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/3114_06_smith_creek.png" id="navigator"><img alt="../_images/3114_06_smith_creek.png" class="align-center" id="navigator" src="../_images/3114_06_smith_creek.png" style="height: 500px;" /></a>
 <p>If you execute the code above in your own notebook and move your mouse around on the image, you will see the pixel coordinates for that location displayed at the bottom of the figure. The values in the brackets are the color code and opacity.  We won’t need these.  One of the things to notice is that when an image is read, the data is plotted from the top left corner, across the row, and then down to the next row.  When dealing with coordinates for plots, we expect the origin to be located in the bottom-left corner so we will need to correct this next week when we read an image file of a data plot.</p>
 </section>
 <section id="selecting-data-from-our-image">

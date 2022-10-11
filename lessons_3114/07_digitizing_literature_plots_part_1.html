@@ -188,6 +188,14 @@ const thebe_selector_output = ".output, .cell_output"
    8. Estimating Data Values from Plots in the Literature (Part 2)
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_applications.html">
+   9. Application:  Crystallization Kinetics of Amorphous
+   <span class="math notranslate nohighlight">
+    \(TiO_2\)
+   </span>
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -274,7 +282,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/working?urlpath=tree/lessons_3114/07_digitizing_literature_plots_part_1.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/07_digitizing_literature_plots_part_1.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -626,6 +634,10 @@ title="Print to PDF"
 <section id="first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image">
 <h3><span class="section-number">7.2.1. </span>First, write code to get the pixel position of a mouse click on an image<a class="headerlink" href="#first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image" title="Permalink to this headline">#</a></h3>
 <p>To do this we will use <strong>mpl_connect</strong> which will look for “events” and report on them.  In our case the event we want is a “button press” (mouse click) event on an interactive matplotlib figure.  When the mouse is clicked, we call the function “onclick” which we define below to update the title on our plot.  The click event gives us access to the x &amp; y coordinates of the click through the variables called event.xdata and event.ydata.  So here we go…</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Click on the image below to download.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># produce matplotlib interactive output</span>
@@ -663,7 +675,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The figure below is &#39;active.&#39; Click on the answers for feedback.
 </pre></div>
 </div>
-<div class="output text_html"><div id="WPREpBNKfmjT" data-shufflequestions="False"
+<div class="output text_html"><div id="MsGfqGDFjUbV" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -825,7 +837,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsWPREpBNKfmjT=[{"question": "After running the code discussed above in your own notebook, click on a few points, what do you notice?", "type": "multiple_choice", "answers": [{"answer": "The y-coordinates don't seem correct.", "correct": true, "feedback": "Correct. The origin is located in the upper left corner rather than the lower left as in a data plot."}, {"answer": "The y-coordinates look fine to me.", "correct": true, "feedback": "Yes, they certainly are correct but notice that the origin is located in the upper left corner rather than the lower left as in a data plot."}, {"answer": "The x-coordinates don't look right.", "correct": false, "feedback": "Nothing wrong with the x-coordinates. Remember these are pixel values and not plot values.  We will convert these below."}]}];
+}</style><script type="text/Javascript">var questionsMsGfqGDFjUbV=[{"question": "After running the code discussed above in your own notebook, click on a few points, what do you notice?", "type": "multiple_choice", "answers": [{"answer": "The y-coordinates don't seem correct.", "correct": true, "feedback": "Correct. The origin is located in the upper left corner rather than the lower left as in a data plot."}, {"answer": "The y-coordinates look fine to me.", "correct": true, "feedback": "Yes, they certainly are correct but notice that the origin is located in the upper left corner rather than the lower left as in a data plot."}, {"answer": "The x-coordinates don't look right.", "correct": false, "feedback": "Nothing wrong with the x-coordinates. Remember these are pixel values and not plot values.  We will convert these below."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1559,7 +1571,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsWPREpBNKfmjT,  WPREpBNKfmjT);
+        show_questions(questionsMsGfqGDFjUbV,  MsGfqGDFjUbV);
         }
         </script>
 </div></div>
@@ -1641,7 +1653,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_25_0.png" src="../_images/07_digitizing_literature_plots_part_1_25_0.png" />
+<img alt="../_images/07_digitizing_literature_plots_part_1_26_0.png" src="../_images/07_digitizing_literature_plots_part_1_26_0.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -1649,7 +1661,7 @@ if (typeof version == 'undefined') {
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The figure below is &#39;active.&#39; Click on the answers for feedback.
 </pre></div>
 </div>
-<div class="output text_html"><div id="nanosfhOGPEt" data-shufflequestions="False"
+<div class="output text_html"><div id="nCMyaWNwCskt" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -1811,7 +1823,7 @@ if (typeof version == 'undefined') {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsnanosfhOGPEt=[{"question": "What are the units for the plot above?", "type": "multiple_choice", "answers": [{"answer": "x = pixel, y=pixel", "correct": true, "feedback": "Correct. These are the x and y pixel positions for the data points in the image"}, {"answer": "Both x and y axes are unitless", "correct": false, "feedback": "No, they have units. Try again."}, {"answer": "x = minutes, y = %", "correct": false, "feedback": "(min,%) are the plot coordinates which we will get after we determine the correct scaling to apply.  The points shown in the plot above are pixel values."}]}];
+}</style><script type="text/Javascript">var questionsnCMyaWNwCskt=[{"question": "What are the units for the plot above?", "type": "multiple_choice", "answers": [{"answer": "x = pixel, y=pixel", "correct": true, "feedback": "Correct. These are the x and y pixel positions for the data points in the image"}, {"answer": "Both x and y axes are unitless", "correct": false, "feedback": "No, they have units. Try again."}, {"answer": "x = minutes, y = %", "correct": false, "feedback": "(min,%) are the plot coordinates which we will get after we determine the correct scaling to apply.  The points shown in the plot above are pixel values."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2545,7 +2557,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsnanosfhOGPEt,  nanosfhOGPEt);
+        show_questions(questionsnCMyaWNwCskt,  nCMyaWNwCskt);
         }
         </script>
 </div></div>
@@ -2637,7 +2649,7 @@ if (typeof version == 'undefined') {
 <p>For our three calibration points, we will pick (1) a point along the x-axis (near the max value), (2) the plot origin (not necessarily (0,0) but it should be well defined), and (3) one point along the y-axis (near the max value). The plot below shows the three points chosen for this problem.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_38_0.png" src="../_images/07_digitizing_literature_plots_part_1_38_0.png" />
+<img alt="../_images/07_digitizing_literature_plots_part_1_39_0.png" src="../_images/07_digitizing_literature_plots_part_1_39_0.png" />
 </div>
 </div>
 <section id="from-the-plot-above-the-three-points-i-chose-are">
@@ -2773,7 +2785,9 @@ if (typeof version == 'undefined') {
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># converts pixels position to plot coordinates using the calibration above</span>
 <span class="k">def</span> <span class="nf">conv</span><span class="p">(</span><span class="n">pix_coords</span><span class="p">,</span> <span class="n">m_cal</span><span class="p">,</span> <span class="n">offset_cal</span><span class="p">):</span>
-    <span class="k">return</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">m_cal</span><span class="o">*</span><span class="p">(</span><span class="n">Matrix</span><span class="p">(</span><span class="n">pix_coords</span><span class="p">)</span><span class="o">-</span><span class="n">offset_cal</span><span class="p">)))</span>
+    <span class="c1"># np.array().astype(np.float64) makes sure we return numpy floats and not sympy floats</span>
+    <span class="c1"># sympy floats do not play well with numpy functions</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">m_cal</span><span class="o">*</span><span class="p">(</span><span class="n">Matrix</span><span class="p">(</span><span class="n">pix_point</span><span class="p">)</span><span class="o">-</span><span class="n">offset_cal</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 
 <span class="c1"># test it: recall that plot point (60,0) had pix coord of (371.6,59.1)</span>
 <span class="c1"># so placing (371.6,59.1) into our function conv() should give us (60,0)</span>
@@ -2833,7 +2847,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_64_0.png" src="../_images/07_digitizing_literature_plots_part_1_64_0.png" />
+<img alt="../_images/07_digitizing_literature_plots_part_1_65_0.png" src="../_images/07_digitizing_literature_plots_part_1_65_0.png" />
 </div>
 </div>
 <section id="lets-compare-to-the-original-image">
@@ -2877,7 +2891,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_66_0.png" src="../_images/07_digitizing_literature_plots_part_1_66_0.png" />
+<img alt="../_images/07_digitizing_literature_plots_part_1_67_0.png" src="../_images/07_digitizing_literature_plots_part_1_67_0.png" />
 </div>
 </div>
 <p>This looks pretty nice!</p>
@@ -2905,11 +2919,11 @@ if (typeof version == 'undefined') {
 <h3><span class="section-number">7.3.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
 <p>Reproduce the <span class="math notranslate nohighlight">\(2\theta\)</span> peak positions in the plot below using our calibration routine in this lesson. The Intensity is arbitrary so just assign the max value on the y-axis = 1. Use these values to answer the following:</p>
 <p>The x-ray pattern below is for BCC Tungsten.  The indices of the peaks (from left to right) are (110), (200), (211), (220), and (310).  (1) Calculate the interplanar spacing (d-spacing) for each peak.  (2) From each of the d-spacings, calculate the radius of tungsten.  (3) Find the mean and standard deviation of the radii. This is easily done if you store your radii in a numpy array.  You can use for example: <code class="docutils literal notranslate"><span class="pre">np.std()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>.  These are 1st order reflections so n = 1. Some useful equations:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{gather*}
+<div class="amsmath math notranslate nohighlight" id="equation-edd9133c-d348-4393-9cd7-5a3c70531213">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-edd9133c-d348-4393-9cd7-5a3c70531213" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 2\ d_{hkl}\ \sin(\theta)=n\ \lambda \\
 a=d_{hkl}\ \sqrt{h^2+k^2+l^2}
-\end{gather*}\]</div>
+\end{eqnarray}\]</div>
 <p>The x-ray source was <span class="math notranslate nohighlight">\(Cu\ K_{\alpha}\)</span> with a <span class="math notranslate nohighlight">\(\lambda\ =\ 0.1542\ nm\)</span>.  The relationship between lattice parameter, <span class="math notranslate nohighlight">\(a\)</span>, and radius, <span class="math notranslate nohighlight">\(R\)</span>, for a BCC material you should know from MSE 2044.</p>
 <a class="reference internal image-reference" href="../_images/diffraction.png" id="id5"><img alt="../_images/diffraction.png" class="align-center" id="id5" src="../_images/diffraction.png" style="height: 600px;" /></a>
 </section>
