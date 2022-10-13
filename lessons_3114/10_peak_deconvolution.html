@@ -1,0 +1,961 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>10. Application: Peak Deconvolution &#8212; Python for MSE</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="prev" title="9. Application: Crystallization Kinetics of Amorphous \(TiO_2\)" href="09_applications.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Virginia Tech MSE 3114 Fall 2022</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for MSE</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to MSE 3114 Math Programming for Materials Science and Engineering II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 2114 Python for MSE I
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/1_getting_started.html">
+   1. Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/2_Intro_Jupyter.html">
+   2. Intro to the Jupyter Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/3_working_with_data.html">
+   3. Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/4_temp.html">
+   4. 2114 … under development
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 3114 Python for MSE II
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_welcome_to_3114.html">
+   1. Welcome to MSE 3114
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_importing_your_own_functions.html">
+   2. Importing Data from Files &amp; Importing Your Own Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_google_forms_and_pandas.html">
+   3. Google Forms and Pandas Data Import and Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_closer_look_at_pandas.html">
+   4. Pandas DataFrames and Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_closer_look_at_matplotlib.html">
+   5. matplotlib - Advanced Layouts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_selecting_pixel_coordinates.html">
+   6. Selecting pixel coordinates from an image file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_digitizing_literature_plots_part_1.html">
+   7. Estimating Data Values from Plots in the Literature (Part 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_digitizing_literature_plots_part_2.html">
+   8. Estimating Data Values from Plots in the Literature (Part 2)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_applications.html">
+   9. Application:  Crystallization Kinetics of Amorphous
+   <span class="math notranslate nohighlight">
+    \(TiO_2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   10. Application: Peak Deconvolution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50_course_support_files.html">
+   1. MSE 3114 Data Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">
+   2. LinkedIn Learning Recommendations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52_time_saving_tips.html">
+   3. Time Saving Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="53_updates.html">
+   4. Updates &amp; FAQ
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/10_peak_deconvolution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lessons_3114/10_peak_deconvolution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   10. Application: Peak Deconvolution
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   11. Exercises
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     11.1. Problem 1:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-3">
+     11.2. Problem 3
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     11.3. Problem 3
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-4">
+     11.4. Problem 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Application: Peak Deconvolution</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   10. Application: Peak Deconvolution
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   11. Exercises
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     11.1. Problem 1:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-3">
+     11.2. Problem 3
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     11.3. Problem 3
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-4">
+     11.4. Problem 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="application-peak-deconvolution">
+<h1><span class="section-number">10. </span>Application: Peak Deconvolution<a class="headerlink" href="#application-peak-deconvolution" title="Permalink to this headline">#</a></h1>
+<hr style="height: 3.0px"/><div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives   </p>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>load cal() and selectdata() functions from our utilities notebook using <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">getpix_utilities.ipynb</span></code></p></li>
+<li><p>install a new package for more advanced fitting procedures: <code class="docutils literal notranslate"><span class="pre">lmfit</span></code></p></li>
+<li><p>analyze the data found in <em>Cystallization Kinetics of an ionic liquid (Royal Society of Chemistry Advances &gt;(RSC Adv.), 2014, vol. 4, p. 22277)</em></p></li>
+<li><p>fit (deconvolution) of two overlapping peaks in calorimetry data</p></li>
+<li><p>recognize that literature papers can often contain mistakes.</p></li>
+</ul>
+</div>
+<p>This lesson will pull data from the literature using the digitizing functions (<code class="docutils literal notranslate"><span class="pre">selectdata()</span></code>, <code class="docutils literal notranslate"><span class="pre">cal()</span></code>) that we created previously and saved in a utilities file called <code class="docutils literal notranslate"><span class="pre">getpix_utilities.ipynb</span></code>.  We load this notebook as we did in the last lesson by using <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">getpix_utilities.ipynb</span></code>.  We can’t use our import method since these functions have interactive content.</p>
+<p>Much of this lesson is borrowed from the more extensive treatment in <a class="reference external" href="https://chrisostrouchov.com/post/peak_fit_xrd_python/"><strong>“Peak fitting XRD data with Python” by Chris Ostrouchov</strong></a></p>
+<p>The first thing you need to do is install the new package “lmfit” as explained in the short video below which can also be found at <a class="reference external" href="https://youtu.be/R8FX2G8m6XM">https://youtu.be/R8FX2G8m6XM</a>.  If you would prefer to read about lmfit you can find that info here: <a class="reference external" href="https://lmfit.github.io/lmfit-py/">https://lmfit.github.io/lmfit-py/</a>.</p>
+<p>For the impatient, just type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">lmfit</span></code> at your command prompt.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="696.0"
+    height="490.40000000000003"
+    src="https://www.youtube.com/embed/R8FX2G8m6XM"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
+</div>
+<p><strong>Download:</strong>  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1lrKrd5tqYUn88Cfh8_ntL4o8lAZTjmHG">getpix_utilities.ipynb</a> and place in the same folder as the notebook you are loading this file into.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> getpix_utilities.ipynb
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function cal in module __main__:
+
+cal(pixpts, plotpts, datatoconvert)
+    pixpts = list of three pixel points (typically along axes)
+    plotpts = list of three points corresponding to pixpts but in plot units
+    datatoconvert = list of pixel points to convert to plot coordinates
+
+Help on function selectdata in module __main__:
+
+selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
+    path_to_image_file example: r&quot;C:/Users/Sean/images/xrd data.png&quot;  
+    pixel data stored in global variable &quot;pixel_positions&quot;
+    fig_size_as_tuple e.g. (8,12) This adjusts the image size shown.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########  The lmfit import will not work until you install lmfit as described above. </span>
+
+<span class="c1"># import os</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#from scipy import optimize, signal</span>
+
+<span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Parameters</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s generate some overlapping peak data representing for example, Differential Scanning Calorimetry (DSC) data.  The presence of a peak indicates the formation of crystals within the polymer.  Overlapping peaks correspond to two different crystalline structures forming.</p>
+<p>DSC will be discussed in MSE 4554 polymer engineering.  The kinetics of crystalization as we saw in the previous chapter often follows the Avrami equation, <span class="math notranslate nohighlight">\(Y=1-e^{-K t^n}\)</span>.</p>
+<p>For the sake of generating some overlapping peak data, we are going to use a simple gaussian peak function.  For homework, you will perform the fitting routines that we will be discussing for real DSC data.  The idea here is learn how to fit overlapping peaks with “ideal” data and then you can apply this to real data.</p>
+<p>Recall the Gaussian function is given by <span class="math notranslate nohighlight">\(f(x;A,\mu,\sigma)=\frac{A}{\sigma \sqrt{2\pi}}e^{-(x-\mu)^2/\ (2 \sigma^2)}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Writing the above as a function: </span>
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">μ</span><span class="p">,</span> <span class="n">σ</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">/</span><span class="p">(</span><span class="n">σ</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">μ</span><span class="p">)</span> <span class="o">/</span> <span class="n">σ</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># A is referred to as the amplitude but really the amplitude depends on A/σ</span>
+<span class="c1"># μ is the peak position mean </span>
+<span class="c1"># σ is the standard deviation</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can use greek letters for variable names.  For example to get <span class="math notranslate nohighlight">\(\sigma\)</span> in a code cell, type <code class="docutils literal notranslate"><span class="pre">\sigma</span></code> and then <em>press the tab key</em>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here we define the parameters [A,μ,σ] for the two peaks</span>
+<span class="n">g_0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">250.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span> <span class="c1"># [A,μ,σ] peak centered at 4</span>
+<span class="n">g_1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">20.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span> <span class="c1"># [A,μ,σ] peak centered at -5</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">150</span> <span class="c1"># number of points</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1">#generate our x data</span>
+<span class="n">noise</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1">#generate some noise to add to our points</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">g_0</span><span class="p">)</span> <span class="o">+</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">g_1</span><span class="p">)</span> <span class="o">+</span> <span class="n">noise</span> <span class="c1">#generating some data with random noise</span>
+<span class="c1"># the star operator used in the above line is discussed below</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">g_1</span><span class="p">),</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1st peak&#39;</span><span class="p">);</span> <span class="c1">#peak at -5</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">g_0</span><span class="p">),</span> <span class="s1">&#39;g.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2nd peak&#39;</span><span class="p">);</span> <span class="c1">#peak at 4</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="s1">&#39;k.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;noise&#39;</span><span class="p">);</span> <span class="c1">#noise</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b^&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1st+2nd+noise&#39;</span><span class="p">);</span> <span class="c1">#sum of the above</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;arbitrary amplitude&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;arbitray temperature&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/10_peak_deconvolution_14_0.png" src="../_images/10_peak_deconvolution_14_0.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>What we would like to do is take the blue triangle points generated above and see if we can fit this noisy data to get back the two peaks.</p>
+</div>
+<p>I used the star operator above for example *g_0 as a shortcut.  The above *g_0 places the values 250.0, 4.0, 5.0 into our function call <strong>without</strong> the square brackets.  Remember our function, <span class="math notranslate nohighlight">\(g(x, A, \mu, \sigma)\)</span>, is looking for a total of 4 separate values.  The following are equivalent:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">g_0</span><span class="p">)</span> <span class="ow">or</span> 
+<span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g_0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">g_0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">g_0</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">250.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>  
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s fit our x,y data from above</span>
+<span class="n">xdata</span><span class="o">=</span><span class="n">x</span> <span class="c1">#from above</span>
+<span class="n">ydata</span><span class="o">=</span><span class="n">y</span> <span class="c1">#from above</span>
+
+<span class="c1"># the model (peak function) we are using is the gaussian function</span>
+<span class="c1"># which we defined previously g(x,A,μ,σ)</span>
+
+<span class="c1"># define two models. One for each peak.  </span>
+<span class="n">model_1</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;m1_&#39;</span><span class="p">)</span> <span class="c1"># g is the gaussian function we defined previously</span>
+<span class="n">model_2</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;m2_&#39;</span><span class="p">)</span> <span class="c1"># using the same function but changing prefix</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model_1</span> <span class="o">+</span> <span class="n">model_2</span> <span class="c1"># our fitting model is the sum of the two</span>
+
+<span class="c1"># the prefix used above changes the variable names so that the variables are</span>
+<span class="c1"># different in each peak for example, the new variable names become: </span>
+<span class="c1"># m1_A, m2_A, m1_σ, m2_σ, and so on...  </span>
+
+<span class="c1"># now we help the fitting process by giving starting values and bounds on our parameters</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">()</span>
+<span class="c1"># parameters given as: (NAME, VALUE, VARY?, MIN,  MAX,  EXPR,  BRUTE_STEP)</span>
+<span class="n">params</span><span class="o">.</span><span class="n">add_many</span><span class="p">((</span><span class="s1">&#39;m1_A&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m1_μ&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m1_σ&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m2_A&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m2_μ&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m2_σ&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">xdata</span><span class="p">)</span> <span class="c1">#now we perform the fit to our x &amp; y data with the given params</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">eval_components</span><span class="p">()</span> <span class="c1">#this separates the results into the two components model_1 and model_2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">)</span> <span class="c1">#our x,y data blue dots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;best fit&#39;</span><span class="p">)</span> <span class="c1"># our overall fit red line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">comps</span><span class="p">[</span><span class="s1">&#39;m1_&#39;</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;model_1&#39;</span><span class="p">)</span> <span class="c1"># peak 1 fit black dashed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">comps</span><span class="p">[</span><span class="s1">&#39;m2_&#39;</span><span class="p">],</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;model_2&#39;</span><span class="p">)</span> <span class="c1"># peak 2 fit green dashed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#print(result.fit_report())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">best_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/10_peak_deconvolution_17_0.png" src="../_images/10_peak_deconvolution_17_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 99.99999999886148, &#39;m2_μ&#39;: -0.1643572754607505, &#39;m2_σ&#39;: 3.800682636502541, &#39;m1_A&#39;: 100.0, &#39;m1_μ&#39;: 5.629326646606535, &#39;m1_σ&#39;: 2.760471397213784}
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>That fit (red points) is not looking very good.</strong> I tried to “help” the fitting routine by confining the <span class="math notranslate nohighlight">\(A\)</span> values to a min and max of 0 and 100 <code class="docutils literal notranslate"><span class="pre">('m1_A',</span> <span class="pre">3,</span> <span class="pre">True,</span> <span class="pre">0,</span> <span class="pre">100,</span> <span class="pre">None,</span> <span class="pre">None)</span></code> but I forgot that the amplitude of the gaussian is related to the ratio of <span class="math notranslate nohighlight">\(A/\sigma\)</span>. Let’s remove the constraints on the maximum values and try again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we help the fitting process by giving starting values and bounds on our parameters</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">()</span>
+<span class="c1"># parameters given as: (NAME, VALUE, VARY?, MIN,  MAX,  EXPR,  BRUTE_STEP)</span>
+<span class="n">params</span><span class="o">.</span><span class="n">add_many</span><span class="p">((</span><span class="s1">&#39;m1_A&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m1_μ&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m1_σ&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m2_A&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m2_μ&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;m2_σ&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">xdata</span><span class="p">)</span> <span class="c1">#now we perform the fit to our x &amp; y data with the given params</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">eval_components</span><span class="p">()</span> <span class="c1">#this separates the results into the two components model_1 and model_2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">)</span> <span class="c1">#our x,y data blue dots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;best fit&#39;</span><span class="p">)</span> <span class="c1"># our overall fit red line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">comps</span><span class="p">[</span><span class="s1">&#39;m1_&#39;</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;model_1&#39;</span><span class="p">)</span> <span class="c1"># peak 1 fit black dashed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">comps</span><span class="p">[</span><span class="s1">&#39;m2_&#39;</span><span class="p">],</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;model_2&#39;</span><span class="p">)</span> <span class="c1"># peak 2 fit green dashed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#print(result.fit_report())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">best_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/10_peak_deconvolution_19_0.png" src="../_images/10_peak_deconvolution_19_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 17.35637390302714, &#39;m2_μ&#39;: -4.932177335365211, &#39;m2_σ&#39;: 0.8521344365078486, &#39;m1_A&#39;: 253.12493978967856, &#39;m1_μ&#39;: 3.9556103653104815, &#39;m1_σ&#39;: 5.070261745005913}
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Much better!</strong></p>
+<p>Comparing our fit parameters to the exact values looks pretty good!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>                      <span class="n">Peak</span> <span class="mi">1</span>                   <span class="n">Peak</span> <span class="mi">2</span>
+<span class="n">Exact</span> <span class="n">values</span><span class="p">:</span>   <span class="p">[</span><span class="mf">20.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>         <span class="p">[</span><span class="mf">250.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+<span class="n">Fitted</span> <span class="n">values</span><span class="p">:</span>  <span class="p">[</span><span class="mf">22.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.04</span><span class="p">,</span> <span class="mf">1.14</span><span class="p">]</span>       <span class="p">[</span><span class="mf">250.6</span><span class="p">,</span> <span class="mf">3.96</span><span class="p">,</span> <span class="mf">4.998</span><span class="p">]</span>
+
+</pre></div>
+</div>
+<p><strong>Now we have a nice fit!</strong></p>
+<p>Notice above in the plot commands that:<br />
+The x-values are given by <code class="docutils literal notranslate"><span class="pre">xdata</span></code> for all plots and<br />
+<code class="docutils literal notranslate"><span class="pre">result.best_fit</span></code> gives the y-values for the overall fit (red points)<br />
+<br>
+Now recall we made 2 Models: <code class="docutils literal notranslate"><span class="pre">Model(g,</span> <span class="pre">prefix='m1_')</span></code> and <code class="docutils literal notranslate"><span class="pre">Model(g,</span> <span class="pre">prefix='m2_')</span></code> so we can also get the results for each individual model (peaks in our case) by first:  <code class="docutils literal notranslate"><span class="pre">comps</span> <span class="pre">=</span> <span class="pre">result.eval_components()</span></code> then using the defined prefixes we get the single peak fits by:<br />
+<br>
+<code class="docutils literal notranslate"><span class="pre">comps['m1_']</span></code>    gives the y-values for the model 1 peak<br />
+<code class="docutils literal notranslate"><span class="pre">comps['m2_']</span></code>    gives the y-values for the model 2 peak</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # run each of the commands below to see what you get</span>
+<span class="c1"># # you will need to uncomment them one at a time to see the output</span>
+<span class="c1"># # unless you uncomment and wrap each with a print() statement</span>
+
+<span class="c1"># result.eval_components()</span>
+<span class="c1"># result.best_fit</span>
+<span class="c1"># result.best_values</span>
+<span class="c1"># result.best_values[&#39;m2_μ&#39;]</span>
+<span class="c1"># result.best_values.values()</span>
+<span class="c1"># print(result.fit_report())</span>
+<span class="c1"># result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Let’s look at how to use our fit parameters to plot the gaussian function.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">best_values</span>
+<span class="n">vals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 17.35637390302714,
+ &#39;m2_μ&#39;: -4.932177335365211,
+ &#39;m2_σ&#39;: 0.8521344365078486,
+ &#39;m1_A&#39;: 253.12493978967856,
+ &#39;m1_μ&#39;: 3.9556103653104815,
+ &#39;m1_σ&#39;: 5.070261745005913}
+</pre></div>
+</div>
+</div>
+</div>
+<p>recall our definition for the gaussian function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">μ</span><span class="p">,</span> <span class="n">σ</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">/</span><span class="p">(</span><span class="n">σ</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">μ</span><span class="p">)</span> <span class="o">/</span> <span class="n">σ</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">150</span> <span class="c1"># number of points</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1">#generate our x data</span>
+<span class="c1"># recall our function g() has 4 params in this order g(x, A, μ, σ)</span>
+<span class="n">y1</span><span class="o">=</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m1_A&#39;</span><span class="p">],</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m1_μ&#39;</span><span class="p">],</span><span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m1_σ&#39;</span><span class="p">])</span> 
+<span class="n">y2</span><span class="o">=</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m2_A&#39;</span><span class="p">],</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m2_μ&#39;</span><span class="p">],</span><span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m2_σ&#39;</span><span class="p">])</span>
+<span class="n">ysum</span><span class="o">=</span> <span class="n">y1</span><span class="o">+</span><span class="n">y2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ysum</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;arbitrary amplitude&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;arbitray temperature&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/10_peak_deconvolution_28_0.png" src="../_images/10_peak_deconvolution_28_0.png" />
+</div>
+</div>
+<p>Compare the fitted peaks to the exact peaks used in the beginning to generate our noisy data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">150</span> <span class="c1"># number of points</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1">#generate our x data</span>
+<span class="c1"># recall our function g() has 4 params in this order g(x, A, μ, σ)</span>
+<span class="n">px</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="o">*</span><span class="n">px</span><span class="p">,</span><span class="mi">400</span><span class="o">*</span><span class="n">px</span><span class="p">))</span>
+<span class="n">y1</span><span class="o">=</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">20.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">y1_fit</span><span class="o">=</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m2_A&#39;</span><span class="p">],</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m2_μ&#39;</span><span class="p">],</span><span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m2_σ&#39;</span><span class="p">])</span>
+<span class="n">y2</span><span class="o">=</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">250.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+<span class="n">y2_fit</span><span class="o">=</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m1_A&#39;</span><span class="p">],</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m1_μ&#39;</span><span class="p">],</span><span class="n">vals</span><span class="p">[</span><span class="s1">&#39;m1_σ&#39;</span><span class="p">])</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y1_fit</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y2_fit</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;peak 1&#39;</span><span class="p">,</span><span class="s1">&#39;peak 1 fit&#39;</span><span class="p">,</span><span class="s1">&#39;peak 2&#39;</span><span class="p">,</span><span class="s1">&#39;peak 2 fit&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;arbitrary amplitude&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;arbitray temperature&#39;</span><span class="p">);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/10_peak_deconvolution_30_0.png" src="../_images/10_peak_deconvolution_30_0.png" />
+</div>
+</div>
+<p>The fit looks pretty good especially considering how much noise we put into our original data.</p>
+</section>
+<section id="exercises">
+<h1><span class="section-number">11. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
+<p>The data for the exercises below were taken from:</p>
+<a class="reference internal image-reference" href="../_images/10_crystallization_paper.png"><img alt="../_images/10_crystallization_paper.png" class="align-center" src="../_images/10_crystallization_paper.png" style="width: 600px;" /></a>
+<div class="admonition-helpful-summary-of-variables-used-problems-1-4 admonition">
+<p class="admonition-title">Helpful summary of variables used Problems 1-4. </p>
+<p>Data from image:</p>
+<ul class="simple">
+<li><p>dsc_data – overall curve from image</p></li>
+<li><p>p1_author_data – data defining authors’s fit for peak 1</p></li>
+<li><p>p2_author_data – data defining authors’s fit for peak 2<br />
+<br>
+Fits:</p></li>
+<li><p>fit_dsc – fit of dsc_data from image</p>
+<ul>
+<li><p>fit_dsc_peak_1 – peak 1 from our overall fit_dsc (.eval_components()[‘m1_’])</p></li>
+<li><p>fit_dsc_peak_2 – peak 2 from our overall fit_dsc (.eval_components()[‘m2_’])</p></li>
+</ul>
+</li>
+<li><p>fit_p1_author – fit of p1_author_data from image</p></li>
+<li><p>fit_p2_author – fit of p2_author_data from image</p></li>
+<li><p>(fit_p1_author + fit_p2_author) – gives authors’ overall fit to dsc_data
+<br><br></p></li>
+<li><p><strong>see</strong> <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1xgACO_XmxTMA2eDFCdaTCfC-BbT-2LfT"><strong>10_help_file.pdf</strong></a> for graphical summary of these variables</p></li>
+</ul>
+</div>
+<section id="problem-1">
+<h2><span class="section-number">11.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h2>
+<p>Reproduce all three data curves shown below. The thick green line (overall curve) is the measured data from DSC. After conversion to plot scale, name this data set, <strong>“dsc_data”</strong>.  The peaks labeled <span class="math notranslate nohighlight">\(P_1\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span> are fitted curves determined by the authors. Let’s call these <strong>“p1_author_data”</strong> and <strong>“p2_author_data”</strong>. Plot your data for all three peaks, include labels for the x,y axes.</p>
+<a class="reference internal image-reference" href="../_images/10_prob_1_fig.png"><img alt="../_images/10_prob_1_fig.png" class="align-center" src="../_images/10_prob_1_fig.png" style="width: 600px;" /></a>
+</section>
+<section id="problem-3">
+<h2><span class="section-number">11.2. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h2>
+<p>Fit the three data sets that you obtained from problem 1 (dsc_data, p1_author_data, and p2_author_data) using a Gaussian function as in the lesson. Label your fitted results <strong>fit_dsc</strong>, <strong>fit_p1_author</strong> and <strong>fit_p2_author</strong> respectively. <em>Important: use the same x-values for all your fits something like np.linspace(25, 800, 150) should work well.</em></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The fit to dsc_data will require two gaussian peaks (two Models()) as performed in the lesson. Don’t forget to change the initial guess for the peak positions, <span class="math notranslate nohighlight">\(m1\_\mu\)</span> and <span class="math notranslate nohighlight">\(m2\_\mu\)</span>.  The fits to the p1_author_data and p2_auth_data only require a single peak (one Model()). You don’t need to define a prefix in this case but it is fine if you do.</p>
+</div>
+<p>Your fitting results for the dsc_data will be composed of two components (e.g. <code class="docutils literal notranslate"><span class="pre">result.eval_components()['m1_']</span></code> and <code class="docutils literal notranslate"><span class="pre">result.eval_components()['m2_'])</span></code> and an overall result, <code class="docutils literal notranslate"><span class="pre">result.best_fit</span></code>. Assign these to variables: <strong>fit_dsc_peak_1, fit_dsc_peak_2,</strong> and <strong>fit_dsc</strong>.</p>
+<p><strong>Evaluate your fits visually</strong>
+<br>
+In one plot, plot dsc_data (as points) and your overall best fit i.e. fit_dsc (as lines, no marker).<br />
+<br>
+In another plot, plot p1_author_data (as points), fit_p1_author (lines, no points), p2_author_data (as points), fit_p2_author (lines, no points).<br />
+<br>
+Hopefully, you got some nice fits.</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">11.3. </span>Problem 3<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p><strong>(a)</strong> How does your fit compare to the authors fit?  The authors didn’t show their overall fit but they did show the two components (peak functions) of their fit which you reproduced as (p1_author_data and p2_author_data).  Let’s compare the authors’ p1, p2 to your p1, p2 components by plotting on one plot: p1_author_data, p2_author_data, fit_dsc_peak_1, fit_dsc_peak_2.  How do your results compare to the authors?<br />
+<br>
+<strong>(b)</strong> From (a) we can see that our result is quite different from the authors. From problem 2, you already saw that your overall fit represents the data quite well. Let’s see how the authors overall fit represents the data.  Plot on one plot, dsc_data, fit_dsc, and the sum (fit_p1_author + fit_p2_author).  Use lines, no points for all data sets.  What can you say comparing (by eye) the authors fit vs your fit?<br />
+<br>
+<strong>(c)</strong> The two peaks represent the crystallization of two different phases in this material. If the area under the curves P1 and P2 represent the relative amounts of each phase, do your results suggest an increase or decrease in the relative amount of P1/P2 as compared to the authors result. You do not need to calculate anything here.  Just eyeball it.</p>
+</section>
+<section id="problem-4">
+<h2><span class="section-number">11.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h2>
+<p>Now there really isn’t any reason to assume a gaussian profile for the DSC data as the authors in this paper and many in the literature commonly do.  In fact, we expect the kinetics of crystallization to follow avrami kinetics.  These are the “S” shaped curves we looked at in the last lesson. The avrami curve has the form <span class="math notranslate nohighlight">\(Y=1-e^{-K\ t^n}\)</span>.</p>
+<p>The peak in the DSC data should just be the derivative of the avrami equation with respect to time which is $<span class="math notranslate nohighlight">\(Y'= k n t^{n-1} e^{-k t^n}\)</span>$.</p>
+<p>The above equation is given in normalized form below, i.e. the height = 1 and peak position = 1</p>
+<div class="math notranslate nohighlight">
+\[Y'(normalized) = e^{-\frac{(n-1) \left(t^n-1\right)}{n}} t^{n-1}\]</div>
+<p>So to fit to an arbitrary amplitude, A, and peak position, B we could write:</p>
+<div class="math notranslate nohighlight">
+\[\text{A } e^{-\frac{(\text{n}-1) \left(\left(\frac{t}{\text{B}}\right)^{\text{n}}-1\right)}{\text{n}}} \left(\frac{t}{\text{B}}\right)^{\text{n}-1}\]</div>
+<br>
+Let's now write this as a function called pAvram()<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Avrami peak function as derived above: </span>
+<span class="c1"># where A = amplitude, B = peak position, n = avrami fitting parameter</span>
+<span class="k">def</span> <span class="nf">pAvram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="p">((</span><span class="n">x</span><span class="o">/</span><span class="n">B</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(((</span><span class="n">x</span><span class="o">/</span><span class="n">B</span><span class="p">)</span><span class="o">**</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">pAvram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">230</span><span class="p">,</span><span class="mf">3.23</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/10_peak_deconvolution_51_0.png" src="../_images/10_peak_deconvolution_51_0.png" />
+</div>
+</div>
+<p>(a) Refit the dsc_data now using the pAvram function we defined above.
+(b) Plot on one plot: dsc_data, fit_dsc, the sum (fit_p1_author + fit_p2_author), and the overall fit you found from part (a).  Which fit is the best by eye? Use small points for the dsc_data and lines for everything else.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons_3114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="09_applications.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Sean Corcoran<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -194,6 +194,11 @@ const thebe_selector_output = ".output, .cell_output"
    </span>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_peak_deconvolution.html">
+   10. Application: Peak Deconvolution
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -688,7 +693,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Slicing DataFrames using .loc and .iloc
 </pre></div>
 </div>
-<div class="output text_html"><div id="gaSGqAuonxFg" data-shufflequestions="False"
+<div class="output text_html"><div id="lWGHhSOJfqwo" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -850,7 +855,7 @@ title="Print to PDF"
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsgaSGqAuonxFg=[{"question": "For the DataFrame, \"raw\" above, how would you select the columns: \"Name\" and \"Age\" and only the first 10 entries?", "type": "multiple_choice", "answers": [{"code": "raw.loc[0:9,['Name','Age']]", "correct": true, "feedback": "Correct. Here we use .loc[] and not .iloc[] since we are using the column names.  We pass the column names as a list, ['Name','Age'], since we are skipping the column 'Sex.' If we wanted the columns Name, Sex, and Age, we could just write raw.loc[0:9,'Name':'Age']"}, {"code": "raw.iloc[0:9,[3,5]]", "correct": true, "feedback": "Yes this works but .loc[] is cleaner to read so you don't have to count the column number  to figure out which column is 3 or 5."}, {"code": "raw.iloc[1:10,['Name','Age']]", "correct": false, "feedback": "Not quite.  Remember the first row is labeled, '0' and if we are using column names we need .loc not .iloc"}]}];
+}</style><script type="text/Javascript">var questionslWGHhSOJfqwo=[{"question": "For the DataFrame, \"raw\" above, how would you select the columns: \"Name\" and \"Age\" and only the first 10 entries?", "type": "multiple_choice", "answers": [{"code": "raw.loc[0:9,['Name','Age']]", "correct": true, "feedback": "Correct. Here we use .loc[] and not .iloc[] since we are using the column names.  We pass the column names as a list, ['Name','Age'], since we are skipping the column 'Sex.' If we wanted the columns Name, Sex, and Age, we could just write raw.loc[0:9,'Name':'Age']"}, {"code": "raw.iloc[0:9,[3,5]]", "correct": true, "feedback": "Yes this works but .loc[] is cleaner to read so you don't have to count the column number  to figure out which column is 3 or 5."}, {"code": "raw.iloc[1:10,['Name','Age']]", "correct": false, "feedback": "Not quite.  Remember the first row is labeled, '0' and if we are using column names we need .loc not .iloc"}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1584,7 +1589,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsgaSGqAuonxFg,  gaSGqAuonxFg);
+        show_questions(questionslWGHhSOJfqwo,  lWGHhSOJfqwo);
         }
         </script>
 </div></div>

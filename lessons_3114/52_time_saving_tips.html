@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Updates &amp; FAQ" href="53_updates.html" />
@@ -192,6 +194,11 @@ const thebe_selector_output = ".output, .cell_output"
    <span class="math notranslate nohighlight">
     \(TiO_2\)
    </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_peak_deconvolution.html">
+   10. Application: Peak Deconvolution
   </a>
  </li>
 </ul>
@@ -393,8 +400,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#next-tip">
-   3.3. Next tip:
+  <a class="reference internal nav-link" href="#greek-letters">
+   3.3. Greek Letters:
   </a>
  </li>
 </ul>
@@ -427,8 +434,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#next-tip">
-   3.3. Next tip:
+  <a class="reference internal nav-link" href="#greek-letters">
+   3.3. Greek Letters:
   </a>
  </li>
 </ul>
@@ -492,8 +499,10 @@ title="Print to PDF"
 </div>
 <p>The previous is not only shorter but it is much easier to read and understand.</p>
 </section>
-<section id="next-tip">
-<h2><span class="section-number">3.3. </span>Next tip:<a class="headerlink" href="#next-tip" title="Permalink to this headline">#</a></h2>
+<section id="greek-letters">
+<h2><span class="section-number">3.3. </span>Greek Letters:<a class="headerlink" href="#greek-letters" title="Permalink to this headline">#</a></h2>
+<p>Within a <strong>markdown cells</strong>, type <code class="docutils literal notranslate"><span class="pre">$\mu$</span></code> to get <span class="math notranslate nohighlight">\(\mu\)</span>.  Use LaTeX code between the dollar signs. There are LaTeX helper apps online that will give you the LaTeX code for an equation that you create with a graphical interface. Double dollar signs <code class="docutils literal notranslate"><span class="pre">$$\mu=\sqrt{\psi}$$</span></code> will place the equation on its own line. $<span class="math notranslate nohighlight">\(\mu=\sqrt{\psi} \)</span>$</p>
+<p>For <strong>code cells</strong>, type <code class="docutils literal notranslate"><span class="pre">\sigma</span></code> (no dollar signs) and then press the tab key.</p>
 </section>
 </section>
 
