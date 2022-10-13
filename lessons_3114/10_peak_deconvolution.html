@@ -389,34 +389,54 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   10. Application: Peak Deconvolution
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-fitting-module-lmfit">
+   10.1. Install fitting module, lmfit
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   11. Exercises
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-utilities-notebook">
+   10.2. %run utilities notebook
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-statements">
+   10.3. Import statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-peak-functions-that-overlap">
+   10.4. Two peak functions that overlap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-peak-data-with-lmfit">
+   10.5. Fitting peak data with lmfit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   10.6. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-1">
-     11.1. Problem 1:
+     10.6.1. Problem 1:
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-3">
-     11.2. Problem 3
+     10.6.2. Problem 3
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     11.3. Problem 3
+     10.6.3. Problem 3
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-4">
-     11.4. Problem 4
+     10.6.4. Problem 4
     </a>
    </li>
   </ul>
@@ -440,34 +460,54 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   10. Application: Peak Deconvolution
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-fitting-module-lmfit">
+   10.1. Install fitting module, lmfit
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   11. Exercises
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-utilities-notebook">
+   10.2. %run utilities notebook
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-statements">
+   10.3. Import statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-peak-functions-that-overlap">
+   10.4. Two peak functions that overlap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-peak-data-with-lmfit">
+   10.5. Fitting peak data with lmfit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   10.6. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-1">
-     11.1. Problem 1:
+     10.6.1. Problem 1:
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-3">
-     11.2. Problem 3
+     10.6.2. Problem 3
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     11.3. Problem 3
+     10.6.3. Problem 3
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-4">
-     11.4. Problem 4
+     10.6.4. Problem 4
     </a>
    </li>
   </ul>
@@ -482,9 +522,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="application-peak-deconvolution">
+  <section class="tex2jax_ignore mathjax_ignore" id="application-peak-deconvolution">
 <h1><span class="section-number">10. </span>Application: Peak Deconvolution<a class="headerlink" href="#application-peak-deconvolution" title="Permalink to this headline">#</a></h1>
-<hr style="height: 3.0px"/><div class="admonition-learning-objectives admonition">
+<div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives   </p>
 <p>After completing this lesson, you should be able to:</p>
 <ul class="simple">
@@ -497,6 +537,8 @@ title="Print to PDF"
 </div>
 <p>This lesson will pull data from the literature using the digitizing functions (<code class="docutils literal notranslate"><span class="pre">selectdata()</span></code>, <code class="docutils literal notranslate"><span class="pre">cal()</span></code>) that we created previously and saved in a utilities file called <code class="docutils literal notranslate"><span class="pre">getpix_utilities.ipynb</span></code>.  We load this notebook as we did in the last lesson by using <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">getpix_utilities.ipynb</span></code>.  We can’t use our import method since these functions have interactive content.</p>
 <p>Much of this lesson is borrowed from the more extensive treatment in <a class="reference external" href="https://chrisostrouchov.com/post/peak_fit_xrd_python/"><strong>“Peak fitting XRD data with Python” by Chris Ostrouchov</strong></a></p>
+<section id="install-fitting-module-lmfit">
+<h2><span class="section-number">10.1. </span>Install fitting module, lmfit<a class="headerlink" href="#install-fitting-module-lmfit" title="Permalink to this headline">#</a></h2>
 <p>The first thing you need to do is install the new package “lmfit” as explained in the short video below which can also be found at <a class="reference external" href="https://youtu.be/R8FX2G8m6XM">https://youtu.be/R8FX2G8m6XM</a>.  If you would prefer to read about lmfit you can find that info here: <a class="reference external" href="https://lmfit.github.io/lmfit-py/">https://lmfit.github.io/lmfit-py/</a>.</p>
 <p>For the impatient, just type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">lmfit</span></code> at your command prompt.</p>
 <div class="cell tag_remove-input docutils container">
@@ -512,6 +554,9 @@ title="Print to PDF"
 ></iframe>
 </div></div>
 </div>
+</section>
+<section id="run-utilities-notebook">
+<h2><span class="section-number">10.2. </span>%run utilities notebook<a class="headerlink" href="#run-utilities-notebook" title="Permalink to this headline">#</a></h2>
 <p><strong>Download:</strong>  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1lrKrd5tqYUn88Cfh8_ntL4o8lAZTjmHG">getpix_utilities.ipynb</a> and place in the same folder as the notebook you are loading this file into.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -537,6 +582,9 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 </div>
 </div>
+</section>
+<section id="import-statements">
+<h2><span class="section-number">10.3. </span>Import statements<a class="headerlink" href="#import-statements" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########  The lmfit import will not work until you install lmfit as described above. </span>
@@ -555,6 +603,9 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 </div>
 </div>
+</section>
+<section id="two-peak-functions-that-overlap">
+<h2><span class="section-number">10.4. </span>Two peak functions that overlap<a class="headerlink" href="#two-peak-functions-that-overlap" title="Permalink to this headline">#</a></h2>
 <p>Let’s generate some overlapping peak data representing for example, Differential Scanning Calorimetry (DSC) data.  The presence of a peak indicates the formation of crystals within the polymer.  Overlapping peaks correspond to two different crystalline structures forming.</p>
 <p>DSC will be discussed in MSE 4554 polymer engineering.  The kinetics of crystalization as we saw in the previous chapter often follows the Avrami equation, <span class="math notranslate nohighlight">\(Y=1-e^{-K t^n}\)</span>.</p>
 <p>For the sake of generating some overlapping peak data, we are going to use a simple gaussian peak function.  For homework, you will perform the fitting routines that we will be discussing for real DSC data.  The idea here is learn how to fit overlapping peaks with “ideal” data and then you can apply this to real data.</p>
@@ -598,7 +649,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_14_0.png" src="../_images/10_peak_deconvolution_14_0.png" />
+<img alt="../_images/10_peak_deconvolution_18_0.png" src="../_images/10_peak_deconvolution_18_0.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -611,6 +662,9 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">250.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>  
 </pre></div>
 </div>
+</section>
+<section id="fitting-peak-data-with-lmfit">
+<h2><span class="section-number">10.5. </span>Fitting peak data with lmfit<a class="headerlink" href="#fitting-peak-data-with-lmfit" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s fit our x,y data from above</span>
@@ -655,8 +709,8 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_17_0.png" src="../_images/10_peak_deconvolution_17_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 99.99999999886148, &#39;m2_μ&#39;: -0.1643572754607505, &#39;m2_σ&#39;: 3.800682636502541, &#39;m1_A&#39;: 100.0, &#39;m1_μ&#39;: 5.629326646606535, &#39;m1_σ&#39;: 2.760471397213784}
+<img alt="../_images/10_peak_deconvolution_22_0.png" src="../_images/10_peak_deconvolution_22_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 99.99999953661379, &#39;m2_μ&#39;: -0.35508086984656023, &#39;m2_σ&#39;: 3.772833943498123, &#39;m1_A&#39;: 100.0, &#39;m1_μ&#39;: 5.647026323142798, &#39;m1_σ&#39;: 2.7283347481598765}
 </pre></div>
 </div>
 </div>
@@ -690,8 +744,8 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_19_0.png" src="../_images/10_peak_deconvolution_19_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 17.35637390302714, &#39;m2_μ&#39;: -4.932177335365211, &#39;m2_σ&#39;: 0.8521344365078486, &#39;m1_A&#39;: 253.12493978967856, &#39;m1_μ&#39;: 3.9556103653104815, &#39;m1_σ&#39;: 5.070261745005913}
+<img alt="../_images/10_peak_deconvolution_24_0.png" src="../_images/10_peak_deconvolution_24_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 20.737095884368625, &#39;m2_μ&#39;: -4.883661146394483, &#39;m2_σ&#39;: 0.9907980741299351, &#39;m1_A&#39;: 250.7262163900215, &#39;m1_μ&#39;: 3.991038648619645, &#39;m1_σ&#39;: 5.044573212991054}
 </pre></div>
 </div>
 </div>
@@ -739,12 +793,12 @@ Now recall we made 2 Models: <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 17.35637390302714,
- &#39;m2_μ&#39;: -4.932177335365211,
- &#39;m2_σ&#39;: 0.8521344365078486,
- &#39;m1_A&#39;: 253.12493978967856,
- &#39;m1_μ&#39;: 3.9556103653104815,
- &#39;m1_σ&#39;: 5.070261745005913}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 20.737095884368625,
+ &#39;m2_μ&#39;: -4.883661146394483,
+ &#39;m2_σ&#39;: 0.9907980741299351,
+ &#39;m1_A&#39;: 250.7262163900215,
+ &#39;m1_μ&#39;: 3.991038648619645,
+ &#39;m1_σ&#39;: 5.044573212991054}
 </pre></div>
 </div>
 </div>
@@ -772,7 +826,7 @@ Now recall we made 2 Models: <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_28_0.png" src="../_images/10_peak_deconvolution_28_0.png" />
+<img alt="../_images/10_peak_deconvolution_33_0.png" src="../_images/10_peak_deconvolution_33_0.png" />
 </div>
 </div>
 <p>Compare the fitted peaks to the exact peaks used in the beginning to generate our noisy data.</p>
@@ -798,13 +852,13 @@ Now recall we made 2 Models: <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_30_0.png" src="../_images/10_peak_deconvolution_30_0.png" />
+<img alt="../_images/10_peak_deconvolution_35_0.png" src="../_images/10_peak_deconvolution_35_0.png" />
 </div>
 </div>
 <p>The fit looks pretty good especially considering how much noise we put into our original data.</p>
 </section>
 <section id="exercises">
-<h1><span class="section-number">11. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">10.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <p>The data for the exercises below were taken from:</p>
 <a class="reference internal image-reference" href="../_images/10_crystallization_paper.png"><img alt="../_images/10_crystallization_paper.png" class="align-center" src="../_images/10_crystallization_paper.png" style="width: 600px;" /></a>
 <div class="admonition-helpful-summary-of-variables-used-problems-1-4 admonition">
@@ -830,12 +884,12 @@ Fits:</p></li>
 </ul>
 </div>
 <section id="problem-1">
-<h2><span class="section-number">11.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h2>
+<h3><span class="section-number">10.6.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
 <p>Reproduce all three data curves shown below. The thick green line (overall curve) is the measured data from DSC. After conversion to plot scale, name this data set, <strong>“dsc_data”</strong>.  The peaks labeled <span class="math notranslate nohighlight">\(P_1\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span> are fitted curves determined by the authors. Let’s call these <strong>“p1_author_data”</strong> and <strong>“p2_author_data”</strong>. Plot your data for all three peaks, include labels for the x,y axes.</p>
 <a class="reference internal image-reference" href="../_images/10_prob_1_fig.png"><img alt="../_images/10_prob_1_fig.png" class="align-center" src="../_images/10_prob_1_fig.png" style="width: 600px;" /></a>
 </section>
 <section id="problem-3">
-<h2><span class="section-number">11.2. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h2>
+<h3><span class="section-number">10.6.2. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
 <p>Fit the three data sets that you obtained from problem 1 (dsc_data, p1_author_data, and p2_author_data) using a Gaussian function as in the lesson. Label your fitted results <strong>fit_dsc</strong>, <strong>fit_p1_author</strong> and <strong>fit_p2_author</strong> respectively. <em>Important: use the same x-values for all your fits something like np.linspace(25, 800, 150) should work well.</em></p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -851,7 +905,7 @@ In another plot, plot p1_author_data (as points), fit_p1_author (lines, no point
 Hopefully, you got some nice fits.</p>
 </section>
 <section id="id1">
-<h2><span class="section-number">11.3. </span>Problem 3<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h3><span class="section-number">10.6.3. </span>Problem 3<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p><strong>(a)</strong> How does your fit compare to the authors fit?  The authors didn’t show their overall fit but they did show the two components (peak functions) of their fit which you reproduced as (p1_author_data and p2_author_data).  Let’s compare the authors’ p1, p2 to your p1, p2 components by plotting on one plot: p1_author_data, p2_author_data, fit_dsc_peak_1, fit_dsc_peak_2.  How do your results compare to the authors?<br />
 <br>
 <strong>(b)</strong> From (a) we can see that our result is quite different from the authors. From problem 2, you already saw that your overall fit represents the data quite well. Let’s see how the authors overall fit represents the data.  Plot on one plot, dsc_data, fit_dsc, and the sum (fit_p1_author + fit_p2_author).  Use lines, no points for all data sets.  What can you say comparing (by eye) the authors fit vs your fit?<br />
@@ -859,7 +913,7 @@ Hopefully, you got some nice fits.</p>
 <strong>(c)</strong> The two peaks represent the crystallization of two different phases in this material. If the area under the curves P1 and P2 represent the relative amounts of each phase, do your results suggest an increase or decrease in the relative amount of P1/P2 as compared to the authors result. You do not need to calculate anything here.  Just eyeball it.</p>
 </section>
 <section id="problem-4">
-<h2><span class="section-number">11.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h2>
+<h3><span class="section-number">10.6.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
 <p>Now there really isn’t any reason to assume a gaussian profile for the DSC data as the authors in this paper and many in the literature commonly do.  In fact, we expect the kinetics of crystallization to follow avrami kinetics.  These are the “S” shaped curves we looked at in the last lesson. The avrami curve has the form <span class="math notranslate nohighlight">\(Y=1-e^{-K\ t^n}\)</span>.</p>
 <p>The peak in the DSC data should just be the derivative of the avrami equation with respect to time which is $<span class="math notranslate nohighlight">\(Y'= k n t^{n-1} e^{-k t^n}\)</span>$.</p>
 <p>The above equation is given in normalized form below, i.e. the height = 1 and peak position = 1</p>
@@ -884,11 +938,12 @@ Let's now write this as a function called pAvram()<div class="cell docutils cont
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_51_0.png" src="../_images/10_peak_deconvolution_51_0.png" />
+<img alt="../_images/10_peak_deconvolution_56_0.png" src="../_images/10_peak_deconvolution_56_0.png" />
 </div>
 </div>
 <p>(a) Refit the dsc_data now using the pAvram function we defined above.
 (b) Plot on one plot: dsc_data, fit_dsc, the sum (fit_p1_author + fit_p2_author), and the overall fit you found from part (a).  Which fit is the best by eye? Use small points for the dsc_data and lines for everything else.</p>
+</section>
 </section>
 </section>
 
