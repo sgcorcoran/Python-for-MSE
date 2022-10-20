@@ -1056,10 +1056,13 @@ $<span class="math notranslate nohighlight">\(z=\frac{x-\mu+i\gamma}{\sigma\sqrt
 <h3><span class="section-number">9.9.3. </span>Problem 3: Peak fitting<a class="headerlink" href="#problem-3-peak-fitting" title="Permalink to this headline">#</a></h3>
 <p>Reproduce the 240 C curve shown below.  You should use enough data points to fully define the peak function as shown below for the 280 C data.  Plot the 240 C data along with the 280 C data.  Label your axes and title your plot.  Also include a legend.  The 280 C pixel data is given below to save you some time.  Next, fit both sets of data to the <a class="reference external" href="#gaussian">gaussian model</a>.  Include these fitted results in your plot and add to the legend.</p>
 <a class="reference internal image-reference" href="../_images/09_pix_cal.png"><img alt="../_images/09_pix_cal.png" class="align-center" src="../_images/09_pix_cal.png" style="width: 500px;" /></a>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you want to use the same calibration on the 280 data given below as you use for your 240 data then perform your <code class="docutils literal notranslate"><span class="pre">selectdata()</span></code> routine on image <strong>09_xrd.png</strong>.  Otherwise, use the <code class="docutils literal notranslate"><span class="pre">cal280_pix</span></code> given below for the calibration of the 280 data.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###### This is pixel data so you will need to run this through the same calibration routine</span>
-<span class="c1">###### that you used for your 240 C data.  </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###### Below is the 280 pixel data as well as the calibration points for image: 09_xrd.png  </span>
 <span class="n">peak280_pix</span><span class="o">=</span><span class="p">[[</span><span class="mf">713.4247311827957</span><span class="p">,</span> <span class="mf">77.84331317204294</span><span class="p">],</span>
  <span class="p">[</span><span class="mf">688.3978494623656</span><span class="p">,</span> <span class="mf">77.84331317204294</span><span class="p">],</span>
  <span class="p">[</span><span class="mf">660.736559139785</span><span class="p">,</span> <span class="mf">79.16051747311826</span><span class="p">],</span>
@@ -1106,6 +1109,13 @@ $<span class="math notranslate nohighlight">\(z=\frac{x-\mu+i\gamma}{\sigma\sqrt
  <span class="p">[</span><span class="mf">215.52150537634407</span><span class="p">,</span> <span class="mf">80.47772177419353</span><span class="p">],</span>
  <span class="p">[</span><span class="mf">173.37096774193543</span><span class="p">,</span> <span class="mf">79.16051747311826</span><span class="p">],</span>
  <span class="p">[</span><span class="mf">133.85483870967738</span><span class="p">,</span> <span class="mf">79.16051747311826</span><span class="p">]]</span>
+
+<span class="c1"># cal280_pix is for image 09_xrd.png</span>
+<span class="n">cal280_pix</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">600.1451612903226</span><span class="p">,</span> <span class="mf">74.38565188172038</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">119.36559139784946</span><span class="p">,</span> <span class="mf">73.50751903082732</span><span class="p">],</span>
+ <span class="p">[</span><span class="mf">120.68279569892472</span><span class="p">,</span> <span class="mf">529.2602072028702</span><span class="p">]]</span>
+
+<span class="n">plt_pts</span><span class="o">=</span><span class="p">[[</span><span class="mf">25.8</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">24.3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">24.3</span><span class="p">,</span><span class="mi">20000</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>

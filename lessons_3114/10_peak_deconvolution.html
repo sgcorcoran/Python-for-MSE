@@ -574,7 +574,7 @@ cal(pixpts, plotpts, datatoconvert)
 
 Help on function selectdata in module __main__:
 
-selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
+selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
     path_to_image_file example: r&quot;C:/Users/Sean/images/xrd data.png&quot;  
     pixel data stored in global variable &quot;pixel_positions&quot;
     fig_size_as_tuple e.g. (8,12) This adjusts the image size shown.
@@ -710,7 +710,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/10_peak_deconvolution_22_0.png" src="../_images/10_peak_deconvolution_22_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 99.99999999932805, &#39;m2_μ&#39;: 5.6786380664918825, &#39;m2_σ&#39;: 2.734791040835599, &#39;m1_A&#39;: 100.0, &#39;m1_μ&#39;: -0.21832020875886324, &#39;m1_σ&#39;: 3.7460187688655}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 99.99999997169799, &#39;m2_μ&#39;: -0.19635697181718548, &#39;m2_σ&#39;: 3.870634410052338, &#39;m1_A&#39;: 100.0, &#39;m1_μ&#39;: 5.629581010346755, &#39;m1_σ&#39;: 2.775143761113831}
 </pre></div>
 </div>
 </div>
@@ -745,7 +745,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/10_peak_deconvolution_24_0.png" src="../_images/10_peak_deconvolution_24_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 17.975718260014578, &#39;m2_μ&#39;: -4.99736938378136, &#39;m2_σ&#39;: 0.9729057063862838, &#39;m1_A&#39;: 253.71679249657893, &#39;m1_μ&#39;: 3.963337272698428, &#39;m1_σ&#39;: 5.0953989750788935}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 21.285386408139754, &#39;m2_μ&#39;: -4.971759170789591, &#39;m2_σ&#39;: 1.0437948328302784, &#39;m1_A&#39;: 247.51427546593052, &#39;m1_μ&#39;: 4.025917180149022, &#39;m1_σ&#39;: 4.944033993313077}
 </pre></div>
 </div>
 </div>
@@ -793,12 +793,12 @@ Now recall we made 2 Models: <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 17.975718260014578,
- &#39;m2_μ&#39;: -4.99736938378136,
- &#39;m2_σ&#39;: 0.9729057063862838,
- &#39;m1_A&#39;: 253.71679249657893,
- &#39;m1_μ&#39;: 3.963337272698428,
- &#39;m1_σ&#39;: 5.0953989750788935}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 21.285386408139754,
+ &#39;m2_μ&#39;: -4.971759170789591,
+ &#39;m2_σ&#39;: 1.0437948328302784,
+ &#39;m1_A&#39;: 247.51427546593052,
+ &#39;m1_μ&#39;: 4.025917180149022,
+ &#39;m1_σ&#39;: 4.944033993313077}
 </pre></div>
 </div>
 </div>
@@ -908,9 +908,17 @@ Hopefully, you got some nice fits.</p>
 <h3><span class="section-number">10.6.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
 <p><strong>(a)</strong> How does your fit compare to the authors fit?  The authors didn’t show their overall fit but they did show the two components (peak functions) of their fit which you reproduced as (p1_author_data and p2_author_data).  Let’s compare the authors’ p1, p2 to your p1, p2 components by plotting on one plot: p1_author_data, p2_author_data, fit_dsc_peak_1, fit_dsc_peak_2.  How do your results compare to the authors?<br />
 <br>
-<strong>(b)</strong> From (a) we can see that our result is quite different from the authors. From problem 2, you already saw that your overall fit represents the data quite well. Let’s see how the authors overall fit represents the data.  Plot on one plot, dsc_data, fit_dsc, and the sum (fit_p1_author + fit_p2_author).  Use lines, no points for all data sets.  What can you say comparing (by eye) the authors fit vs your fit?<br />
+<strong>(b)</strong> From (a) we can see that our result is quite different from the authors. From problem 2, you already saw that your overall fit represents the data quite well. Let’s see how the authors overall fit represents the data.  Plot on one plot, dsc_data, fit_dsc, and the sum (fit_p1_author + fit_p2_author).  Use lines, no points for all data sets.  What can you say comparing (by eye) the authors fit vs your fit? Hint: to be able to add (fit_p1_author + fit_p2_author) you will need to use the fitted parameters and the gaussian function, <code class="docutils literal notranslate"><span class="pre">g(x,</span> <span class="pre">A,</span> <span class="pre">μ,</span> <span class="pre">σ)</span></code>, that we defined.  For example, <code class="docutils literal notranslate"><span class="pre">y=g(dsc_data[:,0],*result_p1.best_values.values())</span></code> would give you the fitted function for fit_p1_author.  Your xdata in this case would be <code class="docutils literal notranslate"><span class="pre">dsc_data[:,0]</span></code>.<br />
 <br>
 <strong>(c)</strong> The two peaks represent the crystallization of two different phases in this material. If the area under the curves P1 and P2 represent the relative amounts of each phase, do your results suggest an increase or decrease in the relative amount of P1/P2 as compared to the authors result. You do not need to calculate anything here.  Just eyeball it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">μ</span><span class="p">,</span> <span class="n">σ</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">/</span><span class="p">(</span><span class="n">σ</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">μ</span><span class="p">)</span> <span class="o">/</span> <span class="n">σ</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-4">
 <h3><span class="section-number">10.6.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
@@ -938,11 +946,18 @@ Let's now write this as a function called pAvram()<div class="cell docutils cont
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_56_0.png" src="../_images/10_peak_deconvolution_56_0.png" />
+<img alt="../_images/10_peak_deconvolution_57_0.png" src="../_images/10_peak_deconvolution_57_0.png" />
 </div>
 </div>
 <p>(a) Refit the dsc_data now using the pAvram function we defined above.
 (b) Plot on one plot: dsc_data, fit_dsc, the sum (fit_p1_author + fit_p2_author), and the overall fit you found from part (a).  Which fit is the best by eye? Use small points for the dsc_data and lines for everything else.</p>
+<p>Hint:  you may need to help the fit out a bit by defining limits on the peak positions, m1_B and m2_B.  I used the following:<br />
+((‘m1_A’, 0.8, True, 0, None, None, None),<br />
+(‘m1_B’, 200, True, 0, 350, None, None),<br />
+(‘m1_n’, 2, True, 0, None, None, None),<br />
+(‘m2_A’, 0.8, True, 0, None, None, None),<br />
+(‘m2_B’, 400, True, 350, 600, None, None),<br />
+(‘m2_n’, 2, True, 0, None, None, None))</p>
 </section>
 </section>
 </section>
