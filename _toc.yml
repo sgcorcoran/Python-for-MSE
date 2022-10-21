@@ -24,6 +24,7 @@ parts:
     - file: lessons_3114/08_digitizing_literature_plots_part_2
     - file: lessons_3114/09_applications
     - file: lessons_3114/10_peak_deconvolution
+    - file: lessons_3114/11_creep_analysis_log_scales
   - caption: Appendix
     numbered: true
     chapters:
