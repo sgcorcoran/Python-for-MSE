@@ -21,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -197,6 +197,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="10_peak_deconvolution.html">
    10. Application: Peak Deconvolution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_creep_analysis_log_scales.html">
+   11. Collecting Data from Log scales: Creep Analysis
   </a>
  </li>
 </ul>
@@ -669,7 +674,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output text_html"><div id="TWFiYQYttiaK" data-shufflequestions="False"
+<div class="output text_html"><div id="laUmNDvspteu" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -831,7 +836,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsTWFiYQYttiaK=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
+}</style><script type="text/Javascript">var questionslaUmNDvspteu=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1565,7 +1570,7 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsTWFiYQYttiaK,  TWFiYQYttiaK);
+        show_questions(questionslaUmNDvspteu,  laUmNDvspteu);
         }
         </script>
 </div></div>
@@ -1607,11 +1612,11 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4,  5],
-       [ 2,  4],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9, 12],
        [ 9, 12],
+       [ 8, 10],
        [ 4,  6],
-       [ 7, 11]])
+       [ 8,  9]])
 </pre></div>
 </div>
 </div>

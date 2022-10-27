@@ -21,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -199,6 +199,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../lessons_3114/10_peak_deconvolution.html">
    10. Application: Peak Deconvolution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_3114/11_creep_analysis_log_scales.html">
+   11. Collecting Data from Log scales: Creep Analysis
   </a>
  </li>
 </ul>
@@ -1936,7 +1941,6 @@ title="Print to PDF"
       <th>on campus</th>
       <th>off campus</th>
       <th>total</th>
-      <th>SCH per faculty</th>
     </tr>
   </thead>
   <tbody>
@@ -1947,7 +1951,6 @@ title="Print to PDF"
       <td>1095</td>
       <td>0</td>
       <td>1095.0</td>
-      <td>84.230769</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1956,7 +1959,6 @@ title="Print to PDF"
       <td>2951</td>
       <td>0</td>
       <td>2350.0</td>
-      <td>130.555556</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1965,7 +1967,6 @@ title="Print to PDF"
       <td>3771</td>
       <td>75</td>
       <td>3846.0</td>
-      <td>183.142857</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1974,7 +1975,6 @@ title="Print to PDF"
       <td>5194</td>
       <td>0</td>
       <td>5194.0</td>
-      <td>207.760000</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1983,7 +1983,6 @@ title="Print to PDF"
       <td>7313</td>
       <td>318</td>
       <td>7631.0</td>
-      <td>263.137931</td>
     </tr>
     <tr>
       <th>5</th>
@@ -1992,7 +1991,6 @@ title="Print to PDF"
       <td>7015</td>
       <td>118</td>
       <td>7133.0</td>
-      <td>222.906250</td>
     </tr>
     <tr>
       <th>6</th>
@@ -2001,7 +1999,6 @@ title="Print to PDF"
       <td>6606</td>
       <td>132</td>
       <td>6738.0</td>
-      <td>156.697674</td>
     </tr>
     <tr>
       <th>7</th>
@@ -2010,7 +2007,6 @@ title="Print to PDF"
       <td>17257</td>
       <td>1122</td>
       <td>18379.0</td>
-      <td>334.163636</td>
     </tr>
     <tr>
       <th>8</th>
@@ -2019,7 +2015,6 @@ title="Print to PDF"
       <td>10240</td>
       <td>224</td>
       <td>10464.0</td>
-      <td>180.413793</td>
     </tr>
     <tr>
       <th>9</th>
@@ -2028,7 +2023,6 @@ title="Print to PDF"
       <td>10416</td>
       <td>2563</td>
       <td>12979.0</td>
-      <td>209.338710</td>
     </tr>
     <tr>
       <th>10</th>
@@ -2037,7 +2031,6 @@ title="Print to PDF"
       <td>17017</td>
       <td>2268</td>
       <td>19285.0</td>
-      <td>232.349398</td>
     </tr>
   </tbody>
 </table>
@@ -2079,7 +2072,7 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>5</th>
       <td>13</td>
       <td>MINE</td>
       <td>1095</td>
@@ -2087,7 +2080,7 @@ title="Print to PDF"
       <td>1095.0</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>6</th>
       <td>18</td>
       <td>CHE</td>
       <td>2951</td>
@@ -2095,7 +2088,7 @@ title="Print to PDF"
       <td>2350.0</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>7</th>
       <td>21</td>
       <td>MSE</td>
       <td>3771</td>
@@ -2103,7 +2096,7 @@ title="Print to PDF"
       <td>3846.0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>8</th>
       <td>25</td>
       <td>ENGE</td>
       <td>5194</td>
@@ -2111,7 +2104,7 @@ title="Print to PDF"
       <td>5194.0</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>9</th>
       <td>29</td>
       <td>AOE</td>
       <td>7313</td>
@@ -2119,7 +2112,7 @@ title="Print to PDF"
       <td>7631.0</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>10</th>
       <td>32</td>
       <td>ISE</td>
       <td>7015</td>
@@ -2127,7 +2120,7 @@ title="Print to PDF"
       <td>7133.0</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>11</th>
       <td>43</td>
       <td>ESM + BEAM</td>
       <td>6606</td>
@@ -2135,7 +2128,7 @@ title="Print to PDF"
       <td>6738.0</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>12</th>
       <td>55</td>
       <td>CS</td>
       <td>17257</td>
@@ -2143,7 +2136,7 @@ title="Print to PDF"
       <td>18379.0</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>13</th>
       <td>58</td>
       <td>CEE</td>
       <td>10240</td>
@@ -2151,7 +2144,7 @@ title="Print to PDF"
       <td>10464.0</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>14</th>
       <td>62</td>
       <td>ME</td>
       <td>10416</td>
@@ -2159,7 +2152,7 @@ title="Print to PDF"
       <td>12979.0</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>15</th>
       <td>83</td>
       <td>ECE</td>
       <td>17017</td>
@@ -2386,15 +2379,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [16],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">best_vals</span><span class="p">,</span> <span class="n">covar</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">lin</span><span class="p">,</span> <span class="n">sch_slice</span><span class="p">[</span><span class="s1">&#39;num faculty&#39;</span><span class="p">],</span> <span class="n">sch_slice</span><span class="p">[</span><span class="s1">&#39;credit_faculty&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Our fit is given by </span><span class="si">{</span><span class="n">best_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> x + </span><span class="si">{</span><span class="n">best_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sch_slice&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our fit is given by 11.11 x + -61.66
 </pre></div>
 </div>
 </div>

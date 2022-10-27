@@ -21,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="next" title="11. Collecting Data from Log scales: Creep Analysis" href="11_creep_analysis_log_scales.html" />
     <link rel="prev" title="9. Application: Crystallization Kinetics of Amorphous \(TiO_2\)" href="09_applications.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -199,6 +199,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    10. Application: Peak Deconvolution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_creep_analysis_log_scales.html">
+   11. Collecting Data from Log scales: Creep Analysis
   </a>
  </li>
 </ul>
@@ -890,25 +895,20 @@ Fits:</p></li>
 </section>
 <section id="problem-2">
 <h3><span class="section-number">10.6.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
-<p>Fit the three data sets that you obtained from problem 1 (dsc_data, p1_author_data, and p2_author_data) using a Gaussian function as in the lesson. Label your fitted results <strong>fit_dsc</strong>, <strong>fit_p1_author</strong> and <strong>fit_p2_author</strong> respectively. <em>Important: use the same x-values for all your fits something like np.linspace(25, 800, 150) should work well.</em></p>
+<p>Fit the three data sets that you obtained from problem 1 (dsc_data, p1_author_data, and p2_author_data) using a Gaussian function as in the lesson. Label your fitted results <strong>fit_dsc</strong>, <strong>fit_p1_author</strong> and <strong>fit_p2_author</strong> respectively.</p>
+<p><strong>(a)</strong> In one plot, plot p1_author_data (as points), fit_p1_author (lines, no points), p2_author_data (as points), fit_p2_author (lines, no points).</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>The fit to dsc_data will require two gaussian peaks (two Models()) as performed in the lesson. Don’t forget to change the initial guess for the peak positions, <span class="math notranslate nohighlight">\(m1\_\mu\)</span> and <span class="math notranslate nohighlight">\(m2\_\mu\)</span>.  The fits to the p1_author_data and p2_auth_data only require a single peak (one Model()). You don’t need to define a prefix in this case but it is fine if you do.</p>
 </div>
 <p>Your fitting results for the dsc_data will be composed of two components (e.g. <code class="docutils literal notranslate"><span class="pre">result.eval_components()['m1_']</span></code> and <code class="docutils literal notranslate"><span class="pre">result.eval_components()['m2_'])</span></code> and an overall result, <code class="docutils literal notranslate"><span class="pre">result.best_fit</span></code>. Assign these to variables: <strong>fit_dsc_peak_1, fit_dsc_peak_2,</strong> and <strong>fit_dsc</strong>.</p>
-<p><strong>Evaluate your fits visually</strong>
-<br>
-In one plot, plot dsc_data (as points) and your overall best fit i.e. fit_dsc (as lines, no marker).<br />
-<br>
-In another plot, plot p1_author_data (as points), fit_p1_author (lines, no points), p2_author_data (as points), fit_p2_author (lines, no points).<br />
-<br>
-Hopefully, you got some nice fits.</p>
+<p><strong>(b)</strong> In one plot, plot dsc_data (as points) and your overall best fit i.e. fit_dsc (as lines, no marker).</p>
 </section>
 <section id="problem-3">
 <h3><span class="section-number">10.6.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
 <p><strong>(a)</strong> How does your fit compare to the authors fit?  The authors didn’t show their overall fit but they did show the two components (peak functions) of their fit which you reproduced as (p1_author_data and p2_author_data).  Let’s compare the authors’ p1, p2 to your p1, p2 components by plotting on one plot: p1_author_data, p2_author_data, fit_dsc_peak_1, fit_dsc_peak_2.  How do your results compare to the authors?<br />
 <br>
-<strong>(b)</strong> From (a) we can see that our result is quite different from the authors. From problem 2, you already saw that your overall fit represents the data quite well. Let’s see how the authors overall fit represents the data.  Plot on one plot, dsc_data, fit_dsc, and the sum (fit_p1_author + fit_p2_author).  Use lines, no points for all data sets.  What can you say comparing (by eye) the authors fit vs your fit? Hint: to be able to add (fit_p1_author + fit_p2_author) you will need to use the fitted parameters and the gaussian function, <code class="docutils literal notranslate"><span class="pre">g(x,</span> <span class="pre">A,</span> <span class="pre">μ,</span> <span class="pre">σ)</span></code>, that we defined.  For example, <code class="docutils literal notranslate"><span class="pre">y=g(dsc_data[:,0],*result_p1.best_values.values())</span></code> would give you the fitted function for fit_p1_author.  Your xdata in this case would be <code class="docutils literal notranslate"><span class="pre">dsc_data[:,0]</span></code>.<br />
+<strong>(b)</strong> From (a) we can see that our result is quite different from the authors. From problem 2, you already saw that your overall fit represents the data quite well. Let’s see how the authors overall fit represents the data.  Plot on one plot, dsc_data, fit_dsc, and the sum (fit_p1_author + fit_p2_author).  Use lines, no points for all data sets.  What can you say comparing (by eye) the authors fit vs your fit? Hint: to be able to add (fit_p1_author + fit_p2_author) you will need to use the fitted parameters and the gaussian function, <code class="docutils literal notranslate"><span class="pre">g(x,</span> <span class="pre">A,</span> <span class="pre">μ,</span> <span class="pre">σ)</span></code>, that we defined.  For example, <code class="docutils literal notranslate"><span class="pre">y=g(dsc_data[:,0],*result_p1.best_values.values())</span></code> would give you the fitted function for fit_p1_author.  Your xdata in this case would be <code class="docutils literal notranslate"><span class="pre">dsc_data[:,0]</span></code>.  <em>Important: use the same x-values for all your fits something like np.linspace(25, 800, 150) should work well.</em><br />
 <br>
 <strong>(c)</strong> The two peaks represent the crystallization of two different phases in this material. If the area under the curves P1 and P2 represent the relative amounts of each phase, do your results suggest an increase or decrease in the relative amount of P1/P2 as compared to the authors result. You do not need to calculate anything here.  Just eyeball it.</p>
 <div class="cell docutils container">
@@ -946,7 +946,7 @@ Let's now write this as a function called pAvram()<div class="cell docutils cont
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_57_0.png" src="../_images/10_peak_deconvolution_57_0.png" />
+<img alt="../_images/10_peak_deconvolution_58_0.png" src="../_images/10_peak_deconvolution_58_0.png" />
 </div>
 </div>
 <p>(a) Refit the dsc_data now using the pAvram function we defined above.
@@ -996,10 +996,10 @@ Let's now write this as a function called pAvram()<div class="cell docutils cont
             <p class="prev-next-title"><span class="section-number">9. </span>Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <a class='right-next' id="next-link" href="11_creep_analysis_log_scales.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Collecting Data from Log scales: Creep Analysis</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
