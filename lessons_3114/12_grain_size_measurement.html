@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>12. Image Analysis: Grain Size Measurement &#8212; Python for MSE</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="prev" title="11. Collecting Data from Log scales: Creep Analysis" href="11_creep_analysis_log_scales.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Virginia Tech MSE 3114 Fall 2022</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for MSE</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to MSE 3114 Math Programming for Materials Science and Engineering II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 2114 Python for MSE I
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/1_getting_started.html">
+   1. Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/2_Intro_Jupyter.html">
+   2. Intro to the Jupyter Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/3_working_with_data.html">
+   3. Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons_2114/4_temp.html">
+   4. 2114 … under development
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MSE 3114 Python for MSE II
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_welcome_to_3114.html">
+   1. Welcome to MSE 3114
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_importing_your_own_functions.html">
+   2. Importing Data from Files &amp; Importing Your Own Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_google_forms_and_pandas.html">
+   3. Google Forms and Pandas Data Import and Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_closer_look_at_pandas.html">
+   4. Pandas DataFrames and Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_closer_look_at_matplotlib.html">
+   5. matplotlib - Advanced Layouts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_selecting_pixel_coordinates.html">
+   6. Selecting pixel coordinates from an image file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_digitizing_literature_plots_part_1.html">
+   7. Estimating Data Values from Plots in the Literature (Part 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_digitizing_literature_plots_part_2.html">
+   8. Estimating Data Values from Plots in the Literature (Part 2)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_applications.html">
+   9. Application:  Crystallization Kinetics of Amorphous
+   <span class="math notranslate nohighlight">
+    \(TiO_2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_peak_deconvolution.html">
+   10. Application: Peak Deconvolution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_creep_analysis_log_scales.html">
+   11. Collecting Data from Log scales: Creep Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   12. Image Analysis: Grain Size Measurement
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50_course_support_files.html">
+   1. MSE 3114 Data Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">
+   2. LinkedIn Learning Recommendations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52_time_saving_tips.html">
+   3. Time Saving Tips &amp; Tricks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="53_updates.html">
+   4. Updates &amp; FAQ
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/12_grain_size_measurement.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/lessons_3114/12_grain_size_measurement.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-opencv">
+   12.1. Install opencv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   12.2. Load Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-image-file">
+   12.3. Read Image File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-a-micrograph-image-and-apply-smoothing-filters">
+   12.4. Read a micrograph image and apply smoothing filters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threshold-the-image-to-black-0-white-255">
+   12.5. Threshold the image to black (0) &amp; white (255)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-for-performing-a-watershed-routine">
+   12.6. Prepare for performing a watershed routine.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-known-foreground-regions">
+     12.6.1. Label known foreground regions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#keep-our-markers-but-change-the-unknown-regions-from-1-to-0">
+     12.6.2. Keep our markers but change the “unknown” regions from -1 to 0
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-the-marker-labels-to-colors-and-combine-with-the-original-image">
+     12.6.3. Change the marker labels to colors and combine with the original image
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#each-colored-grain-can-now-be-analyzed-and-placed-in-a-pandas-dataframe">
+       12.6.3.1. Each colored grain can now be analyzed and placed in a Pandas DataFrame
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   12.7. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     12.7.1. Problem 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extra-credit-challenge-problem">
+     12.7.2. Extra Credit / Challenge Problem
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Image Analysis: Grain Size Measurement</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-opencv">
+   12.1. Install opencv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   12.2. Load Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-image-file">
+   12.3. Read Image File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-a-micrograph-image-and-apply-smoothing-filters">
+   12.4. Read a micrograph image and apply smoothing filters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threshold-the-image-to-black-0-white-255">
+   12.5. Threshold the image to black (0) &amp; white (255)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-for-performing-a-watershed-routine">
+   12.6. Prepare for performing a watershed routine.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-known-foreground-regions">
+     12.6.1. Label known foreground regions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#keep-our-markers-but-change-the-unknown-regions-from-1-to-0">
+     12.6.2. Keep our markers but change the “unknown” regions from -1 to 0
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-the-marker-labels-to-colors-and-combine-with-the-original-image">
+     12.6.3. Change the marker labels to colors and combine with the original image
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#each-colored-grain-can-now-be-analyzed-and-placed-in-a-pandas-dataframe">
+       12.6.3.1. Each colored grain can now be analyzed and placed in a Pandas DataFrame
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   12.7. Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     12.7.1. Problem 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extra-credit-challenge-problem">
+     12.7.2. Extra Credit / Challenge Problem
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="image-analysis-grain-size-measurement">
+<h1><span class="section-number">12. </span>Image Analysis: Grain Size Measurement<a class="headerlink" href="#image-analysis-grain-size-measurement" title="Permalink to this headline">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives   </p>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>install opencv-contrib-python for image analysis</p></li>
+<li><p>perform various image analysis techniques to analyze grain sizes such as</p>
+<ul>
+<li><p>converting color to grayscale</p></li>
+<li><p>Pyramid Mean Shift Filtering</p></li>
+<li><p>Gaussian Blur</p></li>
+<li><p>thresholding</p></li>
+<li><p>watershedding</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="install-opencv">
+<h2><span class="section-number">12.1. </span>Install opencv<a class="headerlink" href="#install-opencv" title="Permalink to this headline">#</a></h2>
+<p>First make sure you have cv2 installed.  Go to the anaconda power shell and run the following command: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">opencv-contrib-python</span></code></p>
+</section>
+<section id="load-packages">
+<h2><span class="section-number">12.2. </span>Load Packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">measure</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-image-file">
+<h2><span class="section-number">12.3. </span>Read Image File<a class="headerlink" href="#read-image-file" title="Permalink to this headline">#</a></h2>
+<p>Let’s take a look at what is actually stored in an image file.  We need this to better understand the steps below.  We will look at two types of images.  One is an RGB color image and the other is a grayscale image. Notice again that for images the origin is located at the top-left.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cvread assumes the color image is in Blue-Green-Red format</span>
+<span class="n">img_cvread</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/praying mantis small.jpg&#39;</span><span class="p">)</span>
+<span class="c1"># convert read image to the correct Red-Green-Blue format</span>
+<span class="n">img_rgb</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_cvread</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+<span class="c1"># convert to grayscale</span>
+<span class="n">img_gray</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">)</span> <span class="c1">#move img to gray scale</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_cvread</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;As read by cv.imread Blue-Green-Red format&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;converted to normal Red-Green-Blue format&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;converted to grayscale&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12_grain_size_measurement_7_0.png" src="../_images/12_grain_size_measurement_7_0.png" />
+</div>
+</div>
+<p>Let’s look at the image file. The file is an array of [Red, Green, Blue] values.  Each value is from 0 to 255.  Each triple R-G-B represent one pixel on the image.  These are then arranged in rows and columns.  We can use .shape() to see the number of pixels in the rows and columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># row 0, points 0 to 3</span>
+<span class="n">img_rgb</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 75, 133,  57],
+       [ 76, 134,  58],
+       [ 78, 136,  60],
+       [ 80, 138,  62]], dtype=uint8)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(996, 1430, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we have 996 rows each with 1430 values which consist of the triple [Red, Green, Blue]</p>
+<p>For grayscale images, each pixel only consists of one value between 0 and 255 where 0 is black and 255 would be white.  Let’s take a look.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">img_gray</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># rows, columns, (depth=1) so it isn&#39;t given here</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">img_gray</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># look at row 0, points 0 through 3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(996, 1430)
+[107 108 110 ...  77  77  76]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-a-micrograph-image-and-apply-smoothing-filters">
+<h2><span class="section-number">12.4. </span>Read a micrograph image and apply smoothing filters<a class="headerlink" href="#read-a-micrograph-image-and-apply-smoothing-filters" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Pyramid Mean Shift Filtering</p></li>
+<li><p>Gaussian Blur</p></li>
+</ol>
+<p><em><strong>We want to remove background noise in our original image, flatten out the image color, and provide some smoothing.</strong></em></p>
+<div class="admonition-pyramid-mean-shift-filtering-pyrmeanshiftfiltering admonition">
+<p class="admonition-title">Pyramid Mean Shift Filtering pyrMeanShiftFiltering()  </p>
+<p>From the OpenCV documentation, “… the output of the function is the filtered “posterized” image with color gradients and fine-grain texture flattened.”</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#img = cv.imread(&quot;grains callister.png&quot;)</span>
+<span class="c1">#img=img[8:270, 10:230]</span>
+<span class="n">img</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/GrainSizeAnalysis.jpg&#39;</span><span class="p">)</span>
+<span class="c1"># correct image to RGB format</span>
+<span class="n">img</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+<span class="c1"># apply filtering</span>
+<span class="n">img_shift</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">pyrMeanShiftFiltering</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">41</span><span class="p">)</span>  <span class="c1">#acts on original image</span>
+<span class="n">gray</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_shift</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span> <span class="c1">#move img to gray scale</span>
+<span class="c1"># Blurs an image using a Gaussian filter rather than a simple averaging of neighbor pixels</span>
+<span class="n">blur</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">gray</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># acts on gray scale image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">blur</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Image&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;+ Pyramid Mean Shift Filter&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;+ Gaussian Blur&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12_grain_size_measurement_17_0.png" src="../_images/12_grain_size_measurement_17_0.png" />
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should play around with the different parameters in the filters to see the effects especially in the thresholding below.  The parameters here may not work for other images.  In the case of grains, you are trying to make the grain boundaries stand out while reducing noise within the grains.  You also don’t need to use all filters or any filters if the original image is good.</p>
+</div>
+</section>
+<section id="threshold-the-image-to-black-0-white-255">
+<h2><span class="section-number">12.5. </span>Threshold the image to black (0) &amp; white (255)<a class="headerlink" href="#threshold-the-image-to-black-0-white-255" title="Permalink to this headline">#</a></h2>
+<p>You can read more about thresholding with examples here: <a class="reference external" href="https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html">https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change &quot;blur&quot; here to &quot;gray&quot; to see the effect of not including the gaussian blur</span>
+<span class="n">image_to_threshold</span><span class="o">=</span><span class="n">blur</span>
+<span class="c1">#image_to_threshold=gray</span>
+
+<span class="c1">#************** 3 choices here for performing threshold *********************</span>
+<span class="c1"># try the different options below to see how they affect the image</span>
+<span class="n">ret</span><span class="p">,</span> <span class="n">thresh</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">image_to_threshold</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="o">+</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_OTSU</span><span class="p">)</span>
+<span class="c1">#thresh= cv.adaptiveThreshold(image_to_threshold, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,cv.THRESH_BINARY, 7, 11)</span>
+<span class="c1">#thresh = cv.adaptiveThreshold(image_to_threshold,255,cv.ADAPTIVE_THRESH_MEAN_C,cv.THRESH_BINARY,7,6)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">blur</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">thresh</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pyramid filter + blur&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;+ threshold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12_grain_size_measurement_21_0.png" src="../_images/12_grain_size_measurement_21_0.png" />
+</div>
+</div>
+<p>After thresholding, our image only consists of either white (0) or black (255) pixels.  Below shows a small region of the above image and the corresponding data values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1"># let&#39;s take a look at a small pixel region rows:90 to 100, columns: 0 to 15</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">thresh</span><span class="p">[</span><span class="mi">90</span><span class="p">:</span><span class="mi">101</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">16</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">);</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">thresh</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">90</span><span class="p">:</span><span class="mi">101</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="c1">#ax1.axis(&#39;off&#39;)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Image Representation&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span> <span class="s1">&#39;Data Values for Image&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12_grain_size_measurement_23_0.png" src="../_images/12_grain_size_measurement_23_0.png" />
+</div>
+</div>
+</section>
+<section id="prepare-for-performing-a-watershed-routine">
+<h2><span class="section-number">12.6. </span>Prepare for performing a watershed routine.<a class="headerlink" href="#prepare-for-performing-a-watershed-routine" title="Permalink to this headline">#</a></h2>
+<p>When applying a filter, we can define the strength, size, and direction of the neighboring pixels that are used in the filter.  This is referred to as the kernel.  Examples can be found here: <a class="reference external" href="https://github.com/atduskgreg/opencv-processing-book/blob/master/book/filters/blur.md">https://github.com/atduskgreg/opencv-processing-book/blob/master/book/filters/blur.md</a> Three examples of kernels that are easily definable in OpenCV are shown below.  For a 3x3 kernel, the cross and ellipse are the same.  Change the values to 5x5 below to see the difference between the cross and ellipse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_CROSS</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">b</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_ELLIPSE</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">c</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_RECT</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">item_a</span><span class="p">,</span> <span class="n">item_b</span><span class="p">,</span> <span class="n">item_c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; CROSS&#39;</span><span class="p">,</span><span class="s1">&#39; ELLIPSE&#39;</span><span class="p">,</span><span class="s1">&#39;  RECT&#39;</span><span class="p">)</span>
+        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item_a</span><span class="p">,</span> <span class="n">item_b</span><span class="p">,</span> <span class="n">item_c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> CROSS  ELLIPSE   RECT
+[0 1 0] [0 1 0] [1 1 1]
+[1 1 1] [1 1 1] [1 1 1]
+[0 1 0] [0 1 0] [1 1 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_CROSS</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="c1"># kernel=cv.getStructuringElement(cv.MORPH_ELLIPSE,(3,3))</span>
+<span class="n">kernel</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_RECT</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># noise removal</span>
+<span class="n">opening</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">morphologyEx</span><span class="p">(</span><span class="n">thresh</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_OPEN</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># finding areas on image that we are confident are background (black) and foreground (white)</span>
+
+<span class="c1"># sure background area -- white areas (grains) expand outward</span>
+<span class="n">sure_bg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">opening</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Finding sure foreground area -- white regions contract inward</span>
+<span class="n">sure_fg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">erode</span><span class="p">(</span><span class="n">opening</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># The unknown region is the background - foreground</span>
+<span class="c1"># Finding unknown region </span>
+<span class="n">unknown</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">sure_bg</span><span class="p">,</span><span class="n">sure_fg</span><span class="p">)</span>
+
+
+<span class="c1"># ******************* Display results of each step ********************</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">,</span> <span class="n">ax5</span><span class="p">,</span> <span class="n">ax6</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">thresh</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">opening</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sure_bg</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sure_fg</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax6</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">unknown</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Image&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Thresholded Image&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Opening filter applied to Thresholded Image&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;sure background (black regions)&#39;</span><span class="p">)</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;sure foreground (white regions)&#39;</span><span class="p">)</span>
+<span class="n">ax6</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;unknown (white regions)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12_grain_size_measurement_27_0.png" src="../_images/12_grain_size_measurement_27_0.png" />
+</div>
+</div>
+<section id="label-known-foreground-regions">
+<h3><span class="section-number">12.6.1. </span>Label known foreground regions<a class="headerlink" href="#label-known-foreground-regions" title="Permalink to this headline">#</a></h3>
+<p>Each continuous white area in the known foreground image is assigned a number, the background regions are assigned 0, and the unknown regions are assigned -1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Marker labelling</span>
+<span class="c1"># cv2.connectedComponents(). labels background of the image with -1, </span>
+<span class="c1"># then other objects are labelled with integers starting from 1.</span>
+<span class="n">ret</span><span class="p">,</span> <span class="n">markers</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">connectedComponents</span><span class="p">(</span><span class="n">sure_fg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot a region of the image data in ‘markers’ and see how the regions (integers) and boundaries (-1) are numbered.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># let&#39;s take a look at a small pixel region rows:90 to 100, columns: 0 to 15</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">markers</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">275</span><span class="p">,</span> <span class="mi">200</span><span class="p">:</span><span class="mi">220</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;prism&#39;</span><span class="p">);</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">markers</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">275</span><span class="p">,</span> <span class="mi">200</span><span class="p">:</span><span class="mi">220</span><span class="p">]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="c1">#ax1.axis(&#39;off&#39;)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Image Representation&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span> <span class="s1">&#39;Data Values for Image&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12_grain_size_measurement_32_0.png" src="../_images/12_grain_size_measurement_32_0.png" />
+</div>
+</div>
+</section>
+<section id="keep-our-markers-but-change-the-unknown-regions-from-1-to-0">
+<h3><span class="section-number">12.6.2. </span>Keep our markers but change the “unknown” regions from -1 to 0<a class="headerlink" href="#keep-our-markers-but-change-the-unknown-regions-from-1-to-0" title="Permalink to this headline">#</a></h3>
+<p>The watershed routine will “fill” these 0 regions with different color water starting from the cluster labels.  Where the water intersects, defines the boundary.  The boundary is then set to a value of -1 and colored red.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add one to all labels so that unknown is 0, not -1</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1"># Now, mark the region of unknown with zero</span>
+<span class="n">markers</span><span class="p">[</span><span class="n">unknown</span><span class="o">==</span><span class="mi">255</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># boundaries are labeled -1 now by cv.watershed</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">watershed</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">markers</span><span class="p">)</span>  <span class="c1"># img needs shape (pix, pix, 3), markers is (pix, pix)</span>
+<span class="n">img_red</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># change boundaries (-1) regions to red i.e. RGB=(255,0,0)</span>
+<span class="n">img_red</span><span class="p">[</span><span class="n">markers</span> <span class="o">==-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1">#display(Image.fromarray(markers))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1"># 1x1 grid, first subplot</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_red</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12_grain_size_measurement_35_0.png" src="../_images/12_grain_size_measurement_35_0.png" />
+</div>
+</div>
+</section>
+<section id="change-the-marker-labels-to-colors-and-combine-with-the-original-image">
+<h3><span class="section-number">12.6.3. </span>Change the marker labels to colors and combine with the original image<a class="headerlink" href="#change-the-marker-labels-to-colors-and-combine-with-the-original-image" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img2</span><span class="o">=</span><span class="n">color</span><span class="o">.</span><span class="n">label2rgb</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">bg_label</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1"># 1x1 grid, first subplot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12_grain_size_measurement_37_0.png" src="../_images/12_grain_size_measurement_37_0.png" />
+</div>
+</div>
+<section id="each-colored-grain-can-now-be-analyzed-and-placed-in-a-pandas-dataframe">
+<h4><span class="section-number">12.6.3.1. </span>Each colored grain can now be analyzed and placed in a Pandas DataFrame<a class="headerlink" href="#each-colored-grain-can-now-be-analyzed-and-placed-in-a-pandas-dataframe" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># values in table below are in pixel units</span>
+
+<span class="n">propList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="s1">&#39;area&#39;</span><span class="p">,</span><span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">,</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span><span class="s1">&#39;major_axis_length&#39;</span><span class="p">,</span> <span class="s1">&#39;minor_axis_length&#39;</span><span class="p">,</span><span class="s1">&#39;perimeter&#39;</span><span class="p">]</span>
+<span class="c1">#propList=[&#39;equivalent_diameter&#39;,&#39;orientation&#39;,&#39;area&#39;,&#39;major_axis_length&#39;]</span>
+<span class="n">props</span><span class="o">=</span><span class="n">measure</span><span class="o">.</span><span class="n">regionprops_table</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">propList</span><span class="p">)</span>
+
+<span class="n">grain_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+
+<span class="n">grain_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>area</th>
+      <th>equivalent_diameter</th>
+      <th>orientation</th>
+      <th>major_axis_length</th>
+      <th>minor_axis_length</th>
+      <th>perimeter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1429</td>
+      <td>42.655121</td>
+      <td>-1.481923</td>
+      <td>436.599861</td>
+      <td>385.268847</td>
+      <td>1096.625504</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>33</td>
+      <td>6.482045</td>
+      <td>0.082122</td>
+      <td>14.939009</td>
+      <td>3.109792</td>
+      <td>26.035534</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>422</td>
+      <td>23.179885</td>
+      <td>-1.216763</td>
+      <td>28.635540</td>
+      <td>19.278619</td>
+      <td>83.597980</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>23</td>
+      <td>5.411516</td>
+      <td>1.337246</td>
+      <td>6.658010</td>
+      <td>4.562920</td>
+      <td>16.278175</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>13</td>
+      <td>4.068429</td>
+      <td>-1.535888</td>
+      <td>5.953264</td>
+      <td>2.880677</td>
+      <td>11.035534</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Recall the grain size number from Callister was defined as <span class="math notranslate nohighlight">\(n=2^{G-1}\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the number of grains in a <span class="math notranslate nohighlight">\(1\ in^2\)</span> area at 100x and <span class="math notranslate nohighlight">\(G\)</span> is the grain size number.  This equation could be rewritten for, <span class="math notranslate nohighlight">\(n^*\)</span>, the number of grains per <span class="math notranslate nohighlight">\(mm^2\)</span> at no magnification.  This would be <span class="math notranslate nohighlight">\(G = 3.322 Log(n^*)-2.9543\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from the original image I used the micron bar to find the scaling factor microns per pixel</span>
+<span class="n">μm_per_pixel</span><span class="o">=</span><span class="mf">0.9</span>  <span class="c1"># μm per pixel</span>
+
+<span class="n">avg_grain_diam</span><span class="o">=</span><span class="p">(</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="n">μm_per_pixel</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Avg. Grain Diameter = </span><span class="si">{</span><span class="n">avg_grain_diam</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> μm&#39;</span><span class="p">)</span>
+
+<span class="n">max_grain_diam</span><span class="o">=</span><span class="p">(</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="n">μm_per_pixel</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Max Grain Diameter = </span><span class="si">{</span><span class="n">max_grain_diam</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> μm&#39;</span><span class="p">)</span>
+
+<span class="n">min_grain_diam</span><span class="o">=</span><span class="p">(</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">*</span><span class="n">μm_per_pixel</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Min Grain Diameter = </span><span class="si">{</span><span class="n">min_grain_diam</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> μm</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">avg_grain_area</span><span class="o">=</span> <span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="n">μm_per_pixel</span><span class="o">**</span><span class="mi">2</span> <span class="c1">#μm^2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Avg. Grain Area = </span><span class="si">{</span><span class="n">avg_grain_area</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> μm^2&#39;</span><span class="p">)</span>
+
+<span class="n">max_grain_area</span><span class="o">=</span> <span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="n">μm_per_pixel</span><span class="o">**</span><span class="mi">2</span> <span class="c1">#μm^2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Max Grain Area = </span><span class="si">{</span><span class="n">max_grain_area</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> μm^2&#39;</span><span class="p">)</span>
+
+<span class="n">min_grain_area</span><span class="o">=</span> <span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">*</span><span class="n">μm_per_pixel</span><span class="o">**</span><span class="mi">2</span> <span class="c1">#μm^2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Min Grain Area = </span><span class="si">{</span><span class="n">min_grain_area</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> μm^2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">n</span><span class="o">=</span> <span class="p">(</span><span class="n">avg_grain_area</span><span class="o">*</span><span class="mi">10</span><span class="o">**-</span><span class="mi">6</span><span class="p">)</span><span class="o">**-</span><span class="mi">1</span> <span class="c1"># grains per mm^2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of grains per mm^2 = </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Grain Size number </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Grain Size number = </span><span class="si">{</span><span class="mf">3.322</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="mf">2.9543</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Avg. Grain Diameter = 12.60 μm
+Max Grain Diameter = 41.16 μm
+Min Grain Diameter = 1.02 μm
+
+Avg. Grain Area = 155.80 μm^2
+Max Grain Area = 1330.83 μm^2
+Min Grain Area = 0.81 μm^2
+
+Number of grains per mm^2 = 6418.35
+Grain Size number = 9.69
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">12.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<section id="problem-1">
+<h3><span class="section-number">12.7.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<p><strong>(a)</strong>  Pick one of the following images and find the grain size number.</p>
+<a class="reference internal image-reference" href="../_images/grain_image_25um_bar.png"><img alt="../_images/grain_image_25um_bar.png" class="align-center" src="../_images/grain_image_25um_bar.png" style="width: 600px;" /></a>
+<p>The above image can be used to get the number of pixels that equals 25 microns (black bar at bottom right).  The image below is to analyze. I removed the micron bar so it didn’t affect the watershed.</p>
+<a class="reference internal image-reference" href="../_images/grain_image_wo_25um_bar.png"><img alt="../_images/grain_image_wo_25um_bar.png" class="align-center" src="../_images/grain_image_wo_25um_bar.png" style="width: 600px;" /></a>
+<p>The image below has enough grains that you can just crop the micron bar out of the image and analyze the remaining grains.</p>
+<a class="reference internal image-reference" href="../_images/grain_image_1.png"><img alt="../_images/grain_image_1.png" class="align-center" src="../_images/grain_image_1.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/grains_callister.png"><img alt="../_images/grains_callister.png" class="align-center" src="../_images/grains_callister.png" style="width: 600px;" /></a>
+</section>
+<section id="extra-credit-challenge-problem">
+<h3><span class="section-number">12.7.2. </span>Extra Credit / Challenge Problem<a class="headerlink" href="#extra-credit-challenge-problem" title="Permalink to this headline">#</a></h3>
+<p>Determine the fraction of proeutectoid ferrite (white regions) in this image.  The remaining areas (darker colors) is pearlite.</p>
+<a class="reference internal image-reference" href="../_images/proeutectoid_alpha_and_pearlite.png"><img alt="../_images/proeutectoid_alpha_and_pearlite.png" class="align-center" src="../_images/proeutectoid_alpha_and_pearlite.png" style="width: 600px;" /></a>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons_3114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="11_creep_analysis_log_scales.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">11. </span>Collecting Data from Log scales: Creep Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Sean Corcoran<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

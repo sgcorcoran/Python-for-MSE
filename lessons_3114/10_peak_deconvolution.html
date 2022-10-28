@@ -206,6 +206,11 @@ const thebe_selector_output = ".output, .cell_output"
    11. Collecting Data from Log scales: Creep Analysis
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_grain_size_measurement.html">
+   12. Image Analysis: Grain Size Measurement
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -657,6 +662,12 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 <img alt="../_images/10_peak_deconvolution_18_0.png" src="../_images/10_peak_deconvolution_18_0.png" />
 </div>
 </div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="highlight-{admonition}author's notranslate"><div class="highlight"><pre><span></span>Consider using only fitting parameters and g() for plotting fitted results.  The two different methods can be confusing to students.  
+</pre></div>
+</div>
+</aside>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>What we would like to do is take the blue triangle points generated above and see if we can fit this noisy data to get back the two peaks.</p>
@@ -714,7 +725,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_22_0.png" src="../_images/10_peak_deconvolution_22_0.png" />
+<img alt="../_images/10_peak_deconvolution_23_0.png" src="../_images/10_peak_deconvolution_23_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 99.99999997169799, &#39;m2_μ&#39;: -0.19635697181718548, &#39;m2_σ&#39;: 3.870634410052338, &#39;m1_A&#39;: 100.0, &#39;m1_μ&#39;: 5.629581010346755, &#39;m1_σ&#39;: 2.775143761113831}
 </pre></div>
 </div>
@@ -749,7 +760,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_24_0.png" src="../_images/10_peak_deconvolution_24_0.png" />
+<img alt="../_images/10_peak_deconvolution_25_0.png" src="../_images/10_peak_deconvolution_25_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;m2_A&#39;: 21.285386408139754, &#39;m2_μ&#39;: -4.971759170789591, &#39;m2_σ&#39;: 1.0437948328302784, &#39;m1_A&#39;: 247.51427546593052, &#39;m1_μ&#39;: 4.025917180149022, &#39;m1_σ&#39;: 4.944033993313077}
 </pre></div>
 </div>
@@ -831,7 +842,7 @@ Now recall we made 2 Models: <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_33_0.png" src="../_images/10_peak_deconvolution_33_0.png" />
+<img alt="../_images/10_peak_deconvolution_34_0.png" src="../_images/10_peak_deconvolution_34_0.png" />
 </div>
 </div>
 <p>Compare the fitted peaks to the exact peaks used in the beginning to generate our noisy data.</p>
@@ -857,7 +868,7 @@ Now recall we made 2 Models: <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_35_0.png" src="../_images/10_peak_deconvolution_35_0.png" />
+<img alt="../_images/10_peak_deconvolution_36_0.png" src="../_images/10_peak_deconvolution_36_0.png" />
 </div>
 </div>
 <p>The fit looks pretty good especially considering how much noise we put into our original data.</p>
@@ -946,7 +957,7 @@ Let's now write this as a function called pAvram()<div class="cell docutils cont
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10_peak_deconvolution_58_0.png" src="../_images/10_peak_deconvolution_58_0.png" />
+<img alt="../_images/10_peak_deconvolution_59_0.png" src="../_images/10_peak_deconvolution_59_0.png" />
 </div>
 </div>
 <p>(a) Refit the dsc_data now using the pAvram function we defined above.
