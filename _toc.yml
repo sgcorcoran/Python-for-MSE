@@ -25,6 +25,7 @@ parts:
     - file: lessons_3114/09_applications
     - file: lessons_3114/10_peak_deconvolution
     - file: lessons_3114/11_creep_analysis_log_scales
+    - file: lessons_3114/12_grain_size_measurement
   - caption: Appendix
     numbered: true
     chapters:
