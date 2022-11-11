@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. MSE 3114 Data Files" href="50_course_support_files.html" />
+    <link rel="next" title="13. Analyzing Particles in a Matrix" href="13_Analyzing_Particles_in_a_Matrix.html" />
     <link rel="prev" title="11. Collecting Data from Log scales: Creep Analysis" href="11_creep_analysis_log_scales.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -209,6 +209,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    12. Image Analysis: Grain Size Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">
+   13. Analyzing Particles in a Matrix
   </a>
  </li>
 </ul>
@@ -434,38 +439,36 @@ title="Print to PDF"
      12.6.1. Label known foreground regions
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#keep-our-markers-but-change-the-unknown-regions-from-1-to-0">
-     12.6.2. Keep our markers but change the “unknown” regions from -1 to 0
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#change-the-marker-labels-to-colors-and-combine-with-the-original-image">
-     12.6.3. Change the marker labels to colors and combine with the original image
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#each-colored-grain-can-now-be-analyzed-and-placed-in-a-pandas-dataframe">
-       12.6.3.1. Each colored grain can now be analyzed and placed in a Pandas DataFrame
-      </a>
-     </li>
-    </ul>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-unknown-regions-to-0-and-run-watershed">
+   12.7. Set unknown regions to 0 and run watershed
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-marker-labels-to-colors-and-combine-with-the-original-image">
+   12.8. Convert marker labels to colors and combine with the original image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyze-grains">
+   12.9. Analyze grains
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   12.7. Exercises
+   12.10. Exercises
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-1">
-     12.7.1. Problem 1
+     12.10.1. Problem 1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#extra-credit-challenge-problem">
-     12.7.2. Extra Credit / Challenge Problem
+     12.10.2. Extra Credit / Challenge Problem
     </a>
    </li>
   </ul>
@@ -524,38 +527,36 @@ title="Print to PDF"
      12.6.1. Label known foreground regions
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#keep-our-markers-but-change-the-unknown-regions-from-1-to-0">
-     12.6.2. Keep our markers but change the “unknown” regions from -1 to 0
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#change-the-marker-labels-to-colors-and-combine-with-the-original-image">
-     12.6.3. Change the marker labels to colors and combine with the original image
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#each-colored-grain-can-now-be-analyzed-and-placed-in-a-pandas-dataframe">
-       12.6.3.1. Each colored grain can now be analyzed and placed in a Pandas DataFrame
-      </a>
-     </li>
-    </ul>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-unknown-regions-to-0-and-run-watershed">
+   12.7. Set unknown regions to 0 and run watershed
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-marker-labels-to-colors-and-combine-with-the-original-image">
+   12.8. Convert marker labels to colors and combine with the original image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyze-grains">
+   12.9. Analyze grains
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   12.7. Exercises
+   12.10. Exercises
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-1">
-     12.7.1. Problem 1
+     12.10.1. Problem 1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#extra-credit-challenge-problem">
-     12.7.2. Extra Credit / Challenge Problem
+     12.10.2. Extra Credit / Challenge Problem
     </a>
    </li>
   </ul>
@@ -821,7 +822,7 @@ title="Print to PDF"
 <span class="c1"># finding areas on image that we are confident are background (black) and foreground (white)</span>
 
 <span class="c1"># sure background area -- white areas (grains) expand outward</span>
-<span class="n">sure_bg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">opening</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sure_bg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">opening</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="c1"># Finding sure foreground area -- white regions contract inward</span>
 <span class="n">sure_fg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">erode</span><span class="p">(</span><span class="n">opening</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -857,7 +858,7 @@ title="Print to PDF"
 </div>
 <section id="label-known-foreground-regions">
 <h3><span class="section-number">12.6.1. </span>Label known foreground regions<a class="headerlink" href="#label-known-foreground-regions" title="Permalink to this headline">#</a></h3>
-<p>Each continuous white area in the known foreground image is assigned a number, the background regions are assigned 0, and the unknown regions are assigned -1.</p>
+<p>Each contiguous white area in the known foreground image is assigned a number, the black regions are assigned 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Marker labelling</span>
@@ -868,7 +869,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Let’s plot a region of the image data in ‘markers’ and see how the regions (integers) and boundaries (-1) are numbered.</p>
+<p>Let’s plot a region of the image data in ‘markers’ and see how the known regions are numbered and everything between these is labeled 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -896,15 +897,17 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="keep-our-markers-but-change-the-unknown-regions-from-1-to-0">
-<h3><span class="section-number">12.6.2. </span>Keep our markers but change the “unknown” regions from -1 to 0<a class="headerlink" href="#keep-our-markers-but-change-the-unknown-regions-from-1-to-0" title="Permalink to this headline">#</a></h3>
-<p>The watershed routine will “fill” these 0 regions with different color water starting from the cluster labels.  Where the water intersects, defines the boundary.  The boundary is then set to a value of -1 and colored red.</p>
+</section>
+<section id="set-unknown-regions-to-0-and-run-watershed">
+<h2><span class="section-number">12.7. </span>Set unknown regions to 0 and run watershed<a class="headerlink" href="#set-unknown-regions-to-0-and-run-watershed" title="Permalink to this headline">#</a></h2>
+<p>The watershed routine will start in each numbered area (in the original filtered &amp; blurred image) and fill these areas with the appropriate colored “water” using the grayscale values as heights. The filling continues until the colored water between grains begins to touch.  This then defines the interface or grain boundary in our case.  The boundary is then set to a value of -1 by the watershed function and we then color these red in the original image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add one to all labels so that unknown is 0, not -1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add one to all labels so that our minimum value is now 1 rather than zero</span>
 <span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span><span class="o">+</span><span class="mi">1</span>
 
-<span class="c1"># Now, mark the region of unknown with zero</span>
+<span class="c1"># Now, using the image &quot;unknown&quot; as a mask we take all pixel positions in this image</span>
+<span class="c1"># marked as unknown (white = 255) and label these as zero in the image &quot;markers&quot;. </span>
 <span class="n">markers</span><span class="p">[</span><span class="n">unknown</span><span class="o">==</span><span class="mi">255</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1"># boundaries are labeled -1 now by cv.watershed</span>
@@ -928,11 +931,27 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="change-the-marker-labels-to-colors-and-combine-with-the-original-image">
-<h3><span class="section-number">12.6.3. </span>Change the marker labels to colors and combine with the original image<a class="headerlink" href="#change-the-marker-labels-to-colors-and-combine-with-the-original-image" title="Permalink to this headline">#</a></h3>
+<section id="convert-marker-labels-to-colors-and-combine-with-the-original-image">
+<h2><span class="section-number">12.8. </span>Convert marker labels to colors and combine with the original image<a class="headerlink" href="#convert-marker-labels-to-colors-and-combine-with-the-original-image" title="Permalink to this headline">#</a></h2>
+<p>Example of named colors that can be used.</p>
+<a class="reference internal image-reference" href="../_images/12_named_colors.png"><img alt="../_images/12_named_colors.png" class="align-center" src="../_images/12_named_colors.png" style="width: 600px;" /></a>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img2</span><span class="o">=</span><span class="n">color</span><span class="o">.</span><span class="n">label2rgb</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">bg_label</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
+<span class="c1"># # uncomment to see all available colors</span>
+<span class="c1"># import matplotlib.colors as mcolors</span>
+<span class="c1"># [[i,list(mcolors.CSS4_COLORS.keys())[i]] for i in np.arange(148)]</span>
+<span class="c1"># The above code will show you what colors each of the numbers below corresponds to.</span>
+<span class="c1"># I&#39;m picking my favorites.  </span>
+<span class="n">colorlist</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">121</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">103</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">146</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">147</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">109</span><span class="p">,</span><span class="mi">125</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">138</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">136</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">111</span><span class="p">,</span><span class="mi">122</span><span class="p">,</span><span class="mi">115</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">131</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">139</span><span class="p">,</span><span class="mi">116</span><span class="p">,</span><span class="mi">118</span><span class="p">,</span><span class="mi">22</span><span class="p">]</span>
+<span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">mcolors</span><span class="o">.</span><span class="n">CSS4_COLORS</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">colorlist</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img2</span><span class="o">=</span><span class="n">color</span><span class="o">.</span><span class="n">label2rgb</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">bg_label</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">bg_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1"># 1x1 grid, first subplot</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">);</span>
@@ -941,11 +960,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12_grain_size_measurement_37_0.png" src="../_images/12_grain_size_measurement_37_0.png" />
+<img alt="../_images/12_grain_size_measurement_41_0.png" src="../_images/12_grain_size_measurement_41_0.png" />
 </div>
 </div>
-<section id="each-colored-grain-can-now-be-analyzed-and-placed-in-a-pandas-dataframe">
-<h4><span class="section-number">12.6.3.1. </span>Each colored grain can now be analyzed and placed in a Pandas DataFrame<a class="headerlink" href="#each-colored-grain-can-now-be-analyzed-and-placed-in-a-pandas-dataframe" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="analyze-grains">
+<h2><span class="section-number">12.9. </span>Analyze grains<a class="headerlink" href="#analyze-grains" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># values in table below are in pixel units</span>
@@ -992,31 +1012,31 @@ title="Print to PDF"
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>1429</td>
-      <td>42.655121</td>
-      <td>-1.481923</td>
-      <td>436.599861</td>
-      <td>385.268847</td>
-      <td>1096.625504</td>
+      <td>17</td>
+      <td>4.652426</td>
+      <td>0.302197</td>
+      <td>6.122026</td>
+      <td>3.622550</td>
+      <td>12.863961</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
-      <td>33</td>
-      <td>6.482045</td>
-      <td>0.082122</td>
-      <td>14.939009</td>
-      <td>3.109792</td>
-      <td>26.035534</td>
+      <td>41</td>
+      <td>7.225152</td>
+      <td>0.231599</td>
+      <td>16.406235</td>
+      <td>4.786356</td>
+      <td>32.278175</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
-      <td>422</td>
-      <td>23.179885</td>
-      <td>-1.216763</td>
-      <td>28.635540</td>
-      <td>19.278619</td>
+      <td>421</td>
+      <td>23.152405</td>
+      <td>-1.211855</td>
+      <td>28.644618</td>
+      <td>19.212631</td>
       <td>83.597980</td>
     </tr>
     <tr>
@@ -1076,27 +1096,25 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Avg. Grain Diameter = 12.60 μm
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Avg. Grain Diameter = 12.68 μm
 Max Grain Diameter = 41.16 μm
 Min Grain Diameter = 1.02 μm
 
-Avg. Grain Area = 155.80 μm^2
+Avg. Grain Area = 156.30 μm^2
 Max Grain Area = 1330.83 μm^2
 Min Grain Area = 0.81 μm^2
 
-Number of grains per mm^2 = 6418.35
+Number of grains per mm^2 = 6397.93
 Grain Size number = 9.69
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
-</section>
 <section id="exercises">
-<h2><span class="section-number">12.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.10. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <section id="problem-1">
-<h3><span class="section-number">12.7.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.10.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
 <p><strong>(a)</strong>  Pick one of the following images and find the grain size number.</p>
 <a class="reference internal image-reference" href="../_images/grain_image_25um_bar.png"><img alt="../_images/grain_image_25um_bar.png" class="align-center" src="../_images/grain_image_25um_bar.png" style="width: 600px;" /></a>
 <p>The above image can be used to get the number of pixels that equals 25 microns (black bar at bottom right).  The image below is to analyze. I removed the micron bar so it didn’t affect the watershed.</p>
@@ -1106,7 +1124,7 @@ Grain Size number = 9.69
 <a class="reference internal image-reference" href="../_images/grains_callister.png"><img alt="../_images/grains_callister.png" class="align-center" src="../_images/grains_callister.png" style="width: 600px;" /></a>
 </section>
 <section id="extra-credit-challenge-problem">
-<h3><span class="section-number">12.7.2. </span>Extra Credit / Challenge Problem<a class="headerlink" href="#extra-credit-challenge-problem" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.10.2. </span>Extra Credit / Challenge Problem<a class="headerlink" href="#extra-credit-challenge-problem" title="Permalink to this headline">#</a></h3>
 <p>Determine the fraction of proeutectoid ferrite (white regions) in this image.  The remaining areas (darker colors) is pearlite.</p>
 <a class="reference internal image-reference" href="../_images/proeutectoid_alpha_and_pearlite.png"><img alt="../_images/proeutectoid_alpha_and_pearlite.png" class="align-center" src="../_images/proeutectoid_alpha_and_pearlite.png" style="width: 600px;" /></a>
 </section>
@@ -1147,10 +1165,10 @@ Grain Size number = 9.69
             <p class="prev-next-title"><span class="section-number">11. </span>Collecting Data from Log scales: Creep Analysis</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="50_course_support_files.html" title="next page">
+    <a class='right-next' id="next-link" href="13_Analyzing_Particles_in_a_Matrix.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>MSE 3114 Data Files</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Analyzing Particles in a Matrix</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

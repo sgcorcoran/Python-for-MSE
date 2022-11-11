@@ -211,6 +211,11 @@ const thebe_selector_output = ".output, .cell_output"
    12. Image Analysis: Grain Size Measurement
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">
+   13. Analyzing Particles in a Matrix
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1463,7 +1468,7 @@ if (typeof version == 'undefined') {
 </div>
 <p>Were you able to successfully create and run a new jupyter notebook using your Cheat Sheet notebook from 2114?  <strong>If not, fix it now.</strong>  The cheat sheet won’t do you any good later if you can’t quickly get up to speed after only 3 months off.</p>
 <p>If you were, then awesome!</p>
-<a class="reference internal image-reference" href="../_images/awesome.png" id="navigator"><img alt="../_images/awesome.png" id="navigator" src="../_images/awesome.png" style="height: 100px;" /></a>
+<a class="reference internal image-reference" href="../_images/awesome.png"><img alt="../_images/awesome.png" src="../_images/awesome.png" style="height: 100px;" /></a>
 </section>
 <section id="writing-saving-and-importing-your-own-functions">
 <h2><span class="section-number">2.2. </span>Writing, Saving, and Importing Your Own Functions<a class="headerlink" href="#writing-saving-and-importing-your-own-functions" title="Permalink to this headline">#</a></h2>
@@ -1643,13 +1648,13 @@ if (typeof version == 'undefined') {
 <p>Some text file editors will save your file as “.py.txt”.  In this case, you will have to go back in with your file explorer and delete the .txt extension.</p>
 </div>
 <p>Here is the contents of my text file named “my_functions.py”:</p>
-<a class="reference internal image-reference" href="../_images/py_file_contents.png" id="id1"><img alt="../_images/py_file_contents.png" id="id1" src="../_images/py_file_contents.png" style="height: 550px;" /></a>
+<a class="reference internal image-reference" href="../_images/py_file_contents.png"><img alt="../_images/py_file_contents.png" src="../_images/py_file_contents.png" style="height: 550px;" /></a>
 </section>
 <section id="import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function">
 <h3><span class="section-number">2.2.3. </span>Import your *.py file into a new Jupyter notebook and test your function<a class="headerlink" href="#import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function" title="Permalink to this headline">#</a></h3>
 <p>Open a new notebook and import your function file.  In my case, the command would be <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">my_functions</span></code>.  After importing, go ahead and test your function. In my case I would run <code class="docutils literal notranslate"><span class="pre">my_functions.vuc(2,3,4,90,90,90)</span></code>.  Add another function to the same text file and test it.</p>
 <p>I could also import using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">my_functions</span> <span class="pre">as</span> <span class="pre">mf</span></code>.  Then I can shorten the code to use vuc().  Now I would run <code class="docutils literal notranslate"><span class="pre">mf.vuc(2,3,4,90,90,90)</span></code>.</p>
-<a class="reference internal image-reference" href="../_images/import_my_functions.png" id="id2"><img alt="../_images/import_my_functions.png" id="id2" src="../_images/import_my_functions.png" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/import_my_functions.png"><img alt="../_images/import_my_functions.png" src="../_images/import_my_functions.png" style="height: 300px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We have seen this syntax before. For example, we import the numpy package using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>, and then to use a function within numpy (such as arange()) we would use <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>.</p>
@@ -1659,7 +1664,7 @@ if (typeof version == 'undefined') {
 <section id="exercises">
 <h2><span class="section-number">2.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <section id="problem-1">
-<span id="id3"></span><h3><span class="section-number">2.3.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<span id="id1"></span><h3><span class="section-number">2.3.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
 <p>Open a new Jupyter notebook and import the data from the excel file Al7075_out.xlsx. Using matplotlib, plot stress (y) vs strain (x), label your axes, and use blue triangles for your data points. Your plot should look like:</p>
 <figure class="align-default" id="figure-example">
 <a class="reference internal image-reference" href="../_images/hw1_stress_strain_plot.png"><img alt="../_images/hw1_stress_strain_plot.png" src="../_images/hw1_stress_strain_plot.png" style="height: 350px;" /></a>
@@ -1679,7 +1684,7 @@ if (typeof version == 'undefined') {
 <section id="problem-4">
 <h3><span class="section-number">2.3.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
 <p>Write a function that uses the metric tensor to find the angle <span class="math notranslate nohighlight">\(\theta\)</span> in degrees between 3 atoms as shown for example below.  Your function should allow you to enter the fractional coordinates of the three atoms, [x1,y1,z1], [x2,y2,z2], and [x3,y3,z3], and the lattice parameters, a,b,c,alpha,beta,gamma.  You can use the numbers below to test your code.  The Oxygen - <span class="math notranslate nohighlight">\(Si_1\)</span> bond length will be 1.60674 <span class="math notranslate nohighlight">\(\mathring{A}\)</span> and the Oxygen - <span class="math notranslate nohighlight">\(Si_2\)</span> bond length will be 1.61035 <span class="math notranslate nohighlight">\(\mathring{A}\)</span>.</p>
-<a class="reference internal image-reference" href="../_images/hw1_gmatrix_problem.png" id="id4"><img alt="../_images/hw1_gmatrix_problem.png" class="align-center" id="id4" src="../_images/hw1_gmatrix_problem.png" style="height: 450px;" /></a>
+<a class="reference internal image-reference" href="../_images/hw1_gmatrix_problem.png"><img alt="../_images/hw1_gmatrix_problem.png" class="align-center" src="../_images/hw1_gmatrix_problem.png" style="height: 450px;" /></a>
 <p>The vector, <span class="math notranslate nohighlight">\(\overline{v1}\)</span>, connecting the <span class="math notranslate nohighlight">\(Si_2\)</span> and O atoms is given by <span class="math notranslate nohighlight">\(\overline{v1}=Si_2 - O = \left[x2,y2,z2\right]-\left[x1,y1,z1\right]=\left[x2-x1,y2-y1,z2-z1\right]\)</span></p>
 <p>The magnitude of this vector (i.e. the bond length) is given by <span class="math notranslate nohighlight">\(\mid\overline{v1}\mid=\sqrt{\overline{v1}\cdot \overline{\overline{g}} \cdot\overline{v1}}\)</span> or in matrix format:</p>
 <div class="math notranslate nohighlight">

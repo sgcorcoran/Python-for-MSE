@@ -211,6 +211,11 @@ const thebe_selector_output = ".output, .cell_output"
    12. Image Analysis: Grain Size Measurement
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">
+   13. Analyzing Particles in a Matrix
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -625,7 +630,7 @@ title="Print to PDF"
 {"model_id": "6b60a0ca8bdc4e4291f3d7044b7f2ce3", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<a class="reference internal image-reference" href="../_images/3114_06_smith_creek.png" id="navigator"><img alt="../_images/3114_06_smith_creek.png" class="align-center" id="navigator" src="../_images/3114_06_smith_creek.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/3114_06_smith_creek.png"><img alt="../_images/3114_06_smith_creek.png" class="align-center" src="../_images/3114_06_smith_creek.png" style="height: 500px;" /></a>
 <p>If you execute the code above in your own notebook and move your mouse around on the image, you will see the pixel coordinates for that location displayed at the bottom of the figure. The values in the brackets are the color code and opacity.  We won’t need these.  One of the things to notice is that when an image is read, the data is plotted from the top left corner, across the row, and then down to the next row.  When dealing with coordinates for plots, we expect the origin to be located in the bottom-left corner so we will need to correct this next week when we read an image file of a data plot.</p>
 </section>
 <section id="selecting-data-from-our-image">
@@ -644,7 +649,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>After running the above code, it might look like nothing happened.  Scroll back up to the image plotted previously, and use the mouse to click somewhere.  You should now see a title show up showing you the location of your click (as shown in the figure below).  Now continue clicking a few points on the image.  After this we can take a look at the points stored in the variable “pos.”</p>
-<a class="reference internal image-reference" href="../_images/smith_creek_2.png" id="id1"><img alt="../_images/smith_creek_2.png" class="align-center" id="id1" src="../_images/smith_creek_2.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/smith_creek_2.png"><img alt="../_images/smith_creek_2.png" class="align-center" src="../_images/smith_creek_2.png" style="height: 500px;" /></a>
 <p>Now start over, re-executing the previous cells to make a new interactive plot so we can include calibration points for the image scale bar. Let’s reclick on all your boundary points and then when finished with these click on the two ends of the scale bar.  This way we can just pull the last two points off of our “pos” values for the calibration.  We also should turn our list into a numpy array to make indexing easier when performing calculations.  The first point that we select is going to become a common vertice as we break our polygon into triangles so choose wisely.  Also the boundary points need to be chosen in order as you “walk” around the boundary.</p>
 <p>The points that I chose are shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>  
@@ -776,7 +781,7 @@ The area is approximately 21.9 acres
 {"model_id": "6d2f42abc3e842ff905fa7d6ce914619", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<a class="reference internal image-reference" href="../_images/smith_creek_1.png" id="id2"><img alt="../_images/smith_creek_1.png" class="align-center" id="id2" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/smith_creek_1.png"><img alt="../_images/smith_creek_1.png" class="align-center" src="../_images/smith_creek_1.png" style="height: 500px;" /></a>
 <p>cursor points that I used</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">29.630662779471038</span><span class="p">,</span> <span class="mf">88.75061150009503</span><span class="p">],</span>
  <span class="p">[</span><span class="mf">168.4974442950987</span><span class="p">,</span> <span class="mf">40.918720089156636</span><span class="p">],</span>

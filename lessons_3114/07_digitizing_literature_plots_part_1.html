@@ -211,6 +211,11 @@ const thebe_selector_output = ".output, .cell_output"
    12. Image Analysis: Grain Size Measurement
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">
+   13. Analyzing Particles in a Matrix
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -614,7 +619,6 @@ title="Print to PDF"
 <p>Let’s open a screen capture that I saved of one of the figures from the journal article: Xiaojing Li, Zhaobin Qiu, <em>Crystallization kinetics, morphology, and mechanical properties of novel poly(ethylene succinate-co-octamethylene succinate)</em>, Polymer Testing, vol 48, pp. 125-132 (2015).</p>
 <section id="read-the-image-file-with-matplotlib">
 <h2><span class="section-number">7.1. </span>Read the image file with matplotlib<a class="headerlink" href="#read-the-image-file-with-matplotlib" title="Permalink to this headline">#</a></h2>
-<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
@@ -684,7 +688,7 @@ title="Print to PDF"
 {"model_id": "0b5b72a096c5447583cbe37e8089d7d7", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<a class="reference internal image-reference" href="../_images/07_step_1.png" id="navigator"><img alt="../_images/07_step_1.png" class="align-center" id="navigator" src="../_images/07_step_1.png" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/07_step_1.png"><img alt="../_images/07_step_1.png" class="align-center" src="../_images/07_step_1.png" style="height: 400px;" /></a>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The figure below is &#39;active.&#39; Click on the answers for feedback.
@@ -1628,7 +1632,7 @@ if (typeof version == 'undefined') {
 {"model_id": "ab01700aa926440db5e08d8d1e9cb226", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<a class="reference internal image-reference" href="../_images/07_step_2.png" id="id1"><img alt="../_images/07_step_2.png" class="align-center" id="id1" src="../_images/07_step_2.png" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/07_step_2.png"><img alt="../_images/07_step_2.png" class="align-center" src="../_images/07_step_2.png" style="height: 400px;" /></a>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I clicked on each data point on the right most curve above</span>
@@ -2626,7 +2630,7 @@ if (typeof version == 'undefined') {
 {"model_id": "d33f7450707f4fa1bac1465a213d4dee", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
-<a class="reference internal image-reference" href="../_images/07_step_3.png" id="id2"><img alt="../_images/07_step_3.png" class="align-center" id="id2" src="../_images/07_step_3.png" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/07_step_3.png"><img alt="../_images/07_step_3.png" class="align-center" src="../_images/07_step_3.png" style="height: 400px;" /></a>
 <p>Here are the values for the points shown in the figure above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2923,24 +2927,24 @@ if (typeof version == 'undefined') {
 <section id="problem-1">
 <h3><span class="section-number">7.3.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
 <p>Reproduce the <span class="math notranslate nohighlight">\(74 ^{\circ}C\)</span> data in the plot below. Make sure you label your axes and plot your points as down triangles as shown in the figure. Your plot should be in units of minutes (x-axis) and % (y-axis). Connect your points with a dotted line (not dashed line).</p>
-<a class="reference internal image-reference" href="../_images/crystallization kinetics poly testing 48 2015 p 125.png" id="id3"><img alt="../_images/crystallization kinetics poly testing 48 2015 p 125.png" class="align-center" id="id3" src="../_images/crystallization kinetics poly testing 48 2015 p 125.png" style="height: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/crystallization kinetics poly testing 48 2015 p 125.png"><img alt="../_images/crystallization kinetics poly testing 48 2015 p 125.png" class="align-center" src="../_images/crystallization kinetics poly testing 48 2015 p 125.png" style="height: 600px;" /></a>
 </section>
 <section id="problem-2">
 <h3><span class="section-number">7.3.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
 <p>Reproduce the overall curve below. Treat all the data points as one set i.e., you don’t need to separate out the various symbols.  You should select at least 20 points along the curve.  Make sure you label your axes including the superscripts and subscripts on the y-axis. The y-axis label can be rotated and written as one line vertically (the default mode for matplotlib). Also add a title to your plot. Your final plot should no longer have any of the skew or rotation from the original plot. Pretty nice!</p>
-<a class="reference internal image-reference" href="../_images/07_hw_skew.png" id="id4"><img alt="../_images/07_hw_skew.png" class="align-center" id="id4" src="../_images/07_hw_skew.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/07_hw_skew.png"><img alt="../_images/07_hw_skew.png" class="align-center" src="../_images/07_hw_skew.png" style="height: 500px;" /></a>
 </section>
 <section id="problem-3">
 <h3><span class="section-number">7.3.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
 <p>Reproduce the <span class="math notranslate nohighlight">\(2\theta\)</span> peak positions in the plot below using our calibration routine in this lesson. The Intensity is arbitrary so just assign the max value on the y-axis = 1. Use these values to answer the following:</p>
 <p>The x-ray pattern below is for BCC Tungsten.  The indices of the peaks (from left to right) are (110), (200), (211), (220), and (310).  (1) Calculate the interplanar spacing (d-spacing) for each peak.  (2) From each of the d-spacings, calculate the radius of tungsten.  (3) Find the mean and standard deviation of the radii. This is easily done if you store your radii in a numpy array.  You can use for example: <code class="docutils literal notranslate"><span class="pre">np.std()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>.  These are 1st order reflections so n = 1. Some useful equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b98e65a-61d1-4d53-8a6e-705766606373">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-7b98e65a-61d1-4d53-8a6e-705766606373" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-21161a68-3df2-4126-94e2-21d9bf6a6a87">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-21161a68-3df2-4126-94e2-21d9bf6a6a87" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 2\ d_{hkl}\ \sin(\theta)=n\ \lambda \\
 a=d_{hkl}\ \sqrt{h^2+k^2+l^2}
 \end{eqnarray}\]</div>
 <p>The x-ray source was <span class="math notranslate nohighlight">\(Cu\ K_{\alpha}\)</span> with a <span class="math notranslate nohighlight">\(\lambda\ =\ 0.1542\ nm\)</span>.  The relationship between lattice parameter, <span class="math notranslate nohighlight">\(a\)</span>, and radius, <span class="math notranslate nohighlight">\(R\)</span>, for a BCC material you should know from MSE 2044.</p>
-<a class="reference internal image-reference" href="../_images/diffraction.png" id="id5"><img alt="../_images/diffraction.png" class="align-center" id="id5" src="../_images/diffraction.png" style="height: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/diffraction.png"><img alt="../_images/diffraction.png" class="align-center" src="../_images/diffraction.png" style="height: 600px;" /></a>
 </section>
 </section>
 </section>

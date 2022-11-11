@@ -209,6 +209,11 @@ const thebe_selector_output = ".output, .cell_output"
    12. Image Analysis: Grain Size Measurement
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">
+   13. Analyzing Particles in a Matrix
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1653,9 +1658,9 @@ if (typeof version == 'undefined') {
 <h2><span class="section-number">5.3. </span>Advanced subplot layouts with <code class="docutils literal notranslate"><span class="pre">.subplot2grid()</span></code><a class="headerlink" href="#advanced-subplot-layouts-with-subplot2grid" title="Permalink to this headline">#</a></h2>
 <p>If you need more advanced layout beyond simple grids of graphs, then Matplotlib’s gridspec module allows for more subplot customization. Pyplot’s <strong>subplot2grid()</strong> interacts with this module.</p>
 <p>Say we want this setup:</p>
-<a class="reference internal image-reference" href="../_images/3114_05_layout.png" id="advanced-layout"><img alt="../_images/3114_05_layout.png" id="advanced-layout" src="../_images/3114_05_layout.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/3114_05_layout.png"><img alt="../_images/3114_05_layout.png" src="../_images/3114_05_layout.png" style="height: 500px;" /></a>
 <p>Always think of the layout in terms of a regular grid.  The above layout could be obtained from a 3x2 grid where <strong>ax1</strong> spans 2 columns and 2 rows as shown below.</p>
-<a class="reference internal image-reference" href="../_images/3114_05_layout_grid.png" id="id1"><img alt="../_images/3114_05_layout_grid.png" id="id1" src="../_images/3114_05_layout_grid.png" style="height: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/3114_05_layout_grid.png"><img alt="../_images/3114_05_layout_grid.png" src="../_images/3114_05_layout_grid.png" style="height: 500px;" /></a>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gridsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># setup our 3 x 2 grid</span>
@@ -1909,10 +1914,10 @@ if (typeof version == 'undefined') {
 <section id="problem-2">
 <h3><span class="section-number">5.5.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
 <p>Import the stress-strain data from the excel file <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=14uBqZM8ekl1RoFgx3nwCJM7fe9N144RI">Al7075_out.xlsx</a>. 1) Reproduce the plot below <a class="reference internal" href="02_importing_your_own_functions.html#problem-1"><span class="std std-ref">see your previous weeks homework</span></a>. 2) Create an additional scatter plot where the stress is plotted to a maximum strain of 0.0075.  3) Layout these two plots next to each other horizontally.  4) Add x,y axis labels and title each plot. Your title for plot 2 should be descriptive of this “initial” region.</p>
-<figure class="align-default" id="figure-example">
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/hw1_stress_strain_plot.png"><img alt="../_images/hw1_stress_strain_plot.png" src="../_images/hw1_stress_strain_plot.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Stress-Strain response for Al7075 in tension.</span><a class="headerlink" href="#figure-example" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Stress-Strain response for Al7075 in tension.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
