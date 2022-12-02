@@ -27,6 +27,7 @@ parts:
     - file: lessons_3114/11_creep_analysis_log_scales
     - file: lessons_3114/12_grain_size_measurement
     - file: lessons_3114/13_Analyzing_Particles_in_a_Matrix
+    - file: lessons_3114/14_removing_perspective
   - caption: Appendix
     numbered: true
     chapters:
