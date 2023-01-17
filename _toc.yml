@@ -10,7 +10,21 @@ parts:
     - file: lessons_2114/01_welcome_to_2114
     - file: lessons_2114/2_Intro_Jupyter
     - file: lessons_2114/3_working_with_data
-    - file: lessons_2114/4_temp
+#    - file: lessons_2114/4_temp
+#
+  - caption: Appendix 2114 (in progress)
+    numbered: true
+    chapters:
+    - file: lessons_2114/100_markdown_cells
+    - file: lessons_2114/101_math_operations
+    - file: lessons_2114/102_Plotting_basics
+    - file: lessons_2114/103_Plotting_functions
+    - file: lessons_2114/50_2114_course_support_files
+    - file: lessons_2114/51_2114_LinkedIn_Learning_Recommendations
+    - file: lessons_2114/52_2114_time_saving_tips
+    - file: lessons_2114/53_2114_updates
+#
+
   - caption: MSE 3114 Python for MSE II
     numbered: true
     chapters:
@@ -28,7 +42,8 @@ parts:
     - file: lessons_3114/12_grain_size_measurement
     - file: lessons_3114/13_Analyzing_Particles_in_a_Matrix
     - file: lessons_3114/14_removing_perspective
-  - caption: Appendix
+#
+  - caption: Appendix 3114
     numbered: true
     chapters:
     - file: lessons_3114/50_course_support_files
