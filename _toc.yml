@@ -8,7 +8,7 @@ parts:
     numbered: true
     chapters:
     - file: lessons_2114/01_welcome_to_2114
-    - file: lessons_2114/2_Intro_Jupyter
+    - file: lessons_2114/02_Intro_Jupyter
     - file: lessons_2114/3_working_with_data
 #    - file: lessons_2114/4_temp
 #

@@ -38,7 +38,8 @@ parse:
     - linkify
     - smartquotes
     - tasklist
-  myst_dmath_double_inline: true
+  myst_dmath_double_inline: True
+  myst_dmath_allow_space: False
   myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
 
 #######################################################################################
