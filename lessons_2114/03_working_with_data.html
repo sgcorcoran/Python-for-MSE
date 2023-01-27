@@ -349,7 +349,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_2114/3_working_with_data.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_2114/03_working_with_data.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,7 +392,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/lessons_2114/3_working_with_data.ipynb"
+        <a href="../_sources/lessons_2114/03_working_with_data.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -452,84 +452,124 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importing-cleaning-exporting-excel-data">
-   3.1. Importing, Cleaning, Exporting Excel data
+  <a class="reference internal nav-link" href="#importing-reading-data-using-pandas">
+   3.1. Importing / Reading data using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-define-file-paths">
-     3.1.1. How to define file paths
+    <a class="reference internal nav-link" href="#define-your-file-path">
+     3.1.1. Define your file path
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-data-using-pandas">
-     3.1.2. Import Data using Pandas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clean-data">
-     3.1.3. Clean data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis">
-     3.1.4. Analysis
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sorting-slicing-math-on-columns-adding-new-columns">
-       3.1.4.1. sorting, slicing, math on columns, adding new columns
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#plotting-using-matplotlib-pyplot-fitting-using-scipy-optimize-curvefit">
-       3.1.4.2. plotting using matplotlib.pyplot,  fitting using scipy.optimize curvefit
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exporting-data-to-excel">
-     3.1.5. Exporting data to excel
+    <a class="reference internal nav-link" href="#read-the-file">
+     3.1.2. Read the file
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lesson-part-2-practice">
-   3.2. Lesson Part 2: Practice
+  <a class="reference internal nav-link" href="#clean-the-data">
+   3.2. Clean the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-of-data">
+   3.3. Analysis of data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions-list-comprehensions-random-numbers-selecting-data-using-conditionals">
-     3.2.1. Functions, List comprehensions, Random numbers, Selecting data using conditionals
+    <a class="reference internal nav-link" href="#sorting-slicing-math-on-columns-adding-new-columns">
+     3.3.1. sorting, slicing, math on columns, adding new columns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-data">
+   3.4. Plotting the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-data-using-scipy-optimize-curvefit">
+   3.5. Fitting data using scipy.optimize curvefit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exporting-data-to-excel">
+   3.6. Exporting data to excel
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#double-check-the-data-that-you-want-to-export">
+     3.6.1. Double check the data that you want to export
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#p2-lets-determine-if-a-random-point-between-0-and-1-in-both-x-and-y-falls-inside-a-circle-with-center-0-5-0-5-and-radius-0-7">
-     3.2.2. (P2) Let’s determine if a random point between 0 and 1 in both x and y falls inside a circle with center (0.5, 0.5) and radius 0.7
+    <a class="reference internal nav-link" href="#export">
+     3.6.2. Export
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   3.3. Exercises
+   3.7. Exercises
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#review-of-some-coding-that-may-make-the-homework-exercises-easier">
+     3.7.1. Review of some coding that may make the homework exercises easier.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-if-elif-else-statements">
+       3.7.1.1. Using
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         if
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         elif
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         else
+        </span>
+       </code>
+       statements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lets-determine-if-a-few-points-fall-inside-a-circle-with-center-0-5-0-5-and-radius-0-7">
+       3.7.1.2. Let’s determine if a few points fall inside a circle with center (0.5, 0.5) and radius 0.7
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-1">
-     3.3.1. Problem 1:
+     3.7.2. Problem 1:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-2">
-     3.3.2. Problem 2:
+     3.7.3. Problem 2:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-3">
-     3.3.3. Problem 3:
+     3.7.4. Problem 3:
     </a>
    </li>
   </ul>
@@ -554,84 +594,124 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importing-cleaning-exporting-excel-data">
-   3.1. Importing, Cleaning, Exporting Excel data
+  <a class="reference internal nav-link" href="#importing-reading-data-using-pandas">
+   3.1. Importing / Reading data using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-define-file-paths">
-     3.1.1. How to define file paths
+    <a class="reference internal nav-link" href="#define-your-file-path">
+     3.1.1. Define your file path
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-data-using-pandas">
-     3.1.2. Import Data using Pandas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clean-data">
-     3.1.3. Clean data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis">
-     3.1.4. Analysis
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sorting-slicing-math-on-columns-adding-new-columns">
-       3.1.4.1. sorting, slicing, math on columns, adding new columns
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#plotting-using-matplotlib-pyplot-fitting-using-scipy-optimize-curvefit">
-       3.1.4.2. plotting using matplotlib.pyplot,  fitting using scipy.optimize curvefit
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exporting-data-to-excel">
-     3.1.5. Exporting data to excel
+    <a class="reference internal nav-link" href="#read-the-file">
+     3.1.2. Read the file
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lesson-part-2-practice">
-   3.2. Lesson Part 2: Practice
+  <a class="reference internal nav-link" href="#clean-the-data">
+   3.2. Clean the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-of-data">
+   3.3. Analysis of data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions-list-comprehensions-random-numbers-selecting-data-using-conditionals">
-     3.2.1. Functions, List comprehensions, Random numbers, Selecting data using conditionals
+    <a class="reference internal nav-link" href="#sorting-slicing-math-on-columns-adding-new-columns">
+     3.3.1. sorting, slicing, math on columns, adding new columns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-data">
+   3.4. Plotting the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-data-using-scipy-optimize-curvefit">
+   3.5. Fitting data using scipy.optimize curvefit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exporting-data-to-excel">
+   3.6. Exporting data to excel
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#double-check-the-data-that-you-want-to-export">
+     3.6.1. Double check the data that you want to export
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#p2-lets-determine-if-a-random-point-between-0-and-1-in-both-x-and-y-falls-inside-a-circle-with-center-0-5-0-5-and-radius-0-7">
-     3.2.2. (P2) Let’s determine if a random point between 0 and 1 in both x and y falls inside a circle with center (0.5, 0.5) and radius 0.7
+    <a class="reference internal nav-link" href="#export">
+     3.6.2. Export
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   3.3. Exercises
+   3.7. Exercises
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#review-of-some-coding-that-may-make-the-homework-exercises-easier">
+     3.7.1. Review of some coding that may make the homework exercises easier.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-if-elif-else-statements">
+       3.7.1.1. Using
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         if
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         elif
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         else
+        </span>
+       </code>
+       statements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lets-determine-if-a-few-points-fall-inside-a-circle-with-center-0-5-0-5-and-radius-0-7">
+       3.7.1.2. Let’s determine if a few points fall inside a circle with center (0.5, 0.5) and radius 0.7
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-1">
-     3.3.1. Problem 1:
+     3.7.2. Problem 1:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-2">
-     3.3.2. Problem 2:
+     3.7.3. Problem 2:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#problem-3">
-     3.3.3. Problem 3:
+     3.7.4. Problem 3:
     </a>
    </li>
   </ul>
@@ -648,8 +728,19 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="working-with-data">
 <h1><span class="section-number">3. </span>Working with Data<a class="headerlink" href="#working-with-data" title="Permalink to this headline">#</a></h1>
-<section id="importing-cleaning-exporting-excel-data">
-<h2><span class="section-number">3.1. </span>Importing, Cleaning, Exporting Excel data<a class="headerlink" href="#importing-cleaning-exporting-excel-data" title="Permalink to this headline">#</a></h2>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>Be able to:</p>
+<ul class="simple">
+<li><p>open data files (.txt, .xlsx) using <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></li>
+<li><p>present the data in a table</p></li>
+<li><p>clean and modify the data as needed</p></li>
+<li><p>represent the cleaned data in a scatter plot using <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> from the package <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+<li><p>fit the data using <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from the package <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></p></li>
+<li><p>export a table of data into an <em>Excel</em> file</p></li>
+<li><p>review functions, list comprehensions, random numbers and selecting data using conditionals</p></li>
+</ul>
+</div>
 <p>First we need to import the packages we will need in this notebook:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -661,35 +752,37 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="how-to-define-file-paths">
-<h3><span class="section-number">3.1.1. </span>How to define file paths<a class="headerlink" href="#how-to-define-file-paths" title="Permalink to this headline">#</a></h3>
+<section id="importing-reading-data-using-pandas">
+<h2><span class="section-number">3.1. </span>Importing / Reading data using <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#importing-reading-data-using-pandas" title="Permalink to this headline">#</a></h2>
+<section id="define-your-file-path">
+<h3><span class="section-number">3.1.1. </span>Define your file path<a class="headerlink" href="#define-your-file-path" title="Permalink to this headline">#</a></h3>
 <p>First we need to define our path to the file we want to import.  If you find the file on your machine, you can right click on it and select properties.</p>
-<a class="reference internal image-reference" href="../_images/file_properties.png"><img alt="../_images/file_properties.png" class="align-center" src="../_images/file_properties.png" style="height: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/file_properties.png"><img alt="../_images/file_properties.png" class="align-center" src="../_images/file_properties.png" style="width: 300px;" /></a>
 <p>By highlighting the text in the “location” box you can copy ctrl-c and paste directly in your notebook ctrl-v.  For me this would give:</p>
 <p>C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\Course ebooks\Python-for-MSE\data_for_practice</p>
 <p>now I just need to add “\filename” to the end.  For example,</p>
-<p>C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\Course ebooks\Python-for-MSE\data_for_practice\Student credit hours dept numbers.xlsx</p>
+<p>C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\Course ebooks\Python-for-MSE\data_for_practice\<a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1Be63US3GuUPUL4aR0Yj8ZhD9OXJ_5vE_">Student credit hours dept numbers.xlsx</a></p>
 <p>It is very important to remember to include the file extension at the end.</p>
 <p>Below I define the path separate from the filename and then join them together.  This is often more convenient if you are grabbing multiple files from the same path.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>  <span class="c1">#we use this to join our file path to our filename</span>
 <span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\Course ebooks\Python-for-MSE\data_for_practice&#39;</span>
-<span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Al7075.xlsx&#39;</span>
+<span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Student credit hours dept numbers.xlsx&#39;</span>
 <span class="n">fullpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
 <span class="n">fullpath</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;C:\\Users\\Sean\\OneDrive - Virginia Tech\\Documents\\Teaching\\Course ebooks\\Python-for-MSE\\data_for_practice\\Al7075.xlsx&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;C:\\Users\\Sean\\OneDrive - Virginia Tech\\Documents\\Teaching\\Course ebooks\\Python-for-MSE\\data_for_practice\\Student credit hours dept numbers.xlsx&#39;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="import-data-using-pandas">
-<span id="import-data"></span><h3><span class="section-number">3.1.2. </span>Import Data using Pandas<a class="headerlink" href="#import-data-using-pandas" title="Permalink to this headline">#</a></h3>
+<section id="read-the-file">
+<span id="import-data"></span><h3><span class="section-number">3.1.2. </span>Read the file<a class="headerlink" href="#read-the-file" title="Permalink to this headline">#</a></h3>
 <p>Let’s take a look at some student credit hours taught for engineering departments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -698,7 +791,7 @@ title="Print to PDF"
 <span class="n">fullpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
 
 <span class="n">raw_excel</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
-<span class="n">raw_excel</span>
+<span class="n">raw_excel</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -825,241 +918,21 @@ title="Print to PDF"
       <td>Total</td>
       <td>SCH / Faculty</td>
     </tr>
-    <tr>
-      <th>7</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>29</td>
-      <td>AOE</td>
-      <td>7313</td>
-      <td>318</td>
-      <td>7631</td>
-      <td>263.137931</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BMES</td>
-      <td>1432</td>
-      <td>NaN</td>
-      <td>1432</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>58</td>
-      <td>CEE</td>
-      <td>10240</td>
-      <td>224</td>
-      <td>10464</td>
-      <td>180.413793</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>18</td>
-      <td>CHE</td>
-      <td>2951</td>
-      <td>NaN</td>
-      <td>2350</td>
-      <td>130.555556</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>CNST</td>
-      <td>2951</td>
-      <td>NaN</td>
-      <td>2951</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>55</td>
-      <td>CS</td>
-      <td>17257</td>
-      <td>1122</td>
-      <td>18379</td>
-      <td>334.163636</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>83</td>
-      <td>ECE</td>
-      <td>17017</td>
-      <td>2268</td>
-      <td>19285</td>
-      <td>232.349398</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>25</td>
-      <td>ENGE</td>
-      <td>5194</td>
-      <td>NaN</td>
-      <td>5194</td>
-      <td>207.76</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>ENGR</td>
-      <td>2104</td>
-      <td>30</td>
-      <td>2134</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>43</td>
-      <td>ESM + BEAM</td>
-      <td>6606</td>
-      <td>132</td>
-      <td>6738</td>
-      <td>156.697674</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>32</td>
-      <td>ISE</td>
-      <td>7015</td>
-      <td>118</td>
-      <td>7133</td>
-      <td>222.90625</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>62</td>
-      <td>ME</td>
-      <td>10416</td>
-      <td>2563</td>
-      <td>12979</td>
-      <td>209.33871</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>13</td>
-      <td>MINE</td>
-      <td>1095</td>
-      <td>NaN</td>
-      <td>1095</td>
-      <td>84.230769</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>21</td>
-      <td>MSE</td>
-      <td>3771</td>
-      <td>75</td>
-      <td>3846</td>
-      <td>183.142857</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Average:</td>
-      <td>7257.928571</td>
-      <td>200.426961</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Median:</td>
-      <td>5966</td>
-      <td>207.76</td>
-    </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
 </section>
-<section id="clean-data">
-<h3><span class="section-number">3.1.3. </span>Clean data<a class="headerlink" href="#clean-data" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="clean-the-data">
+<h2><span class="section-number">3.2. </span>Clean the data<a class="headerlink" href="#clean-the-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s drop rows and columns that have no data</span>
 <span class="n">df</span><span class="o">=</span><span class="n">raw_excel</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#removes rows</span>
 <span class="c1"># try changing &#39;all&#39; to &#39;any&#39; in these commands.  What is the result? </span>
 <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#now remove columns</span>
-<span class="n">df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1145,114 +1018,6 @@ title="Print to PDF"
       <td>2350</td>
       <td>130.555556</td>
     </tr>
-    <tr>
-      <th>12</th>
-      <td>NaN</td>
-      <td>CNST</td>
-      <td>2951</td>
-      <td>NaN</td>
-      <td>2951</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>55</td>
-      <td>CS</td>
-      <td>17257</td>
-      <td>1122</td>
-      <td>18379</td>
-      <td>334.163636</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>83</td>
-      <td>ECE</td>
-      <td>17017</td>
-      <td>2268</td>
-      <td>19285</td>
-      <td>232.349398</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>25</td>
-      <td>ENGE</td>
-      <td>5194</td>
-      <td>NaN</td>
-      <td>5194</td>
-      <td>207.76</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>NaN</td>
-      <td>ENGR</td>
-      <td>2104</td>
-      <td>30</td>
-      <td>2134</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>43</td>
-      <td>ESM + BEAM</td>
-      <td>6606</td>
-      <td>132</td>
-      <td>6738</td>
-      <td>156.697674</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>32</td>
-      <td>ISE</td>
-      <td>7015</td>
-      <td>118</td>
-      <td>7133</td>
-      <td>222.90625</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>62</td>
-      <td>ME</td>
-      <td>10416</td>
-      <td>2563</td>
-      <td>12979</td>
-      <td>209.33871</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>13</td>
-      <td>MINE</td>
-      <td>1095</td>
-      <td>NaN</td>
-      <td>1095</td>
-      <td>84.230769</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>21</td>
-      <td>MSE</td>
-      <td>3771</td>
-      <td>75</td>
-      <td>3846</td>
-      <td>183.142857</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Average:</td>
-      <td>7257.928571</td>
-      <td>200.426961</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Median:</td>
-      <td>5966</td>
-      <td>207.76</td>
-    </tr>
   </tbody>
 </table>
 </div></div></div>
@@ -1263,7 +1028,7 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="c1"># now lets rename our columns</span>
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;num faculty&#39;</span><span class="p">,</span><span class="s1">&#39;dept&#39;</span><span class="p">,</span><span class="s1">&#39;on campus&#39;</span><span class="p">,</span><span class="s1">&#39;off campus&#39;</span><span class="p">,</span> <span class="s1">&#39;total&#39;</span><span class="p">,</span> <span class="s1">&#39;SCH per faculty&#39;</span><span class="p">]</span>
-<span class="n">df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1349,105 +1114,6 @@ title="Print to PDF"
       <td>2951</td>
       <td>NaN</td>
     </tr>
-    <tr>
-      <th>13</th>
-      <td>55</td>
-      <td>CS</td>
-      <td>17257</td>
-      <td>1122</td>
-      <td>18379</td>
-      <td>334.163636</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>83</td>
-      <td>ECE</td>
-      <td>17017</td>
-      <td>2268</td>
-      <td>19285</td>
-      <td>232.349398</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>25</td>
-      <td>ENGE</td>
-      <td>5194</td>
-      <td>NaN</td>
-      <td>5194</td>
-      <td>207.76</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>NaN</td>
-      <td>ENGR</td>
-      <td>2104</td>
-      <td>30</td>
-      <td>2134</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>43</td>
-      <td>ESM + BEAM</td>
-      <td>6606</td>
-      <td>132</td>
-      <td>6738</td>
-      <td>156.697674</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>32</td>
-      <td>ISE</td>
-      <td>7015</td>
-      <td>118</td>
-      <td>7133</td>
-      <td>222.90625</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>62</td>
-      <td>ME</td>
-      <td>10416</td>
-      <td>2563</td>
-      <td>12979</td>
-      <td>209.33871</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>13</td>
-      <td>MINE</td>
-      <td>1095</td>
-      <td>NaN</td>
-      <td>1095</td>
-      <td>84.230769</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>21</td>
-      <td>MSE</td>
-      <td>3771</td>
-      <td>75</td>
-      <td>3846</td>
-      <td>183.142857</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Average:</td>
-      <td>7257.928571</td>
-      <td>200.426961</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Median:</td>
-      <td>5966</td>
-      <td>207.76</td>
-    </tr>
   </tbody>
 </table>
 </div></div></div>
@@ -1457,7 +1123,7 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># we don&#39;t need the first row again now labeled &quot;6&quot;</span>
 <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#reset row numbering</span>
 <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#replace NaN with 0</span>
-<span class="n">df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1495,7 +1161,7 @@ title="Print to PDF"
       <td>AOE</td>
       <td>7313</td>
       <td>318</td>
-      <td>7631.000000</td>
+      <td>7631.0</td>
       <td>263.137931</td>
     </tr>
     <tr>
@@ -1504,7 +1170,7 @@ title="Print to PDF"
       <td>BMES</td>
       <td>1432</td>
       <td>0</td>
-      <td>1432.000000</td>
+      <td>1432.0</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -1513,7 +1179,7 @@ title="Print to PDF"
       <td>CEE</td>
       <td>10240</td>
       <td>224</td>
-      <td>10464.000000</td>
+      <td>10464.0</td>
       <td>180.413793</td>
     </tr>
     <tr>
@@ -1522,7 +1188,7 @@ title="Print to PDF"
       <td>CHE</td>
       <td>2951</td>
       <td>0</td>
-      <td>2350.000000</td>
+      <td>2350.0</td>
       <td>130.555556</td>
     </tr>
     <tr>
@@ -1531,7 +1197,7 @@ title="Print to PDF"
       <td>CNST</td>
       <td>2951</td>
       <td>0</td>
-      <td>2951.000000</td>
+      <td>2951.0</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -1540,114 +1206,24 @@ title="Print to PDF"
       <td>CS</td>
       <td>17257</td>
       <td>1122</td>
-      <td>18379.000000</td>
+      <td>18379.0</td>
       <td>334.163636</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>83</td>
-      <td>ECE</td>
-      <td>17017</td>
-      <td>2268</td>
-      <td>19285.000000</td>
-      <td>232.349398</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>25</td>
-      <td>ENGE</td>
-      <td>5194</td>
-      <td>0</td>
-      <td>5194.000000</td>
-      <td>207.760000</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>0</td>
-      <td>ENGR</td>
-      <td>2104</td>
-      <td>30</td>
-      <td>2134.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>43</td>
-      <td>ESM + BEAM</td>
-      <td>6606</td>
-      <td>132</td>
-      <td>6738.000000</td>
-      <td>156.697674</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>32</td>
-      <td>ISE</td>
-      <td>7015</td>
-      <td>118</td>
-      <td>7133.000000</td>
-      <td>222.906250</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>62</td>
-      <td>ME</td>
-      <td>10416</td>
-      <td>2563</td>
-      <td>12979.000000</td>
-      <td>209.338710</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>13</td>
-      <td>MINE</td>
-      <td>1095</td>
-      <td>0</td>
-      <td>1095.000000</td>
-      <td>84.230769</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>21</td>
-      <td>MSE</td>
-      <td>3771</td>
-      <td>75</td>
-      <td>3846.000000</td>
-      <td>183.142857</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Average:</td>
-      <td>7257.928571</td>
-      <td>200.426961</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Median:</td>
-      <td>5966.000000</td>
-      <td>207.760000</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
 </section>
-<section id="analysis">
-<h3><span class="section-number">3.1.4. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h3>
+<section id="analysis-of-data">
+<h2><span class="section-number">3.3. </span>Analysis of data<a class="headerlink" href="#analysis-of-data" title="Permalink to this headline">#</a></h2>
 <section id="sorting-slicing-math-on-columns-adding-new-columns">
-<h4><span class="section-number">3.1.4.1. </span>sorting, slicing, math on columns, adding new columns<a class="headerlink" href="#sorting-slicing-math-on-columns-adding-new-columns" title="Permalink to this headline">#</a></h4>
+<h3><span class="section-number">3.3.1. </span>sorting, slicing, math on columns, adding new columns<a class="headerlink" href="#sorting-slicing-math-on-columns-adding-new-columns" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort data frame by values in column &quot;num faculty&quot;</span>
 <span class="n">sch_data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;num faculty&#39;</span><span class="p">,</span><span class="s1">&#39;dept&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#try removing &quot;.reset_index()&quot; and see what you get</span>
-<span class="c1">#or change drop=True to drop=Fals and see what happens</span>
+<span class="c1">#or change drop=True to drop=False and see what happens</span>
 <span class="n">sch_data</span>
 </pre></div>
 </div>
@@ -1998,6 +1574,145 @@ title="Print to PDF"
       <th>on campus</th>
       <th>off campus</th>
       <th>total</th>
+      <th>SCH per faculty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>13</td>
+      <td>MINE</td>
+      <td>1095</td>
+      <td>0</td>
+      <td>1095.0</td>
+      <td>84.230769</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>18</td>
+      <td>CHE</td>
+      <td>2951</td>
+      <td>0</td>
+      <td>2350.0</td>
+      <td>130.555556</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21</td>
+      <td>MSE</td>
+      <td>3771</td>
+      <td>75</td>
+      <td>3846.0</td>
+      <td>183.142857</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25</td>
+      <td>ENGE</td>
+      <td>5194</td>
+      <td>0</td>
+      <td>5194.0</td>
+      <td>207.760000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>29</td>
+      <td>AOE</td>
+      <td>7313</td>
+      <td>318</td>
+      <td>7631.0</td>
+      <td>263.137931</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>32</td>
+      <td>ISE</td>
+      <td>7015</td>
+      <td>118</td>
+      <td>7133.0</td>
+      <td>222.906250</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>43</td>
+      <td>ESM + BEAM</td>
+      <td>6606</td>
+      <td>132</td>
+      <td>6738.0</td>
+      <td>156.697674</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>55</td>
+      <td>CS</td>
+      <td>17257</td>
+      <td>1122</td>
+      <td>18379.0</td>
+      <td>334.163636</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>58</td>
+      <td>CEE</td>
+      <td>10240</td>
+      <td>224</td>
+      <td>10464.0</td>
+      <td>180.413793</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>62</td>
+      <td>ME</td>
+      <td>10416</td>
+      <td>2563</td>
+      <td>12979.0</td>
+      <td>209.338710</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>83</td>
+      <td>ECE</td>
+      <td>17017</td>
+      <td>2268</td>
+      <td>19285.0</td>
+      <td>232.349398</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s just take the first 5 columns</span>
+<span class="n">sch_data</span><span class="o">=</span><span class="n">sch_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;num faculty&#39;</span><span class="p">:</span><span class="s1">&#39;total&#39;</span><span class="p">]</span>
+<span class="n">sch_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>num faculty</th>
+      <th>dept</th>
+      <th>on campus</th>
+      <th>off campus</th>
+      <th>total</th>
     </tr>
   </thead>
   <tbody>
@@ -2083,133 +1798,6 @@ title="Print to PDF"
     </tr>
     <tr>
       <th>10</th>
-      <td>83</td>
-      <td>ECE</td>
-      <td>17017</td>
-      <td>2268</td>
-      <td>19285.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s just take the first 5 columns</span>
-<span class="n">sch_data</span><span class="o">=</span><span class="n">sch_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;num faculty&#39;</span><span class="p">:</span><span class="s1">&#39;total&#39;</span><span class="p">]</span>
-<span class="n">sch_data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>num faculty</th>
-      <th>dept</th>
-      <th>on campus</th>
-      <th>off campus</th>
-      <th>total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>5</th>
-      <td>13</td>
-      <td>MINE</td>
-      <td>1095</td>
-      <td>0</td>
-      <td>1095.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>18</td>
-      <td>CHE</td>
-      <td>2951</td>
-      <td>0</td>
-      <td>2350.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>21</td>
-      <td>MSE</td>
-      <td>3771</td>
-      <td>75</td>
-      <td>3846.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>25</td>
-      <td>ENGE</td>
-      <td>5194</td>
-      <td>0</td>
-      <td>5194.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>29</td>
-      <td>AOE</td>
-      <td>7313</td>
-      <td>318</td>
-      <td>7631.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>32</td>
-      <td>ISE</td>
-      <td>7015</td>
-      <td>118</td>
-      <td>7133.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>43</td>
-      <td>ESM + BEAM</td>
-      <td>6606</td>
-      <td>132</td>
-      <td>6738.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>55</td>
-      <td>CS</td>
-      <td>17257</td>
-      <td>1122</td>
-      <td>18379.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>58</td>
-      <td>CEE</td>
-      <td>10240</td>
-      <td>224</td>
-      <td>10464.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>62</td>
-      <td>ME</td>
-      <td>10416</td>
-      <td>2563</td>
-      <td>12979.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
       <td>83</td>
       <td>ECE</td>
       <td>17017</td>
@@ -2384,23 +1972,10 @@ Name: dept, dtype: object
 </div></div></div>
 </div>
 </section>
-<section id="plotting-using-matplotlib-pyplot-fitting-using-scipy-optimize-curvefit">
-<h4><span class="section-number">3.1.4.2. </span>plotting using matplotlib.pyplot,  fitting using scipy.optimize curvefit<a class="headerlink" href="#plotting-using-matplotlib-pyplot-fitting-using-scipy-optimize-curvefit" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="plotting-the-data">
+<h2><span class="section-number">3.4. </span>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">#</a></h2>
 <p>now let’s plot the credit_faculty vs the num faculty</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sch_data</span><span class="p">[</span><span class="s1">&#39;num faculty&#39;</span><span class="p">],</span> <span class="n">sch_data</span><span class="p">[</span><span class="s1">&#39;credit_faculty&#39;</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;student credit hours per faculty&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of faculty in department&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_30_0.png" src="../_images/3_working_with_data_30_0.png" />
-</div>
-</div>
-<p>It looks like a linear relationship exists for smaller departments.  Let’s fit the data for departments with faculty less than 30.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plt.plot(x, y, &#39;formatting&#39;) &#39;ro&#39; means red points</span>
@@ -2412,9 +1987,28 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_32_0.png" src="../_images/3_working_with_data_32_0.png" />
+<img alt="../_images/03_working_with_data_31_0.png" src="../_images/03_working_with_data_31_0.png" />
 </div>
 </div>
+<p>It looks like a linear relationship exists for smaller departments.  Let’s fit the data for departments with faculty less than 30.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sch_slice</span><span class="o">=</span><span class="n">sch_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="c1"># plt.plot(x, y, &#39;formatting&#39;) &#39;ro&#39; means red points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sch_slice</span><span class="p">[</span><span class="s1">&#39;num faculty&#39;</span><span class="p">],</span> <span class="n">sch_slice</span><span class="p">[</span><span class="s1">&#39;credit_faculty&#39;</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;student credit hours per faculty&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of faculty in department&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03_working_with_data_33_0.png" src="../_images/03_working_with_data_33_0.png" />
+</div>
+</div>
+</section>
+<section id="fitting-data-using-scipy-optimize-curvefit">
+<h2><span class="section-number">3.5. </span>Fitting data using scipy.optimize curvefit<a class="headerlink" href="#fitting-data-using-scipy-optimize-curvefit" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read in package for curve fitting</span>
@@ -2425,8 +2019,7 @@ Name: dept, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
-<span class="c1">#define a function for the fit.  In this case just a line</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define a function for the fit.  In this case just a line</span>
 <span class="k">def</span> <span class="nf">lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span>
 
@@ -2457,12 +2050,14 @@ Name: dept, dtype: object
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sch_slice</span><span class="p">[</span><span class="s1">&#39;num faculty&#39;</span><span class="p">],</span> <span class="n">lin</span><span class="p">(</span><span class="n">sch_slice</span><span class="p">[</span><span class="s1">&#39;num faculty&#39;</span><span class="p">],</span><span class="mf">11.105</span><span class="p">,</span><span class="o">-</span><span class="mf">61.6635</span><span class="p">),</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sch_data</span><span class="p">[</span><span class="s1">&#39;num faculty&#39;</span><span class="p">],</span> <span class="n">sch_data</span><span class="p">[</span><span class="s1">&#39;credit_faculty&#39;</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;student credit hours per faculty&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of faculty in department&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_36_0.png" src="../_images/3_working_with_data_36_0.png" />
+<img alt="../_images/03_working_with_data_38_0.png" src="../_images/03_working_with_data_38_0.png" />
 </div>
 </div>
 <p>Let’s add a horizontal line at 275</p>
@@ -2472,18 +2067,21 @@ Name: dept, dtype: object
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sch_data</span><span class="p">[</span><span class="s1">&#39;num faculty&#39;</span><span class="p">],</span> <span class="n">sch_data</span><span class="p">[</span><span class="s1">&#39;credit_faculty&#39;</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">275</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">400</span><span class="p">])</span> <span class="c1">#specify axis limits like this</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;student credit hours per faculty&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of faculty in department&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_38_0.png" src="../_images/3_working_with_data_38_0.png" />
+<img alt="../_images/03_working_with_data_40_0.png" src="../_images/03_working_with_data_40_0.png" />
 </div>
 </div>
-</section>
 </section>
 <section id="exporting-data-to-excel">
-<h3><span class="section-number">3.1.5. </span>Exporting data to excel<a class="headerlink" href="#exporting-data-to-excel" title="Permalink to this headline">#</a></h3>
+<h2><span class="section-number">3.6. </span>Exporting data to excel<a class="headerlink" href="#exporting-data-to-excel" title="Permalink to this headline">#</a></h2>
+<section id="double-check-the-data-that-you-want-to-export">
+<h3><span class="section-number">3.6.1. </span>Double check the data that you want to export<a class="headerlink" href="#double-check-the-data-that-you-want-to-export" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .loc[rows, columns] lets us use the names of the columns and rows</span>
@@ -2577,6 +2175,9 @@ Name: dept, dtype: object
 </table>
 </div></div></div>
 </div>
+</section>
+<section id="export">
+<h3><span class="section-number">3.6.2. </span>Export<a class="headerlink" href="#export" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\2114 &amp; 3114 Math I &amp; II\git_2114_3114\data for practice&quot;</span>
@@ -2590,19 +2191,30 @@ Name: dept, dtype: object
 </div>
 </div>
 <p>Here’s what my excel file looks like:</p>
-<a class="reference internal image-reference" href="../_images/excel_clip.png"><img alt="../_images/excel_clip.png" class="align-center" src="../_images/excel_clip.png" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/excel_clip.png"><img alt="../_images/excel_clip.png" class="align-center" src="../_images/excel_clip.png" style="width: 250px;" /></a>
 </section>
 </section>
-<section id="lesson-part-2-practice">
-<h2><span class="section-number">3.2. </span>Lesson Part 2: Practice<a class="headerlink" href="#lesson-part-2-practice" title="Permalink to this headline">#</a></h2>
-<section id="functions-list-comprehensions-random-numbers-selecting-data-using-conditionals">
-<h3><span class="section-number">3.2.1. </span>Functions, List comprehensions, Random numbers, Selecting data using conditionals<a class="headerlink" href="#functions-list-comprehensions-random-numbers-selecting-data-using-conditionals" title="Permalink to this headline">#</a></h3>
-<p>Let’s look at if, elif, else statements again</p>
+<section id="exercises">
+<h2><span class="section-number">3.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<p>The problems below may require the ability to:</p>
+<ul class="simple">
+<li><p>import an excel file</p></li>
+<li><p>define a function</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> statements</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">numpy.array()</span></code> to multiply a sequence of numbers</p></li>
+<li><p>generate a random number using <code class="docutils literal notranslate"><span class="pre">np.random.random()</span></code></p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to make a scatter plot</p></li>
+</ul>
+<section id="review-of-some-coding-that-may-make-the-homework-exercises-easier">
+<h3><span class="section-number">3.7.1. </span>Review of some coding that may make the homework exercises easier.<a class="headerlink" href="#review-of-some-coding-that-may-make-the-homework-exercises-easier" title="Permalink to this headline">#</a></h3>
+<section id="using-if-elif-else-statements">
+<h4><span class="section-number">3.7.1.1. </span>Using <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#using-if-elif-else-statements" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">piecewise</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span><span class="p">):</span> <span class="c1"># use the ratio var3/var1 to return different outputs</span>
+    <span class="c1"># variable var2 is not actually used but the function doesn&#39;t care</span>
     
-    <span class="c1">#first if, else statement avoids dividing by zero</span>
+    <span class="c1"># first if, else statement to avoid dividing by zero</span>
     <span class="k">if</span> <span class="n">var1</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span> <span class="n">ratio</span><span class="o">=</span><span class="n">var3</span><span class="o">/</span><span class="n">var1</span>
@@ -2621,7 +2233,7 @@ Name: dept, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span> <span class="c1"># linspace is used to generate a list of equally spaced points</span>
 </pre></div>
 </div>
 </div>
@@ -2635,7 +2247,7 @@ Name: dept, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">piecewise</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span> <span class="c1">#list comprehension -- short method to make a loop</span>
 </pre></div>
 </div>
 </div>
@@ -2647,18 +2259,34 @@ Name: dept, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">21</span><span class="p">),</span> <span class="p">[</span><span class="n">myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">21</span><span class="p">)],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare the above to</span>
+<span class="n">out</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">piecewise</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">out</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1.5, 0.75, 60]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">21</span><span class="p">),</span> <span class="p">[</span><span class="n">piecewise</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">21</span><span class="p">)],</span> <span class="s1">&#39;b.&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_51_0.png" src="../_images/3_working_with_data_51_0.png" />
+<img alt="../_images/03_working_with_data_57_0.png" src="../_images/03_working_with_data_57_0.png" />
 </div>
 </div>
 </section>
-<section id="p2-lets-determine-if-a-random-point-between-0-and-1-in-both-x-and-y-falls-inside-a-circle-with-center-0-5-0-5-and-radius-0-7">
-<h3><span class="section-number">3.2.2. </span>(P2) Let’s determine if a random point between 0 and 1 in both x and y falls inside a circle with center (0.5, 0.5) and radius 0.7<a class="headerlink" href="#p2-lets-determine-if-a-random-point-between-0-and-1-in-both-x-and-y-falls-inside-a-circle-with-center-0-5-0-5-and-radius-0-7" title="Permalink to this headline">#</a></h3>
+<section id="lets-determine-if-a-few-points-fall-inside-a-circle-with-center-0-5-0-5-and-radius-0-7">
+<h4><span class="section-number">3.7.1.2. </span>Let’s determine if a few points fall inside a circle with center (0.5, 0.5) and radius 0.7<a class="headerlink" href="#lets-determine-if-a-few-points-fall-inside-a-circle-with-center-0-5-0-5-and-radius-0-7" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
@@ -2666,24 +2294,36 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2864232015977013
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11949452264943106
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !! important note:  I use np.array below because I&#39;m manually converting a list but</span>
-<span class="c1">#  you will use np.random which will give you an array as its output</span>
-<span class="n">xcoord</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1">#convert lists [] to numpy array</span>
-<span class="n">ycoord</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#give me 5 random points</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.02570857, 0.2393304 , 0.15681669, 0.17950396, 0.23284677])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !! important note:  I use np.array below because I&#39;m manually typing out a few coordinates</span>
+<span class="c1">#  you will use np.random.random() which will automatically give you an array as its output</span>
+<span class="n">xcoord</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span> <span class="c1">#convert lists [] to numpy array</span>
+<span class="n">ycoord</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
 <span class="n">magnitude</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">xcoord</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">ycoord</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">magnitude</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.70710678, 1.        , 0.58309519])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.70710678, 1.        , 0.58309519, 0.        ])
 </pre></div>
 </div>
 </div>
@@ -2691,7 +2331,7 @@ Name: dept, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xcoord</span><span class="p">,</span> <span class="n">ycoord</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xcoord</span><span class="p">,</span> <span class="n">ycoord</span><span class="p">,</span> <span class="s1">&#39;k^&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2699,7 +2339,7 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_55_0.png" src="../_images/3_working_with_data_55_0.png" />
+<img alt="../_images/03_working_with_data_62_0.png" src="../_images/03_working_with_data_62_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2723,49 +2363,40 @@ Name: dept, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_working_with_data_57_0.png" src="../_images/3_working_with_data_57_0.png" />
+<img alt="../_images/03_working_with_data_64_0.png" src="../_images/03_working_with_data_64_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if I want the number of points I need to find the length of my coordinates</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you want to find the length of a list</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">xcoord</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="exercises">
-<h2><span class="section-number">3.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
-<p>The problems below may require the ability to:</p>
-<ul class="simple">
-<li><p>import an excel file</p></li>
-<li><p>define a function</p></li>
-<li><p>use if, elif, else statements</p></li>
-<li><p>use numpy.array() to multiply a sequence of numbers</p></li>
-<li><p>generate a random number</p></li>
-<li><p>use matplotlib to make a scatter plot</p></li>
-</ul>
 <section id="problem-1">
-<h3><span class="section-number">3.3.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
-<hr style="height: 3.0px"/><p>(a) Import the load-length data in file “Al7075.xlsx” The header in the excel file should give you all the information you need.  Plot the stress-strain data.  Put the stress in units of MPa.</p>
+<h3><span class="section-number">3.7.2. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<p>File needed:  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1LDDjq0c6jmIWC1eKlxk9j6eIOllaKHrN">Al7075.xlsx</a></p>
+<p>(a) Import the load-length data in file “Al7075.xlsx” The header in the excel file should give you all the information you need.  Plot the stress-strain data.  Put the stress in units of MPa.</p>
 <p>(b) Take the first couple of data points and determine the slope by fitting a straight line to the data.  You may want to replot the first quarter or so of the original plot so that you can see how far the linear region extends.</p>
 <p>(c) Add a line to your plot that starts at a strain of 0.002 and has the slope found previously.  Plot this line so that it intersects the stress-strain data curve and read off the yield strength.  You should only plot the first quarter or so of the original plot so that you can clearly see the yield point value.</p>
 <p>(d) Add a horizontal line to your plot at the yield point value estimated above. Refine your estimate if your horizontal line does not pass correctly through the intersection point.</p>
 <p>(e) Export your data to a new excel file with a name of your choosing.</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">3.3.2. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
-<hr style="height: 3.0px"/><p>Write a function that given the ionic radii for a simple ceramic compound (2 elements) returns the expected coordination number.  The coordinaton numbers versus ratio of the radii can be found in Chapter 12,  Table 12.2 on page 408 in Callister 10th ed.  Your function should check if your ratio is greater than 1.0.  If it is, then take the inverse of your ratio.  You may want to consider the <code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">elif</span></code> <code class="docutils literal notranslate"><span class="pre">else</span></code> conditionals. Test your function by calculating the coordination number for NaCl.  Remember to use the ionic radii not the atomic radii.</p>
+<h3><span class="section-number">3.7.3. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<hr style="height: 3.0px"/><p>Write a function that given the ionic radii for a simple ceramic compound (2 elements) returns the expected coordination number.  The coordinaton numbers versus ratio of the radii can be found in Chapter 12,  Table 12.2 on page 408 in Callister 10th ed. and is shown below. Your function should check if your ratio is greater than 1.0.  If it is, then take the inverse of your ratio.  You may want to consider the <code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">elif</span></code> <code class="docutils literal notranslate"><span class="pre">else</span></code> conditionals. Test your function by calculating the coordination number for NaCl.  Remember to use the ionic radii not the atomic radii.</p>
+<a class="reference internal image-reference" href="../_images/Callister_Chap_12.png"><img alt="../_images/Callister_Chap_12.png" class="align-center" src="../_images/Callister_Chap_12.png" style="width: 350px;" /></a>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">3.3.3. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.7.4. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
 <hr style="height: 3.0px"/><p>Pick 1000 random points in a square of edge length 2 centered at (0,0).  Determine how many of these points are contained in a circle of radius 1 centered at (0,0).  Multiply the ratio of points in the circle to the total number of points by 4, i.e. <span class="math notranslate nohighlight">\(4\times \frac{\text{pts in circle}}{\text{total num pts}}\)</span>.  Try 10,000 points.  What do you get?</p>
 </section>
 </section>
