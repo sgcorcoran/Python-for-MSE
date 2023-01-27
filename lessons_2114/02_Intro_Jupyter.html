@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Intro to the Jupyter Notebook &#8212; Python for MSE</title>
+    <title>2. Introduction to the Jupyter Notebook &#8212; Python for MSE</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -128,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. Intro to the Jupyter Notebook
+   2. Introduction to the Jupyter Notebook
   </a>
  </li>
  <li class="toctree-l1">
@@ -349,7 +349,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_2114/2_Intro_Jupyter.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_2114/02_Intro_Jupyter.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,7 +392,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/lessons_2114/2_Intro_Jupyter.ipynb"
+        <a href="../_sources/lessons_2114/02_Intro_Jupyter.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -522,7 +522,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Intro to the Jupyter Notebook</h1>
+                <h1>Introduction to the Jupyter Notebook</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -604,21 +604,23 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-the-jupyter-notebook">
-<h1><span class="section-number">2. </span>Intro to the Jupyter Notebook<a class="headerlink" href="#intro-to-the-jupyter-notebook" title="Permalink to this headline">#</a></h1>
-<hr style="height: 3.0px"/><p>Prereq: Week 2 Exercises require us to know how to:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-the-jupyter-notebook">
+<h1><span class="section-number">2. </span>Introduction to the Jupyter Notebook<a class="headerlink" href="#introduction-to-the-jupyter-notebook" title="Permalink to this headline">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>Be able to:</p>
 <ul class="simple">
 <li><p>comment notebooks using Markdown cells</p></li>
-<li><p>formatting equations in markdown cells</p></li>
+<li><p>format equations in markdown cells</p></li>
+<li><p>use greek letters in markdown as well as code cells</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement with an <strong>f-string</strong> for better presentation of your final answer</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> extension for <code class="docutils literal notranslate"><span class="pre">np.sqrt()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.exp()</span></code></p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">scipy.special</span></code> extension for <code class="docutils literal notranslate"><span class="pre">special.erf()</span></code></p></li>
 </ul>
+</div>
 <section id="markdown-cells">
 <h2><span class="section-number">2.1. </span>Markdown cells<a class="headerlink" href="#markdown-cells" title="Permalink to this headline">#</a></h2>
-<a class="reference internal image-reference" href="../_images/markdown_basic.png"><img alt="markdown_basic.png" src="../_images/markdown_basic.png" style="width: 650px;" /></a>
-<p>If you type the code shown above in a markdown cell and press Shift-Enter, the code will be replaced with a formatted version shown below.</p>
-<p>If you download the jupyter notebook (*.ipynb) version of this lesson and double click in any markdown cell (<strong>for example this cell</strong>), you can see the code I wrote to use various formatting and special characters:</p>
+<p>If you download the jupyter notebook (*.ipynb) version of this lesson (notice download icon at upper right) and double click in any markdown cell (<strong>for example this cell</strong>), you can see the code I wrote to use various formatting and special characters:</p>
 <p><strong>bold text</strong>, <em>italic text</em>, <code class="docutils literal notranslate"><span class="pre">highlighted</span> <span class="pre">text</span></code></p>
 <p>or python formatted text:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;some text&#39;</span><span class="p">)</span>
@@ -626,44 +628,78 @@ title="Print to PDF"
 </div>
 <p><span class="math notranslate nohighlight">\(\mu\)</span></p>
 <p>when done editing a markdown cell just press shift-enter as you would for code cells.</p>
-<p>Make a new Markdown cell in a notebook and type:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>`$\psi$`
+<p>The code for the above cell is shown below.</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>If you download the jupyter notebook (*.ipynb) version of this lesson (notice download icon at upper right) and double click in any markdown cell (**for example this cell**), you can see the code I wrote to use various formatting and special characters:   
+
+**bold text**, *italic text*, `highlighted text`
+
+or python formatted text: 
+```python
+print(&#39;some text&#39;)
+```
+$\mu$
+
+when done editing a markdown cell just press shift-enter as you would for code cells.  
 </pre></div>
 </div>
+<hr class="docutils" />
+<p>To summarize (in markdown cells):<br />
+**bold text** produces <strong>bold text</strong><br />
+*italic text* produces <em>italic text</em><br />
+`highlighted text` produces <mark style="background: #ebebeb!important">very important words</mark><br />
+<code class="docutils literal notranslate"><span class="pre">$\mu$</span></code>  produces <span class="math notranslate nohighlight">\(\mu\)</span></p>
+<p>Make a new Markdown cell in a notebook and type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$\psi$</span></code></p>
 <p>Press shift-enter.  What did you get?</p>
+<p><span class="math notranslate nohighlight">\(\psi\)</span>, correct!  The $$ are used to define equations in LaTeX format in markdown cells.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you instead want to use the letter <span class="math notranslate nohighlight">\(\psi\)</span> in a <em>code cell</em> as a variable then just type \psi (no dollar signs) followed by the tab key. Try it in your notebook and see what happens. What happens whey you try \delta vs \Delta ?</p>
+</div>
 </section>
 <section id="equation-formatting-in-markdown-cells">
 <h2><span class="section-number">2.2. </span>Equation formatting in markdown cells<a class="headerlink" href="#equation-formatting-in-markdown-cells" title="Permalink to this headline">#</a></h2>
-<p>Now equations require special formatting.  Here are some examples (<em><strong>remember to double click in this cell to see the coding</strong></em>):</p>
+<p>Now equations require special formatting.  Here are some examples (<em><strong>remember to download this file and double click in this cell to see the coding</strong></em>):</p>
 <ul class="simple">
 <li><p>subscript:  <span class="math notranslate nohighlight">\(x_2\)</span> is given by <code class="docutils literal notranslate"><span class="pre">$x_2$</span></code></p></li>
 <li><p>superscript: <span class="math notranslate nohighlight">\(x^3\)</span> is given by <code class="docutils literal notranslate"><span class="pre">$x^3$</span></code></p></li>
 <li><p>fraction:  <span class="math notranslate nohighlight">\(\frac{3 x}{2}\)</span> is given by <code class="docutils literal notranslate"><span class="pre">$\frac{3</span> <span class="pre">x}{2}$</span></code></p></li>
 </ul>
 <p>Equations start and end with a dollar sign.  Between the dollar sign is LaTeX code which we will talk about more below.</p>
-<blockquote>
-<div><p>If we were to try <code class="docutils literal notranslate"><span class="pre">$10^23$</span></code>, we would get <span class="math notranslate nohighlight">\(10^23\)</span>.  We need to use <code class="docutils literal notranslate"><span class="pre">{23}</span></code>.  If <code class="docutils literal notranslate"><span class="pre">{}</span></code> are missing, it is assumed that only 1 character is being superscripted.</p>
-<p>proper formatting:  <code class="docutils literal notranslate"><span class="pre">$10^{23}$</span></code> gives  <span class="math notranslate nohighlight">\(10^{23}\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p>This notation is <strong>only</strong> for markdown cells.  Do not use it in code cells or you will get errors.  For example, we can format avagadro’s number in a “Markdown” cell as: <code class="docutils literal notranslate"><span class="pre">$6.02\times10^{23}$</span></code> which gives <span class="math notranslate nohighlight">\(6.02\times10^{23}\)</span> but in a “Code” cell we would write <code class="docutils literal notranslate"><span class="pre">6.02*10**23</span></code></p>
-</div></blockquote>
-<p>The notation used between the dollar signs is LaTeX so you can go online and use a LaTeX editor to create an equation and paste the results here.  For example, a quick search gives me <a class="reference external" href="http://www.hostmath.com/">http://www.hostmath.com/</a>. Here you can click on equation templates and it gives you the LaTeX code.  Just remember to paste it between <code class="docutils literal notranslate"><span class="pre">$$</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">$\int_{a}^{b}</span> <span class="pre">\frac{\sqrt[4]{a</span> <span class="pre">x}}{x}</span> <span class="pre">\text{</span> <span class="pre">d}x$</span></code> :
-<span class="math notranslate nohighlight">\(\int_{a}^{b} \frac{\sqrt[4]{a x}}{x} \text{ d}x\)</span></p>
-<p>use double dollar signs <code class="docutils literal notranslate"><span class="pre">$$</span> <span class="pre">$$</span></code> if you want your equation on it’s own line and centered: $<span class="math notranslate nohighlight">\(\int_{a}^{b} \frac{\sqrt[4]{a x}}{x} \text{ d}x\)</span>$</p>
-<p>double click to see the code for the following:
-$<span class="math notranslate nohighlight">\(\begin{cases}a &amp; x = 0\\b &amp; x &gt; 0\end{cases}\)</span>$</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If we were to try <code class="docutils literal notranslate"><span class="pre">$10^23$</span></code>, we would get <span class="math notranslate nohighlight">\(10^23\)</span>.  We need to use {23}.  If {} are missing, it is assumed that only 1 character is being superscripted. The proper format would be: <code class="docutils literal notranslate"><span class="pre">$10^{23}$</span></code> for  <span class="math notranslate nohighlight">\(10^{23}\)</span></p>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This notation is <strong>only</strong> for markdown cells.  Do not use it in code cells or you will get errors.  For example, we can format avagadro’s number in a <strong>Markdown</strong> cell as: <code class="docutils literal notranslate"><span class="pre">$6.02\times10^{23}$</span></code>
+which gives <span class="math notranslate nohighlight">\(6.02\times10^{23}\)</span> but in a <strong>Code</strong> cell we would write <code class="docutils literal notranslate"><span class="pre">6.02*10**23</span></code> or <code class="docutils literal notranslate"><span class="pre">6.02e23</span></code></p>
+</div>
+</aside>
+<p>The notation used between the dollar signs is LaTeX. You can go online and use a point and click editor to create your equation and it will give you the LaTeX code to paste between the dollar signs. For example, a quick search gives me <a class="reference external" href="http://www.hostmath.com/">http://www.hostmath.com/</a>. Here you can click on equation templates and it gives you the LaTeX code.  Just remember to paste it between <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">$</span></code> in a markdown cell.<br />
+<br>As an example:<br />
+<code class="docutils literal notranslate"><span class="pre">$\int_{a}^{b}</span> <span class="pre">\frac{\sqrt[4]{a</span> <span class="pre">x}}{x}</span> <span class="pre">\text{</span> <span class="pre">d}x$</span></code></p>
+<p>gives <span class="math notranslate nohighlight">\(\int_{a}^{b} \frac{\sqrt[4]{a x}}{x} \text{ d}x\)</span></p>
+<p>You can use double dollar signs if you want your equation on it’s own line and centered:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix}a &amp; b \\c &amp; d \end{bmatrix}\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\({\sum_a^b} \)</span>,  <span class="math notranslate nohighlight">\(\overline{ab}\)</span>,  <span class="math notranslate nohighlight">\(\overrightarrow{ab}\)</span>, <span class="math notranslate nohighlight">\(\Huge\alpha\)</span>, <span class="math notranslate nohighlight">\(\Delta\)</span>, <span class="math notranslate nohighlight">\(\Large\delta\)</span></p>
+\[\int_{a}^{b} \frac{\sqrt[4]{a x}}{x} \text{ d}x\]</div>
+<p>Paste the following code into a markdown cell and see what you get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$$\begin{cases}a &amp; x = 0\\b &amp; x &gt; 0\end{cases}$$
+$$\begin{bmatrix}a &amp; b \\c &amp; d \end{bmatrix}$$
+${\sum_a^b} $,  $\overline{ab}$,  $\overrightarrow{ab}$, $\Huge\alpha$, $\Delta$, $\Large\delta$  
+</pre></div>
+</div>
 </section>
 <section id="example-problem-atoms-in-bcc">
 <h2><span class="section-number">2.3. </span>Example Problem: Atoms in BCC<a class="headerlink" href="#example-problem-atoms-in-bcc" title="Permalink to this headline">#</a></h2>
 <p>Let’s calculate the number of atoms in a cubic meter of a bcc material given the atomic radius of 0.15 nm.</p>
-<p>The volume of an bcc unit cell is given by <span class="math notranslate nohighlight">\(V_{cell}=\left(\frac{4 R}{\sqrt{3}} \right)^3\)</span>.  The bcc unit cell contains 2 atoms so we get the number of atoms per cubic meter as:
-$<span class="math notranslate nohighlight">\(\frac{2}{\left(\frac{4 R}{\sqrt{3}} \right)^3}\)</span>$
-if R is given in meters.</p>
+<p>The volume of an bcc unit cell is given by <span class="math notranslate nohighlight">\(V_{cell}=\left(\frac{4 R}{\sqrt{3}} \right)^3\)</span>.  The bcc unit cell contains 2 atoms so we get the number of atoms per cubic meter as:</p>
+<div class="math notranslate nohighlight">
+\[\frac{2}{\left(\frac{4 R}{\sqrt{3}} \right)^3}\]</div>
+<p>if R is given in meters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -675,6 +711,7 @@ if R is given in meters.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_atoms_bcc</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mf">0.15</span><span class="o">*</span><span class="mi">10</span><span class="o">**-</span><span class="mi">9</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># notice the double &quot;**&quot; for power</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num_atoms_bcc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
 <span class="c1"># or with nicer formatting &amp; limiting answer to 2 decimal places</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The number of atoms in the bcc unit cell is </span><span class="si">{</span><span class="n">num_atoms_bcc</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1"> atoms/m^3&#39;</span><span class="p">)</span>
 </pre></div>
@@ -682,6 +719,7 @@ if R is given in meters.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.811252243246881e+28
+
 The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
 </pre></div>
 </div>
@@ -790,14 +828,33 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
 <blockquote>
 <div><p>In the above example if we replace return() with print() and tried to use that output in an additional calculation, we would get an error.  For example:</p>
 </div></blockquote>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">atoms_per_bcc</span><span class="p">(</span><span class="n">atomic_radius</span><span class="p">):</span> <span class="c1">#atomic_radius in nm</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">atoms_per_bcc</span><span class="p">(</span><span class="n">atomic_radius</span><span class="p">):</span> <span class="c1">#atomic_radius in nm</span>
     <span class="n">num_atoms_bcc</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">atomic_radius</span><span class="o">*</span><span class="mi">10</span><span class="o">**-</span><span class="mi">9</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">num_atoms_bcc</span><span class="p">)</span>
     
 <span class="mi">6</span><span class="o">*</span><span class="n">atoms_per_bcc</span><span class="p">(</span><span class="mf">0.15</span><span class="p">)</span> 
 </pre></div>
 </div>
-<p>gives a TypeError.  We are trying to multiply a print output by a number.  <code class="docutils literal notranslate"><span class="pre">return()</span></code> on the otherhand gives a numerical output that we can assign to variables or use in calculations, etc.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.811252243246881e+28
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">num_atoms_bcc</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">atomic_radius</span><span class="o">*</span><span class="mi">10</span><span class="o">**-</span><span class="mi">9</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="n">num_atoms_bcc</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="mi">6</span><span class="o">*</span><span class="n">atoms_per_bcc</span><span class="p">(</span><span class="mf">0.15</span><span class="p">)</span> 
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for *: &#39;int&#39; and &#39;NoneType&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above we get a TypeError.  We are trying to multiply a print output by a number.  <code class="docutils literal notranslate"><span class="pre">return</span></code> on the otherhand gives a numerical output that we can assign to variables or use in calculations, etc.</p>
 </section>
 <section id="exercises">
 <h2><span class="section-number">2.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
@@ -813,7 +870,7 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
 <ol class="simple">
 <li><p>Include the original problem statement in your jupyter notebook.</p></li>
 <li><p>Use Markdown to indicate the equations used. These should be nicely formatted, i.e. superscripts, subscripts, greek letters, etc.</p></li>
-<li><p>Present your final answer using a <code class="docutils literal notranslate"><span class="pre">return()</span></code> statement and include a comment to indicate units.</p></li>
+<li><p>Present your final answer using a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement and include a comment to indicate units.</p></li>
 </ol>
 <section id="problem-1">
 <h3><span class="section-number">2.6.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
