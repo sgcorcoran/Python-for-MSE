@@ -11,6 +11,7 @@ parts:
     - file: lessons_2114/02_Intro_Jupyter
     - file: lessons_2114/03_working_with_data
     - file: lessons_2114/04_plotting_and_equation_solving
+    - file: lessons_2114/05_numpy_essentials
 #    - file: lessons_2114/4_temp
 #
   - caption: Appendix 2114 (in progress)
