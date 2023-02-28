@@ -7,9 +7,9 @@ _build/
 editing_shortcuts.txt
 instructor_resources/
 data_for_practice/
-*_instructor*.ipynb
+*_instructor*
 Readme Lesson*
-*_class_notes.txt
+*_class_notes*
 *_pixel_data*
 *ignore*
 env_teaching_*
