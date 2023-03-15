@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Short Lesson: Markdown &#8212; Python for MSE</title>
+    <title>7. Self Review and Practice with Pandas &#8212; Python for MSE</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Short Lesson: Math Operations" href="101_math_operations.html" />
-    <link rel="prev" title="7. Self Review and Practice with Pandas" href="07_self_review_pandas.html" />
+    <link rel="next" title="1. Short Lesson: Markdown" href="100_markdown_cells.html" />
+    <link rel="prev" title="6. Creating a “Cheat Sheet”" href="06_creating_a_cheat_sheet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
   MSE 2114 Python for MSE I
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_welcome_to_2114.html">
    1. Welcome to MSE 2114
@@ -151,8 +151,8 @@ const thebe_selector_output = ".output, .cell_output"
    6. Creating a “Cheat Sheet”
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07_self_review_pandas.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    7. Self Review and Practice with Pandas
   </a>
  </li>
@@ -162,9 +162,9 @@ const thebe_selector_output = ".output, .cell_output"
   Appendix 2114 (in progress)
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="100_markdown_cells.html">
    1. Short Lesson: Markdown
   </a>
  </li>
@@ -369,7 +369,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_2114/100_markdown_cells.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_2114/07_self_review_pandas.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -412,7 +412,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/lessons_2114/100_markdown_cells.ipynb"
+        <a href="../_sources/lessons_2114/07_self_review_pandas.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -472,14 +472,26 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-a-simple-numbered-list">
-   1.1. Here is a simple numbered list
+  <a class="reference internal nav-link" href="#lesson">
+   7.1. Lesson
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-an-example-of-including-equations-in-markdown">
-   1.2. Here is an example of including equations in markdown
+  <a class="reference internal nav-link" href="#exercises">
+   7.2. Exercises
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     7.2.1. Problem 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2-not-graded">
+     7.2.2. Problem 2 (not graded)
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -490,7 +502,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Short Lesson: Markdown</h1>
+                <h1>Self Review and Practice with Pandas</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -501,14 +513,26 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-a-simple-numbered-list">
-   1.1. Here is a simple numbered list
+  <a class="reference internal nav-link" href="#lesson">
+   7.1. Lesson
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-an-example-of-including-equations-in-markdown">
-   1.2. Here is an example of including equations in markdown
+  <a class="reference internal nav-link" href="#exercises">
+   7.2. Exercises
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     7.2.1. Problem 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2-not-graded">
+     7.2.2. Problem 2 (not graded)
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -520,28 +544,45 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="short-lesson-markdown">
-<h1><span class="section-number">1. </span>Short Lesson: Markdown<a class="headerlink" href="#short-lesson-markdown" title="Permalink to this headline">#</a></h1>
-<section id="here-is-a-simple-numbered-list">
-<h2><span class="section-number">1.1. </span>Here is a simple numbered list<a class="headerlink" href="#here-is-a-simple-numbered-list" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
-<li><p>import libraries numpy, sympy, matplotlib</p></li>
-<li><p>symbolically manipulate an equation using sympy.solve()</p></li>
-<li><p>generate x and y data for a function using numpy.arange()</p></li>
-<li><p>plot the x, y data using matplotlib.pyplot.plot()</p></li>
-<li><p>add horizontal lines and text to a plot</p></li>
-</ol>
+  <section class="tex2jax_ignore mathjax_ignore" id="self-review-and-practice-with-pandas">
+<h1><span class="section-number">7. </span>Self Review and Practice with Pandas<a class="headerlink" href="#self-review-and-practice-with-pandas" title="Permalink to this headline">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>Be able to:</p>
+<ul class="simple">
+<li><p>Read an excel file into a pandas dataframe</p></li>
+<li><p>Check and correct column data types in a dataframe</p></li>
+<li><p>Drop columns containing no data i.e. NaN</p></li>
+<li><p>Drop rows with missing values</p></li>
+<li><p>Add new columns to the dataframe</p></li>
+<li><p>Plot the data</p></li>
+<li><p>Perform a non-linear fit to the data and interpret the results</p></li>
+</ul>
+</div>
+<section id="lesson">
+<h2><span class="section-number">7.1. </span>Lesson<a class="headerlink" href="#lesson" title="Permalink to this headline">#</a></h2>
+<p>No Lesson this week since this is practice and draws from previous lessons especially week 3 “working with data.”</p>
 </section>
-<section id="here-is-an-example-of-including-equations-in-markdown">
-<h2><span class="section-number">1.2. </span>Here is an example of including equations in markdown<a class="headerlink" href="#here-is-an-example-of-including-equations-in-markdown" title="Permalink to this headline">#</a></h2>
-<p>For equations, place laytex code between <span class="math notranslate nohighlight">\(\text{\$\$}\)</span> e.g.<br />
-$<span class="math notranslate nohighlight">\(\text{\$\$ x = 3 \$\$}\)</span><span class="math notranslate nohighlight">\( which gives us: 
-\)</span><span class="math notranslate nohighlight">\( x=3 \)</span>$</p>
-<p>If we type for example:<br />
-$<span class="math notranslate nohighlight">\( \text {\$\$ \text{% crystallinity} =  \frac{\rho_c (\rho_s - \rho_a)}{\rho_s (\rho_c - \rho_a)} \$\$} \)</span><span class="math notranslate nohighlight">\(  
-we will get:  
- \)</span><span class="math notranslate nohighlight">\(  \mathbf{\text{% crystallinity} =  \frac{\rho_c (\rho_s - \rho_a)}{\rho_s (\rho_c - \rho_a)}} \)</span>$</p>
-<p>Use an online laytex equation editor to get your code and then just paste between the double dollar signs.  Just search “laytex equation editor” in google to find one.</p>
+<section id="exercises">
+<h2><span class="section-number">7.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<section id="problem-1">
+<h3><span class="section-number">7.2.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<p>Perform the following:<br />
+<strong>a.</strong> Read in the data file: <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=15ZOg-M1NDafHdlCWkq5wcu2jjTSqNjb9">crystallization data: (07_data.xlsx)</a><br />
+<strong>b.</strong> Check the type of each column using .info()<br />
+<strong>c.</strong> Drop columns with no values (“all” dropna) - make sure you use the correct axis<br />
+<strong>d.</strong> Convert columns to numeric<br />
+<strong>e.</strong> Drop any row containing NaN (“any” dropna) - make sure you use the correct axis<br />
+<strong>f.</strong> Add a new column “time, hrs” by converting “time, sec” to hours<br />
+<strong>g.</strong> Plot the time in hours on the x-axis and crystallization fraction on the y-axis.  Label your axes.<br />
+<strong>h.</strong> Fit your data (time in hours, crystallization fraction) to the following function:  <span class="math notranslate nohighlight">\(y=1-e^{-k \ t^n}\)</span><br />
+<strong>i.</strong> Replot your data (color black small points) and include your fit (color red line)<br />
+<strong>j.</strong> Using your fitted function, determine the crystallization fraction after 125 hours.</p>
+</section>
+<section id="problem-2-not-graded">
+<h3><span class="section-number">7.2.2. </span>Problem 2 (not graded)<a class="headerlink" href="#problem-2-not-graded" title="Permalink to this headline">#</a></h3>
+<p>Problem 1 is a typical example of what you may experience in lab, senior design, or the workplace.  If you had any trouble with Problem 1, update your cheat sheet to help for next time.</p>
+</section>
 </section>
 </section>
 
@@ -572,17 +613,17 @@ we will get:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="07_self_review_pandas.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="06_creating_a_cheat_sheet.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>Self Review and Practice with Pandas</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Creating a “Cheat Sheet”</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="101_math_operations.html" title="next page">
+    <a class='right-next' id="next-link" href="100_markdown_cells.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Short Lesson: Math Operations</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Short Lesson: Markdown</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
