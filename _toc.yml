@@ -14,6 +14,7 @@ parts:
     - file: lessons_2114/05_numpy_essentials
     - file: lessons_2114/06_creating_a_cheat_sheet
     - file: lessons_2114/07_self_review_pandas
+    - file: lessons_2114/08_more_practice
 #
   - caption: Appendix 2114 (in progress)
     numbered: true
