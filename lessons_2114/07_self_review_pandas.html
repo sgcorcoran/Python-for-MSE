@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Short Lesson: Markdown" href="100_markdown_cells.html" />
+    <link rel="next" title="8. More Practice" href="08_more_practice.html" />
     <link rel="prev" title="6. Creating a “Cheat Sheet”" href="06_creating_a_cheat_sheet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -154,6 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    7. Self Review and Practice with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_more_practice.html">
+   8. More Practice
   </a>
  </li>
 </ul>
@@ -562,6 +567,10 @@ title="Print to PDF"
 <section id="lesson">
 <h2><span class="section-number">7.1. </span>Lesson<a class="headerlink" href="#lesson" title="Permalink to this headline">#</a></h2>
 <p>No Lesson this week since this is practice and draws from previous lessons especially week 3 “working with data.”</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The fitting function curve_fit in scipy expects numpy arrays as input.  This means when you define your fitting function you want to use numpy functions and not math functions.  For example, <code class="docutils literal notranslate"><span class="pre">np.e**(-k*t**n)</span></code> will work but <code class="docutils literal notranslate"><span class="pre">math.exp(-k*t**n)</span></code> will not work in the curve_fit routine.</p>
+</div>
 </section>
 <section id="exercises">
 <h2><span class="section-number">7.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
@@ -620,10 +629,10 @@ title="Print to PDF"
             <p class="prev-next-title"><span class="section-number">6. </span>Creating a “Cheat Sheet”</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="100_markdown_cells.html" title="next page">
+    <a class='right-next' id="next-link" href="08_more_practice.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Short Lesson: Markdown</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>More Practice</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

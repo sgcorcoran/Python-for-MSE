@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Short Lesson: Markdown &#8212; Python for MSE</title>
+    <title>8. More Practice &#8212; Python for MSE</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Short Lesson: Math Operations" href="101_math_operations.html" />
-    <link rel="prev" title="8. More Practice" href="08_more_practice.html" />
+    <link rel="next" title="1. Short Lesson: Markdown" href="100_markdown_cells.html" />
+    <link rel="prev" title="7. Self Review and Practice with Pandas" href="07_self_review_pandas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
   MSE 2114 Python for MSE I
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_welcome_to_2114.html">
    1. Welcome to MSE 2114
@@ -156,8 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
    7. Self Review and Practice with Pandas
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08_more_practice.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    8. More Practice
   </a>
  </li>
@@ -167,9 +167,9 @@ const thebe_selector_output = ".output, .cell_output"
   Appendix 2114 (in progress)
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="100_markdown_cells.html">
    1. Short Lesson: Markdown
   </a>
  </li>
@@ -374,7 +374,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_2114/100_markdown_cells.ipynb"
+        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_2114/08_more_practice.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -417,7 +417,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/lessons_2114/100_markdown_cells.ipynb"
+        <a href="../_sources/lessons_2114/08_more_practice.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -477,14 +477,31 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-a-simple-numbered-list">
-   1.1. Here is a simple numbered list
+  <a class="reference internal nav-link" href="#exercises">
+   8.1. Exercises
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-an-example-of-including-equations-in-markdown">
-   1.2. Here is an example of including equations in markdown
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     8.1.1. Problem 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2">
+     8.1.2. Problem 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-3">
+     8.1.3. Problem 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-4">
+     8.1.4. Problem 4
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -495,7 +512,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Short Lesson: Markdown</h1>
+                <h1>More Practice</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -506,14 +523,31 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-a-simple-numbered-list">
-   1.1. Here is a simple numbered list
+  <a class="reference internal nav-link" href="#exercises">
+   8.1. Exercises
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-an-example-of-including-equations-in-markdown">
-   1.2. Here is an example of including equations in markdown
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     8.1.1. Problem 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2">
+     8.1.2. Problem 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-3">
+     8.1.3. Problem 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-4">
+     8.1.4. Problem 4
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -525,28 +559,72 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="short-lesson-markdown">
-<h1><span class="section-number">1. </span>Short Lesson: Markdown<a class="headerlink" href="#short-lesson-markdown" title="Permalink to this headline">#</a></h1>
-<section id="here-is-a-simple-numbered-list">
-<h2><span class="section-number">1.1. </span>Here is a simple numbered list<a class="headerlink" href="#here-is-a-simple-numbered-list" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="more-practice">
+<h1><span class="section-number">8. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>Be able to:</p>
+<ul class="simple">
+<li><p>Read an excel file into a pandas dataframe</p></li>
+<li><p>Check and correct column data types in a dataframe</p></li>
+<li><p>Drop columns containing no data i.e. NaN</p></li>
+<li><p>Drop rows with missing values</p></li>
+<li><p>Add new columns to the dataframe</p></li>
+<li><p>Select data based on the values in one of the columns</p></li>
+<li><p>Plot the data using matplotlib.pyplot</p></li>
+<li><p>Perform a non-linear fit to the data using scipy.optimize.curve_fit and interpret the results</p></li>
+</ul>
+<p>Applications:</p>
+<ul class="simple">
+<li><p>Energy between two atoms versus separation distance (Callister, Chapter 2 Bonding)</p></li>
+<li><p>Elastic modulus of tubular shaft in bending (Callister, 9th ed. Example 16.1)</p></li>
+<li><p>Concrete data set (“<a class="reference external" href="http://github.com/maajdl/Yeh-concrete-data-sklearn">github.com/maajdl/Yeh-concrete-data-sklearn</a>”)</p></li>
+</ul>
+<p>Date files needed:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1p2p9uiMFOciCMFCS7ASpmgi0gDvTSMOi">06_Tafel_data.xlsx</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1nvC9doMoIfS39OKmE6SswhLvZhhO6ANU">08_bond_energy_data.xlsx</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1qgxD7kCX2_ppsRioi3fyxte-s4rgyt12">08_concrete_data_Yeh.csv</a></p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercises">
+<h2><span class="section-number">8.1. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<section id="problem-1">
+<h3><span class="section-number">8.1.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<p>Using pandas, read the data file  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1p2p9uiMFOciCMFCS7ASpmgi0gDvTSMOi">06_Tafel_data.xlsx</a> into a variable called ‘raw_data’.<br />
+(a) execute <code class="docutils literal notranslate"><span class="pre">raw_data.iloc[2:7,1:3]</span></code> and then<br />
+(b) explain in plain language what the above command did. Comment on how <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> differs from <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code><br />
+(c) write the equivalent command as in (a) but now using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> rather than <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></p>
+</section>
+<section id="problem-2">
+<h3><span class="section-number">8.1.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<p>(a) Plot the data in the file <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1nvC9doMoIfS39OKmE6SswhLvZhhO6ANU">08_bond_energy_data.xlsx</a> and  (b) Find the best fit to the data using the function:  <span class="math notranslate nohighlight">\( E = -\frac{A}{r}+\frac{B}{r^{\ n}}\)</span> and add this to your plot. For this equation, the Bond Energy is in eV and the atom separation, r, is in nm.  You need to define your own function beginning <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">bondEnergy(r,</span> <span class="pre">A,</span> <span class="pre">B,</span> <span class="pre">n):</span></code> (c) Use the pandas function <code class="docutils literal notranslate"><span class="pre">.min()</span></code> to find the equilibrium bond energy, <span class="math notranslate nohighlight">\(E_0\)</span>, and then the corresponding equilibrium atom spacing, <span class="math notranslate nohighlight">\(r_0\)</span>.  Add a horizontal and vertical line to your plot at these values, respectively.</p>
+</section>
+<section id="problem-3">
+<h3><span class="section-number">8.1.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<p>(a) The longitudinal modulus of elasticity of a tubular shaft measured in bending is given by: <span class="math notranslate nohighlight">\(E = \frac{4 F L^3}{3 \pi \Delta y\ (d_0^4-d_i^4)}\)</span><br />
+where F is the applied load (1000 N), L is the distance between support points in the 3-point bend test (1.0 m), <span class="math notranslate nohighlight">\(\Delta y\)</span> is the deflection at the half-way point (0.35 mm), <span class="math notranslate nohighlight">\(d_0\)</span> is the outer diameter (70 mm) and <span class="math notranslate nohighlight">\(d_i\)</span> is the inner diameter (50 mm). Write a function (starting out with <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">mod(F,L,Δy,d_o,d_i):</span></code>) to calculate the longitudinal modulus of elasticity. Calculate the longitudinal modulus of elasticity. Use print with an f-string to include the units with your answer and limit your answer to 2 decimals.</p>
+<p>(b) Write a function for the beam deflection starting with <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">deflec(di,do,L,F,</span> <span class="pre">E):</span></code>.  For the same setup as above if the modulus is 200 GPa, plot the deflection, <span class="math notranslate nohighlight">\(\Delta y\)</span>, as a function of the inner diameter where <span class="math notranslate nohighlight">\(20\ mm \leq d_i \leq 60\ mm\)</span>.  Make sure you label your axes.  Use small blue points.</p>
+</section>
+<section id="problem-4">
+<h3><span class="section-number">8.1.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
+<p>Read the data file: <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1qgxD7kCX2_ppsRioi3fyxte-s4rgyt12">08_concrete_data_Yeh.csv</a></p>
 <ol class="simple">
-<li><p>import libraries numpy, sympy, matplotlib</p></li>
-<li><p>symbolically manipulate an equation using sympy.solve()</p></li>
-<li><p>generate x and y data for a function using numpy.arange()</p></li>
-<li><p>plot the x, y data using matplotlib.pyplot.plot()</p></li>
-<li><p>add horizontal lines and text to a plot</p></li>
+<li><p>Find the density of each concrete sample by adding together the data: cement, slag, flyash, water, superplasticizer, courseaggregate, and fineaggregate.</p></li>
+<li><p>Plot the compressive strength vs age for the concrete samples that have a density between 2450 and 2452.5.  Label your axes and use green points.</p></li>
 </ol>
 </section>
-<section id="here-is-an-example-of-including-equations-in-markdown">
-<h2><span class="section-number">1.2. </span>Here is an example of including equations in markdown<a class="headerlink" href="#here-is-an-example-of-including-equations-in-markdown" title="Permalink to this headline">#</a></h2>
-<p>For equations, place laytex code between <span class="math notranslate nohighlight">\(\text{\$\$}\)</span> e.g.<br />
-$<span class="math notranslate nohighlight">\(\text{\$\$ x = 3 \$\$}\)</span><span class="math notranslate nohighlight">\( which gives us: 
-\)</span><span class="math notranslate nohighlight">\( x=3 \)</span>$</p>
-<p>If we type for example:<br />
-$<span class="math notranslate nohighlight">\( \text {\$\$ \text{% crystallinity} =  \frac{\rho_c (\rho_s - \rho_a)}{\rho_s (\rho_c - \rho_a)} \$\$} \)</span><span class="math notranslate nohighlight">\(  
-we will get:  
- \)</span><span class="math notranslate nohighlight">\(  \mathbf{\text{% crystallinity} =  \frac{\rho_c (\rho_s - \rho_a)}{\rho_s (\rho_c - \rho_a)}} \)</span>$</p>
-<p>Use an online laytex equation editor to get your code and then just paste between the double dollar signs.  Just search “laytex equation editor” in google to find one.</p>
 </section>
 </section>
 
@@ -577,17 +655,17 @@ we will get:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="08_more_practice.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="07_self_review_pandas.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8. </span>More Practice</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Self Review and Practice with Pandas</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="101_math_operations.html" title="next page">
+    <a class='right-next' id="next-link" href="100_markdown_cells.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Short Lesson: Math Operations</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Short Lesson: Markdown</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
