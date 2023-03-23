@@ -16,8 +16,8 @@ only_build_toc_files        : true
 # Execution settings
 execute:
   execute_notebooks: 'off'
-  exclude_patterns: 
-#      - '06_*'   include lines like this if execute_notebooks is 'on'
+#  exclude_patterns: 
+#      - '06_*'   # include lines like this if execute_notebooks is 'on'
 
 #######################################################################################
 # Parse and render settings
@@ -34,7 +34,8 @@ parse:
     - smartquotes
     - tasklist
     - fieldlist
-#  myst_dmath_double_inline: True  -- the build is ignoring these lines, just use line return before and after $$
+#    - attrs_inline  #unknown extension
+#  myst_dmath_double_inline: True  ignored here, place in advanced settings below
 #  myst_dmath_allow_space: false
   myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
 #######################################################################################
@@ -87,3 +88,4 @@ sphinx:
   recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration 
       bibtex_reference_style: author_year
+      myst_dmath_double_inline:  true  # doesn't work above parse section, needs to go here
