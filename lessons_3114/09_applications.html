@@ -1,35 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>9. Application: Crystallization Kinetics of Amorphous \(TiO_2\) &#8212; Python for MSE</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -37,13 +47,20 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -52,69 +69,99 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_3114/09_applications';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Application: Peak Deconvolution" href="10_peak_deconvolution.html" />
     <link rel="prev" title="8. Estimating Data Values from Plots in the Literature (Part 2)" href="08_digitizing_literature_plots_part_2.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-Y46MLPCBH0');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint">Virginia Tech MSE 2114 Spring 2023</div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
 
-    
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Virginia Tech MSE 2114 Spring 2023</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Python for MSE</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -123,600 +170,262 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  MSE 2114 Python for MSE I
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 2114 Python for MSE I</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/01_welcome_to_2114.html">
-   1. Welcome to MSE 2114
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/02_Intro_Jupyter.html">
-   2. Introduction to the Jupyter Notebook
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/03_working_with_data.html">
-   3. Working with Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/04_plotting_and_equation_solving.html">
-   4. Plotting and Equation Solving
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/05_numpy_essentials.html">
-   5. Reviewing essential concepts of numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/06_creating_a_cheat_sheet.html">
-   6. Creating a “Cheat Sheet”
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/07_self_review_pandas.html">
-   7. Self Review and Practice with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/08_more_practice.html">
-   8. More Practice
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/01_welcome_to_2114.html">1. Welcome to MSE 2114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/02_Intro_Jupyter.html">2. Introduction to the Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/03_working_with_data.html">3. Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/04_plotting_and_equation_solving.html">4. Plotting and Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/05_numpy_essentials.html">5. Reviewing essential concepts of numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/06_creating_a_cheat_sheet.html">6. Creating a “Cheat Sheet”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/07_self_review_pandas.html">7. Self Review and Practice with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/08_more_practice.html">8. More Practice</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix 2114 (in progress)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix 2114 (in progress)</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/100_markdown_cells.html">
-   1. Short Lesson: Markdown
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/101_math_operations.html">
-   2. Short Lesson: Math Operations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/102_Plotting_basics.html">
-   3. Short Lesson: Plotting Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/103_Plotting_functions.html">
-   5. Short Lesson: Plotting functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/50_2114_course_support_files.html">
-   6. MSE 2114 Data Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/51_2114_LinkedIn_Learning_Recommendations.html">
-   7. LinkedIn Learning Recommendations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/52_2114_time_saving_tips.html">
-   8. Time Saving Tips &amp; Tricks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/53_2114_updates.html">
-   9. Updates &amp; FAQ
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/100_markdown_cells.html">1. Short Lesson: Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/101_math_operations.html">2. Short Lesson: Math Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/102_Plotting_basics.html">3. Short Lesson: Plotting Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/103_Plotting_functions.html">4. Short Lesson: Plotting functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/50_2114_course_support_files.html">5. MSE 2114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/51_2114_LinkedIn_Learning_Recommendations.html">6. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/52_2114_time_saving_tips.html">7. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/53_2114_updates.html">8. Updates &amp; FAQ</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  MSE 3114 Python for MSE II
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 3114 Python for MSE II</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01_welcome_to_3114.html">
-   1. Welcome to MSE 3114
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02_importing_your_own_functions.html">
-   2. Importing Data from Files &amp; Importing Your Own Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_google_forms_and_pandas.html">
-   3. Google Forms and Pandas Data Import and Visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_closer_look_at_pandas.html">
-   4. Pandas DataFrames and Data Visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05_closer_look_at_matplotlib.html">
-   5. matplotlib - Advanced Layouts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06_selecting_pixel_coordinates.html">
-   6. Selecting pixel coordinates from an image file
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07_digitizing_literature_plots_part_1.html">
-   7. Estimating Data Values from Plots in the Literature (Part 1)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08_digitizing_literature_plots_part_2.html">
-   8. Estimating Data Values from Plots in the Literature (Part 2)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   9. Application:  Crystallization Kinetics of Amorphous
-   <span class="math notranslate nohighlight">
-    \(TiO_2\)
-   </span>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_peak_deconvolution.html">
-   10. Application: Peak Deconvolution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_creep_analysis_log_scales.html">
-   11. Collecting Data from Log scales: Creep Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_grain_size_measurement.html">
-   12. Image Analysis: Grain Size Measurement
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">
-   13. Analyzing Particles in a Matrix
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="14_removing_perspective.html">
-   14. Image Transformation using opencv
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="01_welcome_to_3114.html">1. Welcome to MSE 3114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_importing_your_own_functions.html">2. Importing Data from Files &amp; Importing Your Own Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_google_forms_and_pandas.html">3. Google Forms and Pandas Data Import and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_closer_look_at_pandas.html">4. Pandas DataFrames and Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_closer_look_at_matplotlib.html">5. matplotlib - Advanced Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_selecting_pixel_coordinates.html">6. Selecting pixel coordinates from an image file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_digitizing_literature_plots_part_1.html">7. Estimating Data Values from Plots in the Literature (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_digitizing_literature_plots_part_2.html">8. Estimating Data Values from Plots in the Literature (Part 2)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_peak_deconvolution.html">10. Application: Peak Deconvolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_creep_analysis_log_scales.html">11. Collecting Data from Log scales: Creep Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_grain_size_measurement.html">12. Image Analysis: Grain Size Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">13. Analyzing Particles in a Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_removing_perspective.html">14. Image Transformation using opencv</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix 3114
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix 3114</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="50_course_support_files.html">
-   1. MSE 3114 Data Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">
-   2. LinkedIn Learning Recommendations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="52_time_saving_tips.html">
-   3. Time Saving Tips &amp; Tricks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="53_updates.html">
-   4. Updates &amp; FAQ
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="50_course_support_files.html">1. MSE 3114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">2. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="52_time_saving_tips.html">3. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="53_updates.html">4. Updates &amp; FAQ</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/09_applications.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/09_applications.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons_3114/09_applications.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/lessons_3114/09_applications.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#application-description">
-   9.1. Application description
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-packages-and-define-functions">
-   9.2. Load packages and define functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reproduce-the-normalized-intensity-vs-time-data">
-   9.3. Reproduce the normalized intensity vs time data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy">
-   9.4. Fit the data to the avrami equation using
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     curve_fit()
-    </span>
-   </code>
-   from scipy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fiting-with-peak-functions">
-   9.5. Fiting with peak functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lets-reproduce-the-280-c-curve">
-     9.5.1. Let’s reproduce the 280 C curve
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fit-the-peak-data">
-   9.6. Fit the peak data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-the-area-under-a-function">
-   9.7. Finding the area under a function
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#appendix-other-peak-fitting-functions">
-   9.8. Appendix: Other Peak Fitting Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gaussian">
-     9.8.1. Gaussian
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#voigt">
-     9.8.2. Voigt
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weighted-sum-of-gaussian-and-lorentz">
-     9.8.3. Weighted sum of Gaussian and Lorentz
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   9.9. Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-1-fit-to-avrami-equation">
-     9.9.1. Problem 1: Fit to Avrami equation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-2-requires-answer-from-problem-1">
-     9.9.2. Problem 2: (requires answer from problem 1)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-3-peak-fitting">
-     9.9.3. Problem 3: Peak fitting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-4-finding-the-area-under-a-curve-integrate-quad">
-     9.9.4. Problem 4: Finding the area under a curve
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       integrate.quad()
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Application:  Crystallization Kinetics of Amorphous TiO_2</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#application-description">
-   9.1. Application description
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-packages-and-define-functions">
-   9.2. Load packages and define functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reproduce-the-normalized-intensity-vs-time-data">
-   9.3. Reproduce the normalized intensity vs time data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy">
-   9.4. Fit the data to the avrami equation using
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     curve_fit()
-    </span>
-   </code>
-   from scipy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fiting-with-peak-functions">
-   9.5. Fiting with peak functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lets-reproduce-the-280-c-curve">
-     9.5.1. Let’s reproduce the 280 C curve
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fit-the-peak-data">
-   9.6. Fit the peak data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-the-area-under-a-function">
-   9.7. Finding the area under a function
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#appendix-other-peak-fitting-functions">
-   9.8. Appendix: Other Peak Fitting Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gaussian">
-     9.8.1. Gaussian
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#voigt">
-     9.8.2. Voigt
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weighted-sum-of-gaussian-and-lorentz">
-     9.8.3. Weighted sum of Gaussian and Lorentz
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   9.9. Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-1-fit-to-avrami-equation">
-     9.9.1. Problem 1: Fit to Avrami equation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-2-requires-answer-from-problem-1">
-     9.9.2. Problem 2: (requires answer from problem 1)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-3-peak-fitting">
-     9.9.3. Problem 3: Peak fitting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-4-finding-the-area-under-a-curve-integrate-quad">
-     9.9.4. Problem 4: Finding the area under a curve
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       integrate.quad()
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Application:  Crystallization Kinetics of Amorphous TiO_2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-description">9.1. Application description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-packages-and-define-functions">9.2. Load packages and define functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduce-the-normalized-intensity-vs-time-data">9.3. Reproduce the normalized intensity vs time data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy">9.4. Fit the data to the avrami equation using <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> from scipy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fiting-with-peak-functions">9.5. Fiting with peak functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-reproduce-the-280-c-curve">9.5.1. Let’s reproduce the 280 C curve</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-peak-data">9.6. Fit the peak data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-area-under-a-function">9.7. Finding the area under a function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-other-peak-fitting-functions">9.8. Appendix: Other Peak Fitting Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian">9.8.1. Gaussian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#voigt">9.8.2. Voigt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weighted-sum-of-gaussian-and-lorentz">9.8.3. Weighted sum of Gaussian and Lorentz</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.9. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-fit-to-avrami-equation">9.9.1. Problem 1: Fit to Avrami equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-requires-answer-from-problem-1">9.9.2. Problem 2: (requires answer from problem 1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-peak-fitting">9.9.3. Problem 3: Peak fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-finding-the-area-under-a-curve-integrate-quad">9.9.4. Problem 4: Finding the area under a curve <code class="docutils literal notranslate"><span class="pre">integrate.quad()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="application-crystallization-kinetics-of-amorphous-tio-2">
 <h1><span class="section-number">9. </span>Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span><a class="headerlink" href="#application-crystallization-kinetics-of-amorphous-tio-2" title="Permalink to this headline">#</a></h1>
 <div class="admonition-learning-objectives admonition">
@@ -737,7 +446,7 @@ title="Print to PDF"
 <p>We need to use <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">getpix_utilities.ipynb</span></code> and not import to load our functions from the file getpix_utilities.ipynb.  This is because python import does not like “magic” commands such as %matplotlib widget.</p>
 </div>
 <p><strong>Download:</strong>  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1lrKrd5tqYUn88Cfh8_ntL4o8lAZTjmHG">getpix_utilities.ipynb</a></p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> getpix_utilities.ipynb
 </pre></div>
@@ -794,16 +503,12 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="s1">&#39;../images/09_crystalliz_data.png&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="s1">&#39;../images/09_crystalliz_data.png&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "dfd84faa9c5a4ae1891b3f88379c9f78", "version_major": 2, "version_minor": 0}
-</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -835,7 +540,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/09_applications_32_0.png" src="../_images/09_applications_32_0.png" />
+<img alt="../_images/e3a784335e108a6795bd927493f8451ab0ca59c1cb67e9243519c41b51d26c89.png" src="../_images/e3a784335e108a6795bd927493f8451ab0ca59c1cb67e9243519c41b51d26c89.png" />
 </div>
 </div>
 </section>
@@ -880,7 +585,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 option 2: k = 1.125e-05 and n = 2.48
 </pre></div>
 </div>
-<img alt="../_images/09_applications_36_1.png" src="../_images/09_applications_36_1.png" />
+<img alt="../_images/46d0d510f2845c2696cde761783be4bf23ff9cb53694c48e9b531717495ab03a.png" src="../_images/46d0d510f2845c2696cde761783be4bf23ff9cb53694c48e9b531717495ab03a.png" />
 </div>
 </div>
 <p>Another option for fitting is to transform our equation to a linear equation by taking the ln of both sides twice to get <span class="math notranslate nohighlight">\(\log\left(\ln\left(\frac{1}{1-Y}\right)\right)=\log(K) + n \log(t)\)</span>.  So if we plot the <span class="math notranslate nohighlight">\(\log\left(\ln\left(\frac{1}{1-Y}\right)\right)\)</span> vs <span class="math notranslate nohighlight">\(\log(t)\)</span>, we should get a linear relationship that we can fit with a simple linear function.</p>
@@ -914,7 +619,7 @@ option 2: k = 1.125e-05 and n = 2.48
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> n = 2.59e+00 and logK = -5.17 or K = 6.81e-06
 </pre></div>
 </div>
-<img alt="../_images/09_applications_38_1.png" src="../_images/09_applications_38_1.png" />
+<img alt="../_images/08bf4dd99755286833741be313d7ffd394d033a6f8deed7b62ac2f5d0afa43b4.png" src="../_images/08bf4dd99755286833741be313d7ffd394d033a6f8deed7b62ac2f5d0afa43b4.png" />
 </div>
 </div>
 </section>
@@ -923,16 +628,12 @@ option 2: k = 1.125e-05 and n = 2.48
 <section id="lets-reproduce-the-280-c-curve">
 <h3><span class="section-number">9.5.1. </span>Let’s reproduce the 280 C curve<a class="headerlink" href="#lets-reproduce-the-280-c-curve" title="Permalink to this headline">#</a></h3>
 <p>You can always use ctrl+“+” to increase the zoom level in your browser so you can pick points more accurately.  Ctrl+“-” will decrease your zoom level.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="s1">&#39;../images/09_xrd.png&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="s1">&#39;../images/09_xrd.png&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "b25011fb04bf4ebeb6ae7e22b0fc928f", "version_major": 2, "version_minor": 0}
-</script></div>
 </div>
 <p>Your output from above should look something like this:</p>
 <a class="reference internal image-reference" href="../_images/09_pix_cal.png"><img alt="../_images/09_pix_cal.png" class="align-center" src="../_images/09_pix_cal.png" style="width: 500px;" /></a>
@@ -957,14 +658,14 @@ option 2: k = 1.125e-05 and n = 2.48
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/09_applications_47_0.png" src="../_images/09_applications_47_0.png" />
+<img alt="../_images/5d69338b63aa263a554a1c0fe473ed813a9be2fd89df1e85048804473a8ca008.png" src="../_images/5d69338b63aa263a554a1c0fe473ed813a9be2fd89df1e85048804473a8ca008.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="fit-the-peak-data">
 <h2><span class="section-number">9.6. </span>Fit the peak data<a class="headerlink" href="#fit-the-peak-data" title="Permalink to this headline">#</a></h2>
-<p>There are several peak functions that can be used and I’ve given 3 more examples in the <a class="reference external" href="#appendix:-other-peak-fitting-functions">Appendix</a>.  The function below is Lorentzian distribution where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude, <span class="math notranslate nohighlight">\(\mu\)</span> is the position of the peak (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> defines the peak width (stddev).  For our data, <span class="math notranslate nohighlight">\(x\)</span> would be the angle, <span class="math notranslate nohighlight">\(2 \theta\)</span>.</p>
+<p>There are several peak functions that can be used and I’ve given 3 more examples in the <a class="reference internal" href="#appendix-other-peak-fitting-functions"><span class="std std-ref">Appendix</span></a>.  The function below is Lorentzian distribution where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude, <span class="math notranslate nohighlight">\(\mu\)</span> is the position of the peak (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> defines the peak width (stddev).  For our data, <span class="math notranslate nohighlight">\(x\)</span> would be the angle, <span class="math notranslate nohighlight">\(2 \theta\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[f(x; A, \mu,\sigma)=\frac{A}{\pi}\left[\frac{\sigma}{(x-\mu)^2+\sigma^2}\right]\]</div>
 <div class="cell docutils container">
@@ -992,10 +693,10 @@ option 2: k = 1.125e-05 and n = 2.48
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/09_applications_50_0.png" src="../_images/09_applications_50_0.png" />
+<img alt="../_images/439e7a153a3992769751949feacd66001b5363471d6899fbb2d1162d1b0ef449.png" src="../_images/439e7a153a3992769751949feacd66001b5363471d6899fbb2d1162d1b0ef449.png" />
 </div>
 </div>
-<p>The lorentzian does not do a good job at fitting this type of peak.  We should probably use a different function as defined in the Appendix. Perhaps a <a class="reference external" href="#gaussian">Gaussian</a> function or a combination of the two.</p>
+<p>The lorentzian does not do a good job at fitting this type of peak.  We should probably use a different function as defined in the Appendix. Perhaps a <a class="reference internal" href="#appendix-gaussian"><span class="std std-ref">Gaussian</span></a> function or a combination of the two.</p>
 </section>
 <section id="finding-the-area-under-a-function">
 <h2><span class="section-number">9.7. </span>Finding the area under a function<a class="headerlink" href="#finding-the-area-under-a-function" title="Permalink to this headline">#</a></h2>
@@ -1041,13 +742,13 @@ option 2: k = 1.125e-05 and n = 2.48
 </div>
 </div>
 </div>
-<p>My output using a <a class="reference external" href="#weighted-sum-of-gaussian-and-lorentz">weighted lorentzian + gaussian model</a> does a nice job:</p>
+<p>My output using a <a class="reference internal" href="#appendix-weighted-sum"><span class="std std-ref">weighted lorentzian + gaussian model</span></a> does a nice job:</p>
 <a class="reference internal image-reference" href="../_images/09_lorentz_gauss_fit.png"><img alt="../_images/09_lorentz_gauss_fit.png" class="align-center" src="../_images/09_lorentz_gauss_fit.png" style="width: 450px;" /></a>
 </section>
 <section id="appendix-other-peak-fitting-functions">
-<h2><span class="section-number">9.8. </span>Appendix: Other Peak Fitting Functions<a class="headerlink" href="#appendix-other-peak-fitting-functions" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2><span class="section-number">9.8. </span>Appendix: Other Peak Fitting Functions<a class="headerlink" href="#appendix-other-peak-fitting-functions" title="Permalink to this headline">#</a></h2>
 <section id="gaussian">
-<h3><span class="section-number">9.8.1. </span>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this headline">#</a></h3>
+<span id="appendix-gaussian"></span><h3><span class="section-number">9.8.1. </span>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this headline">#</a></h3>
 <div class="math notranslate nohighlight">
 \[f(x; A, \mu,\sigma)=\frac{A}{\sigma \sqrt{2\pi}}e^{\left[-(x-\mu)^2/(2\sigma^2)\right]}\]</div>
 <div class="cell docutils container">
@@ -1073,8 +774,12 @@ option 2: k = 1.125e-05 and n = 2.48
 <div class="math notranslate nohighlight">
 \[f(x; A, \mu,\sigma,\gamma)=\frac{A\ Re[w(z)]}{\sigma \sqrt{2 \pi}}\]</div>
 <p>where
-$<span class="math notranslate nohighlight">\(z=\frac{x-\mu+i\gamma}{\sigma\sqrt{2}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(w(z)=e^{-z^2}\ \text{erfc}(-i z)\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[z=\frac{x-\mu+i\gamma}{\sigma\sqrt{2}}\]</div>
+
+<div class="math notranslate nohighlight">
+\[w(z)=e^{-z^2}\ \text{erfc}(-i z)\]</div>
+</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erfc</span>
@@ -1102,7 +807,7 @@ $<span class="math notranslate nohighlight">\(z=\frac{x-\mu+i\gamma}{\sigma\sqrt
 <a class="reference internal image-reference" href="../_images/09_voigt.png"><img alt="../_images/09_voigt.png" class="align-center" src="../_images/09_voigt.png" style="width: 450px;" /></a>
 </section>
 <section id="weighted-sum-of-gaussian-and-lorentz">
-<h3><span class="section-number">9.8.3. </span>Weighted sum of Gaussian and Lorentz<a class="headerlink" href="#weighted-sum-of-gaussian-and-lorentz" title="Permalink to this headline">#</a></h3>
+<span id="appendix-weighted-sum"></span><h3><span class="section-number">9.8.3. </span>Weighted sum of Gaussian and Lorentz<a class="headerlink" href="#weighted-sum-of-gaussian-and-lorentz" title="Permalink to this headline">#</a></h3>
 <div class="math notranslate nohighlight">
 \[f(x; A, \mu,\sigma,\alpha)=\frac{\alpha A}{\pi}\left[\frac{\sigma}{(x-\mu)^2+\sigma^2}\right] + 
 \frac{(1-\alpha) A}{\sigma_g \sqrt{2\pi}}e^{\left[-(x-\mu)^2/(2\sigma_g^2)\right]}\]</div>
@@ -1149,7 +854,7 @@ $<span class="math notranslate nohighlight">\(z=\frac{x-\mu+i\gamma}{\sigma\sqrt
 </section>
 <section id="problem-3-peak-fitting">
 <h3><span class="section-number">9.9.3. </span>Problem 3: Peak fitting<a class="headerlink" href="#problem-3-peak-fitting" title="Permalink to this headline">#</a></h3>
-<p>Reproduce the 240 C curve shown below.  You should use enough data points to fully define the peak function as shown below for the 280 C data.  Plot the 240 C data along with the 280 C data.  Label your axes and title your plot.  Also include a legend.  The 280 C pixel data is given below to save you some time.  Next, fit both sets of data to the <a class="reference external" href="#gaussian">gaussian model</a>.  Include these fitted results in your plot and add to the legend.</p>
+<p>Reproduce the 240 C curve shown below.  You should use enough data points to fully define the peak function as shown below for the 280 C data.  Plot the 240 C data along with the 280 C data.  Label your axes and title your plot.  Also include a legend.  The 280 C pixel data is given below to save you some time.  Next, fit both sets of data to the <a class="reference internal" href="#appendix-gaussian"><span class="std std-ref">gaussian model</span></a>.  Include these fitted results in your plot and add to the legend.</p>
 <a class="reference internal image-reference" href="../_images/09_pix_cal.png"><img alt="../_images/09_pix_cal.png" class="align-center" src="../_images/09_pix_cal.png" style="width: 500px;" /></a>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -1239,7 +944,7 @@ $<span class="math notranslate nohighlight">\(z=\frac{x-\mu+i\gamma}{\sigma\sqrt
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./lessons_3114"
         },
         predefinedOutput: true
@@ -1247,50 +952,121 @@ $<span class="math notranslate nohighlight">\(z=\frac{x-\mu+i\gamma}{\sigma\sqrt
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="08_digitizing_literature_plots_part_2.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8. </span>Estimating Data Values from Plots in the Literature (Part 2)</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="08_digitizing_literature_plots_part_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Estimating Data Values from Plots in the Literature (Part 2)</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="10_peak_deconvolution.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="10_peak_deconvolution.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">10. </span>Application: Peak Deconvolution</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-description">9.1. Application description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-packages-and-define-functions">9.2. Load packages and define functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduce-the-normalized-intensity-vs-time-data">9.3. Reproduce the normalized intensity vs time data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy">9.4. Fit the data to the avrami equation using <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> from scipy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fiting-with-peak-functions">9.5. Fiting with peak functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-reproduce-the-280-c-curve">9.5.1. Let’s reproduce the 280 C curve</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-peak-data">9.6. Fit the peak data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-area-under-a-function">9.7. Finding the area under a function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-other-peak-fitting-functions">9.8. Appendix: Other Peak Fitting Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian">9.8.1. Gaussian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#voigt">9.8.2. Voigt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weighted-sum-of-gaussian-and-lorentz">9.8.3. Weighted sum of Gaussian and Lorentz</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.9. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-fit-to-avrami-equation">9.9.1. Problem 1: Fit to Avrami equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-requires-answer-from-problem-1">9.9.2. Problem 2: (requires answer from problem 1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-peak-fitting">9.9.3. Problem 3: Peak fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-finding-the-area-under-a-curve-integrate-quad">9.9.4. Problem 4: Finding the area under a curve <code class="docutils literal notranslate"><span class="pre">integrate.quad()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-    By Sean Corcoran<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
-</div>
+<p class="component-author">
+By Sean Corcoran
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
 
-      </div>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

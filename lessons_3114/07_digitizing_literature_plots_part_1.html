@@ -1,35 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>7. Estimating Data Values from Plots in the Literature (Part 1) &#8212; Python for MSE</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -37,13 +47,20 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -52,69 +69,99 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_3114/07_digitizing_literature_plots_part_1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8. Estimating Data Values from Plots in the Literature (Part 2)" href="08_digitizing_literature_plots_part_2.html" />
     <link rel="prev" title="6. Selecting pixel coordinates from an image file" href="06_selecting_pixel_coordinates.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-Y46MLPCBH0');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint">Virginia Tech MSE 2114 Spring 2023</div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
 
-    
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Virginia Tech MSE 2114 Spring 2023</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Python for MSE</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -123,558 +170,267 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  MSE 2114 Python for MSE I
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 2114 Python for MSE I</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/01_welcome_to_2114.html">
-   1. Welcome to MSE 2114
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/02_Intro_Jupyter.html">
-   2. Introduction to the Jupyter Notebook
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/03_working_with_data.html">
-   3. Working with Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/04_plotting_and_equation_solving.html">
-   4. Plotting and Equation Solving
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/05_numpy_essentials.html">
-   5. Reviewing essential concepts of numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/06_creating_a_cheat_sheet.html">
-   6. Creating a “Cheat Sheet”
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/07_self_review_pandas.html">
-   7. Self Review and Practice with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/08_more_practice.html">
-   8. More Practice
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/01_welcome_to_2114.html">1. Welcome to MSE 2114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/02_Intro_Jupyter.html">2. Introduction to the Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/03_working_with_data.html">3. Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/04_plotting_and_equation_solving.html">4. Plotting and Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/05_numpy_essentials.html">5. Reviewing essential concepts of numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/06_creating_a_cheat_sheet.html">6. Creating a “Cheat Sheet”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/07_self_review_pandas.html">7. Self Review and Practice with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/08_more_practice.html">8. More Practice</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix 2114 (in progress)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix 2114 (in progress)</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/100_markdown_cells.html">
-   1. Short Lesson: Markdown
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/101_math_operations.html">
-   2. Short Lesson: Math Operations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/102_Plotting_basics.html">
-   3. Short Lesson: Plotting Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/103_Plotting_functions.html">
-   5. Short Lesson: Plotting functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/50_2114_course_support_files.html">
-   6. MSE 2114 Data Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/51_2114_LinkedIn_Learning_Recommendations.html">
-   7. LinkedIn Learning Recommendations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/52_2114_time_saving_tips.html">
-   8. Time Saving Tips &amp; Tricks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lessons_2114/53_2114_updates.html">
-   9. Updates &amp; FAQ
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/100_markdown_cells.html">1. Short Lesson: Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/101_math_operations.html">2. Short Lesson: Math Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/102_Plotting_basics.html">3. Short Lesson: Plotting Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/103_Plotting_functions.html">4. Short Lesson: Plotting functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/50_2114_course_support_files.html">5. MSE 2114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/51_2114_LinkedIn_Learning_Recommendations.html">6. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/52_2114_time_saving_tips.html">7. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/53_2114_updates.html">8. Updates &amp; FAQ</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  MSE 3114 Python for MSE II
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 3114 Python for MSE II</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01_welcome_to_3114.html">
-   1. Welcome to MSE 3114
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02_importing_your_own_functions.html">
-   2. Importing Data from Files &amp; Importing Your Own Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_google_forms_and_pandas.html">
-   3. Google Forms and Pandas Data Import and Visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_closer_look_at_pandas.html">
-   4. Pandas DataFrames and Data Visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05_closer_look_at_matplotlib.html">
-   5. matplotlib - Advanced Layouts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06_selecting_pixel_coordinates.html">
-   6. Selecting pixel coordinates from an image file
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   7. Estimating Data Values from Plots in the Literature (Part 1)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08_digitizing_literature_plots_part_2.html">
-   8. Estimating Data Values from Plots in the Literature (Part 2)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09_applications.html">
-   9. Application:  Crystallization Kinetics of Amorphous
-   <span class="math notranslate nohighlight">
-    \(TiO_2\)
-   </span>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_peak_deconvolution.html">
-   10. Application: Peak Deconvolution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_creep_analysis_log_scales.html">
-   11. Collecting Data from Log scales: Creep Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_grain_size_measurement.html">
-   12. Image Analysis: Grain Size Measurement
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">
-   13. Analyzing Particles in a Matrix
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="14_removing_perspective.html">
-   14. Image Transformation using opencv
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="01_welcome_to_3114.html">1. Welcome to MSE 3114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_importing_your_own_functions.html">2. Importing Data from Files &amp; Importing Your Own Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_google_forms_and_pandas.html">3. Google Forms and Pandas Data Import and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_closer_look_at_pandas.html">4. Pandas DataFrames and Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_closer_look_at_matplotlib.html">5. matplotlib - Advanced Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_selecting_pixel_coordinates.html">6. Selecting pixel coordinates from an image file</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Estimating Data Values from Plots in the Literature (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_digitizing_literature_plots_part_2.html">8. Estimating Data Values from Plots in the Literature (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_applications.html">9. Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_peak_deconvolution.html">10. Application: Peak Deconvolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_creep_analysis_log_scales.html">11. Collecting Data from Log scales: Creep Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_grain_size_measurement.html">12. Image Analysis: Grain Size Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">13. Analyzing Particles in a Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_removing_perspective.html">14. Image Transformation using opencv</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix 3114
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix 3114</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="50_course_support_files.html">
-   1. MSE 3114 Data Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">
-   2. LinkedIn Learning Recommendations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="52_time_saving_tips.html">
-   3. Time Saving Tips &amp; Tricks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="53_updates.html">
-   4. Updates &amp; FAQ
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="50_course_support_files.html">1. MSE 3114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">2. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="52_time_saving_tips.html">3. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="53_updates.html">4. Updates &amp; FAQ</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/07_digitizing_literature_plots_part_1.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/sgcorcoran/Python-for-MSE/main?urlpath=tree/lessons_3114/07_digitizing_literature_plots_part_1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons_3114/07_digitizing_literature_plots_part_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/lessons_3114/07_digitizing_literature_plots_part_1.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#read-the-image-file-with-matplotlib">
-   7.1. Read the image file with matplotlib
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#developing-code-in-small-steps">
-   7.2. Developing code in small steps
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image">
-     7.2.1. First, write code to get the pixel position of a mouse click on an image
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#keep-track-of-mouse-clicks-and-shift-the-image-origin-to-bottom-left">
-     7.2.2. Keep track of mouse clicks and shift the image origin to bottom left
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scatter-plot-of-selected-points-in-real-time">
-     7.2.3. Scatter plot of selected points in real time
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#determine-the-scaling-for-x-and-y-axes">
-     7.2.4. Determine the scaling for x and y axes
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#from-the-plot-above-the-three-points-i-chose-are">
-       7.2.4.1. from the plot above the three points I chose are:
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#and-the-corresponding-pixel-coordinates-for-these-are">
-       7.2.4.2. and the corresponding pixel coordinates for these are:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apply-scaling-and-plot-to-confirm-our-code">
-     7.2.5. Apply scaling and plot to confirm our code
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lets-compare-to-the-original-image">
-       7.2.5.1. Let’s compare to the original image
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   7.3. Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-1">
-     7.3.1. Problem 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-2">
-     7.3.2. Problem 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-3">
-     7.3.3. Problem 3
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Estimating Data Values from Plots in the Literature (Part 1)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#read-the-image-file-with-matplotlib">
-   7.1. Read the image file with matplotlib
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#developing-code-in-small-steps">
-   7.2. Developing code in small steps
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image">
-     7.2.1. First, write code to get the pixel position of a mouse click on an image
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#keep-track-of-mouse-clicks-and-shift-the-image-origin-to-bottom-left">
-     7.2.2. Keep track of mouse clicks and shift the image origin to bottom left
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scatter-plot-of-selected-points-in-real-time">
-     7.2.3. Scatter plot of selected points in real time
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#determine-the-scaling-for-x-and-y-axes">
-     7.2.4. Determine the scaling for x and y axes
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#from-the-plot-above-the-three-points-i-chose-are">
-       7.2.4.1. from the plot above the three points I chose are:
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#and-the-corresponding-pixel-coordinates-for-these-are">
-       7.2.4.2. and the corresponding pixel coordinates for these are:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apply-scaling-and-plot-to-confirm-our-code">
-     7.2.5. Apply scaling and plot to confirm our code
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lets-compare-to-the-original-image">
-       7.2.5.1. Let’s compare to the original image
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   7.3. Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-1">
-     7.3.1. Problem 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-2">
-     7.3.2. Problem 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-3">
-     7.3.3. Problem 3
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Estimating Data Values from Plots in the Literature (Part 1)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-image-file-with-matplotlib">7.1. Read the image file with matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-code-in-small-steps">7.2. Developing code in small steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image">7.2.1. First, write code to get the pixel position of a mouse click on an image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-track-of-mouse-clicks-and-shift-the-image-origin-to-bottom-left">7.2.2. Keep track of mouse clicks and shift the image origin to bottom left</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot-of-selected-points-in-real-time">7.2.3. Scatter plot of selected points in real time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determine-the-scaling-for-x-and-y-axes">7.2.4. Determine the scaling for x and y axes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#from-the-plot-above-the-three-points-i-chose-are">7.2.4.1. from the plot above the three points I chose are:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#and-the-corresponding-pixel-coordinates-for-these-are">7.2.4.2. and the corresponding pixel coordinates for these are:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-scaling-and-plot-to-confirm-our-code">7.2.5. Apply scaling and plot to confirm our code</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-compare-to-the-original-image">7.2.5.1. Let’s compare to the original image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">7.3. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">7.3.1. Problem 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">7.3.2. Problem 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">7.3.3. Problem 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="estimating-data-values-from-plots-in-the-literature-part-1">
 <h1><span class="section-number">7. </span>Estimating Data Values from Plots in the Literature (Part 1)<a class="headerlink" href="#estimating-data-values-from-plots-in-the-literature-part-1" title="Permalink to this headline">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives  </p>
 <p>After completing this lesson, you should be able to:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>open an image file into an interactive widget e.g. screen capture of a data plot from the literature,</p></li>
 <li><p>find the pixel coordinates of the data points in the plot,</p></li>
 <li><p>transform the pixel coordinates into plot coordinates correcting for any skew or rotation caused by copying the original paper on a copy machine, and</p></li>
@@ -713,7 +469,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_7_0.png" src="../_images/07_digitizing_literature_plots_part_1_7_0.png" />
+<img alt="../_images/9289588b3d91607cd8e5ffddd19f096cb29ec9facc6ca3155699a3514a6761a4.png" src="../_images/9289588b3d91607cd8e5ffddd19f096cb29ec9facc6ca3155699a3514a6761a4.png" />
 </div>
 </div>
 <p>We want to determine if the data follows Avrami Kinetics: <span class="math notranslate nohighlight">\(1-X_t = \exp(-k t^n)\)</span> where <span class="math notranslate nohighlight">\(X_t\)</span> is the relative crystallinity fraction from 0 to 1.0.  If we take the Ln of both sides and then the log of both sides we get:  <span class="math notranslate nohighlight">\(log(-ln(1-xt)) = log(k) + n log(t)\)</span>.  To test, let’s plot our data as <span class="math notranslate nohighlight">\(\log(-ln(1-X_t))\)</span> versus <span class="math notranslate nohighlight">\(log(t)\)</span> and see if it is linear according to the equation we just found.</p>
@@ -725,13 +481,13 @@ title="Print to PDF"
 </section>
 <section id="developing-code-in-small-steps">
 <h2><span class="section-number">7.2. </span>Developing code in small steps<a class="headerlink" href="#developing-code-in-small-steps" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="#first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image">Step 1. Pixel position on an image</a><br />
-<a class="reference external" href="#keep-track-of-mouse-clicks-and-shift-the-image-origin-to-bottom-left">Step 2. Save pixel positions for multiple mouse clicks</a><br />
-<a class="reference external" href="#scatter-plot-of-selected-points-in-real-time">Step 3. Scatter plot of selected points in real time</a><br />
-<a class="reference external" href="#determine-the-scaling-for-x-and-y-axes">Step 4. Determine the scaling for x and y axes</a><br />
-<a class="reference external" href="#apply-scaling-and-plot-to-confirm-our-code">Step 5. Apply scaling and plot to confirm our code</a></p>
+<p><a class="reference internal" href="#step-1"><span class="std std-ref">Step 1. Pixel position on an image</span></a><br />
+<a class="reference internal" href="#step-2"><span class="std std-ref">Step 2. Save pixel positions for multiple mouse clicks</span></a><br />
+<a class="reference internal" href="#step-3"><span class="std std-ref">Step 3. Scatter plot of selected points in real time</span></a><br />
+<a class="reference internal" href="#step-4"><span class="std std-ref">Step 4. Determine the scaling for x and y axes</span></a><br />
+<a class="reference internal" href="#step-5"><span class="std std-ref">Step 5. Apply scaling and plot to confirm our code</span></a></p>
 <section id="first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image">
-<h3><span class="section-number">7.2.1. </span>First, write code to get the pixel position of a mouse click on an image<a class="headerlink" href="#first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image" title="Permalink to this headline">#</a></h3>
+<span id="step-1"></span><h3><span class="section-number">7.2.1. </span>First, write code to get the pixel position of a mouse click on an image<a class="headerlink" href="#first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image" title="Permalink to this headline">#</a></h3>
 <p>To do this we will use <strong>mpl_connect</strong> which will look for “events” and report on them.  In our case the event we want is a “button press” (mouse click) event on an interactive matplotlib figure.  When the mouse is clicked, we call the function “onclick” which we define below to update the title on our plot.  The click event gives us access to the x &amp; y coordinates of the click through the variables called event.xdata and event.ydata.  So here we go…</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -764,9 +520,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "0b5b72a096c5447583cbe37e8089d7d7", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0b5b72a096c5447583cbe37e8089d7d7", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <a class="reference internal image-reference" href="../_images/07_step_1.png"><img alt="../_images/07_step_1.png" class="align-center" src="../_images/07_step_1.png" style="height: 400px;" /></a>
 <div class="cell tag_remove-input docutils container">
@@ -1025,7 +779,7 @@ function check_mc() {
             printResponses(responsesContainer);
         }
         // End code to preserve responses
-
+        
         for (var i = 0; i < answers.length; i++) {
             var child = answers[i];
             //console.log(child);
@@ -1673,11 +1427,11 @@ if (typeof version == 'undefined') {
         show_questions(questionsMsGfqGDFjUbV,  MsGfqGDFjUbV);
         }
         </script>
-</div></div>
+        </div></div>
 </div>
 </section>
 <section id="keep-track-of-mouse-clicks-and-shift-the-image-origin-to-bottom-left">
-<h3><span class="section-number">7.2.2. </span>Keep track of mouse clicks and shift the image origin to bottom left<a class="headerlink" href="#keep-track-of-mouse-clicks-and-shift-the-image-origin-to-bottom-left" title="Permalink to this headline">#</a></h3>
+<span id="step-2"></span><h3><span class="section-number">7.2.2. </span>Keep track of mouse clicks and shift the image origin to bottom left<a class="headerlink" href="#keep-track-of-mouse-clicks-and-shift-the-image-origin-to-bottom-left" title="Permalink to this headline">#</a></h3>
 <p>We can do this by initializing an empty list called “positions” and then appending the values of each click event.  We fix the y-axis by simply subtracting each y value by the total number of pixels of the image in the vertical direction, <code class="docutils literal notranslate"><span class="pre">img.shape[0]</span></code>.  Note: img.shape[1] would return the number of pixels in the horizontal direction.  The new lines of code are indicated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1708,9 +1462,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ab01700aa926440db5e08d8d1e9cb226", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ab01700aa926440db5e08d8d1e9cb226", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <a class="reference internal image-reference" href="../_images/07_step_2.png"><img alt="../_images/07_step_2.png" class="align-center" src="../_images/07_step_2.png" style="height: 400px;" /></a>
 <div class="cell docutils container">
@@ -1752,7 +1504,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_26_0.png" src="../_images/07_digitizing_literature_plots_part_1_26_0.png" />
+<img alt="../_images/75f391eafc0b3a9cf036b9402304cc2952a793a428c5327059349e137fb26a8e.png" src="../_images/75f391eafc0b3a9cf036b9402304cc2952a793a428c5327059349e137fb26a8e.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -2011,7 +1763,7 @@ function check_mc() {
             printResponses(responsesContainer);
         }
         // End code to preserve responses
-
+        
         for (var i = 0; i < answers.length; i++) {
             var child = answers[i];
             //console.log(child);
@@ -2659,13 +2411,13 @@ if (typeof version == 'undefined') {
         show_questions(questionsnCMyaWNwCskt,  nCMyaWNwCskt);
         }
         </script>
-</div></div>
+        </div></div>
 </div>
 </section>
 <section id="scatter-plot-of-selected-points-in-real-time">
-<h3><span class="section-number">7.2.3. </span>Scatter plot of selected points in real time<a class="headerlink" href="#scatter-plot-of-selected-points-in-real-time" title="Permalink to this headline">#</a></h3>
+<span id="step-3"></span><h3><span class="section-number">7.2.3. </span>Scatter plot of selected points in real time<a class="headerlink" href="#scatter-plot-of-selected-points-in-real-time" title="Permalink to this headline">#</a></h3>
 <p>Changes in code below:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Change subplots code to create 2 plots horizontally (1 row and 2 columns)</p></li>
 <li><p>Set labels on the x and y axes</p></li>
 <li><p>Add the scatter plot to our “onclick” function so the plot updates after each click</p></li>
@@ -2706,9 +2458,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d33f7450707f4fa1bac1465a213d4dee", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d33f7450707f4fa1bac1465a213d4dee", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <a class="reference internal image-reference" href="../_images/07_step_3.png"><img alt="../_images/07_step_3.png" class="align-center" src="../_images/07_step_3.png" style="height: 400px;" /></a>
 <p>Here are the values for the points shown in the figure above.</p>
@@ -2738,7 +2488,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 <section id="determine-the-scaling-for-x-and-y-axes">
-<h3><span class="section-number">7.2.4. </span>Determine the scaling for x and y axes<a class="headerlink" href="#determine-the-scaling-for-x-and-y-axes" title="Permalink to this headline">#</a></h3>
+<span id="step-4"></span><h3><span class="section-number">7.2.4. </span>Determine the scaling for x and y axes<a class="headerlink" href="#determine-the-scaling-for-x-and-y-axes" title="Permalink to this headline">#</a></h3>
 <p>The problem with the data above is that it is in units of “pixels” and not minutes and relative crystallinity so we need to transform this data into the units of our plot.  We could simply find a scale factor for the x and y axes separately and apply those to our pixel data.  However, if our image was obtained by scanning a hard copy of the original plot (or taking a photo of the plot with a phone) it will most likely contain rotation and skew for example, if your phone isn’t perfectly level.</p>
 <p>We are going to use a more general method to calibrate the transformation from pixels to plot units.  This involves a transformation matrix, <span class="math notranslate nohighlight">\(m\)</span>, which you learned about or will learn in MSE 3134 Crystallography. We also include a translation correction (pixel offset).</p>
 <p>The general formula will be <span class="math notranslate nohighlight">\(m \cdot \ (pixel\ coord - \text{pixel offset}) = plot\ values\)</span> where <span class="math notranslate nohighlight">\(m\)</span> is the transformation matrix. In matrix notation, we have:</p>
@@ -2748,12 +2498,12 @@ if (typeof version == 'undefined') {
 <p>For our three calibration points, we will pick (1) a point along the x-axis (near the max value), (2) the plot origin (not necessarily (0,0) but it should be well defined), and (3) one point along the y-axis (near the max value). The plot below shows the three points chosen for this problem.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_39_0.png" src="../_images/07_digitizing_literature_plots_part_1_39_0.png" />
+<img alt="../_images/bffe80f1458d4c902af2df4cb444f603a1bb357ebcf22dccf0d72eb8ffb3769d.png" src="../_images/bffe80f1458d4c902af2df4cb444f603a1bb357ebcf22dccf0d72eb8ffb3769d.png" />
 </div>
 </div>
 <section id="from-the-plot-above-the-three-points-i-chose-are">
 <h4><span class="section-number">7.2.4.1. </span>from the plot above the three points I chose are:<a class="headerlink" href="#from-the-plot-above-the-three-points-i-chose-are" title="Permalink to this headline">#</a></h4>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>(60 min, 0 %)</p></li>
 <li><p>(0 min, 0 %)</p></li>
 <li><p>(0 min, 100 %)</p></li>
@@ -2761,7 +2511,7 @@ if (typeof version == 'undefined') {
 </section>
 <section id="and-the-corresponding-pixel-coordinates-for-these-are">
 <h4><span class="section-number">7.2.4.2. </span>and the corresponding pixel coordinates for these are:<a class="headerlink" href="#and-the-corresponding-pixel-coordinates-for-these-are" title="Permalink to this headline">#</a></h4>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>(371.6, 59.1)</p></li>
 <li><p>(56.1, 60.2)</p></li>
 <li><p>(55.1, 296.2)</p></li>
@@ -2878,7 +2628,7 @@ if (typeof version == 'undefined') {
 </section>
 </section>
 <section id="apply-scaling-and-plot-to-confirm-our-code">
-<h3><span class="section-number">7.2.5. </span>Apply scaling and plot to confirm our code<a class="headerlink" href="#apply-scaling-and-plot-to-confirm-our-code" title="Permalink to this headline">#</a></h3>
+<span id="step-5"></span><h3><span class="section-number">7.2.5. </span>Apply scaling and plot to confirm our code<a class="headerlink" href="#apply-scaling-and-plot-to-confirm-our-code" title="Permalink to this headline">#</a></h3>
 <p>Let’s write a function to perform this conversion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2946,7 +2696,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_65_0.png" src="../_images/07_digitizing_literature_plots_part_1_65_0.png" />
+<img alt="../_images/37bc378d5796ff8692a2f8d88b8bed66ba98eeef594c65d4abcd9932faa2518d.png" src="../_images/37bc378d5796ff8692a2f8d88b8bed66ba98eeef594c65d4abcd9932faa2518d.png" />
 </div>
 </div>
 <section id="lets-compare-to-the-original-image">
@@ -2990,7 +2740,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07_digitizing_literature_plots_part_1_67_0.png" src="../_images/07_digitizing_literature_plots_part_1_67_0.png" />
+<img alt="../_images/e93466d55b23d910ae858ec07a2cfe5287cc05b2e8f5e803d5a8ad6abd4e03a8.png" src="../_images/e93466d55b23d910ae858ec07a2cfe5287cc05b2e8f5e803d5a8ad6abd4e03a8.png" />
 </div>
 </div>
 <p>This looks pretty nice!</p>
@@ -3018,8 +2768,8 @@ if (typeof version == 'undefined') {
 <h3><span class="section-number">7.3.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
 <p>Reproduce the <span class="math notranslate nohighlight">\(2\theta\)</span> peak positions in the plot below using our calibration routine in this lesson. The Intensity is arbitrary so just assign the max value on the y-axis = 1. Use these values to answer the following:</p>
 <p>The x-ray pattern below is for BCC Tungsten.  The indices of the peaks (from left to right) are (110), (200), (211), (220), and (310).  (1) Calculate the interplanar spacing (d-spacing) for each peak.  (2) From each of the d-spacings, calculate the radius of tungsten.  (3) Find the mean and standard deviation of the radii. This is easily done if you store your radii in a numpy array.  You can use for example: <code class="docutils literal notranslate"><span class="pre">np.std()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>.  These are 1st order reflections so n = 1. Some useful equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bc2d5017-cf8a-4db7-a06f-078f919963a3">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-bc2d5017-cf8a-4db7-a06f-078f919963a3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b8b6fe47-8187-47c5-88ff-b3235bc1d0d7">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-b8b6fe47-8187-47c5-88ff-b3235bc1d0d7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 2\ d_{hkl}\ \sin(\theta)=n\ \lambda \\
 a=d_{hkl}\ \sqrt{h^2+k^2+l^2}
 \end{eqnarray}\]</div>
@@ -3041,7 +2791,7 @@ a=d_{hkl}\ \sqrt{h^2+k^2+l^2}
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./lessons_3114"
         },
         predefinedOutput: true
@@ -3049,50 +2799,120 @@ a=d_{hkl}\ \sqrt{h^2+k^2+l^2}
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="06_selecting_pixel_coordinates.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Selecting pixel coordinates from an image file</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06_selecting_pixel_coordinates.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Selecting pixel coordinates from an image file</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="08_digitizing_literature_plots_part_2.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="08_digitizing_literature_plots_part_2.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">8. </span>Estimating Data Values from Plots in the Literature (Part 2)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-image-file-with-matplotlib">7.1. Read the image file with matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-code-in-small-steps">7.2. Developing code in small steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-write-code-to-get-the-pixel-position-of-a-mouse-click-on-an-image">7.2.1. First, write code to get the pixel position of a mouse click on an image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-track-of-mouse-clicks-and-shift-the-image-origin-to-bottom-left">7.2.2. Keep track of mouse clicks and shift the image origin to bottom left</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot-of-selected-points-in-real-time">7.2.3. Scatter plot of selected points in real time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determine-the-scaling-for-x-and-y-axes">7.2.4. Determine the scaling for x and y axes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#from-the-plot-above-the-three-points-i-chose-are">7.2.4.1. from the plot above the three points I chose are:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#and-the-corresponding-pixel-coordinates-for-these-are">7.2.4.2. and the corresponding pixel coordinates for these are:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-scaling-and-plot-to-confirm-our-code">7.2.5. Apply scaling and plot to confirm our code</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-compare-to-the-original-image">7.2.5.1. Let’s compare to the original image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">7.3. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">7.3.1. Problem 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">7.3.2. Problem 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">7.3.3. Problem 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-    By Sean Corcoran<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
-</div>
+<p class="component-author">
+By Sean Corcoran
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
 
-      </div>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
