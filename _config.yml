@@ -5,7 +5,7 @@
 # Book settings
 title                       : "Python for MSE"
 author                      : Sean Corcoran
-copyright                   : "2022"  # Copyright year to be placed in the footer
+copyright                   : "2023"  # Copyright year to be placed in the footer
 logo                        : Horizontal_VT_Full_Color_RGB.jpg
 # Auto-exclude files not in the toc
 only_build_toc_files        : true
@@ -17,12 +17,7 @@ only_build_toc_files        : true
 execute:
   execute_notebooks: 'off'
   exclude_patterns: 
-      - '06_*'
-      - '07_*'
-      - '08_*'
-      - '09_*'
-      - '10_*'
-      - '11_*'
+#      - '06_*'   include lines like this if execute_notebooks is 'on'
 
 #######################################################################################
 # Parse and render settings
@@ -38,10 +33,10 @@ parse:
     - linkify
     - smartquotes
     - tasklist
-  myst_dmath_double_inline: True
-  myst_dmath_allow_space: False
+    - fieldlist
+#  myst_dmath_double_inline: True  -- the build is ignoring these lines, just use line return before and after $$
+#  myst_dmath_allow_space: false
   myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
-
 #######################################################################################
 # HTML-specific settings
 html:
