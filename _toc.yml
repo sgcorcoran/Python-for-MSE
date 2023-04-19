@@ -17,6 +17,7 @@ parts:
     - file: lessons_2114/08_more_practice
     - file: lessons_2114/09_wire_coating
     - file: lessons_2114/10_advanced_plotting
+    - file: lessons_2114/11_prep_for_3114
 #
   - caption: Appendix 2114 (in progress)
     numbered: true
