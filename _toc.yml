@@ -8,6 +8,7 @@ parts:
     numbered: false
     chapters:
     - file: genindex
+#    
   - caption: MSE 2114 Python for MSE I
     numbered: true
     chapters:
@@ -23,19 +24,6 @@ parts:
     - file: lessons_2114/10_advanced_plotting
     - file: lessons_2114/11_prep_for_3114
 #
-  - caption: Appendix 2114 (in progress)
-    numbered: true
-    chapters:
-    - file: lessons_2114/100_markdown_cells
-    - file: lessons_2114/101_math_operations
-    - file: lessons_2114/102_Plotting_basics
-    - file: lessons_2114/103_Plotting_functions
-    - file: lessons_2114/50_2114_course_support_files
-    - file: lessons_2114/51_2114_LinkedIn_Learning_Recommendations
-    - file: lessons_2114/52_2114_time_saving_tips
-    - file: lessons_2114/53_2114_updates
-#
-
   - caption: MSE 3114 Python for MSE II
     numbered: true
     chapters:
@@ -54,9 +42,17 @@ parts:
     - file: lessons_3114/13_Analyzing_Particles_in_a_Matrix
     - file: lessons_3114/14_removing_perspective
 #
-  - caption: Appendix 3114
+  - caption: Appendix
     numbered: true
     chapters:
+    - file: lessons_2114/100_markdown_cells
+    - file: lessons_2114/101_math_operations
+    - file: lessons_2114/102_Plotting_basics
+    - file: lessons_2114/103_Plotting_functions
+    - file: lessons_2114/50_2114_course_support_files
+    - file: lessons_2114/51_2114_LinkedIn_Learning_Recommendations
+    - file: lessons_2114/52_2114_time_saving_tips
+    - file: lessons_2114/53_2114_updates
     - file: lessons_3114/50_course_support_files
     - file: lessons_3114/51_LinkedIn_Learning_Recommendations
     - file: lessons_3114/52_time_saving_tips
