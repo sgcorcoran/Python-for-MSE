@@ -4,6 +4,10 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Front Matter
+    numbered: false
+    chapters:
+    - file: genindex
   - caption: MSE 2114 Python for MSE I
     numbered: true
     chapters:
@@ -57,3 +61,4 @@ parts:
     - file: lessons_3114/51_LinkedIn_Learning_Recommendations
     - file: lessons_3114/52_time_saving_tips
     - file: lessons_3114/53_updates
+
