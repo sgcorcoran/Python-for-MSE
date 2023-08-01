@@ -41,7 +41,7 @@ parse:
 #######################################################################################
 # HTML-specific settings
 html:
-  announcement              : "Virginia Tech MSE 2114 Spring 2023" # A banner announcement at the top of the site.
+  announcement              : "Virginia Tech MSE 2114-3114 Python for MSE" # A banner announcement at the top of the site.
   use_multitoc_numbering    : false   # Continuous numbering across parts/chapters
   extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar. 
 #  extra_footer              : "extra footer text goes here"  # Will be displayed underneath the footer.
