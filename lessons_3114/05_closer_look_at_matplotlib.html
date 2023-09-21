@@ -572,10 +572,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output text_html"><div id="laUmNDvspteu" data-shufflequestions="False"
+<div class="output text_html"><div id="uUPIbOZVDkYq" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -737,7 +734,7 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionslaUmNDvspteu=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
+}</style></div><script type="application/javascript">var questionsuUPIbOZVDkYq=[{"question": "How would you create two plots named \"ax1\" and \"ax2\" next to each other horizontally?", "type": "multiple_choice", "answers": [{"code": "fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)", "correct": true, "feedback": "Correct. The .subplots() function returns two outputs.  The first is the figure box and the second is a list of axes. The axes names can be a 1D or 2D list depending on the layout."}, {"code": "fig, ((ax1), (ax2)) = plt.subplots(nrows=2, ncols=1)", "correct": false, "feedback": "Not quite.  This would produce two plots vertically."}, {"code": "myfig, (axes_1, axes_2) = plt.subplots(nrows=1, ncols=2)", "correct": false, "feedback": "Good!  Although this would work just fine since you can name the figure and axes anything you want, the problem statement asked us to name the plots ax1 and ax2 rather than axes_1 and axes_2."}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1058,14 +1055,14 @@ function check_numeric(ths, event) {
 
         var submission = ths.value;
         if (submission.indexOf('/') != -1) {
-            sub_parts = submission.split('/');
+            var sub_parts = submission.split('/');
             //console.log(sub_parts);
             submission = sub_parts[0] / sub_parts[1];
         }
         //console.log("Reader entered", submission);
 
         if ("precision" in ths.dataset) {
-            precision = ths.dataset.precision;
+            var precision = ths.dataset.precision;
             // console.log("1:", submission)
             submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
             // console.log("Rounded to ", submission, " precision=", precision  );
@@ -1080,7 +1077,7 @@ function check_numeric(ths, event) {
         fb.style.display = "none";
         fb.textContent = "Incorrect -- try again.";
 
-        answers = JSON.parse(ths.dataset.answers);
+        var answers = JSON.parse(ths.dataset.answers);
         //console.log(answers);
 
         var defaultFB = "";
@@ -1177,7 +1174,7 @@ function isValid(el, charC) {
         if (el.value.indexOf('.') === -1) {
             return true;
         } else if (el.value.indexOf('/') != -1) {
-            parts = el.value.split('/');
+            var parts = el.value.split('/');
             if (parts[1].indexOf('.') === -1) {
                 return true;
             }
@@ -1196,7 +1193,7 @@ function isValid(el, charC) {
             return false;
         }
     } else if (charC == 45) {
-        edex = el.value.indexOf('e');
+        var edex = el.value.indexOf('e');
         if (edex == -1) {
             edex = el.value.indexOf('E');
         }
@@ -1292,10 +1289,10 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 function jaxify(string) {
     var mystring = string;
 
-    count = 0;
+    var count = 0;
     var loc = mystring.search(/([^\\]|^)(\$)/);
 
-    count2 = 0;
+    var count2 = 0;
     var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
 
     //console.log(loc);
@@ -1471,10 +1468,9 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionslaUmNDvspteu,  laUmNDvspteu);
+        show_questions(questionsuUPIbOZVDkYq,  uUPIbOZVDkYq);
         }
-        </script>
-        </div></div>
+        </script></div>
 </div>
 <p>We can test our layout by running the above codes without adding plots to our axes.  Let’s try the vertical layout example.</p>
 <div class="cell docutils container">
@@ -1484,7 +1480,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b31ecd63140a089d9129027e9a70ef93c6f9f84100fabe8ba27827f939389632.png" src="../_images/b31ecd63140a089d9129027e9a70ef93c6f9f84100fabe8ba27827f939389632.png" />
+<img alt="../_images/92cc221aa76d276a8f9e452e78d8498413ad35d0442c43e7ef050d589448a3f2.png" src="../_images/92cc221aa76d276a8f9e452e78d8498413ad35d0442c43e7ef050d589448a3f2.png" />
 </div>
 </div>
 <p>or how about 2 rows of 3 plots horizontally…  Here we need to use a 2D list of axes:</p>
@@ -1495,7 +1491,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d84f1311b6089882423dd06dc7b70fcf127c780de4ba8b86b76e83a5570549f5.png" src="../_images/d84f1311b6089882423dd06dc7b70fcf127c780de4ba8b86b76e83a5570549f5.png" />
+<img alt="../_images/357dc1064e28a8662037319dbc6b11ed45fbae8dfb4d134dd2c311e035fc733c.png" src="../_images/357dc1064e28a8662037319dbc6b11ed45fbae8dfb4d134dd2c311e035fc733c.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -1513,11 +1509,11 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9, 12],
-       [ 9, 12],
-       [ 8, 10],
-       [ 4,  6],
-       [ 8,  9]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 7,  9],
+       [ 7, 11],
+       [ 7, 10],
+       [ 7, 11],
+       [10, 13]])
 </pre></div>
 </div>
 </div>
@@ -1540,7 +1536,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/422af0b969e5d8075df2bf38d76984411b00a7e029b6468100e1178bd14eaa29.png" src="../_images/422af0b969e5d8075df2bf38d76984411b00a7e029b6468100e1178bd14eaa29.png" />
+<img alt="../_images/d7a7a84c0e01889dd57e5661c5088db626dbecc1f2266b138baed0bbb0df12e1.png" src="../_images/d7a7a84c0e01889dd57e5661c5088db626dbecc1f2266b138baed0bbb0df12e1.png" />
 </div>
 </div>
 <p><strong>So many things to tweak in the above code…</strong>  For example, it might be nice to move that legend in the second plot.  Currently, it is overlapping our bars.  Also, ‘edgecolor’ looks like an interesting option in the first plot.</p>

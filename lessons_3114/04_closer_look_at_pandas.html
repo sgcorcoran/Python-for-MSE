@@ -401,7 +401,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-2-columns">4.1.3. groupby 2 columns</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-3-columns">4.1.4. groupby 3 columns</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pandas-plot">4.1.4.1. Using pandas plot:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-matplotlib">4.1.4.2. Using matplotlib:</a></li>
 </ul>
 </li>
 </ul>
@@ -560,7 +559,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Slicing DataFrames using .loc and .iloc
 </pre></div>
 </div>
-<div class="output text_html"><div id="JWWSTnJWjaZk" data-shufflequestions="False"
+<div class="output text_html"><div id="gliyAFznUIOU" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"> <style>:root {
@@ -722,7 +721,7 @@ document.write(`
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsJWWSTnJWjaZk=[{"question": "For the DataFrame, \"raw\" above, how would you select the columns: \"Name\" and \"Age\" and only the first 10 entries?", "type": "multiple_choice", "answers": [{"code": "raw.loc[0:9,['Name','Age']]", "correct": true, "feedback": "Correct. Here we use .loc[] and not .iloc[] since we are using the column names.  We pass the column names as a list, ['Name','Age'], since we are skipping the column 'Sex.' If we wanted the columns Name, Sex, and Age, we could just write raw.loc[0:9,'Name':'Age']"}, {"code": "raw.iloc[0:9,[3,5]]", "correct": true, "feedback": "Yes this works but .loc[] is cleaner to read so you don't have to count the column number  to figure out which column is 3 or 5."}, {"code": "raw.iloc[1:10,['Name','Age']]", "correct": false, "feedback": "Not quite.  Remember the first row is labeled, '0' and if we are using column names we need .loc not .iloc"}]}];
+}</style></div><script type="application/javascript">var questionsgliyAFznUIOU=[{"question": "For the DataFrame, \"raw\" above, how would you select the columns: \"Name\" and \"Age\" and only the first 10 entries?", "type": "multiple_choice", "answers": [{"code": "raw.loc[0:9,['Name','Age']]", "correct": true, "feedback": "Correct. Here we use .loc[] and not .iloc[] since we are using the column names.  We pass the column names as a list, ['Name','Age'], since we are skipping the column 'Sex.' If we wanted the columns Name, Sex, and Age, we could just write raw.loc[0:9,'Name':'Age']"}, {"code": "raw.iloc[0:9,[3,5]]", "correct": true, "feedback": "Yes this works but .loc[] is cleaner to read so you don't have to count the column number  to figure out which column is 3 or 5."}, {"code": "raw.iloc[1:10,['Name','Age']]", "correct": false, "feedback": "Not quite.  Remember the first row is labeled, '0' and if we are using column names we need .loc not .iloc"}]}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1043,14 +1042,14 @@ function check_numeric(ths, event) {
 
         var submission = ths.value;
         if (submission.indexOf('/') != -1) {
-            sub_parts = submission.split('/');
+            var sub_parts = submission.split('/');
             //console.log(sub_parts);
             submission = sub_parts[0] / sub_parts[1];
         }
         //console.log("Reader entered", submission);
 
         if ("precision" in ths.dataset) {
-            precision = ths.dataset.precision;
+            var precision = ths.dataset.precision;
             // console.log("1:", submission)
             submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
             // console.log("Rounded to ", submission, " precision=", precision  );
@@ -1065,7 +1064,7 @@ function check_numeric(ths, event) {
         fb.style.display = "none";
         fb.textContent = "Incorrect -- try again.";
 
-        answers = JSON.parse(ths.dataset.answers);
+        var answers = JSON.parse(ths.dataset.answers);
         //console.log(answers);
 
         var defaultFB = "";
@@ -1162,7 +1161,7 @@ function isValid(el, charC) {
         if (el.value.indexOf('.') === -1) {
             return true;
         } else if (el.value.indexOf('/') != -1) {
-            parts = el.value.split('/');
+            var parts = el.value.split('/');
             if (parts[1].indexOf('.') === -1) {
                 return true;
             }
@@ -1181,7 +1180,7 @@ function isValid(el, charC) {
             return false;
         }
     } else if (charC == 45) {
-        edex = el.value.indexOf('e');
+        var edex = el.value.indexOf('e');
         if (edex == -1) {
             edex = el.value.indexOf('E');
         }
@@ -1277,10 +1276,10 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 function jaxify(string) {
     var mystring = string;
 
-    count = 0;
+    var count = 0;
     var loc = mystring.search(/([^\\]|^)(\$)/);
 
-    count2 = 0;
+    var count2 = 0;
     var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
 
     //console.log(loc);
@@ -1456,10 +1455,9 @@ if (typeof version == 'undefined') {
 }
 
         {
-        show_questions(questionsJWWSTnJWjaZk,  JWWSTnJWjaZk);
+        show_questions(questionsgliyAFznUIOU,  gliyAFznUIOU);
         }
-        </script>
-        </div></div>
+        </script></div>
 </div>
 <p id="stop-and-think-1">Let’s take a subset of our data to inlcude the columns: ‘Survived’, ‘Pclass’,‘Sex’,‘Age’, and ‘Fare’</p>
 <div class="cell docutils container">
@@ -1621,16 +1619,17 @@ if (typeof version == 'undefined') {
 
 <span class="c1"># the following code might be useful for your cheatsheet</span>
 <span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">dataforbar</span><span class="p">)</span> <span class="c1">#notice format here for bar plots</span>
+<span class="n">dataforbar</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#notice format here for bar plots  dataframe.plot.bar(ax= , rot=0)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="c1"># if not used, you will get the labels that are in the dataframe which is often fine</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Survival Status&#39;</span><span class="p">)</span> <span class="c1"># will default to column label of dataframe if not used</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Average Fare Price&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average Fare Paid versus Survival&#39;</span><span class="p">)</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a9dc7cf4e0bf2be26d5b33d7bbfaea81b7f817f8b7a2eb6256ea2c2b56637cc2.png" src="../_images/a9dc7cf4e0bf2be26d5b33d7bbfaea81b7f817f8b7a2eb6256ea2c2b56637cc2.png" />
+<img alt="../_images/877a73abe075f9eb5098d8565f7f6eb424979fdc3a9e68b2d94cb0b8c4548cd5.png" src="../_images/877a73abe075f9eb5098d8565f7f6eb424979fdc3a9e68b2d94cb0b8c4548cd5.png" />
 </div>
 </div>
 <div class="admonition-something-to-try admonition">
@@ -1991,6 +1990,10 @@ Name: Age, dtype: float64
 </div>
 </div>
 <p>You can see this is the same data but the former gives a DataFrame back rather than a Series and it is easier to read and use. Let’s make a bar chart of our unstacked result. This data is the average age by ‘Sex’ and ‘Pclass’.  <strong>We will put the Pclass on the x-axis and plot a bar for each Sex (male or female) with a height given by the average Age (y-axis).</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Don’t use the code in the next cell.  I’m showing it to you so you can see how much easier it is to use pandas plotting rather than matplotlib.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforbar</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
@@ -2015,24 +2018,25 @@ Name: Age, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4e4b8f821768f9cc35bf01575535ff3617f2355382207de0130520258fb4bd50.png" src="../_images/4e4b8f821768f9cc35bf01575535ff3617f2355382207de0130520258fb4bd50.png" />
+<img alt="../_images/0c0757f4b75969cf5aed80c52ce5cd020e8b6f5fdf7428501ee46b52116c1cdf.png" src="../_images/0c0757f4b75969cf5aed80c52ce5cd020e8b6f5fdf7428501ee46b52116c1cdf.png" />
 </div>
 </div>
-<p>We did quite a bit of work above with matplotlib (i.e. plt) to get the bar chart to work out.  Since pandas specializes in working with DataFrames, we can use <strong>pandas</strong> to plot rather than matplotlib.  <strong>The code is much easier.</strong> In fact, pandas uses matplotlib to plot but has its own plot functions designed to work with dataframes.</p>
+<p>We did quite a bit of work above with matplotlib (i.e. plt) to get the bar chart to work out.  Since pandas specializes in working with DataFrames, we can use <strong>pandas</strong> to plot rather than matplotlib.  <strong>The code (below) is much easier.</strong> In fact, pandas uses matplotlib to plot but has its own plot functions designed to work with dataframes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforbar</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
 
-<span class="n">ax</span><span class="o">=</span><span class="n">dataforbar</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Average Age&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average Age of passengers versus Ticket Class&#39;</span><span class="p">)</span>
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">dataforbar</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax0</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># again notice that the axis name, ax0, goes inside the bar() function</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Average Age&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average Age of passengers versus Ticket Class&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/46b46693964b71f0e694361f53376b989604940b6ef5d92a7d81213de58eb904.png" src="../_images/46b46693964b71f0e694361f53376b989604940b6ef5d92a7d81213de58eb904.png" />
+<img alt="../_images/2a7216cb123bc59082e8cace1afa8bce54ef75627ec6502bbfee363c7c53bfa8.png" src="../_images/2a7216cb123bc59082e8cace1afa8bce54ef75627ec6502bbfee363c7c53bfa8.png" />
 </div>
 </div>
 <p><strong>Wow!</strong>  That was much easier but notice that didn’t get back exactly the same plot. Notice the x-axis and legend are reversed comparing the two plots.  We can fix this easily by reversing the order of our groupby command from <code class="docutils literal notranslate"><span class="pre">.groupby(['Sex','Pclass'])</span></code> to <code class="docutils literal notranslate"><span class="pre">.groupby(['Pclass',</span> <span class="pre">'Sex'])</span></code>.</p>
@@ -2040,7 +2044,8 @@ Name: Age, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforbar</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
 
-<span class="n">ax2</span><span class="o">=</span><span class="n">dataforbar</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">dataforbar</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Average Age&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average Age of passengers versus Ticket Class&#39;</span><span class="p">)</span>
 
@@ -2049,7 +2054,7 @@ Name: Age, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7c8f1d58ae5ea271d07c748b7b970dea6a4ecf088766dea4e25976639e484056.png" src="../_images/7c8f1d58ae5ea271d07c748b7b970dea6a4ecf088766dea4e25976639e484056.png" />
+<img alt="../_images/5095c024eda84377d9de2a9ac5290674e2da3dc5888968efc79db2ffe97d8fa0.png" src="../_images/5095c024eda84377d9de2a9ac5290674e2da3dc5888968efc79db2ffe97d8fa0.png" />
 </div>
 </div>
 <div class="admonition important">
@@ -2152,16 +2157,17 @@ etc…</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforbar</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
 
-<span class="n">ax</span><span class="o">=</span><span class="n">dataforbar</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Passengers&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of Passengers that survived and died broken out by ticket class and sex&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;0 = Died, 1=Survived&quot;</span><span class="p">)</span>
-<span class="n">gg</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">dataforbar</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Passengers&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of Passengers that survived and died broken out by ticket class and sex&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;0 = Died, 1=Survived&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8fa5a50790a1c2eea15fd7075bfefccc4e3f20a2a93babd6eef4773d6e029506.png" src="../_images/8fa5a50790a1c2eea15fd7075bfefccc4e3f20a2a93babd6eef4773d6e029506.png" />
+<img alt="../_images/f3aa1dccfb5bb997c608dec34a63d1d54e5cf5159dfa17c729cbfa2bf34d4f62.png" src="../_images/f3aa1dccfb5bb997c608dec34a63d1d54e5cf5159dfa17c729cbfa2bf34d4f62.png" />
 </div>
 </div>
 <div class="admonition-try-this admonition" id="groupby-3-columns-try-1">
@@ -2320,54 +2326,110 @@ etc…</p>
 </table>
 </div></div></div>
 </div>
+<p>We also could have changed the order of the groupby and used only one unstack to get the same data form.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">1</th>
+      <th>female</th>
+      <td>3</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>77</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2</th>
+      <th>female</th>
+      <td>6</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>91</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">3</th>
+      <th>female</th>
+      <td>72</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>300</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>Now we can make a pie chart on the percentages of various classes of people that died (0) or survived (1).  Let’s look at those that survived.</p>
 <section id="using-pandas-plot">
 <h4><span class="section-number">4.1.4.1. </span>Using pandas plot:<a class="headerlink" href="#using-pandas-plot" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">dataforpie</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># y = column_index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforpie</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">dataforpie</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># y = column_index &quot;1&quot; is the second column = survived</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/801fec9ab350ac587b0f0ca539b30ef317267233ac69d248fe89ecd957c0433a.png" src="../_images/801fec9ab350ac587b0f0ca539b30ef317267233ac69d248fe89ecd957c0433a.png" />
+<img alt="../_images/ad3aebe0e1ffd19967902ffa75315f241831255e6708938172708662dea57fe9.png" src="../_images/ad3aebe0e1ffd19967902ffa75315f241831255e6708938172708662dea57fe9.png" />
 </div>
 </div>
 <p>Adding some formatting changes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">dataforpie</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.1f%%</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">explode</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Percentage by ticket class and sex of passengers that survived &#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig2</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">dataforpie</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.1f%%</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">explode</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Percentage by ticket class and sex of passengers that survived (class,sex) &#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/739351d3cc801bcea34ff6f93f3800552342471acf899b11bfa21c0d485db5f2.png" src="../_images/739351d3cc801bcea34ff6f93f3800552342471acf899b11bfa21c0d485db5f2.png" />
-</div>
-</div>
-</section>
-<section id="using-matplotlib">
-<h4><span class="section-number">4.1.4.2. </span>Using matplotlib:<a class="headerlink" href="#using-matplotlib" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforpie</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
-
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1st female&#39;</span><span class="p">,</span><span class="s1">&#39;1st male&#39;</span><span class="p">,</span><span class="s1">&#39;2nd female&#39;</span><span class="p">,</span><span class="s1">&#39;2nd male&#39;</span><span class="p">,</span><span class="s1">&#39;3rd female&#39;</span><span class="p">,</span><span class="s1">&#39;3rd male&#39;</span><span class="p">]</span>
-
-<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">dataforpie</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
-
-<span class="c1"># Add some text for labels, title and custom x-axis tick labels, etc.</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Percentage by ticket class and gender of passengers that survived &#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/2b031f9f3fc114188b5594f4718ee9347e2036ce7c453b18ce05438ab1d5b67a.png" src="../_images/2b031f9f3fc114188b5594f4718ee9347e2036ce7c453b18ce05438ab1d5b67a.png" />
+<img alt="../_images/f6daccfac147f43d36df0314ba9e6c77b5b4b0c29037b71fd1c202c876fc9168.png" src="../_images/f6daccfac147f43d36df0314ba9e6c77b5b4b0c29037b71fd1c202c876fc9168.png" />
 </div>
 </div>
 </section>
@@ -2477,7 +2539,6 @@ d. Replace data.head() with data.head(2) and data.head(5).  How does this compar
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-2-columns">4.1.3. groupby 2 columns</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-3-columns">4.1.4. groupby 3 columns</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pandas-plot">4.1.4.1. Using pandas plot:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-matplotlib">4.1.4.2. Using matplotlib:</a></li>
 </ul>
 </li>
 </ul>
