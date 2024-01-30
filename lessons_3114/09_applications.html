@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="10. Application: Peak Deconvolution" href="10_peak_deconvolution.html" />
     <link rel="prev" title="8. Estimating Data Values from Plots in the Literature (Part 2)" href="08_digitizing_literature_plots_part_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -432,7 +447,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="application-crystallization-kinetics-of-amorphous-tio-2">
-<h1><span class="section-number">9. </span>Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span><a class="headerlink" href="#application-crystallization-kinetics-of-amorphous-tio-2" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">9. </span>Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span><a class="headerlink" href="#application-crystallization-kinetics-of-amorphous-tio-2" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives  </p>
 <p>After completing this lesson, you should be able to:</p>
@@ -459,7 +474,7 @@ document.write(`
 </div>
 </div>
 <section id="application-description">
-<h2><span class="section-number">9.1. </span>Application description<a class="headerlink" href="#application-description" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1. </span>Application description<a class="headerlink" href="#application-description" title="Permalink to this heading">#</a></h2>
 <p>The data and figures for this lesson were taken from: (Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span>, <em>Thin Solid Films</em> 519 (2010) 1649-1654)</p>
 <a class="reference internal image-reference" href="../_images/09_reference.png"><img alt="../_images/09_reference.png" class="align-center" src="../_images/09_reference.png" style="width: 500px;" /></a>
 <br><p>The X-ray diffraction data below are for 180 nm samples of <span class="math notranslate nohighlight">\(TiO_2\)</span> that are initially amorphous at room temperature. The temperature of the amorphous sample was increased to the indicated temperatures for a fixed time which begins the crystallization process (the amorphous phase is unstable).  The presence of a peak in the X-ray data indicates the presence of the crystalline phase.  The area under each peak is proportional to the fraction of the sample that has been crystallized.  Notice that the peak no longer changes after 260 C.  This is because at this point the sample is 100% crystallized.  We can take the area under this curve or the 280 C curve to represent 100% crystalline <span class="math notranslate nohighlight">\(TiO_2\)</span>.</p>
@@ -474,7 +489,7 @@ document.write(`
 </div>
 </section>
 <section id="load-packages-and-define-functions">
-<h2><span class="section-number">9.2. </span>Load packages and define functions<a class="headerlink" href="#load-packages-and-define-functions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.2. </span>Load packages and define functions<a class="headerlink" href="#load-packages-and-define-functions" title="Permalink to this heading">#</a></h2>
 <p>We have already loaded our functions  <code class="docutils literal notranslate"><span class="pre">selectdata()</span></code> and <code class="docutils literal notranslate"><span class="pre">cal()</span></code> previously:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">run</span> <span class="n">getpix_utilities</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
@@ -482,7 +497,7 @@ document.write(`
 <p>If you haven’t, then do that now.</p>
 </section>
 <section id="reproduce-the-normalized-intensity-vs-time-data">
-<h2><span class="section-number">9.3. </span>Reproduce the normalized intensity vs time data<a class="headerlink" href="#reproduce-the-normalized-intensity-vs-time-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.3. </span>Reproduce the normalized intensity vs time data<a class="headerlink" href="#reproduce-the-normalized-intensity-vs-time-data" title="Permalink to this heading">#</a></h2>
 <p>Recall that the author’s of the publication were not able to fit this data without creating an additional fitting parameter (which invalidated their analysis). The python fitting routine below will have no problem fitting the data giving us a more accurate measurement of the parameters <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -550,7 +565,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6))
 </div>
 </section>
 <section id="fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy">
-<h2><span class="section-number">9.4. </span>Fit the data to the avrami equation using <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> from scipy<a class="headerlink" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.4. </span>Fit the data to the avrami equation using <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> from scipy<a class="headerlink" href="#fit-the-data-to-the-avrami-equation-using-curve-fit-from-scipy" title="Permalink to this heading">#</a></h2>
 <p>Avrami equation (recall this from Callister, Chap 10)</p>
 <div class="math notranslate nohighlight">
 \[\large Y=1-e^{-K t^n}\]</div>
@@ -629,9 +644,9 @@ option 2: k = 1.125e-05 and n = 2.48
 </div>
 </section>
 <section id="fiting-with-peak-functions">
-<h2><span class="section-number">9.5. </span>Fiting with peak functions<a class="headerlink" href="#fiting-with-peak-functions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.5. </span>Fiting with peak functions<a class="headerlink" href="#fiting-with-peak-functions" title="Permalink to this heading">#</a></h2>
 <section id="lets-reproduce-the-280-c-curve">
-<h3><span class="section-number">9.5.1. </span>Let’s reproduce the 280 C curve<a class="headerlink" href="#lets-reproduce-the-280-c-curve" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.5.1. </span>Let’s reproduce the 280 C curve<a class="headerlink" href="#lets-reproduce-the-280-c-curve" title="Permalink to this heading">#</a></h3>
 <p>You can always use ctrl+“+” to increase the zoom level in your browser so you can pick points more accurately.  Ctrl+“-” will decrease your zoom level.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -669,7 +684,7 @@ option 2: k = 1.125e-05 and n = 2.48
 </section>
 </section>
 <section id="fit-the-peak-data">
-<h2><span class="section-number">9.6. </span>Fit the peak data<a class="headerlink" href="#fit-the-peak-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.6. </span>Fit the peak data<a class="headerlink" href="#fit-the-peak-data" title="Permalink to this heading">#</a></h2>
 <p>There are several peak functions that can be used and I’ve given 3 more examples in the <a class="reference internal" href="#appendix-other-peak-fitting-functions"><span class="std std-ref">Appendix</span></a>.  The function below is Lorentzian distribution where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude, <span class="math notranslate nohighlight">\(\mu\)</span> is the position of the peak (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> defines the peak width (stddev).  For our data, <span class="math notranslate nohighlight">\(x\)</span> would be the angle, <span class="math notranslate nohighlight">\(2 \theta\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[f(x; A, \mu,\sigma)=\frac{A}{\pi}\left[\frac{\sigma}{(x-\mu)^2+\sigma^2}\right]\]</div>
@@ -704,7 +719,7 @@ option 2: k = 1.125e-05 and n = 2.48
 <p>The lorentzian does not do a good job at fitting this type of peak.  We should probably use a different function as defined in the Appendix. Perhaps a <a class="reference internal" href="#appendix-gaussian"><span class="std std-ref">Gaussian</span></a> function or a combination of the two.</p>
 </section>
 <section id="finding-the-area-under-a-function">
-<h2><span class="section-number">9.7. </span>Finding the area under a function<a class="headerlink" href="#finding-the-area-under-a-function" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.7. </span>Finding the area under a function<a class="headerlink" href="#finding-the-area-under-a-function" title="Permalink to this heading">#</a></h2>
 <p>Now we can work on integrating our fitted function over the peak position to find the area under the curve.  The area in this case is proportional to the fraction of crystallization.  We can use the area under the 280 C curve as our fully crystallized case and compare all other areas to this one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -751,9 +766,9 @@ option 2: k = 1.125e-05 and n = 2.48
 <a class="reference internal image-reference" href="../_images/09_lorentz_gauss_fit.png"><img alt="../_images/09_lorentz_gauss_fit.png" class="align-center" src="../_images/09_lorentz_gauss_fit.png" style="width: 450px;" /></a>
 </section>
 <section id="appendix-other-peak-fitting-functions">
-<span id="id1"></span><h2><span class="section-number">9.8. </span>Appendix: Other Peak Fitting Functions<a class="headerlink" href="#appendix-other-peak-fitting-functions" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2><span class="section-number">9.8. </span>Appendix: Other Peak Fitting Functions<a class="headerlink" href="#appendix-other-peak-fitting-functions" title="Permalink to this heading">#</a></h2>
 <section id="gaussian">
-<span id="appendix-gaussian"></span><h3><span class="section-number">9.8.1. </span>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this headline">#</a></h3>
+<span id="appendix-gaussian"></span><h3><span class="section-number">9.8.1. </span>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[f(x; A, \mu,\sigma)=\frac{A}{\sigma \sqrt{2\pi}}e^{\left[-(x-\mu)^2/(2\sigma^2)\right]}\]</div>
 <div class="cell docutils container">
@@ -775,7 +790,7 @@ option 2: k = 1.125e-05 and n = 2.48
 <a class="reference internal image-reference" href="../_images/09_gaussian.png"><img alt="../_images/09_gaussian.png" class="align-center" src="../_images/09_gaussian.png" style="width: 450px;" /></a>
 </section>
 <section id="voigt">
-<h3><span class="section-number">9.8.2. </span>Voigt<a class="headerlink" href="#voigt" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.8.2. </span>Voigt<a class="headerlink" href="#voigt" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[f(x; A, \mu,\sigma,\gamma)=\frac{A\ Re[w(z)]}{\sigma \sqrt{2 \pi}}\]</div>
 <p>where
@@ -812,7 +827,7 @@ option 2: k = 1.125e-05 and n = 2.48
 <a class="reference internal image-reference" href="../_images/09_voigt.png"><img alt="../_images/09_voigt.png" class="align-center" src="../_images/09_voigt.png" style="width: 450px;" /></a>
 </section>
 <section id="weighted-sum-of-gaussian-and-lorentz">
-<span id="appendix-weighted-sum"></span><h3><span class="section-number">9.8.3. </span>Weighted sum of Gaussian and Lorentz<a class="headerlink" href="#weighted-sum-of-gaussian-and-lorentz" title="Permalink to this headline">#</a></h3>
+<span id="appendix-weighted-sum"></span><h3><span class="section-number">9.8.3. </span>Weighted sum of Gaussian and Lorentz<a class="headerlink" href="#weighted-sum-of-gaussian-and-lorentz" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[f(x; A, \mu,\sigma,\alpha)=\frac{\alpha A}{\pi}\left[\frac{\sigma}{(x-\mu)^2+\sigma^2}\right] + 
 \frac{(1-\alpha) A}{\sigma_g \sqrt{2\pi}}e^{\left[-(x-\mu)^2/(2\sigma_g^2)\right]}\]</div>
@@ -842,23 +857,23 @@ option 2: k = 1.125e-05 and n = 2.48
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">9.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For the problems below, load the functions selectdata() and cal() by using the <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">notebook_name.ipynb</span></code> as shown in this lesson.  You don’t have to use my exact function definitions nor name them as I have but you need two functions, one to turn your pixel data into plot units and one to allow you to display an image file and select points.</p>
 </div>
 <section id="problem-1-fit-to-avrami-equation">
-<h3><span class="section-number">9.9.1. </span>Problem 1: Fit to Avrami equation<a class="headerlink" href="#problem-1-fit-to-avrami-equation" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.9.1. </span>Problem 1: Fit to Avrami equation<a class="headerlink" href="#problem-1-fit-to-avrami-equation" title="Permalink to this heading">#</a></h3>
 <p>Determine the values <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(K\)</span> of the Avrami equation, <span class="math notranslate nohighlight">\(Y=1-e^{-K t^n}\)</span> for the 440 nm data shown below. Remember it helps to give initial guesses for the values <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(K\)</span> when performing the fit.  You can expect <span class="math notranslate nohighlight">\(K\)</span> to be something like <span class="math notranslate nohighlight">\(10^{-4}\)</span> and <span class="math notranslate nohighlight">\(n\)</span> is a value typically between 2 and 3. <em>Include a plot of the 440 data and your Avrami fit on the same plot to give a feel for the goodness of fit.</em></p>
 <a class="reference internal image-reference" href="../_images/09_crystalliz_data.png"><img alt="../_images/09_crystalliz_data.png" class="align-center" src="../_images/09_crystalliz_data.png" style="width: 400px;" /></a>
 </section>
 <section id="problem-2-requires-answer-from-problem-1">
-<h3><span class="section-number">9.9.2. </span>Problem 2: (requires answer from problem 1)<a class="headerlink" href="#problem-2-requires-answer-from-problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.9.2. </span>Problem 2: (requires answer from problem 1)<a class="headerlink" href="#problem-2-requires-answer-from-problem-1" title="Permalink to this heading">#</a></h3>
 <p>Get the values for <span class="math notranslate nohighlight">\(n\)</span> from the plot below for the 180nm and 440nm thickness.  Then compare these to the values we obtained.  For the 180 nm sample, we found <span class="math notranslate nohighlight">\(n\)</span> = 2.48 in the lesson.  For the 440 nm sample, you found <span class="math notranslate nohighlight">\(n\)</span> from problem 1 above.  To compare values, you can present the difference as a percent i.e., <span class="math notranslate nohighlight">\(100*(paper\_value - our\_value)/our\_value\)</span>. <em>No plots required for this problem but your final answer should be a print statement using f-string formatting.</em>  Using an f-string print the following as your answer: <strong>“For the 440 nm thick sample, an avrami exponent of ## was obtained while the value in the paper was ##.  The paper value is in error by ##%”</strong> where the “##” are passed to the print statement using their variable names. Format your values for n and % to 2 decimals float e.g. <code class="docutils literal notranslate"><span class="pre">{n_value:.2f}</span></code>.  The values in the paper are a result of the authors fitting <span class="math notranslate nohighlight">\(y=1-exp(-k  (t-t_0)^n)\)</span>  rather than the avrami equation which should be <span class="math notranslate nohighlight">\(y=1-exp(-k  t^n).\)</span></p>
 <a class="reference internal image-reference" href="../_images/09_avrami_numbers.png"><img alt="../_images/09_avrami_numbers.png" class="align-center" src="../_images/09_avrami_numbers.png" style="width: 500px;" /></a>
 </section>
 <section id="problem-3-peak-fitting">
-<h3><span class="section-number">9.9.3. </span>Problem 3: Peak fitting<a class="headerlink" href="#problem-3-peak-fitting" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.9.3. </span>Problem 3: Peak fitting<a class="headerlink" href="#problem-3-peak-fitting" title="Permalink to this heading">#</a></h3>
 <p>Reproduce the 240 C curve shown below.  You should use enough data points to fully define the peak function as shown below for the 280 C data.  Plot the 240 C data along with the 280 C data.  Label your axes and title your plot.  Also include a legend.  The 280 C pixel data is given below to save you some time.  Next, fit both sets of data to the <a class="reference internal" href="#appendix-gaussian"><span class="std std-ref">gaussian model</span></a>.  Include these fitted results in your plot and add to the legend.</p>
 <a class="reference internal image-reference" href="../_images/09_pix_cal.png"><img alt="../_images/09_pix_cal.png" class="align-center" src="../_images/09_pix_cal.png" style="width: 500px;" /></a>
 <div class="admonition important">
@@ -927,7 +942,7 @@ option 2: k = 1.125e-05 and n = 2.48
 </div>
 </section>
 <section id="problem-4-finding-the-area-under-a-curve-integrate-quad">
-<h3><span class="section-number">9.9.4. </span>Problem 4: Finding the area under a curve <code class="docutils literal notranslate"><span class="pre">integrate.quad()</span></code><a class="headerlink" href="#problem-4-finding-the-area-under-a-curve-integrate-quad" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">9.9.4. </span>Problem 4: Finding the area under a curve <code class="docutils literal notranslate"><span class="pre">integrate.quad()</span></code><a class="headerlink" href="#problem-4-finding-the-area-under-a-curve-integrate-quad" title="Permalink to this heading">#</a></h3>
 <p>Using the results from problem 3, find the area under both the 280 C and 240 C data. It is important that you integrate over the same <span class="math notranslate nohighlight">\(2\theta\)</span> values for both curves.  You can use 24.5 to 26.1. Present your final answer using the f-string statements shown below.  You will have to change the area240 and area280 to correspond to your variable names.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;If we take the curve at 280 C to represent completely crystalline with an area of </span><span class="si">{</span><span class="n">area280</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">,&#39;</span><span class="p">)</span>  
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;then the percent crystallinity for the 240 C sample is 100 * </span><span class="si">{</span><span class="n">area240</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">area280</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">area240</span><span class="o">/</span><span class="n">area280</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -962,8 +977,10 @@ option 2: k = 1.125e-05 and n = 2.48
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="08_digitizing_literature_plots_part_2.html"
@@ -1029,7 +1046,7 @@ option 2: k = 1.125e-05 and n = 2.48
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1042,6 +1059,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1059,7 +1077,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1068,8 +1086,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

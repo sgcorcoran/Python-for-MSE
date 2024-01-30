@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="12. Image Analysis: Grain Size Measurement" href="12_grain_size_measurement.html" />
     <link rel="prev" title="10. Application: Peak Deconvolution" href="10_peak_deconvolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -419,7 +434,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="collecting-data-from-log-scales-creep-analysis">
-<h1><span class="section-number">11. </span>Collecting Data from Log scales: Creep Analysis<a class="headerlink" href="#collecting-data-from-log-scales-creep-analysis" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">11. </span>Collecting Data from Log scales: Creep Analysis<a class="headerlink" href="#collecting-data-from-log-scales-creep-analysis" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives   </p>
 <p>After completing this lesson, you should be able to:</p>
@@ -437,7 +452,7 @@ document.write(`
 </div>
 <p>I’m going to look at some data from your Callister textbook and verify that the fitting parameter given in the text is correct. The figure below is for an S-590 superalloy Fe-Co-Cr-Ni and is given as Figure 8.31 Callister 9th edition.</p>
 <section id="creep-rupture-data">
-<h2><span class="section-number">11.1. </span>Creep - Rupture data<a class="headerlink" href="#creep-rupture-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.1. </span>Creep - Rupture data<a class="headerlink" href="#creep-rupture-data" title="Permalink to this heading">#</a></h2>
 <a class="reference internal image-reference" href="../_images/11_fig_8.31_callister_9th.png"><img alt="../_images/11_fig_8.31_callister_9th.png" class="align-center" src="../_images/11_fig_8.31_callister_9th.png" style="width: 600px;" /></a>
 <p>According to the Callister textbook the above data collapses to one curve (shown below) when you take the data and replot it as <span class="math notranslate nohighlight">\((Log(\sigma)\)</span> vs T (C + <span class="math notranslate nohighlight">\(Log(t_r)\)</span>) where <span class="math notranslate nohighlight">\(\sigma\)</span> is in MPa, T is in Kelvin, <span class="math notranslate nohighlight">\(t_r\)</span> is in hours and C is a fitting parameter which according to your textbook is 20.</p>
 <a class="reference internal image-reference" href="../_images/11_fig_8.33_callister_9th.png"><img alt="../_images/11_fig_8.33_callister_9th.png" class="align-center" src="../_images/11_fig_8.33_callister_9th.png" style="width: 400px;" /></a>
@@ -545,7 +560,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </section>
 <section id="larsen-miller-plot">
-<h2><span class="section-number">11.2. </span>Larsen-Miller Plot<a class="headerlink" href="#larsen-miller-plot" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.2. </span>Larsen-Miller Plot<a class="headerlink" href="#larsen-miller-plot" title="Permalink to this heading">#</a></h2>
 <p>According to the Callister textbook this data will collapse onto one curve if we plot log(stress) vs T*(20+log(<span class="math notranslate nohighlight">\(t_r\)</span>)).  The value T*(C+log(<span class="math notranslate nohighlight">\(t_r\)</span>)) is known as the Larsen-Miller parameter, LM.  The parameters must be given in the correct units:  <span class="math notranslate nohighlight">\(T\)</span> here is the temperature in Kelvin, <span class="math notranslate nohighlight">\(t_r\)</span> is the rupture time in hours, and stress is in MPa. The value C is a fitting parameter which is equal to 20 for the data we are using and should result in the 4 curves in the plot above collapsing into one curve as shown in the plot below.  For homework, you will have a different value for C.</p>
 <a class="reference internal image-reference" href="../_images/11_fig_8.33_callister_9th.png"><img alt="../_images/11_fig_8.33_callister_9th.png" class="align-center" src="../_images/11_fig_8.33_callister_9th.png" style="width: 300px;" /></a>
 <div class="admonition important">
@@ -622,7 +637,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </section>
 <section id="fit-l-m-data-to-a-polynomial">
-<h2><span class="section-number">11.3. </span>Fit L-M data to a polynomial<a class="headerlink" href="#fit-l-m-data-to-a-polynomial" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.3. </span>Fit L-M data to a polynomial<a class="headerlink" href="#fit-l-m-data-to-a-polynomial" title="Permalink to this heading">#</a></h2>
 <p>Rather than using the plot above to read off the LM value (x-axis) for a specific stress value (y-axis), we will just fit the data to a polynomial function, <div class="math notranslate nohighlight">
 \[LM = a0+a1 \ log(\sigma)+a2\ log(\sigma)^2+a3\ log(\sigma)^3 +...\]</div>
   so <span class="math notranslate nohighlight">\(log(\sigma)\)</span> is our independent variable.  Let’s switch the axes on our plot so the x-axis is the independent variable i.e., log(stress).</p>
@@ -700,7 +715,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </section>
 <section id="fit-the-above-data-to-a-polynomial">
-<h2><span class="section-number">11.4. </span>Fit the above data to a polynomial<a class="headerlink" href="#fit-the-above-data-to-a-polynomial" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.4. </span>Fit the above data to a polynomial<a class="headerlink" href="#fit-the-above-data-to-a-polynomial" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Parameters</span>
@@ -760,7 +775,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </section>
 <section id="example-problem-determining-rupture-lifetime-for-alloy-s-590">
-<h2><span class="section-number">11.5. </span>Example problem: Determining rupture lifetime for alloy S-590.<a class="headerlink" href="#example-problem-determining-rupture-lifetime-for-alloy-s-590" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.5. </span>Example problem: Determining rupture lifetime for alloy S-590.<a class="headerlink" href="#example-problem-determining-rupture-lifetime-for-alloy-s-590" title="Permalink to this heading">#</a></h2>
 <div class="admonition-problem-statement admonition">
 <p class="admonition-title">Problem Statement  </p>
 <p>What is the rupture lifetime at 780 C under a stress load of 355 MPa?</p>
@@ -816,7 +831,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </section>
 <section id="a-closer-look-at-the-c-parameter-how-would-we-use-a-fitting-routine-to-find-the-value-c">
-<h2><span class="section-number">11.6. </span>A closer look at the <span class="math notranslate nohighlight">\(C\)</span> parameter.  How would we use a fitting routine to find the value <span class="math notranslate nohighlight">\(C\)</span> ?<a class="headerlink" href="#a-closer-look-at-the-c-parameter-how-would-we-use-a-fitting-routine-to-find-the-value-c" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.6. </span>A closer look at the <span class="math notranslate nohighlight">\(C\)</span> parameter.  How would we use a fitting routine to find the value <span class="math notranslate nohighlight">\(C\)</span> ?<a class="headerlink" href="#a-closer-look-at-the-c-parameter-how-would-we-use-a-fitting-routine-to-find-the-value-c" title="Permalink to this heading">#</a></h2>
 <p>The routine below will vary this C parameter until the optimal fit is achieved.  This is different from other fitting cases we have had in that our fitting parameter is actually changing the data set being fit.  We will use a “cost” function with a minimization method to do this, <code class="docutils literal notranslate"><span class="pre">optimize.minimize()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1025,10 +1040,10 @@ We just need to calculate the LM parameter from our polynomial fit and set that 
 </div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">11.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <a class="reference internal image-reference" href="../_images/11_stress_rupture_data.png"><img alt="../_images/11_stress_rupture_data.png" class="align-center" src="../_images/11_stress_rupture_data.png" style="width: 700px;" /></a>
 <section id="problem-1">
-<h3><span class="section-number">11.7.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.7.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p><strong>(a)</strong> Pick either the High Stress Regime (fig a) or the Low Stress Regime (fig b) or you can do both!  Use selectdata() and cal() to grab all of the data points on the figure you chose and replot the figure.  Remember to be careful with the log axes when you find plotpts.  Each set of points should be in a different color. Like this:</p>
 <a class="reference internal image-reference" href="../_images/11_problem_1_a.png"><img alt="../_images/11_problem_1_a.png" class="align-center" src="../_images/11_problem_1_a.png" style="width: 400px;" /></a>
 <p><strong>(b)</strong> Collapse all your data to one curve on a Larsen-Miller plot by finding the factor “C”.  This is not trial and error.  Use a fitting routine to find “C” as developed in the lesson.  My data collapsed as shown:</p>
@@ -1063,8 +1078,10 @@ We just need to calculate the LM parameter from our polynomial fit and set that 
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="10_peak_deconvolution.html"
@@ -1117,7 +1134,7 @@ We just need to calculate the LM parameter from our polynomial fit and set that 
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1130,6 +1147,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1147,7 +1165,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1156,8 +1174,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

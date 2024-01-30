@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="5. Reviewing essential concepts of numpy" href="05_numpy_essentials.html" />
     <link rel="prev" title="3. Working with Data" href="03_working_with_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -424,7 +439,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="plotting-and-equation-solving">
-<h1><span class="section-number">4. </span>Plotting and Equation Solving<a class="headerlink" href="#plotting-and-equation-solving" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4. </span>Plotting and Equation Solving<a class="headerlink" href="#plotting-and-equation-solving" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives  </p>
 <p>Be able to:</p>
@@ -451,7 +466,7 @@ document.write(`
 </div>
 </div>
 <section id="hints-for-problem-1">
-<h2><span class="section-number">4.1. </span>Hints for <a class="reference internal" href="#exercises-prob-1"><span class="std std-ref">Problem 1</span></a><a class="headerlink" href="#hints-for-problem-1" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1. </span>Hints for <a class="reference internal" href="#exercises-prob-1"><span class="std std-ref">Problem 1</span></a><a class="headerlink" href="#hints-for-problem-1" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[  \mathbf{\text{% crystallinity} =  \frac{\rho_c (\rho_s - \rho_a)}{\rho_s (\rho_c - \rho_a)} * 100} \]</div>
 <p>For this problem you will need to define a function to find the crystallinity based on the values of density as shown above.  Your function should look like:</p>
@@ -478,7 +493,7 @@ document.write(`
 </pre></div>
 </div>
 <section id="example-of-solving-an-equation">
-<span id="index-1"></span><h3><span class="section-number">4.1.1. </span>Example of solving an equation<a class="headerlink" href="#example-of-solving-an-equation" title="Permalink to this headline">#</a></h3>
+<span id="index-1"></span><h3><span class="section-number">4.1.1. </span>Example of solving an equation<a class="headerlink" href="#example-of-solving-an-equation" title="Permalink to this heading">#</a></h3>
 <p>Let’s say you wanted to solve the equation <span class="math notranslate nohighlight">\(a x^2 + b x + c = d\)</span>.  First, we tell python that a,b,c,d,x are symbols.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -585,7 +600,7 @@ document.write(`
 </section>
 </section>
 <section id="hints-for-problem-2">
-<h2><span class="section-number">4.2. </span>Hints for <a class="reference internal" href="#exercises-prob-2"><span class="std std-ref">Problem 2</span></a><a class="headerlink" href="#hints-for-problem-2" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2. </span>Hints for <a class="reference internal" href="#exercises-prob-2"><span class="std std-ref">Problem 2</span></a><a class="headerlink" href="#hints-for-problem-2" title="Permalink to this heading">#</a></h2>
 <p>Last week we calculated the value of <span class="math notranslate nohighlight">\(\left(4\times \frac{\text{pts in circle}}{\text{total num pts}}\right)\)</span> for 1000 random points.  This week you will plot the value as a function of the number of random points.  That is, you want to write a function that takes a parameter, <span class="math notranslate nohighlight">\(n\)</span>, for the total number of points and returns the value <span class="math notranslate nohighlight">\(\left(4\times \frac{\text{pts in circle}}{\text{total num pts}}\right)\)</span>.</p>
 <p>My code for 1000 random points was:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xcoord</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="c1">#1000 random pts from -1 to 1</span>
@@ -634,7 +649,7 @@ linspace: notice this skips from 100 to 20506 for the first point
 </div>
 </section>
 <section id="hints-for-problem-3">
-<h2><span class="section-number">4.3. </span>Hints for <a class="reference internal" href="#exercises-prob-3"><span class="std std-ref">Problem 3</span></a><a class="headerlink" href="#hints-for-problem-3" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.3. </span>Hints for <a class="reference internal" href="#exercises-prob-3"><span class="std std-ref">Problem 3</span></a><a class="headerlink" href="#hints-for-problem-3" title="Permalink to this heading">#</a></h2>
 <p>Import the csv file <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1ELCvnr0WjQcglNlmxhqzsAOK8DnPaHW_">titanic.csv</a> and (a) determine the percentage of woman that survived and the percentage of men that survived and (b) determine the average ticket price (Fare) for those that survived versus those that did not survive.  0 = did not survive. 1 = survived.</p>
 <p>Last week we learned how to use pandas to import an excel file; clean imported data including dropping NAN, filling NAN, renaming columns, dropping rows, sorting, slicing, and adding new columns.</p>
 <p>*Now we need to learn how to group (aggregate) data:  <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>, <code class="docutils literal notranslate"><span class="pre">sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">mean()</span></code><br />
@@ -1194,7 +1209,7 @@ dtype: int64
 </div>
 </div>
 <section id="pivot-table">
-<h3><span class="section-number">4.3.1. </span>Pivot Table<a class="headerlink" href="#pivot-table" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.1. </span>Pivot Table<a class="headerlink" href="#pivot-table" title="Permalink to this heading">#</a></h3>
 <p>For a lot more control, we could use pivot_table to specify different aggregation functions for each column of values we want to analyze.  You should be able to do what you want with groupby() but the pivot_table is a more manual way to specify many options.</p>
 <div class="cell docutils container" id="index-7">
 <div class="cell_input docutils container">
@@ -1332,9 +1347,9 @@ dtype: int64
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">4.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="problem-1">
-<span id="exercises-prob-1"></span><h3><span class="section-number">4.4.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<span id="exercises-prob-1"></span><h3><span class="section-number">4.4.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p><em>Computations of the Density and Percent Crystallinity of Polyethylene (Callister 10th ed., section 14.11)</em></p>
 <p>The % crystallinity is given by:</p>
 <div class="math notranslate nohighlight">
@@ -1345,11 +1360,11 @@ dtype: int64
 <a class="reference internal image-reference" href="../_images/04_2114_prob_1.png"><img alt="../_images/04_2114_prob_1.png" class="align-center" src="../_images/04_2114_prob_1.png" style="width: 400px;" /></a>
 </section>
 <section id="problem-2">
-<span id="exercises-prob-2"></span><h3><span class="section-number">4.4.2. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<span id="exercises-prob-2"></span><h3><span class="section-number">4.4.2. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <p>Write a function that finds “x” random points in a square of edge length 2 centered at (0,0). Determines how many of these points are contained in a circle of radius 1 centered at (0,0). Returns the value <span class="math notranslate nohighlight">\(\left(4\times \frac{\text{pts in circle}}{\text{total num pts}}\right)\)</span>.  Plot the value <span class="math notranslate nohighlight">\(\left(4\times \frac{\text{pts in circle}}{\text{total num pts}}\right)\)</span> versus number of points, x. <strong>Your x should vary between 100 and 1e6</strong>.  Also include a horizontal line at the value of pi on your plot.</p>
 </section>
 <section id="problem-3">
-<span id="exercises-prob-3"></span><h3><span class="section-number">4.4.3. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<span id="exercises-prob-3"></span><h3><span class="section-number">4.4.3. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <p>Import the csv file “titanic.csv” and (a) determine the percentage of woman that survived and the percentage of men that survived and (b) determine the average ticket price (Fare) for those that survived versus those that did not survive.  0 = did not survive. 1 = survived.</p>
 </section>
 </section>
@@ -1380,8 +1395,10 @@ dtype: int64
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="03_working_with_data.html"
@@ -1439,7 +1456,7 @@ dtype: int64
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1452,6 +1469,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1469,7 +1487,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1478,8 +1496,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

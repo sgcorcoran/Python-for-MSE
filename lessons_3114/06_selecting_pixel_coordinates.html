@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="7. Estimating Data Values from Plots in the Literature (Part 1)" href="07_digitizing_literature_plots_part_1.html" />
     <link rel="prev" title="5. matplotlib - Advanced Layouts" href="05_closer_look_at_matplotlib.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -425,7 +440,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="selecting-pixel-coordinates-from-an-image-file">
-<h1><span class="section-number">6. </span>Selecting pixel coordinates from an image file<a class="headerlink" href="#selecting-pixel-coordinates-from-an-image-file" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">6. </span>Selecting pixel coordinates from an image file<a class="headerlink" href="#selecting-pixel-coordinates-from-an-image-file" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives  </p>
 <p>After completing this lesson, you should be able to:</p>
@@ -456,7 +471,7 @@ document.write(`
 </div>
 </div>
 <section id="load-and-display-our-image">
-<h2><span class="section-number">6.1. </span>Load and Display our image<a class="headerlink" href="#load-and-display-our-image" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.1. </span>Load and Display our image<a class="headerlink" href="#load-and-display-our-image" title="Permalink to this heading">#</a></h2>
 <p>The image below was a screen capture from google maps showing property lines for various tax parcels.  We would like to know the total acreage of this property.  We display an image by using <code class="docutils literal notranslate"><span class="pre">.subplots()</span></code> to create the figure and axes frame as we have done before but now we read an image <code class="docutils literal notranslate"><span class="pre">.imshow()</span></code> into the axes rather than plotting a set of data. Click on the image below to download so you can reproduce the code below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -479,7 +494,7 @@ document.write(`
 <p>If you execute the code above in your own notebook and move your mouse around on the image, you will see the pixel coordinates for that location displayed at the bottom of the figure. The values in the brackets are the color code and opacity.  We won’t need these.  One of the things to notice is that when an image is read, the data is plotted from the top left corner, across the row, and then down to the next row.  When dealing with coordinates for plots, we expect the origin to be located in the bottom-left corner so we will need to correct this next week when we read an image file of a data plot.</p>
 </section>
 <section id="selecting-data-from-our-image">
-<h2><span class="section-number">6.2. </span>Selecting data from our image<a class="headerlink" href="#selecting-data-from-our-image" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2. </span>Selecting data from our image<a class="headerlink" href="#selecting-data-from-our-image" title="Permalink to this heading">#</a></h2>
 <p>The following code will make the above plot interactive.  There are several “events” that matplotlib can “listen” for.  The one we use below is a simple mouse click event.  When the cursor is moved on to the image and the mouse is left-clicked, the coordinate for the cursor location is stored into a variable we defined below called “pos” (short for position).  We also add a title to the plot with the location of the cursor for the last click event.  This is the only event type we will use in this class so don’t worry about the code below just store it somewhere handy such as your cheatsheet for later use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,7 +558,7 @@ document.write(`
 </div>
 </section>
 <section id="calculate-the-area">
-<h2><span class="section-number">6.3. </span>Calculate the area<a class="headerlink" href="#calculate-the-area" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.3. </span>Calculate the area<a class="headerlink" href="#calculate-the-area" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># take all points except last 2</span>
@@ -596,7 +611,7 @@ The area is approximately 21.9 acres
 <p>In a similar way, you could manipulate the data to calculate the perimeter of the bounded property, the length of a edge, or the angle formed between two edges, etc.</p>
 </section>
 <section id="putting-it-all-together">
-<h2><span class="section-number">6.4. </span>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4. </span>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">#</a></h2>
 <p>Let’s calculate the total acreage north of the creek running through this property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -670,47 +685,47 @@ The area is approximately 21.9 acres
 </div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="problem-1">
-<h3><span class="section-number">6.5.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p>Write a function that will take a list of points along a path and will return the total path distance by summing up the distances between each point. Note: this function should work to give the distance between just two points.</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">6.5.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <p>Look up the google map view of the “Five hundred meter Aperture Spherical Telescope” in China.<br />
 (a) Assuming the dish is circular, choose three well spaced points along the perimeter (forming a triangle).  Then find the equation for the circumscribed circle of this triangle. Use the equation for the circle to calculate the total area of this structure.<br />
 (b) Select at least 40 well spaced points along the circumference of this structure. Break this polygon up into triangles (as in the lesson) and estimate the total area by summing the area for each triangle.  Compare your results with part (a).</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">6.5.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <p>(a) Take a screen capture of the Sea of Galilee, the Dead Sea, or Lake Ontario using Google maps.  Make sure you also include the scale bar with the image.<br />
 (b) Using at least 40 points evenly spaced around the perimeter, calculate the total surface area of the body of water you chose.<br />
 (c) Find the average width of your body of water by selecting two points that you think best estimate the width and calculating the distance between these points.</p>
 </section>
 <section id="problem-4">
-<h3><span class="section-number">6.5.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
 <p>(a) Take a screen shot using google maps of Stonehenge, UK.<br />
 (b) Approximating stonehenge as a circle, choose three well spaced points along the circumference (forming a triangle).  Find the equation for the circumscribed circle of this triangle. Use the equation for the circle to calculate the total area of this structure.<br />
 (c) Select at least 20 well spaced points along the circumference of this structure. Break this polygon up into triangles (as in the lesson) and estimate the total area by summing the area for each triangle.  Compare the results to part (b).<br />
 (d) Pick one of the stones and determine the stone thickness by selecting two points that you think best estimate the thickness and calculating the distance between these points.</p>
 </section>
 <section id="problem-5">
-<h3><span class="section-number">6.5.5. </span>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.5. </span>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h3>
 <p>(a) Find the total surface area of pandapas pond, Virginia. Plot the points you chose on top of a google map screen capture (as in the lesson).<br />
 (b) There is also a walking path around the perimeter of the pond.  Find the total walking path length. Again, plot the points with the map to show which points you chose.</p>
 </section>
 <section id="problem-6">
-<h3><span class="section-number">6.5.6. </span>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.6. </span>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h3>
 <p>(a) Take a screenshot of the Virginia Tech campus using google maps.  Determine the area of the drill field.<br />
 (b) Calculate the shortest distance that one must walk to get from Holden Hall to the Duck Pond.  Make sure you have enough resolution in your map image to follow only walking paths.  No cutting through lawns or cutting through buildings.  The tunnel through Burruss is fair game if that helps. Plot the points you chose with the map.</p>
 </section>
 <section id="problem-7">
-<h3><span class="section-number">6.5.7. </span>Problem 7<a class="headerlink" href="#problem-7" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.7. </span>Problem 7<a class="headerlink" href="#problem-7" title="Permalink to this heading">#</a></h3>
 <p>(a) Using a screenshot in google maps of the pentagon.  Determine the total area including the green space in the center.<br />
 (b) Find the distance from the center of one of the pentagon’s sides to the opposite vertex i.e. the height of the pentagon. To do this, use only the values you have for the 5 vertices i.e. no guessing where the center of a side is located.</p>
 </section>
 <section id="problem-8">
-<h3><span class="section-number">6.5.8. </span>Problem 8<a class="headerlink" href="#problem-8" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.8. </span>Problem 8<a class="headerlink" href="#problem-8" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>I come across code in the lesson that looks confusing such as:</p>
@@ -749,7 +764,7 @@ The area is approximately 21.9 acres
 </div>
 </section>
 <section id="problem-9">
-<h3><span class="section-number">6.5.9. </span>Problem 9<a class="headerlink" href="#problem-9" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.9. </span>Problem 9<a class="headerlink" href="#problem-9" title="Permalink to this heading">#</a></h3>
 <div class="admonition-how-to-read-this-book admonition">
 <p class="admonition-title">How to read this book  </p>
 <p>In the problem below, I’m trying to show you how to read and interact with the lessons.  The point of this problem is not to get an answer so you can move on but to test yourself by using as little python as possible to answer the question. Where you get stuck or are unsure, use python to test simple cases but not the exact case.  For example, if I’m not sure what the “-2” will do in the slice <code class="docutils literal notranslate"><span class="pre">pos[0:-2]</span></code>, I could use python to test a simple case:</p>
@@ -800,8 +815,10 @@ The area is approximately 21.9 acres
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="05_closer_look_at_matplotlib.html"
@@ -860,7 +877,7 @@ The area is approximately 21.9 acres
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -873,6 +890,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -890,7 +908,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -899,8 +917,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

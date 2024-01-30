@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="3. Google Forms and Pandas Data Import and Visualization" href="03_google_forms_and_pandas.html" />
     <link rel="prev" title="1. Welcome to MSE 3114" href="01_welcome_to_3114.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -423,7 +438,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="importing-data-from-files-importing-your-own-functions">
-<h1><span class="section-number">2. </span>Importing Data from Files &amp; Importing Your Own Functions<a class="headerlink" href="#importing-data-from-files-importing-your-own-functions" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2. </span>Importing Data from Files &amp; Importing Your Own Functions<a class="headerlink" href="#importing-data-from-files-importing-your-own-functions" title="Permalink to this heading">#</a></h1>
 <hr style="height: 3.0px"/><div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -437,7 +452,7 @@ document.write(`
 <p>When working through a lesson / reading this textbook, you should have a blank Jupyter Notebook open to try the codes written here.  It is also important that you try changing parameters to see what the code is doing.  Don’t treat the example codes I use as a black box.  You are expected to know what every line is doing.</p>
 </div>
 <section id="import-data-from-excel">
-<h2><span class="section-number">2.1. </span>Import data from Excel<a class="headerlink" href="#import-data-from-excel" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1. </span>Import data from Excel<a class="headerlink" href="#import-data-from-excel" title="Permalink to this heading">#</a></h2>
 <p>Data File: <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=14uBqZM8ekl1RoFgx3nwCJM7fe9N144RI">Al7075_out.xlsx</a> and lesson help from 2114: <a class="reference internal" href="../lessons_2114/03_working_with_data.html#title"><span class="std std-ref">Working with Data</span></a></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -1349,7 +1364,7 @@ if (typeof version == 'undefined') {
 <a class="reference internal image-reference" href="../_images/awesome.png"><img alt="../_images/awesome.png" src="../_images/awesome.png" style="height: 100px;" /></a>
 </section>
 <section id="writing-saving-and-importing-your-own-functions">
-<h2><span class="section-number">2.2. </span>Writing, Saving, and Importing Your Own Functions<a class="headerlink" href="#writing-saving-and-importing-your-own-functions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2. </span>Writing, Saving, and Importing Your Own Functions<a class="headerlink" href="#writing-saving-and-importing-your-own-functions" title="Permalink to this heading">#</a></h2>
 <p>The steps are as follows:</p>
 <ol class="arabic simple">
 <li><p>Write your own function in a jupyter notebook to make sure it works</p></li>
@@ -1357,7 +1372,7 @@ if (typeof version == 'undefined') {
 <li><p>Save the file with a “.py” extension</p></li>
 </ol>
 <section id="write-your-own-function-and-test-it">
-<h3><span class="section-number">2.2.1. </span>Write your own function and test it<a class="headerlink" href="#write-your-own-function-and-test-it" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.1. </span>Write your own function and test it<a class="headerlink" href="#write-your-own-function-and-test-it" title="Permalink to this heading">#</a></h3>
 <p>Let’s say we want to find the volume of the unit cell in a given crystal structure and we are given the lattice parameters.  If this was a cubic unit cell of edge length “a”, then the volume would just be <span class="math notranslate nohighlight">\(a^3\)</span>.</p>
 <p>What if our unit cell was triclinic with parameters a, b, c, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, <span class="math notranslate nohighlight">\(\gamma\)</span> ?  This is where we need the metric tensor, g, defined as:</p>
 <div class="math notranslate nohighlight">
@@ -1518,7 +1533,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 <section id="copy-your-function-to-a-text-file-and-save-with-extension-py">
-<h3><span class="section-number">2.2.2. </span>Copy your function to a text file and save with extension “.py”<a class="headerlink" href="#copy-your-function-to-a-text-file-and-save-with-extension-py" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.2. </span>Copy your function to a text file and save with extension “.py”<a class="headerlink" href="#copy-your-function-to-a-text-file-and-save-with-extension-py" title="Permalink to this heading">#</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>By default your file explorer doesn’t show extensions.  You’ll need to set this option before you can change the extension manually.  <a class="reference external" href="https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01">Instructions for Windows</a> or <a class="reference external" href="https://support.apple.com/guide/mac-help/show-or-hide-filename-extensions-on-mac-mchlp2304/mac#:~:text=In%20the%20Finder%20on%20your,%E2%80%9CShow%20all%20filename%20extensions.%E2%80%9D">MAC</a></p>
@@ -1532,7 +1547,7 @@ if (typeof version == 'undefined') {
 <a class="reference internal image-reference" href="../_images/py_file_contents.png"><img alt="../_images/py_file_contents.png" src="../_images/py_file_contents.png" style="height: 550px;" /></a>
 </section>
 <section id="import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function">
-<h3><span class="section-number">2.2.3. </span>Import your *.py file into a new Jupyter notebook and test your function<a class="headerlink" href="#import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.3. </span>Import your *.py file into a new Jupyter notebook and test your function<a class="headerlink" href="#import-your-py-file-into-a-new-jupyter-notebook-and-test-your-function" title="Permalink to this heading">#</a></h3>
 <p>Open a new notebook and import your function file.  In my case, the command would be <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">my_functions</span></code>.  After importing, go ahead and test your function. In my case I would run <code class="docutils literal notranslate"><span class="pre">my_functions.vuc(2,3,4,90,90,90)</span></code>.  Add another function to the same text file and test it.</p>
 <p>I could also import using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">my_functions</span> <span class="pre">as</span> <span class="pre">mf</span></code>.  Then I can shorten the code to use vuc().  Now I would run <code class="docutils literal notranslate"><span class="pre">mf.vuc(2,3,4,90,90,90)</span></code>.</p>
 <a class="reference internal image-reference" href="../_images/import_my_functions.png"><img alt="../_images/import_my_functions.png" src="../_images/import_my_functions.png" style="height: 300px;" /></a>
@@ -1543,9 +1558,9 @@ if (typeof version == 'undefined') {
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">2.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="problem-1">
-<span id="id1"></span><h3><span class="section-number">2.3.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<span id="id1"></span><h3><span class="section-number">2.3.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p>Open a new Jupyter notebook and import the data from the excel file <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=14uBqZM8ekl1RoFgx3nwCJM7fe9N144RI">Al7075_out.xlsx</a>. Using matplotlib, plot stress (y) vs strain (x), label your axes, and use blue triangles for your data points. Your plot should look like:</p>
 <figure class="align-default" id="figure-example">
 <a class="reference internal image-reference" href="../_images/hw1_stress_strain_plot.png"><img alt="../_images/hw1_stress_strain_plot.png" src="../_images/hw1_stress_strain_plot.png" style="height: 350px;" /></a>
@@ -1555,15 +1570,15 @@ if (typeof version == 'undefined') {
 </figure>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">2.3.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.3.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <p>Write a function that takes the variables: (applied_load, initial_area, initial_length, and length_under_load) and returns the elastic modulus in units of GPa.  Your function should include a comment area that specifies the units that are expected for each variable.</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">2.3.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.3.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <p>Copy the function from the previous problem into a text file and save with the extension “.py”.  Open a new notebook, import your .py file, and calculate the elastic modulus for a sample under an applied load of 5600 N resulting in a sample elongation of <span class="math notranslate nohighlight">\(7.35 \times 10^{-2}\)</span> mm. The initial sample diameter and length are 10 mm and 100 mm respectively.</p>
 </section>
 <section id="problem-4">
-<h3><span class="section-number">2.3.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.3.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
 <p>Write a function that uses the metric tensor to find the angle <span class="math notranslate nohighlight">\(\theta\)</span> in degrees between 3 atoms as shown for example below.  Your function should allow you to enter the fractional coordinates of the three atoms, [x1,y1,z1], [x2,y2,z2], and [x3,y3,z3], and the lattice parameters, a,b,c,alpha,beta,gamma.  You can use the numbers below to test your code.  The Oxygen - <span class="math notranslate nohighlight">\(Si_1\)</span> bond length will be 1.60674 <span class="math notranslate nohighlight">\(\mathring{A}\)</span> and the Oxygen - <span class="math notranslate nohighlight">\(Si_2\)</span> bond length will be 1.61035 <span class="math notranslate nohighlight">\(\mathring{A}\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/hw1_gmatrix_problem.png"><img alt="../_images/hw1_gmatrix_problem.png" class="align-center" src="../_images/hw1_gmatrix_problem.png" style="height: 450px;" /></a>
 <p>The vector, <span class="math notranslate nohighlight">\(\overline{v1}\)</span>, connecting the <span class="math notranslate nohighlight">\(Si_2\)</span> and O atoms is given by <span class="math notranslate nohighlight">\(\overline{v1}=Si_2 - O = \left[x2,y2,z2\right]-\left[x1,y1,z1\right]=\left[x2-x1,y2-y1,z2-z1\right]\)</span></p>
@@ -1608,8 +1623,10 @@ if (typeof version == 'undefined') {
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_welcome_to_3114.html"
@@ -1666,7 +1683,7 @@ if (typeof version == 'undefined') {
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1679,6 +1696,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1696,7 +1714,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1705,8 +1723,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

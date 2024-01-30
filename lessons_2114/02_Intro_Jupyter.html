@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="3. Working with Data" href="03_working_with_data.html" />
     <link rel="prev" title="1. Welcome to MSE 2114" href="01_welcome_to_2114.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -423,7 +438,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-the-jupyter-notebook">
-<h1><span class="section-number">2. </span>Introduction to the Jupyter Notebook<a class="headerlink" href="#introduction-to-the-jupyter-notebook" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2. </span>Introduction to the Jupyter Notebook<a class="headerlink" href="#introduction-to-the-jupyter-notebook" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives  </p>
 <p>Be able to:</p>
@@ -437,7 +452,7 @@ document.write(`
 </ul>
 </div>
 <section id="markdown-cells">
-<span id="index-0"></span><h2><span class="section-number">2.1. </span>Markdown cells<a class="headerlink" href="#markdown-cells" title="Permalink to this headline">#</a></h2>
+<span id="index-0"></span><h2><span class="section-number">2.1. </span>Markdown cells<a class="headerlink" href="#markdown-cells" title="Permalink to this heading">#</a></h2>
 <p>If you download the jupyter notebook (*.ipynb) version of this lesson (notice download icon at upper right) and double click in any markdown cell (<strong>for example this cell</strong>), you can see the code I wrote to use various formatting and special characters:</p>
 <p><strong>bold text</strong>, <em>italic text</em>, <code class="docutils literal notranslate"><span class="pre">highlighted</span> <span class="pre">text</span></code></p>
 <p>or python formatted text:</p>
@@ -475,7 +490,7 @@ when done editing a markdown cell just press shift-enter as you would for code c
 </div>
 </section>
 <section id="equation-formatting-in-markdown-cells">
-<span id="index-1"></span><h2><span class="section-number">2.2. </span>Equation formatting in markdown cells<a class="headerlink" href="#equation-formatting-in-markdown-cells" title="Permalink to this headline">#</a></h2>
+<span id="index-1"></span><h2><span class="section-number">2.2. </span>Equation formatting in markdown cells<a class="headerlink" href="#equation-formatting-in-markdown-cells" title="Permalink to this heading">#</a></h2>
 <p>Now equations require special formatting.  Here are some examples (<em><strong>remember to download this file and double click in this cell to see the coding</strong></em>):</p>
 <ul class="simple">
 <li><p>subscript:  <span class="math notranslate nohighlight">\(x_2\)</span> is given by <code class="docutils literal notranslate"><span class="pre">$x_2$</span></code></p></li>
@@ -510,7 +525,7 @@ ${\sum_a^b} $,  $\overline{ab}$,  $\overrightarrow{ab}$, $\Huge\alpha$, $\Delta$
 </div>
 </section>
 <section id="example-problem-atoms-in-bcc">
-<h2><span class="section-number">2.3. </span>Example Problem: Atoms in BCC<a class="headerlink" href="#example-problem-atoms-in-bcc" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.3. </span>Example Problem: Atoms in BCC<a class="headerlink" href="#example-problem-atoms-in-bcc" title="Permalink to this heading">#</a></h2>
 <p>Let’s calculate the number of atoms in a cubic meter of a bcc material given the atomic radius of 0.15 nm.</p>
 <p>The volume of an bcc unit cell is given by <span class="math notranslate nohighlight">\(V_{cell}=\left(\frac{4 R}{\sqrt{3}} \right)^3\)</span>.  The bcc unit cell contains 2 atoms so we get the number of atoms per cubic meter as:</p>
 <div class="math notranslate nohighlight">
@@ -543,7 +558,7 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
 </div>
 </section>
 <section id="some-additional-help">
-<h2><span class="section-number">2.4. </span>Some additional help<a class="headerlink" href="#some-additional-help" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.4. </span>Some additional help<a class="headerlink" href="#some-additional-help" title="Permalink to this heading">#</a></h2>
 <p>If you need to use functions such as the sqrt, exponential, sin, etc you will need to import numpy as</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
@@ -637,7 +652,7 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
 </div>
 </section>
 <section id="faq">
-<h2><span class="section-number">2.5. </span>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.5. </span>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>In the function definition above you used “return” but in other examples we used “print.”  What is the difference?</p></li>
 </ol>
@@ -673,7 +688,7 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
 <p>In the above we get a TypeError.  We are trying to multiply a print output by a number.  <code class="docutils literal notranslate"><span class="pre">return</span></code> on the otherhand gives a numerical output that we can assign to variables or use in calculations, etc.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">2.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>The problems below may require the ability to:</p>
 <ul class="simple">
 <li><p>comment notebooks using Markdown cells</p></li>
@@ -689,36 +704,37 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
 <li><p>Present your final answer using a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement and include a comment to indicate units.</p></li>
 </ol>
 <section id="problem-1">
-<h3><span class="section-number">2.6.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.6.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <hr style="height: 2.0px"/><p>NaCl has a cubic unit cell with an edge length equivalent to <span class="math notranslate nohighlight">\(2 r_{Na^{+}} + 2 r_{Cl^{-}}\)</span>.  If the ionic radii are 0.102 and 0.181 nm respectively, compute the volume of the unit cell.  Remember to use a Markdown cell to write the final equation you are using.</p>
 <blockquote>
 <div><p>Remember in Python exponents used in calculations are written <code class="docutils literal notranslate"><span class="pre">**</span></code> and not as <code class="docutils literal notranslate"><span class="pre">^</span></code>.</p>
 </div></blockquote>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">2.6.2. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.6.2. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <hr style="height: 2.0px"/><p>If the atomic weights of Na and Cl are 22.99 and 35.45 <span class="math notranslate nohighlight">\(g/mol\)</span> respectively and the unit cell contains <span class="math notranslate nohighlight">\(4 Na^+\)</span> and <span class="math notranslate nohighlight">\(4 Cl^-\)</span> ions, compute the density of NaCl in units of <span class="math notranslate nohighlight">\(g/cm^3\)</span>.  Use <span class="math notranslate nohighlight">\(6.022 \times 10^{23}\)</span> for Avagadro’s number.</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">2.6.3. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.6.3. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <hr style="height: 2.0px"/><p>Calculate the number of Schottky defects per cubic meter in potassium chloride at 500 <span class="math notranslate nohighlight">\(^{\circ}\)</span>C. The energy required to form each Schottky defect is 2.6 eV and the density for KCl at 500 <span class="math notranslate nohighlight">\(^{\circ}\)</span>C is 1.955 <span class="math notranslate nohighlight">\(g/cm^3\)</span>. The atomic weight for K and Cl is 39.10 and 35.45 g/mol respectively.</p>
 <blockquote>
 <div><p>This problem will require the numpy package. Use the statement: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> then you can use <code class="docutils literal notranslate"><span class="pre">np.exp()</span></code>.</p>
 </div></blockquote>
+<p>The equilibrium number of Schottky defects is given by: <span class="math notranslate nohighlight">\(N_{s}=N\ \exp(\frac{-Q_s}{2kT})\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of lattice sites per cubic meter given by <span class="math notranslate nohighlight">\(N=\frac{N_A\ \rho}{A_K+A_{Cl}}\)</span> , <span class="math notranslate nohighlight">\(N_A\)</span> is Avogadro’s number, <span class="math notranslate nohighlight">\(\rho\)</span> is the density, <span class="math notranslate nohighlight">\(A_{-}\)</span> is atomic weight, <span class="math notranslate nohighlight">\(Q_s\)</span> is the activation energy, <span class="math notranslate nohighlight">\(k\)</span> is the Boltzmann’s constant, and <span class="math notranslate nohighlight">\(T\)</span> is the absolute temperature.</p>
 </section>
 <section id="problem-4">
-<h3><span class="section-number">2.6.4. </span>Problem 4:<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.6.4. </span>Problem 4:<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
 <hr style="height: 2.0px"/><p>We want to harden the steel surface of a plate by carburization.  Our setup is such that the surface concentration of carbon is 1.20 wt%, the initial carbon in our steel sample is 0.2 wt%, at our processing temperature the diffusion coefficient is <span class="math notranslate nohighlight">\(1.6 \times 10^{-11}\)</span> <span class="math notranslate nohighlight">\(m^2 / s\)</span>, and our carburizing time is 5 hours.  Will the concentration at a depth of 0.5 mm exceed our target value of 0.80 wt%?</p>
 <blockquote>
 <div><p>This problem will require the scipy.special package. Use the statement: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">scipy</span> <span class="pre">import</span> <span class="pre">special</span></code> then you can use <code class="docutils literal notranslate"><span class="pre">special.erf()</span></code>.</p>
 </div></blockquote>
 </section>
 <section id="problem-5">
-<h3><span class="section-number">2.6.5. </span>Problem 5:<a class="headerlink" href="#problem-5" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.6.5. </span>Problem 5:<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h3>
 <hr style="height: 2.0px"/><p>Define a function called unitcell_density where given: edgelength, num_atoms_1, num_atoms_2, A1, and A2, the function returns the density in units of <span class="math notranslate nohighlight">\(g/cm^3\)</span>. Your function can assume a cubic unit cell.  Use your function to repeat problem (2) above.  Use comments to indicate what units are expected for the input variables.</p>
 </section>
 <section id="problem-6">
-<h3><span class="section-number">2.6.6. </span>Problem 6:<a class="headerlink" href="#problem-6" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.6.6. </span>Problem 6:<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h3>
 <hr style="height: 2.0px"/><p>Does your function in the previous problem work for single element materials?  Try using it to find the density of gold given the atomic radius of 0.1442 nm and the atomic weight of 196.96 g/mol. Recall that the edge length for fcc gold is given by <span class="math notranslate nohighlight">\(2 R \sqrt{2}\)</span> and the fcc unit cell contains a total of 4 atoms. Your answer should be given in units of <span class="math notranslate nohighlight">\(g/cm^3\)</span>.</p>
 </section>
 </section>
@@ -749,8 +765,10 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_welcome_to_2114.html"
@@ -807,7 +825,7 @@ The number of atoms in the bcc unit cell is 4.81e+28 atoms/m^3
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -820,6 +838,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -837,7 +856,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -846,8 +865,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

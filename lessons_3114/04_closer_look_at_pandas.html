@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -74,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="5. matplotlib - Advanced Layouts" href="05_closer_look_at_matplotlib.html" />
     <link rel="prev" title="3. Google Forms and Pandas Data Import and Visualization" href="03_google_forms_and_pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -83,6 +85,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,9 +153,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,8 +167,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -355,20 +368,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -425,7 +440,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-dataframes-and-data-visualization">
-<h1><span class="section-number">4. </span>Pandas DataFrames and Data Visualization<a class="headerlink" href="#pandas-dataframes-and-data-visualization" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4. </span>Pandas DataFrames and Data Visualization<a class="headerlink" href="#pandas-dataframes-and-data-visualization" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -436,9 +451,9 @@ document.write(`
 </ul>
 </div>
 <section id="pandas-dataframe-goupby">
-<h2><span class="section-number">4.1. </span>pandas.DataFrame.goupby()<a class="headerlink" href="#pandas-dataframe-goupby" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1. </span>pandas.DataFrame.goupby()<a class="headerlink" href="#pandas-dataframe-goupby" title="Permalink to this heading">#</a></h2>
 <section id="reading-data">
-<h3><span class="section-number">4.1.1. </span>Reading Data<a class="headerlink" href="#reading-data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.1. </span>Reading Data<a class="headerlink" href="#reading-data" title="Permalink to this heading">#</a></h3>
 <p>You will need <a class="reference external" href="https://drive.google.com/uc?id=1ELCvnr0WjQcglNlmxhqzsAOK8DnPaHW_&amp;export=download">titanic.csv</a> data file for this lesson.</p>
 <div class="admonition-an-aside admonition">
 <p class="admonition-title">An aside</p>
@@ -1548,7 +1563,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 <section id="groupby-1-column">
-<span id="id1"></span><h3><span class="section-number">4.1.2. </span>groupby 1 column<a class="headerlink" href="#groupby-1-column" title="Permalink to this headline">#</a></h3>
+<span id="id1"></span><h3><span class="section-number">4.1.2. </span>groupby 1 column<a class="headerlink" href="#groupby-1-column" title="Permalink to this heading">#</a></h3>
 <p>Let’s find the average ticket price paid for those that died and those that survived? We can accomplish this by grouping by the column ‘Survived.’ This will aggregate all the data according to whether the value in this column is a 0 (died) or a 1 (survived).  Then we just tell pandas what to do with this aggregated data.  In our case, we want the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1638,7 +1653,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 <section id="groupby-2-columns">
-<h3><span class="section-number">4.1.3. </span>groupby 2 columns<a class="headerlink" href="#groupby-2-columns" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.3. </span>groupby 2 columns<a class="headerlink" href="#groupby-2-columns" title="Permalink to this heading">#</a></h3>
 <p>What is the average age of male and female passengers in 1st, 2nd, and 3rd class? To answer this we want to know about a feature “average age” broken out by two other features “Sex” and “Pclass.”  For this, we will groupby both Sex and Pclass.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2076,7 +2091,7 @@ etc…</p>
 </div>
 </section>
 <section id="groupby-3-columns">
-<h3><span class="section-number">4.1.4. </span>groupby 3 columns<a class="headerlink" href="#groupby-3-columns" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.4. </span>groupby 3 columns<a class="headerlink" href="#groupby-3-columns" title="Permalink to this heading">#</a></h3>
 <p>What is the number of male and female passengers vs ticket class that died vs survived? To answer this question, we want to know about a feature “number of passengers” broken out by three other features “Sex”, “Pclass”, and “Survived.”  For this, we will <strong>groupby all three columns</strong> and <strong>use .count()</strong> rather than .mean() and we will use <strong>.unstack() twice</strong>.  We are also grabbing the count on the “Fare” data since this is complete while some records don’t have an age recorded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2403,7 +2418,7 @@ etc…</p>
 </div>
 <p>Now we can make a pie chart on the percentages of various classes of people that died (0) or survived (1).  Let’s look at those that survived.</p>
 <section id="using-pandas-plot">
-<h4><span class="section-number">4.1.4.1. </span>Using pandas plot:<a class="headerlink" href="#using-pandas-plot" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">4.1.4.1. </span>Using pandas plot:<a class="headerlink" href="#using-pandas-plot" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforpie</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
@@ -2436,9 +2451,9 @@ etc…</p>
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">4.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="problem-1">
-<span id="exercises-problem-1"></span><h3><span class="section-number">4.2.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<span id="exercises-problem-1"></span><h3><span class="section-number">4.2.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="#stop-and-think-1"><span class="std std-ref">Previously</span></a> in this lesson we had the code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We have </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> records.  Here are the first 5.&quot;</span><span class="p">)</span>
@@ -2453,20 +2468,20 @@ c. What does data.shape give you?<br />
 d. Replace data.head() with data.head(2) and data.head(5).  How does this compare to data.head()?</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">4.2.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <p>Group the titanic data <a class="reference internal" href="#groupby-1-column"><span class="std std-ref">see section: groupby 1 column</span></a> by ‘Pclass’, <code class="docutils literal notranslate"><span class="pre">df=data.groupby('Pclass').mean()</span></code> and make a barchart for the data ‘Survived’, <code class="docutils literal notranslate"><span class="pre">dataforbar=df.loc[:,'Survived']</span></code>. How would you interpret these results for example, which class had the lowest survival rate?</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">4.2.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <p><em>2 column groupby</em>:  Make a bar chart showing the average ticket price for 1st, second, and third class passengers broken out by sex.  For this problem, put Pclass on the x-axis and plot a bar for each Sex (male or female) with a height equal to the average ticket price (y-axis).</p>
 </section>
 <section id="problem-4">
-<h3><span class="section-number">4.2.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
 <p>a. Re-plot the <a class="reference internal" href="#groupby-3-columns-try-1"><span class="std std-ref">example in “groupby 3 columns”</span></a> but now only using <strong>one</strong> .unstack() rather than two. Notice how the labels and plot change relative to the groupby order: ‘Survived’,‘Sex’,‘Pclass’. The last column in this list, ‘Pclass’ becomes the legend. The x-axis contains combinations of the first two, ‘Survived’ and ‘Sex’ with ‘Survived’ being ordered first so we get (died, female), (died,male), (survived, female), and (survived, male). Make sure you include an appropriate title and y-label.</p>
 <p>b. Now change the order of the groupby columns to: [‘Sex’,‘Pclass’,‘Survived’] and replot again using only one unstack(). Comment on how the order of the groupby corresponds to changes in your x-axis and legend.</p>
 </section>
 <section id="problem-5">
-<h3><span class="section-number">4.2.5. </span>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.5. </span>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h3>
 <p>Using <strong>pandas</strong>, make a pie chart showing the percentage of passengers that <u>died</u> on the titanic broken out by sex and ticket class.  Your pie chart should have 6 pieces: (1st class, female), (1st class, male)… (3rd class, male). Explode only the pie piece for (2nd class,male) by 0.25. Remove both the legend and y-label. Make sure you correct the title.</p>
 </section>
 </section>
@@ -2497,8 +2512,10 @@ d. Replace data.head() with data.head(2) and data.head(5).  How does this compar
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="03_google_forms_and_pandas.html"
@@ -2559,7 +2576,7 @@ d. Replace data.head() with data.head(2) and data.head(5).  How does this compar
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -2572,6 +2589,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -2589,7 +2607,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -2598,8 +2616,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

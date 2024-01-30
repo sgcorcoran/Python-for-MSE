@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -74,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="11. Prepare for MSE 3114 next semester!" href="11_prep_for_3114.html" />
     <link rel="prev" title="9. Application: Plastic wire coating data" href="09_wire_coating.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -83,6 +85,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,9 +153,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,8 +167,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -355,20 +368,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -418,7 +433,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="advanced-plotting-with-matplotlib">
-<h1><span class="section-number">10. </span>Advanced Plotting with matplotlib<a class="headerlink" href="#advanced-plotting-with-matplotlib" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">10. </span>Advanced Plotting with matplotlib<a class="headerlink" href="#advanced-plotting-with-matplotlib" title="Permalink to this heading">#</a></h1>
 <p>Figures and main concepts from:  <a class="reference external" href="https://realpython.com/python-matplotlib-guide/#:~:text=A%20Figure%20object%20is%20the,%E2%80%9D%20as%20we%20might%20expect">realpython.com</a>.</p>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives  </p>
@@ -459,7 +474,7 @@ where “FILE_ID” is the google drive file identifier given previously.  Also,
 </div>
 </div>
 <section id="figure-versus-axes-according-to-matplotlib">
-<h2><span class="section-number">10.1. </span>“Figure” versus “Axes” according to matplotlib<a class="headerlink" href="#figure-versus-axes-according-to-matplotlib" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1. </span>“Figure” versus “Axes” according to matplotlib<a class="headerlink" href="#figure-versus-axes-according-to-matplotlib" title="Permalink to this heading">#</a></h2>
 <p id="index-1">In matplotlib, a “<strong>figure</strong>” is the outer container that might contain multiple plots.  The individual plots are referred to as “<strong>axes</strong>”.  That is, we create a set of <em>axes</em> for every plot that we want.  The plot itself can contain multiple curves by using multiple plt.plot() commands.  In all of our previous lessons, we have only defined a single set of axes using for example <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots(nrows=1,</span> <span class="pre">ncols=1)</span></code></p>
 <a class="reference internal image-reference" href="../_images/Axes_Figures_schematic.png"><img alt="fig vs axes" src="../_images/Axes_Figures_schematic.png" style="width: 300px;" /></a>
 <p>Examples<br />
@@ -471,7 +486,7 @@ where “FILE_ID” is the google drive file identifier given previously.  Also,
 </div>
 </section>
 <section id="creating-rows-and-columns-of-axes">
-<span id="index-2"></span><h2><span class="section-number">10.2. </span>Creating rows and columns of axes<a class="headerlink" href="#creating-rows-and-columns-of-axes" title="Permalink to this headline">#</a></h2>
+<span id="index-2"></span><h2><span class="section-number">10.2. </span>Creating rows and columns of axes<a class="headerlink" href="#creating-rows-and-columns-of-axes" title="Permalink to this heading">#</a></h2>
 <p>The command <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> creates a figure with the number of axes specified by the call. For example,  <code class="docutils literal notranslate"><span class="pre">plt.subplots(nrows=2,</span> <span class="pre">ncols=3)</span></code> creates a figure with 6 sets of axes (2 rows by 3 columns) as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -532,7 +547,7 @@ where “FILE_ID” is the google drive file identifier given previously.  Also,
 </div>
 </section>
 <section id="adding-data-to-our-axes">
-<h2><span class="section-number">10.3. </span>Adding data to our axes<a class="headerlink" href="#adding-data-to-our-axes" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.3. </span>Adding data to our axes<a class="headerlink" href="#adding-data-to-our-axes" title="Permalink to this heading">#</a></h2>
 <p>Now let’s add some data to our axes and perhaps different plot types.  First, let’s generate some data to plot</p>
 <div class="cell docutils container" id="index-4">
 <div class="cell_input docutils container">
@@ -581,7 +596,7 @@ where “FILE_ID” is the google drive file identifier given previously.  Also,
 </div>
 </section>
 <section id="more-advanced-layouts-span-rows-and-or-columns">
-<h2><span class="section-number">10.4. </span>More advanced layouts (span rows and/or columns)<a class="headerlink" href="#more-advanced-layouts-span-rows-and-or-columns" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.4. </span>More advanced layouts (span rows and/or columns)<a class="headerlink" href="#more-advanced-layouts-span-rows-and-or-columns" title="Permalink to this heading">#</a></h2>
 <p id="index-6">If you need more advanced layout beyond simple grids of graphs, then Matplotlib’s <strong>gridspec</strong> module allows for more subplot customization. Pyplot’s <strong>subplot2grid()</strong> interacts with this module.</p>
 <p>Say we want this setup:<br />
 <a class="reference internal" href="../_images/10_fig2.png"><img alt="fig vs axes" src="../_images/10_fig2.png" style="width: 300px;" /></a></p>
@@ -609,7 +624,7 @@ Notice below the numbering of the grid.  The upper left plot is at location <str
 <p>You could make many creative layouts using the simple concepts shown in the previous output.</p>
 </section>
 <section id="example-1-california-housing-data">
-<h2><span class="section-number">10.5. </span>Example 1 California housing data<a class="headerlink" href="#example-1-california-housing-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.5. </span>Example 1 California housing data<a class="headerlink" href="#example-1-california-housing-data" title="Permalink to this heading">#</a></h2>
 <p>Let’s take a look at some California housing data whose description can be found at <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/california-housing-data-description">https://developers.google.com/machine-learning/crash-course/california-housing-data-description</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -829,7 +844,7 @@ Notice below the numbering of the grid.  The upper left plot is at location <str
 </div>
 </section>
 <section id="example-2-county-income-data">
-<h2><span class="section-number">10.6. </span>Example 2 County income data<a class="headerlink" href="#example-2-county-income-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.6. </span>Example 2 County income data<a class="headerlink" href="#example-2-county-income-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;https://drive.google.com/uc?id=1rmIPRkMAqqfY3TNpWZ13aV4PfuKihguM&#39;</span><span class="p">)</span>
@@ -1030,9 +1045,9 @@ Notice below the numbering of the grid.  The upper left plot is at location <str
 <p>For example, 2931 households have an income between 75,000 and 100,000 in Autauga County, Alabama.  This represents 2931/21397*100 = 13.7% of all households in Autauga County.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">10.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="problem-1">
-<h3><span class="section-number">10.7.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.7.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p>Complete the following steps on the county income data:</p>
 <p><strong>First,</strong> you need to fix the data set to remove duplicates using <code class="docutils literal notranslate"><span class="pre">drop_duplicates()</span></code>.  Instead of 4930 rows you should get 3142 records.</p>
 <p><strong>Determine the following</strong>:</p>
@@ -1042,7 +1057,7 @@ Notice below the numbering of the grid.  The upper left plot is at location <str
 </ol>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">10.7.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.7.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <p>Using the cleaned data from Problem 1, plot the following in the layout described below.</p>
 <ol class="arabic simple">
 <li><p>The percentage of households with an income less than 50,000 and the percentage of households with an income greater than 100,000 for every state in the US.</p></li>
@@ -1080,8 +1095,10 @@ Notice below the numbering of the grid.  The upper left plot is at location <str
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="09_wire_coating.html"
@@ -1135,7 +1152,7 @@ Notice below the numbering of the grid.  The upper left plot is at location <str
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1148,6 +1165,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1165,7 +1183,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1174,8 +1192,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

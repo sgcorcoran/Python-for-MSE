@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="11. Collecting Data from Log scales: Creep Analysis" href="11_creep_analysis_log_scales.html" />
     <link rel="prev" title="9. Application: Crystallization Kinetics of Amorphous \(TiO_2\)" href="09_applications.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -421,7 +436,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="application-peak-deconvolution">
-<h1><span class="section-number">10. </span>Application: Peak Deconvolution<a class="headerlink" href="#application-peak-deconvolution" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">10. </span>Application: Peak Deconvolution<a class="headerlink" href="#application-peak-deconvolution" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives   </p>
 <p>After completing this lesson, you should be able to:</p>
@@ -436,7 +451,7 @@ document.write(`
 <p>This lesson will pull data from the literature using the digitizing functions (<code class="docutils literal notranslate"><span class="pre">selectdata()</span></code>, <code class="docutils literal notranslate"><span class="pre">cal()</span></code>) that we created previously and saved in a utilities file called <code class="docutils literal notranslate"><span class="pre">getpix_utilities.ipynb</span></code>.  We load this notebook as we did in the last lesson by using <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">getpix_utilities.ipynb</span></code>.  We can’t use our import method since these functions have interactive content.</p>
 <p>Much of this lesson is borrowed from the more extensive treatment in <a class="reference external" href="https://chrisostrouchov.com/post/peak_fit_xrd_python/"><strong>“Peak fitting XRD data with Python” by Chris Ostrouchov</strong></a></p>
 <section id="install-fitting-module-lmfit">
-<h2><span class="section-number">10.1. </span>Install fitting module, lmfit<a class="headerlink" href="#install-fitting-module-lmfit" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1. </span>Install fitting module, lmfit<a class="headerlink" href="#install-fitting-module-lmfit" title="Permalink to this heading">#</a></h2>
 <p>The first thing you need to do is install the new package “lmfit” as explained in the short video below which can also be found at <a class="reference external" href="https://youtu.be/R8FX2G8m6XM">https://youtu.be/R8FX2G8m6XM</a>.  If you would prefer to read about lmfit you can find that info here: <a class="reference external" href="https://lmfit.github.io/lmfit-py/">https://lmfit.github.io/lmfit-py/</a>.</p>
 <p>For the impatient, just type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">lmfit</span></code> at your command prompt.</p>
 <div class="cell tag_remove-input docutils container">
@@ -454,7 +469,7 @@ document.write(`
 </div>
 </section>
 <section id="run-utilities-notebook">
-<h2><span class="section-number">10.2. </span>%run utilities notebook<a class="headerlink" href="#run-utilities-notebook" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.2. </span>%run utilities notebook<a class="headerlink" href="#run-utilities-notebook" title="Permalink to this heading">#</a></h2>
 <p><strong>Download:</strong>  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1lrKrd5tqYUn88Cfh8_ntL4o8lAZTjmHG">getpix_utilities.ipynb</a> and place in the same folder as the notebook you are loading this file into.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -482,7 +497,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </section>
 <section id="import-statements">
-<h2><span class="section-number">10.3. </span>Import statements<a class="headerlink" href="#import-statements" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.3. </span>Import statements<a class="headerlink" href="#import-statements" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########  The lmfit import will not work until you install lmfit as described above. </span>
@@ -503,7 +518,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </section>
 <section id="two-peak-functions-that-overlap">
-<h2><span class="section-number">10.4. </span>Two peak functions that overlap<a class="headerlink" href="#two-peak-functions-that-overlap" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.4. </span>Two peak functions that overlap<a class="headerlink" href="#two-peak-functions-that-overlap" title="Permalink to this heading">#</a></h2>
 <p>Let’s generate some overlapping peak data representing for example, Differential Scanning Calorimetry (DSC) data.  The presence of a peak indicates the formation of crystals within the polymer.  Overlapping peaks correspond to two different crystalline structures forming.</p>
 <p>DSC will be discussed in MSE 4554 polymer engineering.  The kinetics of crystalization as we saw in the previous chapter often follows the Avrami equation, <span class="math notranslate nohighlight">\(Y=1-e^{-K t^n}\)</span>.</p>
 <p>For the sake of generating some overlapping peak data, we are going to use a simple gaussian peak function.  For homework, you will perform the fitting routines that we will be discussing for real DSC data.  The idea here is learn how to fit overlapping peaks with “ideal” data and then you can apply this to real data.</p>
@@ -569,7 +584,7 @@ selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
 </div>
 </section>
 <section id="fitting-peak-data-with-lmfit">
-<h2><span class="section-number">10.5. </span>Fitting peak data with lmfit<a class="headerlink" href="#fitting-peak-data-with-lmfit" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.5. </span>Fitting peak data with lmfit<a class="headerlink" href="#fitting-peak-data-with-lmfit" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s fit our x,y data from above</span>
@@ -763,7 +778,7 @@ Now recall we made 2 Models: <code class="docutils literal notranslate"><span cl
 <p>The fit looks pretty good especially considering how much noise we put into our original data.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">10.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>The data for the exercises below were taken from:</p>
 <a class="reference internal image-reference" href="../_images/10_crystallization_paper.png"><img alt="../_images/10_crystallization_paper.png" class="align-center" src="../_images/10_crystallization_paper.png" style="width: 600px;" /></a>
 <div class="admonition-helpful-summary-of-variables-used-problems-1-4 admonition">
@@ -789,12 +804,12 @@ Fits:</p></li>
 </ul>
 </div>
 <section id="problem-1">
-<h3><span class="section-number">10.6.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.6.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p>Reproduce all three data curves shown below. The thick green line (overall curve) is the measured data from DSC. After conversion to plot scale, name this data set, <strong>“dsc_data”</strong>.  The peaks labeled <span class="math notranslate nohighlight">\(P_1\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span> are fitted curves determined by the authors. Let’s call these <strong>“p1_author_data”</strong> and <strong>“p2_author_data”</strong>. Plot your data for all three peaks, include labels for the x,y axes.</p>
 <a class="reference internal image-reference" href="../_images/10_prob_1_fig.png"><img alt="../_images/10_prob_1_fig.png" class="align-center" src="../_images/10_prob_1_fig.png" style="width: 600px;" /></a>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">10.6.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.6.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <p>Fit the three data sets that you obtained from problem 1 (dsc_data, p1_author_data, and p2_author_data) using a Gaussian function as in the lesson. Label your fitted results <strong>fit_dsc</strong>, <strong>fit_p1_author</strong> and <strong>fit_p2_author</strong> respectively.</p>
 <p><strong>(a)</strong> In one plot, plot p1_author_data (as points), fit_p1_author (lines, no points), p2_author_data (as points), fit_p2_author (lines, no points).</p>
 <div class="admonition hint">
@@ -805,7 +820,7 @@ Fits:</p></li>
 <p><strong>(b)</strong> In one plot, plot dsc_data (as points) and your overall best fit i.e. fit_dsc (as lines, no marker).</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">10.6.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.6.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <p><strong>(a)</strong> How does your fit compare to the authors fit?  The authors didn’t show their overall fit but they did show the two components (peak functions) of their fit which you reproduced as (p1_author_data and p2_author_data).  Let’s compare the authors’ p1, p2 to your p1, p2 components by plotting on one plot: p1_author_data, p2_author_data, fit_dsc_peak_1, fit_dsc_peak_2.  How do your results compare to the authors?<br />
 <br>
 <strong>(b)</strong> From (a) we can see that our result is quite different from the authors. From problem 2, you already saw that your overall fit represents the data quite well. Let’s see how the authors overall fit represents the data.  Plot on one plot, dsc_data, fit_dsc, and the sum (fit_p1_author + fit_p2_author).  Use lines, no points for all data sets.  What can you say comparing (by eye) the authors fit vs your fit? Hint: to be able to add (fit_p1_author + fit_p2_author) you will need to use the fitted parameters and the gaussian function, <code class="docutils literal notranslate"><span class="pre">g(x,</span> <span class="pre">A,</span> <span class="pre">μ,</span> <span class="pre">σ)</span></code>, that we defined.  For example, <code class="docutils literal notranslate"><span class="pre">y=g(dsc_data[:,0],*result_p1.best_values.values())</span></code> would give you the fitted function for fit_p1_author.  Your xdata in this case would be <code class="docutils literal notranslate"><span class="pre">dsc_data[:,0]</span></code>.  <em>Important: use the same x-values for all your fits something like np.linspace(25, 800, 150) should work well.</em><br />
@@ -821,7 +836,7 @@ Fits:</p></li>
 </div>
 </section>
 <section id="problem-4">
-<h3><span class="section-number">10.6.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.6.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
 <p>Now there really isn’t any reason to assume a gaussian profile for the DSC data as the authors in this paper and many in the literature commonly do.  In fact, we expect the kinetics of crystallization to follow avrami kinetics.  These are the “S” shaped curves we looked at in the last lesson. The avrami curve has the form <span class="math notranslate nohighlight">\(Y=1-e^{-K\ t^n}\)</span>.</p>
 <p>The peak in the DSC data should just be the derivative of the avrami equation with respect to time which is <div class="math notranslate nohighlight">
 \[Y'= k n t^{n-1} e^{-k t^n}\]</div>
@@ -889,8 +904,10 @@ Let's now write this as a function called pAvram()<div class="cell docutils cont
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="09_applications.html"
@@ -945,7 +962,7 @@ Let's now write this as a function called pAvram()<div class="cell docutils cont
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -958,6 +975,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -975,7 +993,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -984,8 +1002,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

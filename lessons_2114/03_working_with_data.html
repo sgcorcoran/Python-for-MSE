@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="4. Plotting and Equation Solving" href="04_plotting_and_equation_solving.html" />
     <link rel="prev" title="2. Introduction to the Jupyter Notebook" href="02_Intro_Jupyter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -437,7 +452,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="working-with-data">
-<span id="title"></span><h1><span class="section-number">3. </span>Working with Data<a class="headerlink" href="#working-with-data" title="Permalink to this headline">#</a></h1>
+<span id="title"></span><h1><span class="section-number">3. </span>Working with Data<a class="headerlink" href="#working-with-data" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives  </p>
 <p>Be able to:</p>
@@ -463,9 +478,9 @@ document.write(`
 </div>
 </div>
 <section id="importing-reading-data-using-pandas">
-<span id="index-0"></span><h2><span class="section-number">3.1. </span>Importing / Reading data using <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#importing-reading-data-using-pandas" title="Permalink to this headline">#</a></h2>
+<span id="index-0"></span><h2><span class="section-number">3.1. </span>Importing / Reading data using <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#importing-reading-data-using-pandas" title="Permalink to this heading">#</a></h2>
 <section id="define-your-file-path">
-<h3><span class="section-number">3.1.1. </span>Define your file path<a class="headerlink" href="#define-your-file-path" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.1.1. </span>Define your file path<a class="headerlink" href="#define-your-file-path" title="Permalink to this heading">#</a></h3>
 <p>First we need to define our path to the file we want to import.  If you find the file on your machine, you can right click on it and select properties.</p>
 <a class="reference internal image-reference" href="../_images/file_properties.png"><img alt="../_images/file_properties.png" class="align-center" src="../_images/file_properties.png" style="width: 300px;" /></a>
 <p>By highlighting the text in the “location” box you can copy ctrl-c and paste directly in your notebook ctrl-v.  For me this would give:</p>
@@ -492,7 +507,7 @@ document.write(`
 </div>
 </section>
 <section id="read-the-file">
-<span id="import-data"></span><h3><span class="section-number">3.1.2. </span>Read the file<a class="headerlink" href="#read-the-file" title="Permalink to this headline">#</a></h3>
+<span id="import-data"></span><h3><span class="section-number">3.1.2. </span>Read the file<a class="headerlink" href="#read-the-file" title="Permalink to this heading">#</a></h3>
 <p>Let’s take a look at some student credit hours taught for engineering departments.</p>
 <div class="cell docutils container" id="index-1">
 <div class="cell_input docutils container">
@@ -635,7 +650,7 @@ document.write(`
 </section>
 </section>
 <section id="clean-the-data">
-<h2><span class="section-number">3.2. </span>Clean the data<a class="headerlink" href="#clean-the-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.2. </span>Clean the data<a class="headerlink" href="#clean-the-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container" id="index-2">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s drop rows and columns that have no data</span>
@@ -925,9 +940,9 @@ document.write(`
 </div>
 </section>
 <section id="analysis-of-data">
-<h2><span class="section-number">3.3. </span>Analysis of data<a class="headerlink" href="#analysis-of-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3. </span>Analysis of data<a class="headerlink" href="#analysis-of-data" title="Permalink to this heading">#</a></h2>
 <section id="sorting-slicing-math-on-columns-adding-new-columns">
-<h3><span class="section-number">3.3.1. </span>sorting, slicing, math on columns, adding new columns<a class="headerlink" href="#sorting-slicing-math-on-columns-adding-new-columns" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>sorting, slicing, math on columns, adding new columns<a class="headerlink" href="#sorting-slicing-math-on-columns-adding-new-columns" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container" id="index-4">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort data frame by values in column &quot;num faculty&quot;</span>
@@ -1684,7 +1699,7 @@ Name: dept, dtype: object
 </section>
 </section>
 <section id="plotting-the-data">
-<span id="index-6"></span><h2><span class="section-number">3.4. </span>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">#</a></h2>
+<span id="index-6"></span><h2><span class="section-number">3.4. </span>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this heading">#</a></h2>
 <p>now let’s plot the credit_faculty vs the num faculty</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1718,7 +1733,7 @@ Name: dept, dtype: object
 </div>
 </section>
 <section id="fitting-data-using-scipy-optimize-curvefit">
-<span id="index-7"></span><h2><span class="section-number">3.5. </span>Fitting data using scipy.optimize curvefit<a class="headerlink" href="#fitting-data-using-scipy-optimize-curvefit" title="Permalink to this headline">#</a></h2>
+<span id="index-7"></span><h2><span class="section-number">3.5. </span>Fitting data using scipy.optimize curvefit<a class="headerlink" href="#fitting-data-using-scipy-optimize-curvefit" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read in package for curve fitting</span>
@@ -1789,9 +1804,9 @@ Name: dept, dtype: object
 </div>
 </section>
 <section id="exporting-data-to-excel">
-<h2><span class="section-number">3.6. </span>Exporting data to excel<a class="headerlink" href="#exporting-data-to-excel" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.6. </span>Exporting data to excel<a class="headerlink" href="#exporting-data-to-excel" title="Permalink to this heading">#</a></h2>
 <section id="double-check-the-data-that-you-want-to-export">
-<h3><span class="section-number">3.6.1. </span>Double check the data that you want to export<a class="headerlink" href="#double-check-the-data-that-you-want-to-export" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.6.1. </span>Double check the data that you want to export<a class="headerlink" href="#double-check-the-data-that-you-want-to-export" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .loc[rows, columns] lets us use the names of the columns and rows</span>
@@ -1887,7 +1902,7 @@ Name: dept, dtype: object
 </div>
 </section>
 <section id="export">
-<h3><span class="section-number">3.6.2. </span>Export<a class="headerlink" href="#export" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.6.2. </span>Export<a class="headerlink" href="#export" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\Sean\OneDrive - Virginia Tech\Documents\Teaching\2114 &amp; 3114 Math I &amp; II\git_2114_3114\data for practice&quot;</span>
@@ -1905,7 +1920,7 @@ Name: dept, dtype: object
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">3.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>The problems below may require the ability to:</p>
 <ul class="simple">
 <li><p>import an excel file</p></li>
@@ -1916,9 +1931,9 @@ Name: dept, dtype: object
 <li><p>use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to make a scatter plot</p></li>
 </ul>
 <section id="review-of-some-coding-that-may-make-the-homework-exercises-easier">
-<h3><span class="section-number">3.7.1. </span>Review of some coding that may make the homework exercises easier.<a class="headerlink" href="#review-of-some-coding-that-may-make-the-homework-exercises-easier" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.7.1. </span>Review of some coding that may make the homework exercises easier.<a class="headerlink" href="#review-of-some-coding-that-may-make-the-homework-exercises-easier" title="Permalink to this heading">#</a></h3>
 <section id="using-if-elif-else-statements">
-<span id="index-8"></span><h4><span class="section-number">3.7.1.1. </span>Using <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#using-if-elif-else-statements" title="Permalink to this headline">#</a></h4>
+<span id="index-8"></span><h4><span class="section-number">3.7.1.1. </span>Using <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#using-if-elif-else-statements" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">piecewise</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span><span class="p">):</span> <span class="c1"># use the ratio var3/var1 to return different outputs</span>
@@ -1996,7 +2011,7 @@ Name: dept, dtype: object
 </div>
 </section>
 <section id="lets-determine-if-a-few-points-fall-inside-a-circle-with-center-0-5-0-5-and-radius-0-7">
-<h4><span class="section-number">3.7.1.2. </span>Let’s determine if a few points fall inside a circle with center (0.5, 0.5) and radius 0.7<a class="headerlink" href="#lets-determine-if-a-few-points-fall-inside-a-circle-with-center-0-5-0-5-and-radius-0-7" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">3.7.1.2. </span>Let’s determine if a few points fall inside a circle with center (0.5, 0.5) and radius 0.7<a class="headerlink" href="#lets-determine-if-a-few-points-fall-inside-a-circle-with-center-0-5-0-5-and-radius-0-7" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container" id="index-9">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
@@ -2092,7 +2107,7 @@ Name: dept, dtype: object
 </section>
 </section>
 <section id="problem-1">
-<h3><span class="section-number">3.7.2. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.7.2. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p>File needed:  <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1LDDjq0c6jmIWC1eKlxk9j6eIOllaKHrN">Al7075.xlsx</a></p>
 <p>(a) Import the load-length data in file “Al7075.xlsx” The header in the excel file should give you all the information you need.  Plot the stress-strain data.  Put the stress in units of MPa.</p>
 <p>(b) Take the first couple of data points and determine the slope by fitting a straight line to the data.  You may want to replot the first quarter or so of the original plot so that you can see how far the linear region extends.</p>
@@ -2101,12 +2116,12 @@ Name: dept, dtype: object
 <p>(e) Export your data to a new excel file with a name of your choosing.</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">3.7.3. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.7.3. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <hr style="height: 3.0px"/><p>Write a function that given the ionic radii for a simple ceramic compound (2 elements) returns the expected coordination number.  The coordinaton numbers versus ratio of the radii can be found in Chapter 12,  Table 12.2 on page 408 in Callister 10th ed. and is shown below. Your function should check if your ratio is greater than 1.0.  If it is, then take the inverse of your ratio.  You may want to consider the <code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">elif</span></code> <code class="docutils literal notranslate"><span class="pre">else</span></code> conditionals. Test your function by calculating the coordination number for NaCl.  Remember to use the ionic radii not the atomic radii.</p>
 <a class="reference internal image-reference" href="../_images/Callister_Chap_12.png"><img alt="../_images/Callister_Chap_12.png" class="align-center" src="../_images/Callister_Chap_12.png" style="width: 350px;" /></a>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">3.7.4. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.7.4. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <hr style="height: 3.0px"/><p>Pick 1000 random points in a square of edge length 2 centered at (0,0).  Determine how many of these points are contained in a circle of radius 1 centered at (0,0).  Multiply the ratio of points in the circle to the total number of points by 4, i.e. <span class="math notranslate nohighlight">\(4\times \frac{\text{pts in circle}}{\text{total num pts}}\)</span>.  Try 10,000 points.  What do you get?</p>
 </section>
 </section>
@@ -2137,8 +2152,10 @@ Name: dept, dtype: object
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="02_Intro_Jupyter.html"
@@ -2209,7 +2226,7 @@ Name: dept, dtype: object
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -2222,6 +2239,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -2239,7 +2257,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -2248,8 +2266,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

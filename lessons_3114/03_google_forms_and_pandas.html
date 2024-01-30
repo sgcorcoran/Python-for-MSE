@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -74,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="4. Pandas DataFrames and Data Visualization" href="04_closer_look_at_pandas.html" />
     <link rel="prev" title="2. Importing Data from Files &amp; Importing Your Own Functions" href="02_importing_your_own_functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -83,6 +85,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,9 +153,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,8 +167,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -355,20 +368,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -424,7 +439,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="google-forms-and-pandas-data-import-and-visualization">
-<h1><span class="section-number">3. </span>Google Forms and Pandas Data Import and Visualization<a class="headerlink" href="#google-forms-and-pandas-data-import-and-visualization" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">3. </span>Google Forms and Pandas Data Import and Visualization<a class="headerlink" href="#google-forms-and-pandas-data-import-and-visualization" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -435,7 +450,7 @@ document.write(`
 </ul>
 </div>
 <section id="creating-your-own-poll-using-google-forms">
-<h2><span class="section-number">3.1. </span>Creating your own poll using Google forms<a class="headerlink" href="#creating-your-own-poll-using-google-forms" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.1. </span>Creating your own poll using Google forms<a class="headerlink" href="#creating-your-own-poll-using-google-forms" title="Permalink to this heading">#</a></h2>
 <p><br>Open a Google form from your browser using the “Google apps” navigator icon shown below. This assumes you are logged in to your google account.</p>
 <a class="reference internal image-reference" href="../_images/google_apps.png"><img alt="../_images/google_apps.png" class="align-center" src="../_images/google_apps.png" style="height: 200px;" /></a>
 <p><br>Scroll down and open “Forms”.</p>
@@ -460,7 +475,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/zip_folder_rename.png"><img alt="../_images/zip_folder_rename.png" class="align-center" src="../_images/zip_folder_rename.png" style="height: 250px;" /></a>
 </section>
 <section id="import-and-analyze-the-data">
-<h2><span class="section-number">3.2. </span>Import and analyze the data<a class="headerlink" href="#import-and-analyze-the-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.2. </span>Import and analyze the data<a class="headerlink" href="#import-and-analyze-the-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>  <span class="c1">#we use this to join our file path to our filename</span>
@@ -1871,13 +1886,13 @@ dtype: float64
 </div>
 </section>
 <section id="plotting-using-pandas">
-<h2><span class="section-number">3.3. </span>Plotting using pandas<a class="headerlink" href="#plotting-using-pandas" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3. </span>Plotting using pandas<a class="headerlink" href="#plotting-using-pandas" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>pandas uses matplotlib to graphically represent data organized in DataFrames.  Using pandas allows us to make complicated figures with very little coding.  We will look at several examples.</p>
 </div>
 <section id="histogram">
-<h3><span class="section-number">3.3.1. </span>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>Histogram<a class="headerlink" href="#histogram" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  <span class="c1">#pandas plotting</span>
@@ -1901,7 +1916,7 @@ dtype: float64
 </div>
 </section>
 <section id="bar-charts">
-<h3><span class="section-number">3.3.2. </span>Bar charts<a class="headerlink" href="#bar-charts" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>Bar charts<a class="headerlink" href="#bar-charts" title="Permalink to this heading">#</a></h3>
 <p>We could also make a horizontal bar chart of our mean values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1926,7 +1941,7 @@ dtype: float64
 </div>
 </section>
 <section id="box-plot">
-<h3><span class="section-number">3.3.3. </span>Box plot<a class="headerlink" href="#box-plot" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.3.3. </span>Box plot<a class="headerlink" href="#box-plot" title="Permalink to this heading">#</a></h3>
 <p><br> Another type of plot that can be useful is the box plot. Here is the meaning of the box plot:</p>
 <a class="reference internal image-reference" href="../_images/box_plot.png"><img alt="../_images/box_plot.png" class="align-center" src="../_images/box_plot.png" style="height: 250px;" /></a>
 <div class="cell docutils container">
@@ -1941,7 +1956,7 @@ dtype: float64
 </div>
 </section>
 <section id="pie-chart">
-<h3><span class="section-number">3.3.4. </span>Pie chart<a class="headerlink" href="#pie-chart" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.3.4. </span>Pie chart<a class="headerlink" href="#pie-chart" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">data_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="n">explode</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">data_mean</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1954,7 +1969,7 @@ dtype: float64
 </div>
 </section>
 <section id="scipy-stats">
-<h3><span class="section-number">3.3.5. </span>scipy.stats<a class="headerlink" href="#scipy-stats" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.3.5. </span>scipy.stats<a class="headerlink" href="#scipy-stats" title="Permalink to this heading">#</a></h3>
 <p>Let’s use a paired t-test to see if the mean values for our data are significantly different from one another. We will use the standard p-value of &lt;= 0.05 to conclude that the means are significantly different.</p>
 <p>Here we test whether the preference to drink Pepsi over Coke is significantly different than the preference to drink Water over Almond Milk.</p>
 <div class="cell docutils container">
@@ -1997,15 +2012,15 @@ dtype: float64
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="problem-1">
-<h3><span class="section-number">3.4.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p>For homework, create your own survey in Google forms that will allow you to rank at least 4 features /items by collecting opinion data on 4 corresponding survey questions and have at least 10 people take it.  The more data you have the better if you can get more than 10.  Send it to family, friends, etc.  The 4 questions should use the same scale so that you will be able to compare.  Use the 5-point likert scale.</p>
 <p>Download your survey responses and find the mean, std, median, max and min values for each column.  Analyze your survey data by creating at least 3 different plots/charts summarizing aspects of your data.  Perform a t-test to compare the mean values between three pairs of data.  Indicate whether the mean values are significantly different from each another for each pair.</p>
 <p>At least one of your plots/charts should be something that I did not do in the lesson.</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">3.4.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.4.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SweetTeaNotUnsweet&#39;</span><span class="p">,</span> <span class="s1">&#39;WaterNotAlmondMilk&#39;</span><span class="p">,</span> <span class="s1">&#39;PepsiNotCoke&#39;</span><span class="p">])</span>
@@ -2146,13 +2161,13 @@ dtype: float64
 <p>Correct this line of code to give the desired output.</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">3.4.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.4.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <p>I’m trying to find the sqrt of 3 using numpy but I’m getting the following error.  What is wrong?</p>
 <a class="reference internal image-reference" href="../_images/week_2_prob_3.png"><img alt="../_images/week_2_prob_3.png" class="align-center" src="../_images/week_2_prob_3.png" style="height: 225px;" /></a>
 <p>To do this problem, you want to open a new blank notebook.  Then type np.sqrt(3), in the first line and run it.</p>
 </section>
 <section id="problem-4">
-<h3><span class="section-number">3.4.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.4.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
 <p>Why is the cosine of 90 degrees below giving me the wrong answer?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2195,8 +2210,10 @@ dtype: float64
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="02_importing_your_own_functions.html"
@@ -2256,7 +2273,7 @@ dtype: float64
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -2269,6 +2286,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -2286,7 +2304,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -2295,8 +2313,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

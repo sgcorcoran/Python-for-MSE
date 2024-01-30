@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="6. Creating a “Cheat Sheet”" href="06_creating_a_cheat_sheet.html" />
     <link rel="prev" title="4. Plotting and Equation Solving" href="04_plotting_and_equation_solving.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -419,7 +434,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reviewing-essential-concepts-of-numpy">
-<h1><span class="section-number">5. </span>Reviewing essential concepts of numpy<a class="headerlink" href="#reviewing-essential-concepts-of-numpy" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5. </span>Reviewing essential concepts of numpy<a class="headerlink" href="#reviewing-essential-concepts-of-numpy" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives  </p>
 <p>Be able to:</p>
@@ -444,7 +459,7 @@ document.write(`
 <p>Array creation (7 min): <a class="reference external" href="https://www.linkedin.com/learning/numpy-data-science-essential-training/intrinsic-creation-using-numpy-methods?u=57888345">https://www.linkedin.com/learning/numpy-data-science-essential-training/intrinsic-creation-using-numpy-methods?u=57888345</a></p>
 <span class="target" id="index-1"></span><p id="index-2">linspace(), zeros(), ones() and numpy data types (9 min): <a class="reference external" href="https://www.linkedin.com/learning/numpy-data-science-essential-training/linspace-zeros-ones-data-types?u=57888345">https://www.linkedin.com/learning/numpy-data-science-essential-training/linspace-zeros-ones-data-types?u=57888345</a></p>
 <section id="calculating-and-plotting-the-anisotropy-of-the-thermal-expansion-coefficient">
-<h2><span class="section-number">5.1. </span>Calculating and Plotting the anisotropy of the thermal expansion coefficient<a class="headerlink" href="#calculating-and-plotting-the-anisotropy-of-the-thermal-expansion-coefficient" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.1. </span>Calculating and Plotting the anisotropy of the thermal expansion coefficient<a class="headerlink" href="#calculating-and-plotting-the-anisotropy-of-the-thermal-expansion-coefficient" title="Permalink to this heading">#</a></h2>
 <p>Let’s take a look at the anisotropy of thermal expansion in a crystal of zinc. We will take the z-axis to be perpendicular to the close-packed planes.  In the x-y plane, the thermal expansion is isotropic but in the x-z or y-z plane zinc is highly anisotropic.  The thermal expansion in a [uvw] direction can be found from:<br />
 <span class="math notranslate nohighlight">\(\alpha_{uvw} = \alpha_x\times(n_x^2+n_y^2)+\alpha_z\times n_z^2\)</span><br />
 where <span class="math notranslate nohighlight">\(n_x, n_y, n_z\)</span> are the x,y,z components of the unit vector <span class="math notranslate nohighlight">\(\frac{[u v w]}{\sqrt{u^2+v^2+w^2}}\)</span> i.e.<br />
@@ -458,7 +473,7 @@ where <span class="math notranslate nohighlight">\(n_x, n_y, n_z\)</span> are th
 </div>
 </div>
 <section id="lets-look-at-an-example-for-zinc">
-<h3><span class="section-number">5.1.1. </span>Let’s look at an example for zinc<a class="headerlink" href="#lets-look-at-an-example-for-zinc" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.1. </span>Let’s look at an example for zinc<a class="headerlink" href="#lets-look-at-an-example-for-zinc" title="Permalink to this heading">#</a></h3>
 <p>For zinc <span class="math notranslate nohighlight">\(\alpha_{x}=14\times 10^{-6} \ \ {^\circ C}^{-1}\)</span> and <span class="math notranslate nohighlight">\(\alpha_{z}=55\times 10^{-6} \ \ {^\circ} C^{-1}\)</span></p>
 <p>First let’s write a function to find the unit vector in a direction [u v w]</p>
 <div class="cell docutils container">
@@ -761,20 +776,20 @@ gives the thermal expansion in the [012] direction</p>
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">5.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="problem-1">
-<h3><span class="section-number">5.2.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.2.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p>In the lesson above, there are two lines of code that need to be completed for this notebook to execute.  They are labeled “1(a) finish this line” and “1(b) finish this line”.  Complete the code for these two and write below.<br />
 (a)<br />
 (b)</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">5.2.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.2.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <p>Plot the thermal expansion coefficient for zinc in the v,w plane as shown in the lesson but this time pick 500 random directions of the form [0 v w] where v and w should correspond to both negative and positive values.  You can simply use the random() function as you did last lesson to choose numbers between -1 and 1 for both v and w.  After this, don’t forget to then turn these directions into unit directions as shown in the lesson.  Note the symmetry you get about (0,0) in your final plot.</p>
 <p>Hint: Get your notebook working for just a few points before you try to run it with 500 values.</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">5.2.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.2.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <p>Your choice.  Solve a problem from one of your other classes either currently or in the past.  You can extend the problem if it is too simple.  Your answer should include enough commenting to make sure the problem is understood.  Equations should be typed out using the dollar sign math in the markdown cells and you should include some type of plot relevant to the problem. Make sure you label the plot axes and add a title to your plot.</p>
 </section>
 </section>
@@ -805,8 +820,10 @@ gives the thermal expansion in the [012] direction</p>
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="04_plotting_and_equation_solving.html"
@@ -859,7 +876,7 @@ gives the thermal expansion in the [012] direction</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -872,6 +889,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -889,7 +907,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -898,8 +916,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

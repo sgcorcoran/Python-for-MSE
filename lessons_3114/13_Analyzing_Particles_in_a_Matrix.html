@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -76,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="14. Image Transformation using opencv" href="14_removing_perspective.html" />
     <link rel="prev" title="12. Image Analysis: Grain Size Measurement" href="12_grain_size_measurement.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -85,6 +87,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,9 +155,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -156,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
   
   
 </a></div>
@@ -357,20 +370,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -442,7 +457,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analyzing-particles-in-a-matrix">
-<h1><span class="section-number">13. </span>Analyzing Particles in a Matrix<a class="headerlink" href="#analyzing-particles-in-a-matrix" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">13. </span>Analyzing Particles in a Matrix<a class="headerlink" href="#analyzing-particles-in-a-matrix" title="Permalink to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This lesson analyzes two different particle types in a single matrix.  Your homework is less complex and only requires that you analyze one particle type so you will have to modify the code appropriately.</p>
@@ -452,7 +467,7 @@ document.write(`
 <p>Image copied from: <a class="reference external" href="http://www.keramverband.de/brevier_engl/3/4/4/3_4_4_2.htm">http://www.keramverband.de/brevier_engl/3/4/4/3_4_4_2.htm</a> accessed Nov 9, 2022.  Figure 46. Breviary Technical Ceramics</p>
 <p>Since this will require us to perform filtering, thresholding, and segmentation steps twice (once for each phase), it will definitely be worth while to rewrite our code from the previous lesson in the form of three functions: <code class="docutils literal notranslate"><span class="pre">prep_image()</span></code>, <code class="docutils literal notranslate"><span class="pre">thresh_simple()</span></code>, and <code class="docutils literal notranslate"><span class="pre">segment()</span></code>.</p>
 <section id="function-definitions">
-<h2><span class="section-number">13.1. </span>Function Definitions<a class="headerlink" href="#function-definitions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">13.1. </span>Function Definitions<a class="headerlink" href="#function-definitions" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
@@ -548,7 +563,7 @@ document.write(`
 </div>
 </section>
 <section id="read-image-and-prep-for-thresholding">
-<h2><span class="section-number">13.2. </span>Read image and prep for thresholding<a class="headerlink" href="#read-image-and-prep-for-thresholding" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">13.2. </span>Read image and prep for thresholding<a class="headerlink" href="#read-image-and-prep-for-thresholding" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgfull</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/13_metal_matrix_composite.jpg&#39;</span><span class="p">)</span>  <span class="c1"># cv.imread reads the image in Blue-Green-Red format</span>
@@ -580,7 +595,7 @@ document.write(`
 </div>
 </section>
 <section id="perform-two-different-thresholds">
-<h2><span class="section-number">13.3. </span>Perform two different Thresholds<a class="headerlink" href="#perform-two-different-thresholds" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">13.3. </span>Perform two different Thresholds<a class="headerlink" href="#perform-two-different-thresholds" title="Permalink to this heading">#</a></h2>
 <p>(1) The strategy here is to turn everything below 200 to white and above 200 to black.  This will capture both our gray and black phases.<br />
 (2) Then do this again for a value of 100 which will capture only the black regions.<br />
 (3) By subtracting (2) from (1) we will get only the gray regions.</p>
@@ -609,7 +624,7 @@ document.write(`
 </div>
 </section>
 <section id="mark-and-color-code-the-image-using-our-function-segment">
-<h2><span class="section-number">13.4. </span>Mark and Color Code the Image using our function segment()<a class="headerlink" href="#mark-and-color-code-the-image-using-our-function-segment" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">13.4. </span>Mark and Color Code the Image using our function segment()<a class="headerlink" href="#mark-and-color-code-the-image-using-our-function-segment" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here are the marked and colorcoded black regions</span>
@@ -634,7 +649,7 @@ document.write(`
 </div>
 </section>
 <section id="image-summary">
-<h2><span class="section-number">13.5. </span>Image Summary<a class="headerlink" href="#image-summary" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">13.5. </span>Image Summary<a class="headerlink" href="#image-summary" title="Permalink to this heading">#</a></h2>
 <p>Now lets combine our two images to highlight the black and gray regions in one image.  This is not necessary but it makes a nice summary image to see how we did.</p>
 <p>Now recall that in our markers array:</p>
 <blockquote>
@@ -704,7 +719,7 @@ document.write(`
 </div>
 </section>
 <section id="find-pixel-calibration">
-<h2><span class="section-number">13.6. </span>Find Pixel Calibration<a class="headerlink" href="#find-pixel-calibration" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">13.6. </span>Find Pixel Calibration<a class="headerlink" href="#find-pixel-calibration" title="Permalink to this heading">#</a></h2>
 <p>Each colored grain can now be analyzed and placed in a Pandas DataFrame.  We need our original multi-colored files for these. First let’s get our <span class="math notranslate nohighlight">\(\mu\)</span>m per pixel value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -735,9 +750,9 @@ document.write(`
 </div>
 </section>
 <section id="analyze-particles">
-<h2><span class="section-number">13.7. </span>Analyze Particles<a class="headerlink" href="#analyze-particles" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">13.7. </span>Analyze Particles<a class="headerlink" href="#analyze-particles" title="Permalink to this heading">#</a></h2>
 <section id="black-phase">
-<h3><span class="section-number">13.7.1. </span>Black Phase<a class="headerlink" href="#black-phase" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">13.7.1. </span>Black Phase<a class="headerlink" href="#black-phase" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">propList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="s1">&#39;eccentricity&#39;</span><span class="p">,</span><span class="s1">&#39;centroid&#39;</span><span class="p">,</span><span class="s1">&#39;area&#39;</span><span class="p">,</span><span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">,</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span><span class="s1">&#39;major_axis_length&#39;</span><span class="p">,</span> <span class="s1">&#39;minor_axis_length&#39;</span><span class="p">,</span><span class="s1">&#39;perimeter&#39;</span><span class="p">]</span>
@@ -880,7 +895,7 @@ document.write(`
 </div>
 </section>
 <section id="gray-phase">
-<h3><span class="section-number">13.7.2. </span>Gray Phase<a class="headerlink" href="#gray-phase" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">13.7.2. </span>Gray Phase<a class="headerlink" href="#gray-phase" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gray_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># label = 1 is background</span>
@@ -1009,7 +1024,7 @@ document.write(`
 </div>
 </section>
 <section id="example-analyses">
-<h3><span class="section-number">13.7.3. </span>Example Analyses<a class="headerlink" href="#example-analyses" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">13.7.3. </span>Example Analyses<a class="headerlink" href="#example-analyses" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># indentifying the data sets to use so I don&#39;t have to change the variables in all the code below</span>
@@ -1020,7 +1035,7 @@ document.write(`
 </div>
 </div>
 <section id="number-of-particles">
-<h4><span class="section-number">13.7.3.1. </span>Number of Particles<a class="headerlink" href="#number-of-particles" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.7.3.1. </span>Number of Particles<a class="headerlink" href="#number-of-particles" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#number of particles</span>
@@ -1036,7 +1051,7 @@ document.write(`
 </div>
 </section>
 <section id="average-particle-diameter">
-<h4><span class="section-number">13.7.3.2. </span>Average particle diameter<a class="headerlink" href="#average-particle-diameter" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.7.3.2. </span>Average particle diameter<a class="headerlink" href="#average-particle-diameter" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span><span class="o">=</span><span class="p">(</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">pixels_to_μm</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1">#table in units of pixels so convert using pixels_to_μm</span>
@@ -1052,7 +1067,7 @@ document.write(`
 </div>
 </section>
 <section id="average-area">
-<h4><span class="section-number">13.7.3.3. </span>Average Area<a class="headerlink" href="#average-area" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.7.3.3. </span>Average Area<a class="headerlink" href="#average-area" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span><span class="o">=</span><span class="p">(</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">pixels_to_μm</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1">#don&#39;t forget to square pixel to μm conversion since we are looking at an area</span>
@@ -1068,7 +1083,7 @@ document.write(`
 </div>
 </section>
 <section id="area-percent-fraction">
-<h4><span class="section-number">13.7.3.4. </span>Area percent / fraction<a class="headerlink" href="#area-percent-fraction" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.7.3.4. </span>Area percent / fraction<a class="headerlink" href="#area-percent-fraction" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interface_pix</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="n">markers</span><span class="o">==-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#interface pixels are labeled -1</span>
@@ -1089,7 +1104,7 @@ document.write(`
 </div>
 </section>
 <section id="particle-orientations">
-<h4><span class="section-number">13.7.3.5. </span>Particle Orientations<a class="headerlink" href="#particle-orientations" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.7.3.5. </span>Particle Orientations<a class="headerlink" href="#particle-orientations" title="Permalink to this heading">#</a></h4>
 <p>Histogram of particle orientations.  Measures angle from the vertical for the long axis of a given particle.  Useful for seeing any orientation preference in the material.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1103,7 +1118,7 @@ document.write(`
 </div>
 </section>
 <section id="particle-eccentricity">
-<h4><span class="section-number">13.7.3.6. </span>Particle Eccentricity<a class="headerlink" href="#particle-eccentricity" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.7.3.6. </span>Particle Eccentricity<a class="headerlink" href="#particle-eccentricity" title="Permalink to this heading">#</a></h4>
 <p>A value of zero corresponds to a circle.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1118,7 +1133,7 @@ document.write(`
 </div>
 </section>
 <section id="histogram-of-particle-diameters">
-<h4><span class="section-number">13.7.3.7. </span>Histogram of Particle Diameters.<a class="headerlink" href="#histogram-of-particle-diameters" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.7.3.7. </span>Histogram of Particle Diameters.<a class="headerlink" href="#histogram-of-particle-diameters" title="Permalink to this heading">#</a></h4>
 <p>Let’s use matplotlib’s histogram for more control.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1141,7 +1156,7 @@ document.write(`
 </section>
 </section>
 <section id="repeat-for-the-black-particles-if-you-would-like-use-black-data-and-markers2">
-<h3><span class="section-number">13.7.4. </span>Repeat for the black particles if you would like (use black_data and markers2)<a class="headerlink" href="#repeat-for-the-black-particles-if-you-would-like-use-black-data-and-markers2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">13.7.4. </span>Repeat for the black particles if you would like (use black_data and markers2)<a class="headerlink" href="#repeat-for-the-black-particles-if-you-would-like-use-black-data-and-markers2" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grain_data=black_data</span>
@@ -1153,21 +1168,21 @@ document.write(`
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">13.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">13.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="problem-1">
-<h3><span class="section-number">13.8.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">13.8.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
 <p>Find the average particle size, particle size histogram, eccentricity histogram and the total area percent of fiber.</p>
 <section id="carbon-fibre-epoxy-composite">
-<h4><span class="section-number">13.8.1.1. </span>Carbon Fibre Epoxy Composite<a class="headerlink" href="#carbon-fibre-epoxy-composite" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.8.1.1. </span>Carbon Fibre Epoxy Composite<a class="headerlink" href="#carbon-fibre-epoxy-composite" title="Permalink to this heading">#</a></h4>
 <a class="reference internal image-reference" href="../_images/13_doi.org_10.3390_jcs6030075.png"><img alt="../_images/13_doi.org_10.3390_jcs6030075.png" class="align-center" src="../_images/13_doi.org_10.3390_jcs6030075.png" style="width: 600px;" /></a>
 <p>M. Çelik, T. Noble, F. Jorge, R. Jian, C. M. Ó Brádaigh, and C. Robert, “Influence of Line Processing Parameters on Properties of Carbon Fibre Epoxy Towpreg,” Journal of Composites Science, vol. 6, no. 3, p. 75, 2022.</p>
 </section>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">13.8.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">13.8.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
 <p>Find the area fraction of porosity in image (a) below.</p>
 <section id="powder-metallurgy-of-17-4-ph-stainless-steel">
-<h4><span class="section-number">13.8.2.1. </span>Powder Metallurgy of 17-4 PH Stainless Steel<a class="headerlink" href="#powder-metallurgy-of-17-4-ph-stainless-steel" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">13.8.2.1. </span>Powder Metallurgy of 17-4 PH Stainless Steel<a class="headerlink" href="#powder-metallurgy-of-17-4-ph-stainless-steel" title="Permalink to this heading">#</a></h4>
 <a class="reference internal image-reference" href="../_images/13_doi.org_10.1007_S11661-002-0050-4.png"><img alt="../_images/13_doi.org_10.1007_S11661-002-0050-4.png" class="align-center" src="../_images/13_doi.org_10.1007_S11661-002-0050-4.png" style="width: 600px;" /></a>
 <p>Wu, Y., Blaine, D., Schlaefer, C., Marx, B., &amp; German, R. M. (2002). Sintering densification and microstructural evolution of injection molding grade 17-4 PH stainless steel powder. Metallurgical and Materials Transactions A, 33(7), 2185–2194.</p>
 </section>
@@ -1200,8 +1215,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="12_grain_size_measurement.html"
@@ -1277,7 +1294,7 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1290,6 +1307,7 @@ By Sean Corcoran
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1307,7 +1325,7 @@ By Sean Corcoran
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1316,8 +1334,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
