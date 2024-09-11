@@ -502,7 +502,7 @@ document.write(`
 <span class="c1"># This is a live google sheet file linked to our google form poll responses.  The file must be shared to be read it this way.  </span>
 <span class="n">fullpath</span><span class="o">=</span><span class="s2">&quot;https://docs.google.com/spreadsheets/d/13PLZ2N8txdPGn9P19VINPAMDup7ExLsh_Dso9_qLw0c/export?format=csv&quot;</span>
 <span class="n">raw</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
-<span class="n">raw</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1">#shows first 5 rows</span>
+<span class="n">raw</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1">#shows last 5 rows</span>
 </pre></div>
 </div>
 </div>
@@ -534,44 +534,44 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>8/27/2021 12:36:40</td>
+      <th>53</th>
+      <td>9/7/2023 12:11:41</td>
       <td>NaN</td>
-      <td>Strongly Disagree</td>
+      <td>Neutral</td>
       <td>Agree</td>
       <td>Strongly Agree</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>8/27/2021 12:37:01</td>
+      <th>54</th>
+      <td>9/7/2023 15:42:29</td>
+      <td>NaN</td>
+      <td>Disagree</td>
+      <td>Strongly Agree</td>
+      <td>Strongly Agree</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>11/30/2023 14:49:56</td>
       <td>NaN</td>
       <td>Neutral</td>
       <td>Strongly Agree</td>
+      <td>Agree</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>9/10/2024 10:24:44</td>
+      <td>NaN</td>
+      <td>Neutral</td>
+      <td>Agree</td>
       <td>Strongly Agree</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>8/27/2021 12:38:09</td>
-      <td>NaN</td>
-      <td>Disagree</td>
-      <td>Disagree</td>
-      <td>Disagree</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>8/27/2021 12:39:35</td>
+      <th>57</th>
+      <td>9/10/2024 11:08:12</td>
       <td>NaN</td>
       <td>Strongly Disagree</td>
       <td>Strongly Agree</td>
-      <td>Strongly Agree</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>8/27/2021 12:40:36</td>
-      <td>NaN</td>
-      <td>Agree</td>
-      <td>Agree</td>
-      <td>Strongly Agree</td>
+      <td>Strongly Disagree</td>
     </tr>
   </tbody>
 </table>
