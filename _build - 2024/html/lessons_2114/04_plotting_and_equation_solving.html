@@ -1,0 +1,1505 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Plotting and Equation Solving &#8212; Python for MSE</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_2114/04_plotting_and_equation_solving';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Reviewing essential concepts of numpy" href="05_numpy_essentials.html" />
+    <link rel="prev" title="3. Working with Data" href="03_working_with_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Math Programming for Materials Science and Engineering
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 2114 Python for MSE I</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_welcome_to_2114.html">1. Welcome to MSE 2114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Intro_Jupyter.html">2. Introduction to the Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_working_with_data.html">3. Working with Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Plotting and Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_numpy_essentials.html">5. Reviewing essential concepts of numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_creating_a_cheat_sheet.html">6. Creating a “Cheat Sheet”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_self_review_pandas.html">7. Self Review and Practice with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_more_practice.html">8. More Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_wire_coating.html">9. Application: Plastic wire coating data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_advanced_plotting.html">10. Advanced Plotting with matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_prep_for_3114.html">11. Prepare for MSE 3114 next semester!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 3114 Python for MSE II</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/01_welcome_to_3114.html">1. Welcome to MSE 3114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/02_importing_your_own_functions.html">2. Importing Data from Files &amp; Importing Your Own Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/03_google_forms_and_pandas.html">3. Google Forms and Pandas Data Import and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/04_closer_look_at_pandas.html">4. Pandas DataFrames and Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/05_closer_look_at_matplotlib.html">5. matplotlib - Advanced Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/06_selecting_pixel_coordinates.html">6. Selecting pixel coordinates from an image file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/07_digitizing_literature_plots_part_1.html">7. Estimating Data Values from Plots in the Literature (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/08_digitizing_literature_plots_part_2.html">8. Estimating Data Values from Plots in the Literature (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/09_applications.html">9. Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/10_peak_deconvolution.html">10. Application: Peak Deconvolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/11_creep_analysis_log_scales.html">11. Collecting Data from Log scales: Creep Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/12_grain_size_measurement.html">12. Image Analysis: Grain Size Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/13_Analyzing_Particles_in_a_Matrix.html">13. Analyzing Particles in a Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/14_removing_perspective.html">14. Image Transformation using opencv</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="100_markdown_cells.html">1. Short Lesson: Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101_math_operations.html">2. Short Lesson: Math Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="102_Plotting_basics.html">3. Short Lesson: Plotting Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103_Plotting_functions.html">4. Short Lesson: Plotting functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="50_2114_course_support_files.html">5. MSE 2114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="51_2114_LinkedIn_Learning_Recommendations.html">6. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="52_2114_time_saving_tips.html">7. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="53_2114_updates.html">8. Updates &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/50_course_support_files.html">9. MSE 3114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/51_LinkedIn_Learning_Recommendations.html">10. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/52_time_saving_tips.html">11. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/53_updates.html">12. Updates &amp; FAQ</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_2114/04_plotting_and_equation_solving.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons_2114/04_plotting_and_equation_solving.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Plotting and Equation Solving</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints-for-problem-1">4.1. Hints for <span class="xref myst">Problem 1</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-solving-an-equation">4.1.1. Example of solving an equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints-for-problem-2">4.2. Hints for <span class="xref myst">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints-for-problem-3">4.3. Hints for <span class="xref myst">Problem 3</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-table">4.3.1. Pivot Table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">4.4. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">4.4.1. Problem 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">4.4.2. Problem 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">4.4.3. Problem 3:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="plotting-and-equation-solving">
+<h1><span class="section-number">4. </span>Plotting and Equation Solving<a class="headerlink" href="#plotting-and-equation-solving" title="Permalink to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>Be able to:</p>
+<ul class="simple">
+<li><p>import libraries <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">sympy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>;</p></li>
+<li><p>symbolically manipulate an equation using <code class="docutils literal notranslate"><span class="pre">sympy.solve()</span></code>;</p></li>
+<li><p>generate x and y data for a function using <code class="docutils literal notranslate"><span class="pre">numpy.linspace()</span></code>;</p></li>
+<li><p>plot the x, y data using <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.plot()</span></code>;</p></li>
+<li><p>add horizontal lines and text to a plot; and</p></li>
+<li><p>use pandas <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> to open a data file</p></li>
+<li><p>group (aggregate) data using pandas:  <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>, <code class="docutils literal notranslate"><span class="pre">sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">mean()</span></code></p></li>
+</ul>
+</div>
+<p><em>You will need the following extensions:</em></p>
+<div class="cell docutils container" id="index-0">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sympy.solvers</span> <span class="kn">import</span> <span class="n">solve</span> <span class="c1">#for solving equations symbolically</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span> <span class="c1">#for solving equations symbolically</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="hints-for-problem-1">
+<h2><span class="section-number">4.1. </span>Hints for <a class="reference internal" href="#exercises-prob-1"><span class="std std-ref">Problem 1</span></a><a class="headerlink" href="#hints-for-problem-1" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[  \mathbf{\text{% crystallinity} =  \frac{\rho_c (\rho_s - \rho_a)}{\rho_s (\rho_c - \rho_a)} * 100} \]</div>
+<p>For this problem you will need to define a function to find the crystallinity based on the values of density as shown above.  Your function should look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crystallinity</span><span class="p">(</span><span class="n">density_s</span><span class="p">,</span> <span class="n">density_a</span><span class="p">,</span> <span class="n">density_c</span><span class="p">):</span>
+    <span class="n">percent_crys</span><span class="o">=</span>   <span class="c1"># finish this statement</span>
+    <span class="k">return</span> <span class="n">percent_crys</span>
+
+<span class="n">crystallinity</span><span class="p">(</span><span class="mf">0.925</span><span class="p">,</span> <span class="mf">0.870</span><span class="p">,</span> <span class="mf">0.998</span><span class="p">)</span>  <span class="c1"># checking your function output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write a function that takes percent_crystallinity, crystalline_density and amorphous_density and returns the sample density. For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_density</span><span class="p">(</span><span class="n">percent_crystallinity</span><span class="p">,</span> <span class="n">density_a</span><span class="p">,</span> <span class="n">density_c</span><span class="p">):</span>  
+     <span class="n">density_s</span><span class="o">=</span>   <span class="c1">#finish this equation</span>
+     <span class="k">return</span> <span class="n">density_s</span>
+</pre></div>
+</div>
+<p>To find the equation for the sample density, you will want to solve the crystallinity equation for the sample_density. You can do this using <code class="docutils literal notranslate"><span class="pre">sympy</span></code> after loading the following packages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.solvers</span> <span class="kn">import</span> <span class="n">solve</span> <span class="c1">#for solving equations symbolically</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span> <span class="c1">#for solving equations symbolically</span>
+</pre></div>
+</div>
+<section id="example-of-solving-an-equation">
+<span id="index-1"></span><h3><span class="section-number">4.1.1. </span>Example of solving an equation<a class="headerlink" href="#example-of-solving-an-equation" title="Permalink to this heading">#</a></h3>
+<p>Let’s say you wanted to solve the equation <span class="math notranslate nohighlight">\(a x^2 + b x + c = d\)</span>.  First, we tell python that a,b,c,d,x are symbols.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.solvers</span> <span class="kn">import</span> <span class="n">solve</span> <span class="c1">#for solving equations symbolically</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span> <span class="c1">#for solving equations symbolically</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;a b c d x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can use the solve command.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The equation that goes into the solve command must equal zero so we rewrite <span class="math notranslate nohighlight">\(a x^2 + b x + c = d\)</span>   as   <span class="math notranslate nohighlight">\(a x^2 + b x + c - d=0\)</span>.  Notice that we do not include the “=0” part in the solve function below because that is assumed.</p>
+</div>
+<div class="cell docutils container" id="index-2">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># solve for x</span>
+<span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="o">-</span><span class="n">d</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-b - sqrt(-4*a*c + 4*a*d + b**2))/(2*a),
+ (-b + sqrt(-4*a*c + 4*a*d + b**2))/(2*a)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">x_solution</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">d</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">x_solution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_solution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8904617494884413
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Let’s find our x solution for different values of the parameter “d”</strong></p>
+<p id="index-3">The <code class="docutils literal notranslate"><span class="pre">np.linspace(min,</span> <span class="pre">max,</span> <span class="pre">numpts)</span></code> creates evenly spaced points between two numbers.  The number of points you want is given by the third number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#first pt =0, last point=5, total points=5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;linspace list dd = &#39;</span><span class="p">,</span><span class="n">dd</span><span class="p">)</span>
+<span class="p">[</span><span class="n">x_solution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dd</span><span class="p">]</span> <span class="c1">#list comprehension loop</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>linspace list dd =  [0.   1.25 2.5  3.75 5.  ]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.6492189406417879,
+ -0.4646428928642874,
+ -0.2974375810233365,
+ -0.14346255670591024,
+ 0.0]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Let’s use the above method to find x solutions for 20 d values between 0 and 50.  Example annotations are also included in the plot.</strong></p>
+<div class="cell docutils container" id="index-4">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1">#creates 20 evenly spaced d-values from 0 to 50</span>
+<span class="n">x_sol</span><span class="o">=</span><span class="n">x_solution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">x_sol</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$a x^2 + b x + c = d$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span> <span class="c1"># you can include text on your plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$a x^2$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span> <span class="c1"># you can include text on your plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/79d326451e8108e94901f892ac7f9f8c55b4351280280317fc52ed87c1ec2a5d.png" src="../_images/79d326451e8108e94901f892ac7f9f8c55b4351280280317fc52ed87c1ec2a5d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="hints-for-problem-2">
+<h2><span class="section-number">4.2. </span>Hints for <a class="reference internal" href="#exercises-prob-2"><span class="std std-ref">Problem 2</span></a><a class="headerlink" href="#hints-for-problem-2" title="Permalink to this heading">#</a></h2>
+<p>Last week we calculated the value of <span class="math notranslate nohighlight">\(\left(4\times \frac{\text{pts in circle}}{\text{total num pts}}\right)\)</span> for 1000 random points.  This week you will plot the value as a function of the number of random points.  That is, you want to write a function that takes a parameter, <span class="math notranslate nohighlight">\(n\)</span>, for the total number of points and returns the value <span class="math notranslate nohighlight">\(\left(4\times \frac{\text{pts in circle}}{\text{total num pts}}\right)\)</span>.</p>
+<p>My code for 1000 random points was:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xcoord</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="c1">#1000 random pts from -1 to 1</span>
+<span class="n">ycoord</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="c1">#1000 random pts from -1 to 1</span>
+<span class="n">magnitude</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xcoord</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">ycoord</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#length from center (0,0) to point</span>
+<span class="n">mag_test</span><span class="o">=</span><span class="n">magnitude</span><span class="o">&lt;=</span><span class="mi">1</span>
+<span class="mi">4</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">xcoord</span><span class="p">[</span><span class="n">mag_test</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">xcoord</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check what <code class="docutils literal notranslate"><span class="pre">len(xcoord[magnitude&lt;=1])</span></code> and <code class="docutils literal notranslate"><span class="pre">len(xcoord)</span></code> does in my code above.</p>
+<p id="index-5">Since your n value in this problem will vary from 100 to 1,000,000 (i.e. several orders of magnitude) it is better to use <code class="docutils literal notranslate"><span class="pre">geomspace()</span></code> rather than <code class="docutils literal notranslate"><span class="pre">linspace()</span></code>. <code class="docutils literal notranslate"><span class="pre">geomspace()</span></code> gives pts spaced on a log scale which is much better when our values change by orders of magnitude.</p>
+<p><em>Don’t forget that your function above requires an integer to be input so you will want to make sure geomspace() is giving you an integer or round your list to the nearest integer.</em></p>
+<div class="cell docutils container" id="index-6">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xdata</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">1e6</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#tell it to round to the closest integer dtype=int</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;geomspace: notice the nice sample of values across all magnitudes</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span>
+<span class="c1"># notice the increasing step size as our numbers get larger</span>
+<span class="c1"># compare this to linspace</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">linspace: notice this skips from 100 to 20506 for the first point</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geomspace: notice the nice sample of values across all magnitudes
+
+[    100     120     145     175     212     255     308     372     449
+     542     655     790     954    1151    1389    1676    2023    2442
+    2947    3556    4291    5179    6250    7543    9102   10985   13257
+   15998   19306   23299   28117   33932   40949   49417   59636   71968
+   86851  104811  126485  152641  184206  222299  268269  323745  390693
+  471486  568986  686648  828642 1000000]
+
+linspace: notice this skips from 100 to 20506 for the first point
+
+[    100   20506   40912   61318   81724  102130  122536  142942  163348
+  183755  204161  224567  244973  265379  285785  306191  326597  347004
+  367410  387816  408222  428628  449034  469440  489846  510253  530659
+  551065  571471  591877  612283  632689  653095  673502  693908  714314
+  734720  755126  775532  795938  816344  836751  857157  877563  897969
+  918375  938781  959187  979593 1000000]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="hints-for-problem-3">
+<h2><span class="section-number">4.3. </span>Hints for <a class="reference internal" href="#exercises-prob-3"><span class="std std-ref">Problem 3</span></a><a class="headerlink" href="#hints-for-problem-3" title="Permalink to this heading">#</a></h2>
+<p>Import the csv file <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1ELCvnr0WjQcglNlmxhqzsAOK8DnPaHW_">titanic.csv</a> and (a) determine the percentage of woman that survived and the percentage of men that survived and (b) determine the average ticket price (Fare) for those that survived versus those that did not survive.  0 = did not survive. 1 = survived.</p>
+<p>Last week we learned how to use pandas to import an excel file; clean imported data including dropping NAN, filling NAN, renaming columns, dropping rows, sorting, slicing, and adding new columns.</p>
+<p>*Now we need to learn how to group (aggregate) data:  <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>, <code class="docutils literal notranslate"><span class="pre">sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">mean()</span></code><br />
+Let’s take a look at a data file containing information about the insulation thickness from a wire coat machine versus several parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a direct read of the file &quot;raw_clean_cable_insulation.csv&quot; from a google drive. </span>
+<span class="n">raw</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://drive.google.com/uc?id=1zmsrtUgXZhJJzERQXFKkUVoCD1zNbBSr&#39;</span><span class="p">)</span>
+<span class="n">raw</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#looking at only first 3 records</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0.1</th>
+      <th>Unnamed: 0</th>
+      <th>ExtrTemp</th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>234.83</td>
+      <td>55.28</td>
+      <td>26.67</td>
+      <td>170.67</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>235.09</td>
+      <td>54.13</td>
+      <td>26.97</td>
+      <td>182.86</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2</td>
+      <td>235.09</td>
+      <td>54.33</td>
+      <td>27.46</td>
+      <td>182.74</td>
+      <td>Kairo</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropping first two columns here since I don&#39;t need them</span>
+<span class="n">df</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Unnamed: 0.1&#39;</span><span class="p">,</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ExtrTemp</th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>234.83</td>
+      <td>55.28</td>
+      <td>26.67</td>
+      <td>170.67</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>235.09</td>
+      <td>54.13</td>
+      <td>26.97</td>
+      <td>182.86</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>235.09</td>
+      <td>54.33</td>
+      <td>27.46</td>
+      <td>182.74</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>235.05</td>
+      <td>55.00</td>
+      <td>26.83</td>
+      <td>175.49</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>235.04</td>
+      <td>55.26</td>
+      <td>26.62</td>
+      <td>172.80</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9992</th>
+      <td>234.92</td>
+      <td>55.09</td>
+      <td>26.98</td>
+      <td>173.84</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>9993</th>
+      <td>235.22</td>
+      <td>55.91</td>
+      <td>27.30</td>
+      <td>171.86</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>9994</th>
+      <td>235.13</td>
+      <td>55.43</td>
+      <td>26.99</td>
+      <td>173.59</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>9995</th>
+      <td>235.05</td>
+      <td>54.73</td>
+      <td>26.73</td>
+      <td>177.21</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>9996</th>
+      <td>235.10</td>
+      <td>54.57</td>
+      <td>27.21</td>
+      <td>180.25</td>
+      <td>Cairo</td>
+    </tr>
+  </tbody>
+</table>
+<p>9997 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rounding some of the numbers so they group better</span>
+<span class="c1"># i.e. 234.92 and 235.22 etc should all just be 235.  </span>
+<span class="c1"># you won&#39;t need to do this for the titanic data</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;LineSpeed&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;LineSpeed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ExtrTemp&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;ExtrTemp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ExtrTemp</th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>235.0</td>
+      <td>55.3</td>
+      <td>26.67</td>
+      <td>170.67</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>235.0</td>
+      <td>54.1</td>
+      <td>26.97</td>
+      <td>182.86</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>235.0</td>
+      <td>54.3</td>
+      <td>27.46</td>
+      <td>182.74</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>235.0</td>
+      <td>55.0</td>
+      <td>26.83</td>
+      <td>175.49</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>235.0</td>
+      <td>55.3</td>
+      <td>26.62</td>
+      <td>172.80</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9992</th>
+      <td>235.0</td>
+      <td>55.1</td>
+      <td>26.98</td>
+      <td>173.84</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>9993</th>
+      <td>235.0</td>
+      <td>55.9</td>
+      <td>27.30</td>
+      <td>171.86</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>9994</th>
+      <td>235.0</td>
+      <td>55.4</td>
+      <td>26.99</td>
+      <td>173.59</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>9995</th>
+      <td>235.0</td>
+      <td>54.7</td>
+      <td>26.73</td>
+      <td>177.21</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>9996</th>
+      <td>235.0</td>
+      <td>54.6</td>
+      <td>27.21</td>
+      <td>180.25</td>
+      <td>Cairo</td>
+    </tr>
+  </tbody>
+</table>
+<p>9997 rows × 5 columns</p>
+</div></div></div>
+</div>
+<ol class="arabic simple">
+<li><p>Let’s find the percentage of Measurements made in Alexandria vs the total number of measurements.</p></li>
+<li><p>Let’s also find the average WaterTemp for all measurements made in Alexandria at an ExtrTemp of 235.0</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># groupby collects all records for the different cities and then</span>
+<span class="c1"># .count() counts how many records there are in each city grouping</span>
+<span class="n">dfgroup</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;City&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">dfgroup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ExtrTemp</th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+    </tr>
+    <tr>
+      <th>City</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Alexandria</th>
+      <td>5520</td>
+      <td>5520</td>
+      <td>5520</td>
+      <td>5520</td>
+    </tr>
+    <tr>
+      <th>CAI</th>
+      <td>17</td>
+      <td>17</td>
+      <td>17</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>Cairo</th>
+      <td>4413</td>
+      <td>4413</td>
+      <td>4413</td>
+      <td>4413</td>
+    </tr>
+    <tr>
+      <th>Kairo</th>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using .sum() we can get the total number of records in each column</span>
+<span class="c1"># by default .sum() sums down columns</span>
+<span class="n">dfgroup</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ExtrTemp     9997
+LineSpeed    9997
+WaterTemp    9997
+Measure      9997
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculating percent of records in Alexandria vs total of 9997</span>
+<span class="c1"># using .loc[] to pull from dataframe &quot;dfgroup.loc[row, column]&quot;</span>
+<span class="n">dfgroup</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Alexandria&#39;</span><span class="p">,</span><span class="s1">&#39;Measure&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">9997</span><span class="o">*</span><span class="mi">100</span> <span class="c1">#percent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55.21656496949085
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we are grouping by two columns</span>
+<span class="c1"># we first collect the Cities</span>
+<span class="c1"># then group within each city by the ExtrTemp (extruder temperature)</span>
+<span class="c1"># here we take the mean or average value in these two categories for each column</span>
+<span class="n">dfmean</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;City&#39;</span><span class="p">,</span><span class="s1">&#39;ExtrTemp&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">dfmean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+    </tr>
+    <tr>
+      <th>City</th>
+      <th>ExtrTemp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Alexandria</th>
+      <th>234.0</th>
+      <td>54.894118</td>
+      <td>27.056471</td>
+      <td>170.712353</td>
+    </tr>
+    <tr>
+      <th>235.0</th>
+      <td>55.003924</td>
+      <td>26.999927</td>
+      <td>175.425584</td>
+    </tr>
+    <tr>
+      <th>236.0</th>
+      <td>55.115152</td>
+      <td>27.000606</td>
+      <td>180.169091</td>
+    </tr>
+    <tr>
+      <th>CAI</th>
+      <th>235.0</th>
+      <td>55.176471</td>
+      <td>26.965882</td>
+      <td>174.288235</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">Cairo</th>
+      <th>234.0</th>
+      <td>54.980645</td>
+      <td>27.035806</td>
+      <td>169.769032</td>
+    </tr>
+    <tr>
+      <th>235.0</th>
+      <td>54.994089</td>
+      <td>26.993054</td>
+      <td>175.444202</td>
+    </tr>
+    <tr>
+      <th>236.0</th>
+      <td>55.014706</td>
+      <td>27.005294</td>
+      <td>181.228824</td>
+    </tr>
+    <tr>
+      <th>Kairo</th>
+      <th>235.0</th>
+      <td>55.093617</td>
+      <td>26.941915</td>
+      <td>174.370426</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the mean value of WaterTemp in Alexandria at an ExtrTemp of 235 degrees is</span>
+<span class="c1"># note row is (&#39;Alexandria&#39;,235.0) and the column we want is &#39;WaterTemp&#39;</span>
+<span class="n">dfmean</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;Alexandria&#39;</span><span class="p">,</span><span class="mf">235.0</span><span class="p">),</span> <span class="s1">&#39;WaterTemp&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.999926645883
+</pre></div>
+</div>
+</div>
+</div>
+<section id="pivot-table">
+<h3><span class="section-number">4.3.1. </span>Pivot Table<a class="headerlink" href="#pivot-table" title="Permalink to this heading">#</a></h3>
+<p>For a lot more control, we could use pivot_table to specify different aggregation functions for each column of values we want to analyze.  You should be able to do what you want with groupby() but the pivot_table is a more manual way to specify many options.</p>
+<div class="cell docutils container" id="index-7">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Measure&#39;</span><span class="p">,</span> <span class="s1">&#39;WaterTemp&#39;</span><span class="p">,</span><span class="s1">&#39;LineSpeed&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">,</span> <span class="s1">&#39;ExtrTemp&#39;</span><span class="p">],</span>
+                    <span class="n">aggfunc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Measure&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span>
+                             <span class="s1">&#39;WaterTemp&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">],</span>
+                            <span class="s1">&#39;LineSpeed&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">]})</span><span class="o">.</span><span class="n">style</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_06bc1">
+  <thead>
+    <tr>
+      <th class="blank" >&nbsp;</th>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_06bc1_level0_col0" class="col_heading level0 col0" colspan="3">LineSpeed</th>
+      <th id="T_06bc1_level0_col3" class="col_heading level0 col3" >Measure</th>
+      <th id="T_06bc1_level0_col4" class="col_heading level0 col4" colspan="3">WaterTemp</th>
+    </tr>
+    <tr>
+      <th class="blank" >&nbsp;</th>
+      <th class="blank level1" >&nbsp;</th>
+      <th id="T_06bc1_level1_col0" class="col_heading level1 col0" >mean</th>
+      <th id="T_06bc1_level1_col1" class="col_heading level1 col1" >size</th>
+      <th id="T_06bc1_level1_col2" class="col_heading level1 col2" >sum</th>
+      <th id="T_06bc1_level1_col3" class="col_heading level1 col3" >mean</th>
+      <th id="T_06bc1_level1_col4" class="col_heading level1 col4" >max</th>
+      <th id="T_06bc1_level1_col5" class="col_heading level1 col5" >mean</th>
+      <th id="T_06bc1_level1_col6" class="col_heading level1 col6" >min</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >City</th>
+      <th class="index_name level1" >ExtrTemp</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
+      <th class="blank col2" >&nbsp;</th>
+      <th class="blank col3" >&nbsp;</th>
+      <th class="blank col4" >&nbsp;</th>
+      <th class="blank col5" >&nbsp;</th>
+      <th class="blank col6" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_06bc1_level0_row0" class="row_heading level0 row0" rowspan="3">Alexandria</th>
+      <th id="T_06bc1_level1_row0" class="row_heading level1 row0" >234.000000</th>
+      <td id="T_06bc1_row0_col0" class="data row0 col0" >54.894118</td>
+      <td id="T_06bc1_row0_col1" class="data row0 col1" >34</td>
+      <td id="T_06bc1_row0_col2" class="data row0 col2" >1866.400000</td>
+      <td id="T_06bc1_row0_col3" class="data row0 col3" >170.712353</td>
+      <td id="T_06bc1_row0_col4" class="data row0 col4" >27.560000</td>
+      <td id="T_06bc1_row0_col5" class="data row0 col5" >27.056471</td>
+      <td id="T_06bc1_row0_col6" class="data row0 col6" >26.520000</td>
+    </tr>
+    <tr>
+      <th id="T_06bc1_level1_row1" class="row_heading level1 row1" >235.000000</th>
+      <td id="T_06bc1_row1_col0" class="data row1 col0" >55.003924</td>
+      <td id="T_06bc1_row1_col1" class="data row1 col1" >5453</td>
+      <td id="T_06bc1_row1_col2" class="data row1 col2" >299936.400000</td>
+      <td id="T_06bc1_row1_col3" class="data row1 col3" >175.425584</td>
+      <td id="T_06bc1_row1_col4" class="data row1 col4" >27.700000</td>
+      <td id="T_06bc1_row1_col5" class="data row1 col5" >26.999927</td>
+      <td id="T_06bc1_row1_col6" class="data row1 col6" >26.150000</td>
+    </tr>
+    <tr>
+      <th id="T_06bc1_level1_row2" class="row_heading level1 row2" >236.000000</th>
+      <td id="T_06bc1_row2_col0" class="data row2 col0" >55.115152</td>
+      <td id="T_06bc1_row2_col1" class="data row2 col1" >33</td>
+      <td id="T_06bc1_row2_col2" class="data row2 col2" >1818.800000</td>
+      <td id="T_06bc1_row2_col3" class="data row2 col3" >180.169091</td>
+      <td id="T_06bc1_row2_col4" class="data row2 col4" >27.440000</td>
+      <td id="T_06bc1_row2_col5" class="data row2 col5" >27.000606</td>
+      <td id="T_06bc1_row2_col6" class="data row2 col6" >26.420000</td>
+    </tr>
+    <tr>
+      <th id="T_06bc1_level0_row3" class="row_heading level0 row3" >CAI</th>
+      <th id="T_06bc1_level1_row3" class="row_heading level1 row3" >235.000000</th>
+      <td id="T_06bc1_row3_col0" class="data row3 col0" >55.176471</td>
+      <td id="T_06bc1_row3_col1" class="data row3 col1" >17</td>
+      <td id="T_06bc1_row3_col2" class="data row3 col2" >938.000000</td>
+      <td id="T_06bc1_row3_col3" class="data row3 col3" >174.288235</td>
+      <td id="T_06bc1_row3_col4" class="data row3 col4" >27.330000</td>
+      <td id="T_06bc1_row3_col5" class="data row3 col5" >26.965882</td>
+      <td id="T_06bc1_row3_col6" class="data row3 col6" >26.440000</td>
+    </tr>
+    <tr>
+      <th id="T_06bc1_level0_row4" class="row_heading level0 row4" rowspan="3">Cairo</th>
+      <th id="T_06bc1_level1_row4" class="row_heading level1 row4" >234.000000</th>
+      <td id="T_06bc1_row4_col0" class="data row4 col0" >54.980645</td>
+      <td id="T_06bc1_row4_col1" class="data row4 col1" >31</td>
+      <td id="T_06bc1_row4_col2" class="data row4 col2" >1704.400000</td>
+      <td id="T_06bc1_row4_col3" class="data row4 col3" >169.769032</td>
+      <td id="T_06bc1_row4_col4" class="data row4 col4" >27.410000</td>
+      <td id="T_06bc1_row4_col5" class="data row4 col5" >27.035806</td>
+      <td id="T_06bc1_row4_col6" class="data row4 col6" >26.580000</td>
+    </tr>
+    <tr>
+      <th id="T_06bc1_level1_row5" class="row_heading level1 row5" >235.000000</th>
+      <td id="T_06bc1_row5_col0" class="data row5 col0" >54.994089</td>
+      <td id="T_06bc1_row5_col1" class="data row5 col1" >4348</td>
+      <td id="T_06bc1_row5_col2" class="data row5 col2" >239114.300000</td>
+      <td id="T_06bc1_row5_col3" class="data row5 col3" >175.444202</td>
+      <td id="T_06bc1_row5_col4" class="data row5 col4" >27.660000</td>
+      <td id="T_06bc1_row5_col5" class="data row5 col5" >26.993054</td>
+      <td id="T_06bc1_row5_col6" class="data row5 col6" >26.290000</td>
+    </tr>
+    <tr>
+      <th id="T_06bc1_level1_row6" class="row_heading level1 row6" >236.000000</th>
+      <td id="T_06bc1_row6_col0" class="data row6 col0" >55.014706</td>
+      <td id="T_06bc1_row6_col1" class="data row6 col1" >34</td>
+      <td id="T_06bc1_row6_col2" class="data row6 col2" >1870.500000</td>
+      <td id="T_06bc1_row6_col3" class="data row6 col3" >181.228824</td>
+      <td id="T_06bc1_row6_col4" class="data row6 col4" >27.300000</td>
+      <td id="T_06bc1_row6_col5" class="data row6 col5" >27.005294</td>
+      <td id="T_06bc1_row6_col6" class="data row6 col6" >26.700000</td>
+    </tr>
+    <tr>
+      <th id="T_06bc1_level0_row7" class="row_heading level0 row7" >Kairo</th>
+      <th id="T_06bc1_level1_row7" class="row_heading level1 row7" >235.000000</th>
+      <td id="T_06bc1_row7_col0" class="data row7 col0" >55.093617</td>
+      <td id="T_06bc1_row7_col1" class="data row7 col1" >47</td>
+      <td id="T_06bc1_row7_col2" class="data row7 col2" >2589.400000</td>
+      <td id="T_06bc1_row7_col3" class="data row7 col3" >174.370426</td>
+      <td id="T_06bc1_row7_col4" class="data row7 col4" >27.460000</td>
+      <td id="T_06bc1_row7_col5" class="data row7 col5" >26.941915</td>
+      <td id="T_06bc1_row7_col6" class="data row7 col6" >26.380000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">4.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="problem-1">
+<span id="exercises-prob-1"></span><h3><span class="section-number">4.4.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<p><em>Computations of the Density and Percent Crystallinity of Polyethylene (Callister 10th ed., section 14.11)</em></p>
+<p>The % crystallinity is given by:</p>
+<div class="math notranslate nohighlight">
+\[  \mathbf{\text{% crystallinity} =  \frac{\rho_c (\rho_s - \rho_a)}{\rho_s (\rho_c - \rho_a)} * 100} \]</div>
+<p>(1) Write a function that calculates the percent crystallinity of a branched polyethylene sample <span class="math notranslate nohighlight">\(\rho_s\)</span> that has a density of  <span class="math notranslate nohighlight">\(0.925\ 𝑔\ 𝑐𝑚^{-3}\)</span> . The density of a totally amorphous material <span class="math notranslate nohighlight">\(\rho_a\)</span> is  <span class="math notranslate nohighlight">\(0.870 \ 𝑔\ 𝑐𝑚^{-3}\)</span>  and the density of a totally crystalline <span class="math notranslate nohighlight">\(\rho_c\)</span> material is  <span class="math notranslate nohighlight">\(0.998 \ 𝑔\ 𝑐𝑚^{-3}\)</span> .</p>
+<p>(2) Calculate the sample density <span class="math notranslate nohighlight">\(\rho_s\)</span> versus % crystallinity and reproduce the plot below (including the horizontal lines and text). To find the equation for the sample density use the solve commands from <code class="docutils literal notranslate"><span class="pre">sympy</span></code> to solve the above crystallinity equation for <span class="math notranslate nohighlight">\(\rho_s\)</span>. An example of using solve can be found in this lesson.</p>
+<p>(3) Export your data to an excel file.</p>
+<a class="reference internal image-reference" href="../_images/04_2114_prob_1.png"><img alt="../_images/04_2114_prob_1.png" class="align-center" src="../_images/04_2114_prob_1.png" style="width: 400px;" /></a>
+</section>
+<section id="problem-2">
+<span id="exercises-prob-2"></span><h3><span class="section-number">4.4.2. </span>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
+<p>Write a function that finds “x” random points in a square of edge length 2 centered at (0,0). Determines how many of these points are contained in a circle of radius 1 centered at (0,0). Returns the value <span class="math notranslate nohighlight">\(\left(4\times \frac{\text{pts in circle}}{\text{total num pts}}\right)\)</span>.  Plot the value <span class="math notranslate nohighlight">\(\left(4\times \frac{\text{pts in circle}}{\text{total num pts}}\right)\)</span> versus number of points, x. <strong>Your x should vary between 100 and 1e6</strong>.  Also include a horizontal line at the value of pi on your plot.</p>
+</section>
+<section id="problem-3">
+<span id="exercises-prob-3"></span><h3><span class="section-number">4.4.3. </span>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
+<p>Import the csv file “titanic.csv” and (a) determine the percentage of woman that survived and the percentage of men that survived and (b) determine the average ticket price (Fare) for those that survived versus those that did not survive.  0 = did not survive. 1 = survived.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons_2114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_working_with_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Working with Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_numpy_essentials.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Reviewing essential concepts of numpy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints-for-problem-1">4.1. Hints for <span class="xref myst">Problem 1</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-solving-an-equation">4.1.1. Example of solving an equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints-for-problem-2">4.2. Hints for <span class="xref myst">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hints-for-problem-3">4.3. Hints for <span class="xref myst">Problem 3</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-table">4.3.1. Pivot Table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">4.4. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">4.4.1. Problem 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">4.4.2. Problem 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">4.4.3. Problem 3:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Corcoran
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

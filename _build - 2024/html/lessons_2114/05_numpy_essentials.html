@@ -1,0 +1,925 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5. Reviewing essential concepts of numpy &#8212; Python for MSE</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_2114/05_numpy_essentials';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Creating a “Cheat Sheet”" href="06_creating_a_cheat_sheet.html" />
+    <link rel="prev" title="4. Plotting and Equation Solving" href="04_plotting_and_equation_solving.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Math Programming for Materials Science and Engineering
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 2114 Python for MSE I</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_welcome_to_2114.html">1. Welcome to MSE 2114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Intro_Jupyter.html">2. Introduction to the Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_working_with_data.html">3. Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_plotting_and_equation_solving.html">4. Plotting and Equation Solving</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Reviewing essential concepts of numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_creating_a_cheat_sheet.html">6. Creating a “Cheat Sheet”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_self_review_pandas.html">7. Self Review and Practice with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_more_practice.html">8. More Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_wire_coating.html">9. Application: Plastic wire coating data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_advanced_plotting.html">10. Advanced Plotting with matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_prep_for_3114.html">11. Prepare for MSE 3114 next semester!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 3114 Python for MSE II</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/01_welcome_to_3114.html">1. Welcome to MSE 3114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/02_importing_your_own_functions.html">2. Importing Data from Files &amp; Importing Your Own Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/03_google_forms_and_pandas.html">3. Google Forms and Pandas Data Import and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/04_closer_look_at_pandas.html">4. Pandas DataFrames and Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/05_closer_look_at_matplotlib.html">5. matplotlib - Advanced Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/06_selecting_pixel_coordinates.html">6. Selecting pixel coordinates from an image file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/07_digitizing_literature_plots_part_1.html">7. Estimating Data Values from Plots in the Literature (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/08_digitizing_literature_plots_part_2.html">8. Estimating Data Values from Plots in the Literature (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/09_applications.html">9. Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/10_peak_deconvolution.html">10. Application: Peak Deconvolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/11_creep_analysis_log_scales.html">11. Collecting Data from Log scales: Creep Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/12_grain_size_measurement.html">12. Image Analysis: Grain Size Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/13_Analyzing_Particles_in_a_Matrix.html">13. Analyzing Particles in a Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/14_removing_perspective.html">14. Image Transformation using opencv</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="100_markdown_cells.html">1. Short Lesson: Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101_math_operations.html">2. Short Lesson: Math Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="102_Plotting_basics.html">3. Short Lesson: Plotting Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103_Plotting_functions.html">4. Short Lesson: Plotting functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="50_2114_course_support_files.html">5. MSE 2114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="51_2114_LinkedIn_Learning_Recommendations.html">6. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="52_2114_time_saving_tips.html">7. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="53_2114_updates.html">8. Updates &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/50_course_support_files.html">9. MSE 3114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/51_LinkedIn_Learning_Recommendations.html">10. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/52_time_saving_tips.html">11. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/53_updates.html">12. Updates &amp; FAQ</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_2114/05_numpy_essentials.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons_2114/05_numpy_essentials.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reviewing essential concepts of numpy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-and-plotting-the-anisotropy-of-the-thermal-expansion-coefficient">5.1. Calculating and Plotting the anisotropy of the thermal expansion coefficient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-look-at-an-example-for-zinc">5.1.1. Let’s look at an example for zinc</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">5.2. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">5.2.1. Problem 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">5.2.2. Problem 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">5.2.3. Problem 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="reviewing-essential-concepts-of-numpy">
+<h1><span class="section-number">5. </span>Reviewing essential concepts of numpy<a class="headerlink" href="#reviewing-essential-concepts-of-numpy" title="Permalink to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>Be able to:</p>
+<ul class="simple">
+<li><p>appreciate the advantage of using numpy arrays</p></li>
+<li><p>create numpy arrays: <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> and intrinsic creation</p></li>
+<li><p>use various numpy essentials such as <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.ones()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.geomspace()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code></p></li>
+<li><p>mainuplate numpy data types e.g. <code class="docutils literal notranslate"><span class="pre">np.astype()</span></code></p></li>
+</ul>
+</div>
+<p><em>You will need the following extensions:</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">pl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Suggested video lessons:</p>
+<p id="index-0">Why use numpy arrays (7 min):  <a class="reference external" href="https://www.linkedin.com/learning/numpy-data-science-essential-training/create-arrays-from-python-structures?u=57888345">https://www.linkedin.com/learning/numpy-data-science-essential-training/create-arrays-from-python-structures?u=57888345</a></p>
+<p>Array creation (7 min): <a class="reference external" href="https://www.linkedin.com/learning/numpy-data-science-essential-training/intrinsic-creation-using-numpy-methods?u=57888345">https://www.linkedin.com/learning/numpy-data-science-essential-training/intrinsic-creation-using-numpy-methods?u=57888345</a></p>
+<span class="target" id="index-1"></span><p id="index-2">linspace(), zeros(), ones() and numpy data types (9 min): <a class="reference external" href="https://www.linkedin.com/learning/numpy-data-science-essential-training/linspace-zeros-ones-data-types?u=57888345">https://www.linkedin.com/learning/numpy-data-science-essential-training/linspace-zeros-ones-data-types?u=57888345</a></p>
+<section id="calculating-and-plotting-the-anisotropy-of-the-thermal-expansion-coefficient">
+<h2><span class="section-number">5.1. </span>Calculating and Plotting the anisotropy of the thermal expansion coefficient<a class="headerlink" href="#calculating-and-plotting-the-anisotropy-of-the-thermal-expansion-coefficient" title="Permalink to this heading">#</a></h2>
+<p>Let’s take a look at the anisotropy of thermal expansion in a crystal of zinc. We will take the z-axis to be perpendicular to the close-packed planes.  In the x-y plane, the thermal expansion is isotropic but in the x-z or y-z plane zinc is highly anisotropic.  The thermal expansion in a [uvw] direction can be found from:<br />
+<span class="math notranslate nohighlight">\(\alpha_{uvw} = \alpha_x\times(n_x^2+n_y^2)+\alpha_z\times n_z^2\)</span><br />
+where <span class="math notranslate nohighlight">\(n_x, n_y, n_z\)</span> are the x,y,z components of the unit vector <span class="math notranslate nohighlight">\(\frac{[u v w]}{\sqrt{u^2+v^2+w^2}}\)</span> i.e.<br />
+<span class="math notranslate nohighlight">\((n_x, n_y, n_z)=\frac{(u,v,w)}{\sqrt{u^2+v^2+w^2}}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="lets-look-at-an-example-for-zinc">
+<h3><span class="section-number">5.1.1. </span>Let’s look at an example for zinc<a class="headerlink" href="#lets-look-at-an-example-for-zinc" title="Permalink to this heading">#</a></h3>
+<p>For zinc <span class="math notranslate nohighlight">\(\alpha_{x}=14\times 10^{-6} \ \ {^\circ C}^{-1}\)</span> and <span class="math notranslate nohighlight">\(\alpha_{z}=55\times 10^{-6} \ \ {^\circ} C^{-1}\)</span></p>
+<p>First let’s write a function to find the unit vector in a direction [u v w]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unitvec</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+    <span class="n">mag</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>  <span class="c1"># 1(a) finish this line</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">]</span><span class="o">/</span><span class="n">mag</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s test some values for our function unitvec()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 0. 0.]
+[0.70710678 0.70710678 0.        ]
+[0.57735027 0.57735027 0.57735027]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What would the values of nx, ny, and nz be for the direction [uvw] = [012]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;unit vector in direction [012] is: </span><span class="si">{</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;therefore nx is just the first value = </span><span class="si">{</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ny the second = </span><span class="si">{</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;and nz the third = </span><span class="si">{</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unit vector in direction [012] is: [0.         0.4472136  0.89442719]
+therefore nx is just the first value = 0.0
+ny the second = 0.4472135954999579
+and nz the third = 0.8944271909999159
+</pre></div>
+</div>
+</div>
+</div>
+<p>Substituting into <span class="math notranslate nohighlight">\(\alpha_{012}\)</span> (with <span class="math notranslate nohighlight">\(\alpha_x = 14\)</span> and <span class="math notranslate nohighlight">\(\alpha_z=55\)</span>)<br />
+<span class="math notranslate nohighlight">\(\alpha_{uvw} = 14\times(n_x^2+n_y^2)+55\times n_z^2\)</span><br />
+gives the thermal expansion in the [012] direction</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">14</span><span class="o">*</span><span class="p">(</span><span class="mi">0</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">0.4472136</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">55</span><span class="o">*</span><span class="mf">0.89442719</span><span class="o">**</span><span class="mi">2</span>  <span class="c1">#in units 10^-6 C^-1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46.79999995797073
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a def to find alpha</span>
+<span class="k">def</span> <span class="nf">alpha</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">nz</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">az</span><span class="p">):</span>
+    <span class="n">α_uvw</span> <span class="o">=</span>    <span class="c1"># 1(b) finish this line</span>
+    <span class="k">return</span> <span class="n">α_uvw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s find alpha in a couple of additional directions</span>
+<span class="c1">#first let&#39;s confirm our answer above [012] that we did above</span>
+<span class="n">uvw012</span><span class="o">=</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">alpha</span><span class="p">(</span><span class="n">uvw012</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">uvw012</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">uvw012</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46.79999999999999
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now consider calculating <span class="math notranslate nohighlight">\(\alpha\)</span> in a number of directions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directions</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a list of [uvw] directions.  How do we find just the u-values for each direction, i.e. [0,0,0,0] in this case.  We could try <code class="docutils literal notranslate"><span class="pre">directions[0]</span></code> but this give [0,1,2].  We could try <code class="docutils literal notranslate"><span class="pre">directions[0:3,0]</span></code> but this gives an error. We can use a for loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uvalues</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">uvw</span> <span class="ow">in</span> <span class="n">directions</span><span class="p">:</span>
+    <span class="n">uvalues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">uvw</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">uvalues</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 0, 0, 0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>A simpler way is to use numpy arrays and not python lists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directions_array</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">directions</span><span class="p">)</span>
+<span class="n">directions_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2],
+       [0, 0, 1],
+       [0, 1, 0],
+       [0, 1, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the uvalues can be found simply as <code class="docutils literal notranslate"><span class="pre">directions_array[0:4,0]</span></code>. Recall the format is <code class="docutils literal notranslate"><span class="pre">variable[row_start:row_end+1,</span> <span class="pre">column_start:column_end+1]</span></code> or if we only want the first value (column) in each direction we just have: <code class="docutils literal notranslate"><span class="pre">variable[row_start:row_end+1,</span> <span class="pre">0]</span></code> without the colon.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uvalues</span><span class="o">=</span><span class="n">directions_array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># remember that the format here is [rows, columns]</span>
+<span class="n">uvalues</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#shorthand if we want all rows and say 2nd column v_values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directions_array</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#2nd column is 1 since we start counting from zero</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 1])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recall our directions array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directions_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2],
+       [0, 0, 1],
+       [0, 1, 0],
+       [0, 1, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can substitute each of these directions into our <code class="docutils literal notranslate"><span class="pre">unitvec(u,v,w)</span></code> function using a for loop:</p>
+<div class="cell docutils container" id="index-3">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unitvec_array</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="ow">in</span> <span class="n">directions_array</span><span class="p">:</span>
+    <span class="n">unitvec_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">unitvec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">))</span>
+<span class="n">unitvec_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([0.        , 0.4472136 , 0.89442719]),
+ array([0., 0., 1.]),
+ array([0., 1., 0.]),
+ array([0.        , 0.70710678, 0.70710678])]
+</pre></div>
+</div>
+</div>
+</div>
+<p>or in much more compact form using list comprehensions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unitvec_array</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">unitvec</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span> <span class="ow">in</span> <span class="n">directions_array</span><span class="p">])</span>
+<span class="n">unitvec_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.4472136 , 0.89442719],
+       [0.        , 0.        , 1.        ],
+       [0.        , 1.        , 0.        ],
+       [0.        , 0.70710678, 0.70710678]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now to find the thermal expansion in each direction:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#corresponding expansion coeff.</span>
+<span class="n">alphalist</span><span class="o">=</span> <span class="p">[</span><span class="n">alpha</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span> <span class="ow">in</span> <span class="n">unitvec_array</span><span class="p">]</span>
+<span class="n">alphalist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[46.79999999999999, 55.0, 14.0, 34.49999999999999]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we take each value alpha and multiply the corresponding [uvw] unit direction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">unitvec_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">alphalist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">unitvec_array</span><span class="p">))])</span>
+<span class="n">alpha_vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.        , 20.92959627, 41.85919254],
+       [ 0.        ,  0.        , 55.        ],
+       [ 0.        , 14.        ,  0.        ],
+       [ 0.        , 24.39518395, 24.39518395]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xdata</span><span class="o">=</span><span class="n">alpha_vec</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ydata</span><span class="o">=</span><span class="n">alpha_vec</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1"># plot direction (v_unit,w_unit)*alphalist</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4a425c901d2493fc6d413566ae71f1d152f7d41b95056cd84763dcbef513ad34.png" src="../_images/4a425c901d2493fc6d413566ae71f1d152f7d41b95056cd84763dcbef513ad34.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you imagine a vector from (0,0) to any point in the figure above. The length of that vector is equal to the thermal expansion coefficient in that direction.</p>
+</div>
+<p>There are many ways to improve the visual appeal of our plot.</p>
+<div class="cell docutils container" id="index-4">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># main plot of xdata, ydata defined previously</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span> <span class="c1"># &#39;bo&#39; means blue point</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>  <span class="c1"># aspect ratio set equal so that scales on x and y are equal</span>
+
+<span class="c1"># comment out the line below when you don&#39;t know the axes limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">])</span> <span class="c1"># setting plot axes [xmin, xmax, ymin, ymax]</span>
+
+<span class="c1"># add title and label axes</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Thermal expansion coeff&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$10^{-6}\ ^\circ C^{-1}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$10^{-6}\ ^\circ C^{-1}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># add arrows (xstart, ystart, change in x, change in y)</span>
+<span class="c1"># arrow(startx,starty,length_in_x, length_in_y)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">34.5</span><span class="o">*</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">34.5</span><span class="o">*</span><span class="n">unitvec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">2</span><span class="p">],</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">head_length</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># add text xy=[xcoord,ycoord] use plot axis values to place text</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;[011]&#39;</span><span class="p">,</span><span class="n">xy</span><span class="o">=</span><span class="p">[</span><span class="mi">17</span><span class="p">,</span><span class="mi">27</span><span class="p">])</span>
+
+<span class="c1"># put it all together</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b5e53ce821f62b0e510ce7b41f4b2f33d55c2fa422effeb300a60e3961c06cbf.png" src="../_images/b5e53ce821f62b0e510ce7b41f4b2f33d55c2fa422effeb300a60e3961c06cbf.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">5.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="problem-1">
+<h3><span class="section-number">5.2.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<p>In the lesson above, there are two lines of code that need to be completed for this notebook to execute.  They are labeled “1(a) finish this line” and “1(b) finish this line”.  Complete the code for these two and write below.<br />
+(a)<br />
+(b)</p>
+</section>
+<section id="problem-2">
+<h3><span class="section-number">5.2.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
+<p>Plot the thermal expansion coefficient for zinc in the v,w plane as shown in the lesson but this time pick 500 random directions of the form [0 v w] where v and w should correspond to both negative and positive values.  You can simply use the random() function as you did last lesson to choose numbers between -1 and 1 for both v and w.  After this, don’t forget to then turn these directions into unit directions as shown in the lesson.  Note the symmetry you get about (0,0) in your final plot.</p>
+<p>Hint: Get your notebook working for just a few points before you try to run it with 500 values.</p>
+</section>
+<section id="problem-3">
+<h3><span class="section-number">5.2.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
+<p>Your choice.  Solve a problem from one of your other classes either currently or in the past.  You can extend the problem if it is too simple.  Your answer should include enough commenting to make sure the problem is understood.  Equations should be typed out using the dollar sign math in the markdown cells and you should include some type of plot relevant to the problem. Make sure you label the plot axes and add a title to your plot.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons_2114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_plotting_and_equation_solving.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Plotting and Equation Solving</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06_creating_a_cheat_sheet.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Creating a “Cheat Sheet”</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-and-plotting-the-anisotropy-of-the-thermal-expansion-coefficient">5.1. Calculating and Plotting the anisotropy of the thermal expansion coefficient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-look-at-an-example-for-zinc">5.1.1. Let’s look at an example for zinc</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">5.2. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">5.2.1. Problem 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">5.2.2. Problem 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">5.2.3. Problem 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Corcoran
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

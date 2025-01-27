@@ -1,0 +1,1343 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>13. Analyzing Particles in a Matrix &#8212; Python for MSE</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_3114/13_Analyzing_Particles_in_a_Matrix';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14. Image Transformation using opencv" href="14_removing_perspective.html" />
+    <link rel="prev" title="12. Image Analysis: Grain Size Measurement" href="12_grain_size_measurement.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Math Programming for Materials Science and Engineering
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 2114 Python for MSE I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/01_welcome_to_2114.html">1. Welcome to MSE 2114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/02_Intro_Jupyter.html">2. Introduction to the Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/03_working_with_data.html">3. Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/04_plotting_and_equation_solving.html">4. Plotting and Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/05_numpy_essentials.html">5. Reviewing essential concepts of numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/06_creating_a_cheat_sheet.html">6. Creating a “Cheat Sheet”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/07_self_review_pandas.html">7. Self Review and Practice with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/08_more_practice.html">8. More Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/09_wire_coating.html">9. Application: Plastic wire coating data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/10_advanced_plotting.html">10. Advanced Plotting with matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/11_prep_for_3114.html">11. Prepare for MSE 3114 next semester!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 3114 Python for MSE II</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_welcome_to_3114.html">1. Welcome to MSE 3114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_importing_your_own_functions.html">2. Importing Data from Files &amp; Importing Your Own Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_google_forms_and_pandas.html">3. Google Forms and Pandas Data Import and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_closer_look_at_pandas.html">4. Pandas DataFrames and Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_closer_look_at_matplotlib.html">5. matplotlib - Advanced Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_selecting_pixel_coordinates.html">6. Selecting pixel coordinates from an image file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_digitizing_literature_plots_part_1.html">7. Estimating Data Values from Plots in the Literature (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_digitizing_literature_plots_part_2.html">8. Estimating Data Values from Plots in the Literature (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_applications.html">9. Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_peak_deconvolution.html">10. Application: Peak Deconvolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_creep_analysis_log_scales.html">11. Collecting Data from Log scales: Creep Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_grain_size_measurement.html">12. Image Analysis: Grain Size Measurement</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Analyzing Particles in a Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_removing_perspective.html">14. Image Transformation using opencv</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/100_markdown_cells.html">1. Short Lesson: Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/101_math_operations.html">2. Short Lesson: Math Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/102_Plotting_basics.html">3. Short Lesson: Plotting Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/103_Plotting_functions.html">4. Short Lesson: Plotting functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/50_2114_course_support_files.html">5. MSE 2114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/51_2114_LinkedIn_Learning_Recommendations.html">6. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/52_2114_time_saving_tips.html">7. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/53_2114_updates.html">8. Updates &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="50_course_support_files.html">9. MSE 3114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">10. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="52_time_saving_tips.html">11. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="53_updates.html">12. Updates &amp; FAQ</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_3114/13_Analyzing_Particles_in_a_Matrix.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons_3114/13_Analyzing_Particles_in_a_Matrix.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Analyzing Particles in a Matrix</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-definitions">13.1. Function Definitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-image-and-prep-for-thresholding">13.2. Read image and prep for thresholding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-two-different-thresholds">13.3. Perform two different Thresholds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mark-and-color-code-the-image-using-our-function-segment">13.4. Mark and Color Code the Image using our function segment()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-summary">13.5. Image Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-pixel-calibration">13.6. Find Pixel Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-particles">13.7. Analyze Particles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#black-phase">13.7.1. Black Phase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gray-phase">13.7.2. Gray Phase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-analyses">13.7.3. Example Analyses</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-particles">13.7.3.1. Number of Particles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-particle-diameter">13.7.3.2. Average particle diameter</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-area">13.7.3.3. Average Area</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#area-percent-fraction">13.7.3.4. Area percent / fraction</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-orientations">13.7.3.5. Particle Orientations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-eccentricity">13.7.3.6. Particle Eccentricity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-of-particle-diameters">13.7.3.7. Histogram of Particle Diameters.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-for-the-black-particles-if-you-would-like-use-black-data-and-markers2">13.7.4. Repeat for the black particles if you would like (use black_data and markers2)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">13.8. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">13.8.1. Problem 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#carbon-fibre-epoxy-composite">13.8.1.1. Carbon Fibre Epoxy Composite</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">13.8.2. Problem 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#powder-metallurgy-of-17-4-ph-stainless-steel">13.8.2.1. Powder Metallurgy of 17-4 PH Stainless Steel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analyzing-particles-in-a-matrix">
+<h1><span class="section-number">13. </span>Analyzing Particles in a Matrix<a class="headerlink" href="#analyzing-particles-in-a-matrix" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This lesson analyzes two different particle types in a single matrix.  Your homework is less complex and only requires that you analyze one particle type so you will have to modify the code appropriately.</p>
+</div>
+<p>In this lesson, we would like to use our grain analysis method to analyze the fractional amount and size of two different reinforcing phases (gray and black) within a metal matrix (white) composite as shown in this image:</p>
+<a class="reference internal image-reference" href="../_images/13_metal_matrix_composite.jpg"><img alt="../_images/13_metal_matrix_composite.jpg" class="align-center" src="../_images/13_metal_matrix_composite.jpg" style="width: 600px;" /></a>
+<p>Image copied from: <a class="reference external" href="http://www.keramverband.de/brevier_engl/3/4/4/3_4_4_2.htm">http://www.keramverband.de/brevier_engl/3/4/4/3_4_4_2.htm</a> accessed Nov 9, 2022.  Figure 46. Breviary Technical Ceramics</p>
+<p>Since this will require us to perform filtering, thresholding, and segmentation steps twice (once for each phase), it will definitely be worth while to rewrite our code from the previous lesson in the form of three functions: <code class="docutils literal notranslate"><span class="pre">prep_image()</span></code>, <code class="docutils literal notranslate"><span class="pre">thresh_simple()</span></code>, and <code class="docutils literal notranslate"><span class="pre">segment()</span></code>.</p>
+<section id="function-definitions">
+<h2><span class="section-number">13.1. </span>Function Definitions<a class="headerlink" href="#function-definitions" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">measure</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># prep_image takes our original Blue-Green-Red image, converts it to Red-Green-Blue, applies the pyramid filter, converts to</span>
+<span class="c1"># grayscale, applies a gaussian blur, plots the images for us and</span>
+<span class="c1"># and returns 4 data sets:  </span>
+<span class="c1">#  (1) the image in RGB format</span>
+<span class="c1">#  (2) the image filtered with pyramid filter</span>
+<span class="c1">#  (3) the grayscale image after pyramid filtering</span>
+<span class="c1">#  (4) the gaussian blured image in grayscale</span>
+
+<span class="k">def</span> <span class="nf">prep_image</span><span class="p">(</span><span class="n">BGR_image</span><span class="p">,</span> <span class="n">pyr_size</span><span class="p">,</span> <span class="n">pyr_range</span><span class="p">,</span> <span class="n">blur_size</span><span class="p">):</span>
+    <span class="n">img_RGB</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">BGR_image</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+    <span class="n">img_shift</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">pyrMeanShiftFiltering</span><span class="p">(</span><span class="n">img_RGB</span><span class="p">,</span> <span class="n">pyr_size</span><span class="p">,</span> <span class="n">pyr_range</span><span class="p">)</span>  <span class="c1">#acts on original image</span>
+    <span class="n">gray</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_shift</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span> <span class="c1">#move img to gray scale</span>
+    <span class="n">blur</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">gray</span><span class="p">,(</span><span class="n">blur_size</span><span class="p">,</span><span class="n">blur_size</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># acts on gray scale image</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgfull</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">blur</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Image (RGB)&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;+ Pyramid Mean Shift Filter (GrayScale)&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gaussian Blur (GrayScale)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">img_RGB</span><span class="p">,</span> <span class="n">img_shift</span><span class="p">,</span> <span class="n">gray</span><span class="p">,</span> <span class="n">blur</span><span class="p">)</span>
+
+
+<span class="c1"># thresh_simple takes a grayscale image, applies a simple threshold with min, max variables, and </span>
+<span class="c1"># removes noise with the opening filter</span>
+<span class="c1"># plots the original image along with the thresholded image</span>
+<span class="c1"># and returns 1 data set:  </span>
+<span class="c1">#  (1) a thresholded grayscale image containing only black (0) and white (255) pixels</span>
+
+<span class="k">def</span> <span class="nf">thresh_simple</span><span class="p">(</span><span class="n">image_gray</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">open_iterations</span><span class="p">):</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">thresh</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">image_gray</span><span class="p">,</span><span class="nb">min</span><span class="p">,</span><span class="nb">max</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY_INV</span><span class="p">)</span>
+    <span class="n">kernel</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_CROSS</span><span class="p">,(</span><span class="n">kernel_size</span><span class="p">,</span><span class="n">kernel_size</span><span class="p">))</span>
+    <span class="n">opening</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">morphologyEx</span><span class="p">(</span><span class="n">thresh</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_OPEN</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">open_iterations</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">27</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">opening</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Grayscale Image&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Threshold Image (B&amp;W)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">opening</span><span class="p">)</span>
+
+<span class="c1"># segment takes our original Red-Green-Blue image and our thresholded image (grayscale), and applies </span>
+<span class="c1"># a dilation to find the sure background; an erosion to find the sure foreground, and subtracts these to find the unknown</span>
+<span class="c1"># it then applies the watershed algorithm and marks all foreground regions with an integer value</span>
+<span class="c1"># Plotted:  the original RGB image and the color coded semented image</span>
+<span class="c1"># and returns 6 data sets:  </span>
+<span class="c1">#  (1) the original image in RGB format</span>
+<span class="c1">#  (2) the sure background image</span>
+<span class="c1">#  (3) the sure foreground image</span>
+<span class="c1">#  (4) the unknown region image</span>
+<span class="c1">#  (5) the array of markers for each feature</span>
+<span class="c1">#  (6) the color coded image</span>
+
+<span class="k">def</span> <span class="nf">segment</span><span class="p">(</span><span class="n">imgRGB</span><span class="p">,</span><span class="n">thresh_img</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">dilate_iter</span><span class="p">,</span> <span class="n">erode_iter</span><span class="p">):</span>
+    <span class="n">img_RGB</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">imgRGB</span><span class="p">)</span>
+    <span class="n">kernel</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">MORPH_CROSS</span><span class="p">,(</span><span class="n">kernel_size</span><span class="p">,</span><span class="n">kernel_size</span><span class="p">))</span>
+    <span class="n">sure_bg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">thresh_img</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">iterations</span> <span class="o">=</span> <span class="n">dilate_iter</span><span class="p">)</span>
+    <span class="n">sure_fg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">erode</span><span class="p">(</span><span class="n">thresh_img</span><span class="p">,</span><span class="n">kernel</span><span class="p">,</span><span class="n">iterations</span> <span class="o">=</span> <span class="n">erode_iter</span><span class="p">)</span>
+    <span class="n">unknown</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">sure_bg</span><span class="p">,</span><span class="n">sure_fg</span><span class="p">)</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">markers</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">connectedComponents</span><span class="p">(</span><span class="n">sure_fg</span><span class="p">)</span>
+    <span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">markers</span><span class="p">[</span><span class="n">unknown</span><span class="o">==</span><span class="mi">255</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">markers</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">watershed</span><span class="p">(</span><span class="n">img_RGB</span><span class="p">,</span><span class="n">markers</span><span class="p">)</span> 
+    <span class="n">img_RGB</span><span class="p">[</span><span class="n">markers</span> <span class="o">==-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">img2</span><span class="o">=</span><span class="n">color</span><span class="o">.</span><span class="n">label2rgb</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">img_RGB</span><span class="p">,</span> <span class="n">bg_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgRGB</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;marked&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;colored&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">img_RGB</span><span class="p">,</span> <span class="n">sure_bg</span><span class="p">,</span> <span class="n">sure_fg</span><span class="p">,</span> <span class="n">unknown</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">img2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-image-and-prep-for-thresholding">
+<h2><span class="section-number">13.2. </span>Read image and prep for thresholding<a class="headerlink" href="#read-image-and-prep-for-thresholding" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgfull</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../images/13_metal_matrix_composite.jpg&#39;</span><span class="p">)</span>  <span class="c1"># cv.imread reads the image in Blue-Green-Red format</span>
+<span class="n">BGR_img</span><span class="o">=</span><span class="n">imgfull</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">215</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># I already found where to slice the image to remove the micron bar</span>
+
+<span class="c1"># remember to identify your 4 variables here for the 4 returned values for this function</span>
+<span class="c1"># I&#39;m calling them:  img, img_shift, img_gray and img_blur</span>
+<span class="n">img</span><span class="p">,</span> <span class="n">img_shift</span><span class="p">,</span> <span class="n">img_gray</span><span class="p">,</span> <span class="n">img_blur</span><span class="o">=</span><span class="n">prep_image</span><span class="p">(</span><span class="n">BGR_img</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># image (BGR), pyr size, pyr range, blur size</span>
+
+<span class="c1">#the output is shown below.  Adjust the pyr size, pyr range, and blur size to see how it affects the final image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9a46332e6a27e89cb62644e10b0d6a040f128ce659e20d74a40839a1f6df335e.png" src="../_images/9a46332e6a27e89cb62644e10b0d6a040f128ce659e20d74a40839a1f6df335e.png" />
+</div>
+</div>
+<p>In this problem, we have two different gray levels to threshold so it might help to know where these values lie.  Let’s use a histogram to see this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">img_blur</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">80</span><span class="p">);</span>  <span class="c1"># this is a histogram of gray levels</span>
+<span class="c1"># 0 is black, 125 looks like our gray phase, 255 is pure white</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f7ee16ab4278c3be43fd676811c730c562ce744fafdefbe9dcf35a59d10716b3.png" src="../_images/f7ee16ab4278c3be43fd676811c730c562ce744fafdefbe9dcf35a59d10716b3.png" />
+</div>
+</div>
+</section>
+<section id="perform-two-different-thresholds">
+<h2><span class="section-number">13.3. </span>Perform two different Thresholds<a class="headerlink" href="#perform-two-different-thresholds" title="Permalink to this heading">#</a></h2>
+<p>(1) The strategy here is to turn everything below 200 to white and above 200 to black.  This will capture both our gray and black phases.<br />
+(2) Then do this again for a value of 100 which will capture only the black regions.<br />
+(3) By subtracting (2) from (1) we will get only the gray regions.</p>
+<p>We can then analyze the black thresholded image and the gray thresholded image separately to look at each phase</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#see the definition for thresh_simple above for an explanation of the values 3 and 1 used below</span>
+
+<span class="n">thresh_blur1</span><span class="o">=</span><span class="n">thresh_simple</span><span class="p">(</span><span class="n">img_blur</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#everything below 200 is set to white</span>
+
+<span class="n">thresh_blur2</span><span class="o">=</span><span class="n">thresh_simple</span><span class="p">(</span><span class="n">img_blur</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#everything below 100 is set to white</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1"># 1x1 grid, first subplot</span>
+<span class="n">thresh</span><span class="o">=</span><span class="n">thresh_blur1</span><span class="o">-</span><span class="n">thresh_blur2</span> <span class="c1">#this gives only the gray regions as white</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">thresh</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bb2fec5a0ce28c3a536f1b220d5d9cdcf4762784fbc5ff95cfa326761ad8f374.png" src="../_images/bb2fec5a0ce28c3a536f1b220d5d9cdcf4762784fbc5ff95cfa326761ad8f374.png" />
+<img alt="../_images/d768558d33cbacdcca917bd2e34b622c8b2a833e9c9cf254a6f6950bab08cbe7.png" src="../_images/d768558d33cbacdcca917bd2e34b622c8b2a833e9c9cf254a6f6950bab08cbe7.png" />
+<img alt="../_images/a7fcaf3032b6fa882408ea65fbdeb1a84cd30b607d518d9c3e86cbcdce0ecce3.png" src="../_images/a7fcaf3032b6fa882408ea65fbdeb1a84cd30b607d518d9c3e86cbcdce0ecce3.png" />
+</div>
+</div>
+</section>
+<section id="mark-and-color-code-the-image-using-our-function-segment">
+<h2><span class="section-number">13.4. </span>Mark and Color Code the Image using our function segment()<a class="headerlink" href="#mark-and-color-code-the-image-using-our-function-segment" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here are the marked and colorcoded black regions</span>
+<span class="n">img_marked2</span><span class="p">,</span> <span class="n">sure_bg2</span><span class="p">,</span> <span class="n">sure_fg2</span><span class="p">,</span> <span class="n">unknown2</span><span class="p">,</span> <span class="n">markers2</span><span class="p">,</span> <span class="n">img_colored2</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">thresh_blur2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/90f373170c9e0d34cec3433e301dc190f46b55d54a74896d8b28ddff4fa6a95b.png" src="../_images/90f373170c9e0d34cec3433e301dc190f46b55d54a74896d8b28ddff4fa6a95b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here are the marked and colorcoded gray regions</span>
+<span class="n">img_marked3</span><span class="p">,</span> <span class="n">sure_bg3</span><span class="p">,</span> <span class="n">sure_fg3</span><span class="p">,</span> <span class="n">unknown3</span><span class="p">,</span> <span class="n">markers3</span><span class="p">,</span> <span class="n">img_colored3</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">thresh_blur1</span><span class="o">-</span><span class="n">thresh_blur2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e018023994a91649756e8ab4c29b11aeee452f7d0d475fa6af8fe43a080406d1.png" src="../_images/e018023994a91649756e8ab4c29b11aeee452f7d0d475fa6af8fe43a080406d1.png" />
+</div>
+</div>
+</section>
+<section id="image-summary">
+<h2><span class="section-number">13.5. </span>Image Summary<a class="headerlink" href="#image-summary" title="Permalink to this heading">#</a></h2>
+<p>Now lets combine our two images to highlight the black and gray regions in one image.  This is not necessary but it makes a nice summary image to see how we did.</p>
+<p>Now recall that in our markers array:</p>
+<blockquote>
+<div><p>(1) The background pixels are marked as 1<br />
+(2) The boundaries are marked as -1<br />
+(3) The individual phases are numbered in order from 2 to the number of particles</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we have two conditions that we want to test for </span>
+<span class="c1"># markers2 is the numbered black phases</span>
+<span class="n">cond2</span><span class="o">=</span><span class="n">markers2</span><span class="o">&gt;</span><span class="mi">1</span> <span class="c1">#this marks all pixels that have a value greater than 1 to &quot;True&quot; and &quot;False&quot; otherwise</span>
+<span class="c1"># markers3 is the numbered gray phases</span>
+<span class="n">cond3</span><span class="o">=</span><span class="n">markers3</span><span class="o">&gt;</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s make copies of the original image and the two colored images so we don&#39;t change these directly</span>
+<span class="c1"># Note that these images are all RGB colored images</span>
+<span class="n">img_original</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">img_blackphase</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">img_colored2</span><span class="p">)</span>
+<span class="n">img_grayphase</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">img_colored3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># When setting pixel colors here we have to give [Red, Green, Blue]</span>
+<span class="n">img_blackphase</span><span class="p">[</span><span class="n">cond2</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]</span> <span class="c1"># set all black particles to light purple</span>
+<span class="n">img_blackphase</span><span class="p">[</span><span class="o">~</span><span class="n">cond2</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># set all other pixels to black</span>
+
+<span class="n">img_grayphase</span><span class="p">[</span><span class="n">cond3</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]</span> <span class="c1"># all gray particles to green-blue</span>
+<span class="n">img_grayphase</span><span class="p">[</span><span class="o">~</span><span class="n">cond3</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># all other pixels to black</span>
+
+<span class="c1"># I need to remove the color from all particles in the original image so we can add our colored particles</span>
+<span class="n">img_original</span><span class="p">[</span><span class="n">cond2</span><span class="o">|</span><span class="n">cond3</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># keep background of original image but convert all black and gray particles to black</span>
+
+<span class="c1"># Let&#39;s add the two colored images above with the original image </span>
+<span class="c1"># the RGB values in the first two images are given as floats from 0 to 1</span>
+<span class="c1"># the RGB values in img_original are given as integers from 0 to 255 so I need to divide below to convert to 0 to 1</span>
+<span class="n">img_combined</span><span class="o">=</span><span class="n">img_blackphase</span><span class="o">+</span><span class="n">img_grayphase</span><span class="o">+</span><span class="n">img_original</span><span class="o">/</span><span class="mi">255</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s plot our two recolored particles and add them all together with the original image</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_blackphase</span><span class="o">+</span><span class="n">img_grayphase</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_combined</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Black (purple) and Gray (blue-green) Phases&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Image&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Combined Image&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/246af29a34bd1f10bd18279b59f1dfd750659824c239aacef7b9a5fd628305ca.png" src="../_images/246af29a34bd1f10bd18279b59f1dfd750659824c239aacef7b9a5fd628305ca.png" />
+</div>
+</div>
+</section>
+<section id="find-pixel-calibration">
+<h2><span class="section-number">13.6. </span>Find Pixel Calibration<a class="headerlink" href="#find-pixel-calibration" title="Permalink to this heading">#</a></h2>
+<p>Each colored grain can now be analyzed and placed in a Pandas DataFrame.  We need our original multi-colored files for these. First let’s get our <span class="math notranslate nohighlight">\(\mu\)</span>m per pixel value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> widget
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgfull</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a4a590c9e03409d8fc0d79a1d762852", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>By scrolling on the image, you can read off the pixel value at the start and end of the 50 <span class="math notranslate nohighlight">\(\mu m\)</span> bar.  As shown below, the micron bar has a length or 274.0 - 241.6 = 32.4</p>
+<a class="reference internal image-reference" href="../_images/13_micronbar.png"><img alt="../_images/13_micronbar.png" class="align-center" src="../_images/13_micronbar.png" style="width: 300px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pixels_to_μm</span><span class="o">=</span><span class="mi">50</span><span class="o">/</span><span class="p">(</span><span class="mf">274.0</span><span class="o">-</span><span class="mf">241.6</span><span class="p">)</span>  <span class="c1"># 50 μm per (274-241.6) pixels</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyze-particles">
+<h2><span class="section-number">13.7. </span>Analyze Particles<a class="headerlink" href="#analyze-particles" title="Permalink to this heading">#</a></h2>
+<section id="black-phase">
+<h3><span class="section-number">13.7.1. </span>Black Phase<a class="headerlink" href="#black-phase" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">propList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="s1">&#39;eccentricity&#39;</span><span class="p">,</span><span class="s1">&#39;centroid&#39;</span><span class="p">,</span><span class="s1">&#39;area&#39;</span><span class="p">,</span><span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">,</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span><span class="s1">&#39;major_axis_length&#39;</span><span class="p">,</span> <span class="s1">&#39;minor_axis_length&#39;</span><span class="p">,</span><span class="s1">&#39;perimeter&#39;</span><span class="p">]</span>
+<span class="c1">#propList=[&#39;equivalent_diameter&#39;,&#39;orientation&#39;,&#39;area&#39;,&#39;major_axis_length&#39;]</span>
+
+<span class="n">props_black</span><span class="o">=</span><span class="n">measure</span><span class="o">.</span><span class="n">regionprops_table</span><span class="p">(</span><span class="n">markers2</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">propList</span><span class="p">)</span> <span class="c1"># markers2 is for the black pixels</span>
+<span class="n">props_gray</span><span class="o">=</span><span class="n">measure</span><span class="o">.</span><span class="n">regionprops_table</span><span class="p">(</span><span class="n">markers3</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">propList</span><span class="p">)</span> <span class="c1"># markers3 is for the gray pixels</span>
+
+<span class="n">black_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">props_black</span><span class="p">)</span>
+<span class="n">gray_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">props_gray</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">black_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1"># label=1 is background</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>eccentricity</th>
+      <th>centroid-0</th>
+      <th>centroid-1</th>
+      <th>area</th>
+      <th>equivalent_diameter</th>
+      <th>orientation</th>
+      <th>major_axis_length</th>
+      <th>minor_axis_length</th>
+      <th>perimeter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.655419</td>
+      <td>103.768453</td>
+      <td>141.502055</td>
+      <td>48664</td>
+      <td>248.919524</td>
+      <td>-1.483001</td>
+      <td>325.478960</td>
+      <td>245.822913</td>
+      <td>4386.675683</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.835002</td>
+      <td>4.548780</td>
+      <td>12.353659</td>
+      <td>82</td>
+      <td>10.217908</td>
+      <td>0.992072</td>
+      <td>14.225073</td>
+      <td>7.827297</td>
+      <td>36.142136</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>0.696056</td>
+      <td>5.171233</td>
+      <td>160.013699</td>
+      <td>146</td>
+      <td>13.634257</td>
+      <td>1.476241</td>
+      <td>17.110472</td>
+      <td>12.285113</td>
+      <td>50.420310</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>0.967957</td>
+      <td>18.613333</td>
+      <td>279.706667</td>
+      <td>150</td>
+      <td>13.819766</td>
+      <td>-0.038474</td>
+      <td>29.760078</td>
+      <td>7.473212</td>
+      <td>66.834524</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>0.841532</td>
+      <td>16.250000</td>
+      <td>3.486111</td>
+      <td>72</td>
+      <td>9.574615</td>
+      <td>0.120472</td>
+      <td>13.397863</td>
+      <td>7.237616</td>
+      <td>32.485281</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s print the numeric label for each black grain</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colored_image</span><span class="o">=</span><span class="n">img_colored2</span>
+<span class="n">data_table</span><span class="o">=</span><span class="n">black_data</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1"># 1x1 grid, first subplot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">colored_image</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span>
+<span class="p">[</span><span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">posx</span><span class="p">,</span> <span class="n">posy</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">posx</span><span class="p">,</span> <span class="n">posy</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="s1">&#39;centroid-1&#39;</span><span class="p">,</span><span class="s1">&#39;centroid-0&#39;</span><span class="p">]])]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8d08d93f02413011b316177fe813085173a72f05f532ea79fe3218f46da29175.png" src="../_images/8d08d93f02413011b316177fe813085173a72f05f532ea79fe3218f46da29175.png" />
+</div>
+</div>
+</section>
+<section id="gray-phase">
+<h3><span class="section-number">13.7.2. </span>Gray Phase<a class="headerlink" href="#gray-phase" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gray_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># label = 1 is background</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>eccentricity</th>
+      <th>centroid-0</th>
+      <th>centroid-1</th>
+      <th>area</th>
+      <th>equivalent_diameter</th>
+      <th>orientation</th>
+      <th>major_axis_length</th>
+      <th>minor_axis_length</th>
+      <th>perimeter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.657396</td>
+      <td>105.084151</td>
+      <td>139.155742</td>
+      <td>48009</td>
+      <td>247.238665</td>
+      <td>1.515886</td>
+      <td>328.124133</td>
+      <td>247.256514</td>
+      <td>4339.149817</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.816497</td>
+      <td>1.333333</td>
+      <td>45.666667</td>
+      <td>3</td>
+      <td>1.954410</td>
+      <td>-0.785398</td>
+      <td>2.309401</td>
+      <td>1.333333</td>
+      <td>3.414214</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>97.000000</td>
+      <td>1</td>
+      <td>1.128379</td>
+      <td>0.785398</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.869379</td>
+      <td>11.852368</td>
+      <td>147.693593</td>
+      <td>359</td>
+      <td>21.379733</td>
+      <td>0.747219</td>
+      <td>31.416606</td>
+      <td>15.524390</td>
+      <td>88.219300</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0.947692</td>
+      <td>12.214724</td>
+      <td>182.263804</td>
+      <td>163</td>
+      <td>14.406181</td>
+      <td>-0.525570</td>
+      <td>26.744448</td>
+      <td>8.536455</td>
+      <td>64.083261</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s show the labels for the gray particles</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colored_image</span><span class="o">=</span><span class="n">img_colored3</span>
+<span class="n">data_table</span><span class="o">=</span><span class="n">gray_data</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1"># 1x1 grid, first subplot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">colored_image</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span>
+<span class="p">[</span><span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">posx</span><span class="p">,</span> <span class="n">posy</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">posx</span><span class="p">,</span> <span class="n">posy</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="s1">&#39;centroid-1&#39;</span><span class="p">,</span><span class="s1">&#39;centroid-0&#39;</span><span class="p">]])]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b7cde74bef29ed9c87ae864842df1978a7ab2b0308876fd57922f6ffe2e879a7.png" src="../_images/b7cde74bef29ed9c87ae864842df1978a7ab2b0308876fd57922f6ffe2e879a7.png" />
+</div>
+</div>
+</section>
+<section id="example-analyses">
+<h3><span class="section-number">13.7.3. </span>Example Analyses<a class="headerlink" href="#example-analyses" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># indentifying the data sets to use so I don&#39;t have to change the variables in all the code below</span>
+<span class="n">grain_data</span><span class="o">=</span><span class="n">gray_data</span>
+<span class="n">markers</span><span class="o">=</span><span class="n">markers3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="number-of-particles">
+<h4><span class="section-number">13.7.3.1. </span>Number of Particles<a class="headerlink" href="#number-of-particles" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#number of particles</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="s1">&#39;label&#39;</span><span class="p">])</span> <span class="c1">#skipping first row since that is the background. only count particles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>89
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="average-particle-diameter">
+<h4><span class="section-number">13.7.3.2. </span>Average particle diameter<a class="headerlink" href="#average-particle-diameter" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span><span class="o">=</span><span class="p">(</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">pixels_to_μm</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1">#table in units of pixels so convert using pixels_to_μm</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average particle diameter = </span><span class="si">{</span><span class="n">temp</span><span class="si">:</span><span class="s1">0.1f</span><span class="si">}</span><span class="s1"> μm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average particle diameter = 13.0 μm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="average-area">
+<h4><span class="section-number">13.7.3.3. </span>Average Area<a class="headerlink" href="#average-area" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span><span class="o">=</span><span class="p">(</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">pixels_to_μm</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1">#don&#39;t forget to square pixel to μm conversion since we are looking at an area</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average particle area = </span><span class="si">{</span><span class="n">temp</span><span class="si">:</span><span class="s1">0.1f</span><span class="si">}</span><span class="s1"> μm^2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average particle area = 247.1 μm^2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="area-percent-fraction">
+<h4><span class="section-number">13.7.3.4. </span>Area percent / fraction<a class="headerlink" href="#area-percent-fraction" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interface_pix</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="n">markers</span><span class="o">==-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#interface pixels are labeled -1</span>
+<span class="c1">#let&#39;s assign half of the interface pixels to the background and half to the particles</span>
+<span class="n">background_pix</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="n">markers</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="n">interface_pix</span><span class="o">/</span><span class="mi">2</span> <span class="c1">#background pixels are labeled 1</span>
+<span class="n">particles_pix</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="n">markers</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="n">interface_pix</span><span class="o">/</span><span class="mi">2</span> <span class="c1">#particle pixels are all numbers greater than 1</span>
+<span class="n">total_pix</span><span class="o">=</span><span class="n">background_pix</span><span class="o">+</span><span class="n">particles_pix</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Percentage of gray phase is: </span><span class="si">{</span><span class="n">particles_pix</span><span class="o">/</span><span class="n">total_pix</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">0.1f</span><span class="si">}</span><span class="s1"> %&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Percentage of gray phase is: 18.2 %
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="particle-orientations">
+<h4><span class="section-number">13.7.3.5. </span>Particle Orientations<a class="headerlink" href="#particle-orientations" title="Permalink to this heading">#</a></h4>
+<p>Histogram of particle orientations.  Measures angle from the vertical for the long axis of a given particle.  Useful for seeing any orientation preference in the material.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">grain_data</span><span class="p">[</span><span class="s1">&#39;orientation&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">45</span><span class="p">);</span> <span class="c1"># these angles are measured relative to the vertical</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3a0d8325c2f5fabd936afee684b9ea50f71a8880aa701f045a779e18bd113214.png" src="../_images/3a0d8325c2f5fabd936afee684b9ea50f71a8880aa701f045a779e18bd113214.png" />
+</div>
+</div>
+</section>
+<section id="particle-eccentricity">
+<h4><span class="section-number">13.7.3.6. </span>Particle Eccentricity<a class="headerlink" href="#particle-eccentricity" title="Permalink to this heading">#</a></h4>
+<p>A value of zero corresponds to a circle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># when eccentricity = 0 the ellipse becomes a circle</span>
+<span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="s1">&#39;eccentricity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ebf1596af77f202cdb8b952d5a6dc49a6478271c7e247188e7986e878b82d132.png" src="../_images/ebf1596af77f202cdb8b952d5a6dc49a6478271c7e247188e7986e878b82d132.png" />
+</div>
+</div>
+</section>
+<section id="histogram-of-particle-diameters">
+<h4><span class="section-number">13.7.3.7. </span>Histogram of Particle Diameters.<a class="headerlink" href="#histogram-of-particle-diameters" title="Permalink to this heading">#</a></h4>
+<p>Let’s use matplotlib’s histogram for more control.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">grain_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="s1">&#39;equivalent_diameter&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">pixels_to_μm</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Diameter, μm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Particle Diameters&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim(0, 60)</span>
+<span class="c1">#plt.ylim(0, 0.15)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ec50a45665fd3635912f89bf75e5d38f7d070e29b4f1baea6234d88e8dbb6fa6.png" src="../_images/ec50a45665fd3635912f89bf75e5d38f7d070e29b4f1baea6234d88e8dbb6fa6.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="repeat-for-the-black-particles-if-you-would-like-use-black-data-and-markers2">
+<h3><span class="section-number">13.7.4. </span>Repeat for the black particles if you would like (use black_data and markers2)<a class="headerlink" href="#repeat-for-the-black-particles-if-you-would-like-use-black-data-and-markers2" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grain_data=black_data</span>
+<span class="c1"># markers=markers2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">13.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="problem-1">
+<h3><span class="section-number">13.8.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<p>Find the average particle size, particle size histogram, eccentricity histogram and the total area percent of fiber.</p>
+<section id="carbon-fibre-epoxy-composite">
+<h4><span class="section-number">13.8.1.1. </span>Carbon Fibre Epoxy Composite<a class="headerlink" href="#carbon-fibre-epoxy-composite" title="Permalink to this heading">#</a></h4>
+<a class="reference internal image-reference" href="../_images/13_doi.org_10.3390_jcs6030075.png"><img alt="../_images/13_doi.org_10.3390_jcs6030075.png" class="align-center" src="../_images/13_doi.org_10.3390_jcs6030075.png" style="width: 600px;" /></a>
+<p>M. Çelik, T. Noble, F. Jorge, R. Jian, C. M. Ó Brádaigh, and C. Robert, “Influence of Line Processing Parameters on Properties of Carbon Fibre Epoxy Towpreg,” Journal of Composites Science, vol. 6, no. 3, p. 75, 2022.</p>
+</section>
+</section>
+<section id="problem-2">
+<h3><span class="section-number">13.8.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
+<p>Find the area fraction of porosity in image (a) below.</p>
+<section id="powder-metallurgy-of-17-4-ph-stainless-steel">
+<h4><span class="section-number">13.8.2.1. </span>Powder Metallurgy of 17-4 PH Stainless Steel<a class="headerlink" href="#powder-metallurgy-of-17-4-ph-stainless-steel" title="Permalink to this heading">#</a></h4>
+<a class="reference internal image-reference" href="../_images/13_doi.org_10.1007_S11661-002-0050-4.png"><img alt="../_images/13_doi.org_10.1007_S11661-002-0050-4.png" class="align-center" src="../_images/13_doi.org_10.1007_S11661-002-0050-4.png" style="width: 600px;" /></a>
+<p>Wu, Y., Blaine, D., Schlaefer, C., Marx, B., &amp; German, R. M. (2002). Sintering densification and microstructural evolution of injection molding grade 17-4 PH stainless steel powder. Metallurgical and Materials Transactions A, 33(7), 2185–2194.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons_3114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="12_grain_size_measurement.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Image Analysis: Grain Size Measurement</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="14_removing_perspective.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Image Transformation using opencv</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-definitions">13.1. Function Definitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-image-and-prep-for-thresholding">13.2. Read image and prep for thresholding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-two-different-thresholds">13.3. Perform two different Thresholds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mark-and-color-code-the-image-using-our-function-segment">13.4. Mark and Color Code the Image using our function segment()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-summary">13.5. Image Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-pixel-calibration">13.6. Find Pixel Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-particles">13.7. Analyze Particles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#black-phase">13.7.1. Black Phase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gray-phase">13.7.2. Gray Phase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-analyses">13.7.3. Example Analyses</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-particles">13.7.3.1. Number of Particles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-particle-diameter">13.7.3.2. Average particle diameter</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-area">13.7.3.3. Average Area</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#area-percent-fraction">13.7.3.4. Area percent / fraction</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-orientations">13.7.3.5. Particle Orientations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-eccentricity">13.7.3.6. Particle Eccentricity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-of-particle-diameters">13.7.3.7. Histogram of Particle Diameters.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-for-the-black-particles-if-you-would-like-use-black-data-and-markers2">13.7.4. Repeat for the black particles if you would like (use black_data and markers2)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">13.8. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">13.8.1. Problem 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#carbon-fibre-epoxy-composite">13.8.1.1. Carbon Fibre Epoxy Composite</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">13.8.2. Problem 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#powder-metallurgy-of-17-4-ph-stainless-steel">13.8.2.1. Powder Metallurgy of 17-4 PH Stainless Steel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Corcoran
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

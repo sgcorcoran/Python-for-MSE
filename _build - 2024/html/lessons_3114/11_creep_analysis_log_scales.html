@@ -1,0 +1,1183 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>11. Collecting Data from Log scales: Creep Analysis &#8212; Python for MSE</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_3114/11_creep_analysis_log_scales';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="12. Image Analysis: Grain Size Measurement" href="12_grain_size_measurement.html" />
+    <link rel="prev" title="10. Application: Peak Deconvolution" href="10_peak_deconvolution.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Math Programming for Materials Science and Engineering
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 2114 Python for MSE I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/01_welcome_to_2114.html">1. Welcome to MSE 2114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/02_Intro_Jupyter.html">2. Introduction to the Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/03_working_with_data.html">3. Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/04_plotting_and_equation_solving.html">4. Plotting and Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/05_numpy_essentials.html">5. Reviewing essential concepts of numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/06_creating_a_cheat_sheet.html">6. Creating a “Cheat Sheet”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/07_self_review_pandas.html">7. Self Review and Practice with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/08_more_practice.html">8. More Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/09_wire_coating.html">9. Application: Plastic wire coating data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/10_advanced_plotting.html">10. Advanced Plotting with matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/11_prep_for_3114.html">11. Prepare for MSE 3114 next semester!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 3114 Python for MSE II</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_welcome_to_3114.html">1. Welcome to MSE 3114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_importing_your_own_functions.html">2. Importing Data from Files &amp; Importing Your Own Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_google_forms_and_pandas.html">3. Google Forms and Pandas Data Import and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_closer_look_at_pandas.html">4. Pandas DataFrames and Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_closer_look_at_matplotlib.html">5. matplotlib - Advanced Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_selecting_pixel_coordinates.html">6. Selecting pixel coordinates from an image file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_digitizing_literature_plots_part_1.html">7. Estimating Data Values from Plots in the Literature (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_digitizing_literature_plots_part_2.html">8. Estimating Data Values from Plots in the Literature (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_applications.html">9. Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_peak_deconvolution.html">10. Application: Peak Deconvolution</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Collecting Data from Log scales: Creep Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_grain_size_measurement.html">12. Image Analysis: Grain Size Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Analyzing_Particles_in_a_Matrix.html">13. Analyzing Particles in a Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_removing_perspective.html">14. Image Transformation using opencv</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/100_markdown_cells.html">1. Short Lesson: Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/101_math_operations.html">2. Short Lesson: Math Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/102_Plotting_basics.html">3. Short Lesson: Plotting Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/103_Plotting_functions.html">4. Short Lesson: Plotting functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/50_2114_course_support_files.html">5. MSE 2114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/51_2114_LinkedIn_Learning_Recommendations.html">6. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/52_2114_time_saving_tips.html">7. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_2114/53_2114_updates.html">8. Updates &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="50_course_support_files.html">9. MSE 3114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="51_LinkedIn_Learning_Recommendations.html">10. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="52_time_saving_tips.html">11. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="53_updates.html">12. Updates &amp; FAQ</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_3114/11_creep_analysis_log_scales.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons_3114/11_creep_analysis_log_scales.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Collecting Data from Log scales: Creep Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creep-rupture-data">11.1. Creep - Rupture data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#larsen-miller-plot">11.2. Larsen-Miller Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-l-m-data-to-a-polynomial">11.3. Fit L-M data to a polynomial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-above-data-to-a-polynomial">11.4. Fit the above data to a polynomial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-determining-rupture-lifetime-for-alloy-s-590">11.5. Example problem: Determining rupture lifetime for alloy S-590.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-closer-look-at-the-c-parameter-how-would-we-use-a-fitting-routine-to-find-the-value-c">11.6. A closer look at the <span class="math notranslate nohighlight">\(C\)</span> parameter.  How would we use a fitting routine to find the value <span class="math notranslate nohighlight">\(C\)</span> ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">11.7. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">11.7.1. Problem 1:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="collecting-data-from-log-scales-creep-analysis">
+<h1><span class="section-number">11. </span>Collecting Data from Log scales: Creep Analysis<a class="headerlink" href="#collecting-data-from-log-scales-creep-analysis" title="Permalink to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives   </p>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>reproduce data from images containing <strong>log scales</strong></p></li>
+<li><p>create a Larsen-Miller plot from creep data (stress vs rupture time) at various temperatures</p></li>
+<li><p>have a better understanding of the “C” parameter used in creep analysis<br />
+<br></p></li>
+</ul>
+<p>This lesson also reinforces the the ability to:</p>
+<ul class="simple">
+<li><p>load cal() and selectdata() functions from the utilities notebook using <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">getpix_utilities.ipynb</span></code></p></li>
+<li><p>fit data using the lmfit package</p></li>
+</ul>
+</div>
+<p>I’m going to look at some data from your Callister textbook and verify that the fitting parameter given in the text is correct. The figure below is for an S-590 superalloy Fe-Co-Cr-Ni and is given as Figure 8.31 Callister 9th edition.</p>
+<section id="creep-rupture-data">
+<h2><span class="section-number">11.1. </span>Creep - Rupture data<a class="headerlink" href="#creep-rupture-data" title="Permalink to this heading">#</a></h2>
+<a class="reference internal image-reference" href="../_images/11_fig_8.31_callister_9th.png"><img alt="../_images/11_fig_8.31_callister_9th.png" class="align-center" src="../_images/11_fig_8.31_callister_9th.png" style="width: 600px;" /></a>
+<p>According to the Callister textbook the above data collapses to one curve (shown below) when you take the data and replot it as <span class="math notranslate nohighlight">\((Log(\sigma)\)</span> vs T (C + <span class="math notranslate nohighlight">\(Log(t_r)\)</span>) where <span class="math notranslate nohighlight">\(\sigma\)</span> is in MPa, T is in Kelvin, <span class="math notranslate nohighlight">\(t_r\)</span> is in hours and C is a fitting parameter which according to your textbook is 20.</p>
+<a class="reference internal image-reference" href="../_images/11_fig_8.33_callister_9th.png"><img alt="../_images/11_fig_8.33_callister_9th.png" class="align-center" src="../_images/11_fig_8.33_callister_9th.png" style="width: 400px;" /></a>
+<p>Figure 8.33 Callister 9th edition. Note that the x-axis in the figure below has been divided by <span class="math notranslate nohighlight">\(10^3\)</span> i.e. the point 24 is really 24000.</p>
+<p>Let’s get the stress, rupture data from the first figure above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> getpix_utilities.ipynb
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function cal in module __main__:
+
+cal(pixpts, plotpts, datatoconvert)
+    pixpts = list of three pixel points (typically along axes)
+    plotpts = list of three points corresponding to pixpts but in plot units
+    datatoconvert = list of pixel points to convert to plot coordinates
+
+Help on function selectdata in module __main__:
+
+selectdata(path_to_image_file, fig_size_as_tuple=(6, 6), color=&#39;blue&#39;)
+    path_to_image_file example: r&quot;C:/Users/Sean/images/xrd data.png&quot;  
+    pixel data stored in global variable &quot;pixel_positions&quot;
+    fig_size_as_tuple e.g. (8,12) This adjusts the image size shown.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectdata</span><span class="p">(</span><span class="s1">&#39;../images/11_fig_8.31_callister_9th.png&#39;</span><span class="p">,(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d656e2ed8a6740228c462eae11a611c0", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<a class="reference internal image-reference" href="../_images/11_selected_pts.png"><img alt="../_images/11_selected_pts.png" class="align-center" src="../_images/11_selected_pts.png" style="width: 600px;" /></a>
+<p>Notice the points I selected above were the minimum needed to define each straight line segment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pixel_positions=[[610.0293439311366, 135.02436764624815],</span>
+<span class="c1">#  [333.57450522145916, 308.1576979360273],</span>
+<span class="c1">#  [154.0583761892011, 382.35769793602736],</span>
+<span class="c1">#  [624.3906342537173, 218.3996334198983],</span>
+<span class="c1">#  [546.6003116730722, 273.4512463231241],</span>
+<span class="c1">#  [235.43902135049143, 395.5222140650596],</span>
+<span class="c1">#  [142.0906342537172, 419.45769793602733],</span>
+<span class="c1">#  [617.209989092427, 286.6157624521564],</span>
+<span class="c1">#  [307.24547296339466, 413.4738269682854],</span>
+<span class="c1">#  [146.87773102791078, 439.80285922634994],</span>
+<span class="c1">#  [642.3422471569431, 328.5028592263499],</span>
+<span class="c1">#  [398.2003116730721, 429.0318914844145],</span>
+<span class="c1">#  [148.07450522145916, 457.7544721295757],</span>
+<span class="c1">#  [712.951924576298, 65.21253664570474],</span>
+<span class="c1">#  [87.03902135049144, 64.01576245215637],</span>
+<span class="c1">#  [87.03902135049144, 503.2318914844144]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d925C</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">d815C</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">d730C</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">d650C</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">13</span><span class="p">]</span>
+
+<span class="n">pxpts</span><span class="o">=</span><span class="n">pixel_positions</span><span class="p">[</span><span class="mi">13</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">logplotpts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">],[</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span> <span class="mi">20</span><span class="p">],[</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span> <span class="mi">1000</span><span class="p">]]))</span>  <span class="c1">#Remember you need the log of the data since we have a log scale</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When we have log axes, we need to take the log of the plot points used for calibration. In this problem, both axes have log scales so we take the log of both the x and y values.  This won’t always be the case. The data will be converted to log values as well so we will plot these using linear axes as shown below.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">cal650C</span><span class="o">=</span><span class="n">cal</span><span class="p">(</span><span class="n">pxpts</span><span class="p">,</span> <span class="n">logplotpts</span><span class="p">,</span> <span class="n">d650C</span><span class="p">)</span>
+<span class="n">cal730C</span><span class="o">=</span><span class="n">cal</span><span class="p">(</span><span class="n">pxpts</span><span class="p">,</span> <span class="n">logplotpts</span><span class="p">,</span> <span class="n">d730C</span><span class="p">)</span>
+<span class="n">cal815C</span><span class="o">=</span><span class="n">cal</span><span class="p">(</span><span class="n">pxpts</span><span class="p">,</span> <span class="n">logplotpts</span><span class="p">,</span> <span class="n">d815C</span><span class="p">)</span>
+<span class="n">cal925C</span><span class="o">=</span><span class="n">cal</span><span class="p">(</span><span class="n">pxpts</span><span class="p">,</span> <span class="n">logplotpts</span><span class="p">,</span> <span class="n">d925C</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cal650C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cal730C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cal815C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cal925C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;y--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span><span class="s1">&#39;650 C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.25</span><span class="p">,</span><span class="s1">&#39;730 C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.05</span><span class="p">,</span><span class="s1">&#39;815 C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span><span class="s1">&#39;925 C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log($t_r$), log(hrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log(σ), log(MPa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b1fae7d97a6709c5e4d956e9e7ed151d36f1b7bc8757c60b5957267b6701c688.png" src="../_images/b1fae7d97a6709c5e4d956e9e7ed151d36f1b7bc8757c60b5957267b6701c688.png" />
+</div>
+</div>
+</section>
+<section id="larsen-miller-plot">
+<h2><span class="section-number">11.2. </span>Larsen-Miller Plot<a class="headerlink" href="#larsen-miller-plot" title="Permalink to this heading">#</a></h2>
+<p>According to the Callister textbook this data will collapse onto one curve if we plot log(stress) vs T*(20+log(<span class="math notranslate nohighlight">\(t_r\)</span>)).  The value T*(C+log(<span class="math notranslate nohighlight">\(t_r\)</span>)) is known as the Larsen-Miller parameter, LM.  The parameters must be given in the correct units:  <span class="math notranslate nohighlight">\(T\)</span> here is the temperature in Kelvin, <span class="math notranslate nohighlight">\(t_r\)</span> is the rupture time in hours, and stress is in MPa. The value C is a fitting parameter which is equal to 20 for the data we are using and should result in the 4 curves in the plot above collapsing into one curve as shown in the plot below.  For homework, you will have a different value for C.</p>
+<a class="reference internal image-reference" href="../_images/11_fig_8.33_callister_9th.png"><img alt="../_images/11_fig_8.33_callister_9th.png" class="align-center" src="../_images/11_fig_8.33_callister_9th.png" style="width: 300px;" /></a>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For the L-M plot, the parameters: T, <span class="math notranslate nohighlight">\(t_r\)</span>, and <span class="math notranslate nohighlight">\(\sigma\)</span> must be given in units: Kelvin, hours, and MPa respectively.  Compare the plot below with that above.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_value</span><span class="o">=</span><span class="mi">20</span> <span class="c1"># C parameter</span>
+
+<span class="n">lm650C</span><span class="o">=</span><span class="p">(</span><span class="mi">650</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#calculating LM (x-axis) for each temperature with a C = 20</span>
+<span class="n">lm730C</span><span class="o">=</span><span class="p">(</span><span class="mi">730</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lm815C</span><span class="o">=</span><span class="p">(</span><span class="mi">815</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lm925C</span><span class="o">=</span><span class="p">(</span><span class="mi">925</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm650C</span><span class="p">,</span> <span class="n">cal650C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span> <span class="c1">#our stress values (y-axis) are already in log(MPa) units</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm730C</span><span class="p">,</span> <span class="n">cal730C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm815C</span><span class="p">,</span> <span class="n">cal815C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm925C</span><span class="p">,</span> <span class="n">cal925C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;y--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;LM = T*(20+log($t_r$), K·log(hrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log(σ), log(MPa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">18000</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;C = </span><span class="si">{</span><span class="n">c_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1d69b94a9d929fe5c2283906f57d994604fd8a4f50d372268fa42418d412303e.png" src="../_images/1d69b94a9d929fe5c2283906f57d994604fd8a4f50d372268fa42418d412303e.png" />
+</div>
+</div>
+<p>The data did indeed collapse onto one line!  Rather than using the plot above to read off the LM value (x-axis) for a specific stress value (y-axis), we will just fit the data to a polynomial function, <div class="math notranslate nohighlight">
+\[LM = a0+a1 \ log(\sigma)+a2\ log(\sigma)^2+a3\ log(\sigma)^3 +...\]</div>
+  so <span class="math notranslate nohighlight">\(log(\sigma)\)</span> is our independent variable.</p>
+<p>First, let’s take a look at what we get for a C value of 15 vs 25 to get a feel for how sensitive this data collapse is.  From 15 to 20 the curves continue to collapse onto each other, from 20 to 25 the curves start to spread again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">axes1</span><span class="p">,</span> <span class="n">axes2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">c_value</span><span class="o">=</span><span class="mi">15</span>
+<span class="n">lm650C</span><span class="o">=</span><span class="p">(</span><span class="mi">650</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#calculating LM for each temperature and a C = 20</span>
+<span class="n">lm730C</span><span class="o">=</span><span class="p">(</span><span class="mi">730</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lm815C</span><span class="o">=</span><span class="p">(</span><span class="mi">815</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lm925C</span><span class="o">=</span><span class="p">(</span><span class="mi">925</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">axes1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm650C</span><span class="p">,</span> <span class="n">cal650C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm730C</span><span class="p">,</span> <span class="n">cal730C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g--&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm815C</span><span class="p">,</span> <span class="n">cal815C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm925C</span><span class="p">,</span> <span class="n">cal925C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;y--&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LM = T*(</span><span class="si">{</span><span class="n">c_value</span><span class="si">}</span><span class="s1">+log($t_r$), K·log(hrs)&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;log(σ), log(MPa)&#39;</span><span class="p">)</span>
+<span class="n">axes1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">15000</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;C = </span><span class="si">{</span><span class="n">c_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">c_value</span><span class="o">=</span><span class="mi">25</span>
+<span class="n">lm650C</span><span class="o">=</span><span class="p">(</span><span class="mi">650</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#calculating LM for each temperature and a C = 20</span>
+<span class="n">lm730C</span><span class="o">=</span><span class="p">(</span><span class="mi">730</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lm815C</span><span class="o">=</span><span class="p">(</span><span class="mi">815</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lm925C</span><span class="o">=</span><span class="p">(</span><span class="mi">925</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">axes2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm650C</span><span class="p">,</span> <span class="n">cal650C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm730C</span><span class="p">,</span> <span class="n">cal730C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g--&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm815C</span><span class="p">,</span> <span class="n">cal815C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lm925C</span><span class="p">,</span> <span class="n">cal925C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;y--&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LM = T*(</span><span class="si">{</span><span class="n">c_value</span><span class="si">}</span><span class="s1">+log($t_r$), K·log(hrs)&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;log(σ), log(MPa)&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">25000</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;C = </span><span class="si">{</span><span class="n">c_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3d246bc3ee1a3a6ac8d920d549c32d3ce4a4c7a32e6a70e316247c6303ee1591.png" src="../_images/3d246bc3ee1a3a6ac8d920d549c32d3ce4a4c7a32e6a70e316247c6303ee1591.png" />
+</div>
+</div>
+</section>
+<section id="fit-l-m-data-to-a-polynomial">
+<h2><span class="section-number">11.3. </span>Fit L-M data to a polynomial<a class="headerlink" href="#fit-l-m-data-to-a-polynomial" title="Permalink to this heading">#</a></h2>
+<p>Rather than using the plot above to read off the LM value (x-axis) for a specific stress value (y-axis), we will just fit the data to a polynomial function, <div class="math notranslate nohighlight">
+\[LM = a0+a1 \ log(\sigma)+a2\ log(\sigma)^2+a3\ log(\sigma)^3 +...\]</div>
+  so <span class="math notranslate nohighlight">\(log(\sigma)\)</span> is our independent variable.  Let’s switch the axes on our plot so the x-axis is the independent variable i.e., log(stress).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x-data is cal650C[:,1],cal730C[:,1],cal815C[:,1],cal925C[:,1]</span>
+<span class="c1"># y-data is lm650C, lm730C, lm815C, lm925C, respectively</span>
+
+<span class="n">c_value</span><span class="o">=</span><span class="mi">20</span> <span class="c1"># C parameter</span>
+
+<span class="n">lm650C</span><span class="o">=</span><span class="p">(</span><span class="mi">650</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#calculating LM (x-axis) for each temperature with a C = 20</span>
+<span class="n">lm730C</span><span class="o">=</span><span class="p">(</span><span class="mi">730</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lm815C</span><span class="o">=</span><span class="p">(</span><span class="mi">815</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">lm925C</span><span class="o">=</span><span class="p">(</span><span class="mi">925</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">lm650C</span><span class="p">,</span>  <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">lm730C</span><span class="p">,</span>  <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">lm815C</span><span class="p">,</span>  <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">lm925C</span><span class="p">,</span>  <span class="s1">&#39;y--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(σ), log(MPa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LM = T*(</span><span class="si">{</span><span class="n">c_value</span><span class="si">}</span><span class="s1">+log($t_r$), K·log(hrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Moving the LM parameter to the y-axis&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a04509a618b41604c538056055361b7366936fd29ad1e4344f2b5b1cfc26d579.png" src="../_images/a04509a618b41604c538056055361b7366936fd29ad1e4344f2b5b1cfc26d579.png" />
+</div>
+</div>
+<p>Let’s combine our data sets so we can fit them.  We also want the final dataset to be sorted by the x-values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># several methods to combine the data sets into one</span>
+<span class="c1"># option 1: use np.append</span>
+<span class="c1"># x=np.append(np.append(np.append(cal650C[:,1],cal730C[:,1]),cal815C[:,1]),cal925C[:,1])</span>
+<span class="c1"># y=np.append(np.append(np.append(lm650C, lm730C),lm815C),lm925C)</span>
+
+<span class="c1"># option 2: use np.hstack</span>
+<span class="c1"># x=np.hstack((cal650C[:,1], cal730C[:,1], cal815C[:,1], cal925C[:,1]))</span>
+<span class="c1"># y=np.hstack((lm650C, lm730C, lm815C, lm925C))</span>
+
+<span class="c1">#option 3: use the &quot;*&quot; expression</span>
+<span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="o">*</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span><span class="o">=</span><span class="p">(</span><span class="o">*</span><span class="n">lm650C</span><span class="p">,</span> <span class="o">*</span><span class="n">lm730C</span><span class="p">,</span> <span class="o">*</span><span class="n">lm815C</span><span class="p">,</span> <span class="o">*</span><span class="n">lm925C</span><span class="p">)</span>
+
+<span class="c1"># now let&#39;s put data together as (x,y) pairs so we can sort by x values</span>
+<span class="n">xypairs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)))</span>  <span class="c1">#put all our data together as x,y pairs</span>
+<span class="n">xysorted</span><span class="o">=</span><span class="n">xypairs</span><span class="p">[</span><span class="n">xypairs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span> <span class="c1">#sort our data according to the x value, argsort() returns indices of sorted array</span>
+
+<span class="c1"># separate data back to 1D lists for x-values and y-values</span>
+<span class="n">logσ</span><span class="o">=</span><span class="n">xysorted</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">lmparam</span><span class="o">=</span><span class="n">xysorted</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check our combined dataset</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logσ</span><span class="p">,</span><span class="n">lmparam</span><span class="p">,</span>  <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(σ), log(MPa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LM = T*(</span><span class="si">{</span><span class="n">c_value</span><span class="si">}</span><span class="s1">+log($t_r$), K·log(hrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Combined data set&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8aa7d52ccaf5e503a84a88354f70beb7f5ddc8f71cefcd674dc0d90275f307b7.png" src="../_images/8aa7d52ccaf5e503a84a88354f70beb7f5ddc8f71cefcd674dc0d90275f307b7.png" />
+</div>
+</div>
+</section>
+<section id="fit-the-above-data-to-a-polynomial">
+<h2><span class="section-number">11.4. </span>Fit the above data to a polynomial<a class="headerlink" href="#fit-the-above-data-to-a-polynomial" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Parameters</span>
+
+<span class="c1"># define our polynomial fit</span>
+<span class="k">def</span> <span class="nf">poly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">a0</span><span class="o">+</span><span class="n">a1</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">a3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span> 
+
+<span class="c1"># print(f&#39;parameter names: {model.param_names}&#39;)</span>
+<span class="c1"># print(f&#39;independent variables: {model.independent_vars}&#39;)</span>
+
+<span class="c1"># now we help the fitting process by giving starting values and bounds on our parameters</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">()</span>
+<span class="c1"># parameters given as: (NAME, VALUE, VARY, MIN,  MAX,  EXPR,  BRUTE_STEP)</span>
+<span class="n">params</span><span class="o">.</span><span class="n">add_many</span><span class="p">((</span><span class="s1">&#39;a0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;a1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;a2&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;a3&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+
+<span class="c1"># our x and y data</span>
+<span class="n">xdata</span><span class="o">=</span><span class="n">logσ</span>
+<span class="n">ydata</span><span class="o">=</span><span class="n">lmparam</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">xdata</span><span class="p">)</span> <span class="c1">#now we perform the fit to our x &amp; y data with the given params</span>
+<span class="n">dely</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">eval_uncertainty</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xdata</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#uncertainty</span>
+
+<span class="c1"># only need below if you have more than one model added together (see week 8 lesson)</span>
+<span class="c1">#comps = result.eval_components() </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">)</span> <span class="c1">#our x,y data blue dots</span>
+<span class="c1">#plt.plot(xdata, result.init_fit, &#39;--&#39;, label=&#39;initial fit&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;best fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">best_fit</span><span class="o">-</span><span class="n">dely</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">best_fit</span><span class="o">+</span><span class="n">dely</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                 <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2-$\sigma$ uncertainty band&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(σ), log(MPa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LM = T*(</span><span class="si">{</span><span class="n">c_value</span><span class="si">}</span><span class="s1">+log($t_r$), K·log(hrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># print(result.fit_report())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Best Values: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">best_values</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/42f8b5a7e4f9a799f8b2acfa3450f8a121934581a031abf5b64995459298a5dc.png" src="../_images/42f8b5a7e4f9a799f8b2acfa3450f8a121934581a031abf5b64995459298a5dc.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best Values: {&#39;a0&#39;: 85088.31535611271, &#39;a1&#39;: -77663.44333214953, &#39;a2&#39;: 35898.44004296161, &#39;a3&#39;: -6044.939139260627}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice the use of uncertainty bands in the plot above.  Pretty sweet!  I just asked for the delta y corresponding to an uncertainty of 2 sigma (95% confidence interval) <code class="docutils literal notranslate"><span class="pre">result.eval_uncertainty(x=xdata,</span> <span class="pre">sigma=2)</span></code> then plotted two additional lines <em>result.best_fit</em> <strong>- dely</strong> and <em>result.best_fit</em> <strong>+ dely</strong> using <code class="docutils literal notranslate"><span class="pre">fill_between()</span></code>.</p>
+</div>
+</section>
+<section id="example-problem-determining-rupture-lifetime-for-alloy-s-590">
+<h2><span class="section-number">11.5. </span>Example problem: Determining rupture lifetime for alloy S-590.<a class="headerlink" href="#example-problem-determining-rupture-lifetime-for-alloy-s-590" title="Permalink to this heading">#</a></h2>
+<div class="admonition-problem-statement admonition">
+<p class="admonition-title">Problem Statement  </p>
+<p>What is the rupture lifetime at 780 C under a stress load of 355 MPa?</p>
+</div>
+<p>We just need to calculate the LM parameter from our polynomial fit above and set that equal to T*(20+log(<span class="math notranslate nohighlight">\(t_r\)</span>)) and solve for the rupture time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># recall our fitted parameters a0, a1, a2, a3, a4</span>
+<span class="n">result</span><span class="o">.</span><span class="n">best_values</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_values([85088.31535611271, -77663.44333214953, 35898.44004296161, -6044.939139260627])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># recall our poly function: poly(x, a0, a1, a2, a3)</span>
+<span class="c1"># where x is log(stress)</span>
+<span class="n">_LM</span><span class="o">=</span><span class="n">poly</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">355</span><span class="p">),</span><span class="o">*</span><span class="n">result</span><span class="o">.</span><span class="n">best_values</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="c1"># LM value at 355 MPa</span>
+<span class="n">_LM</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20239.882869178284
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">solve</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">log</span>
+<span class="n">tr</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span><span class="n">real</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Eq(left hand side, right hand side) </span>
+<span class="n">temp</span><span class="o">=</span><span class="mi">780</span> <span class="c1">#Celsius</span>
+
+<span class="n">eq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">((</span><span class="n">temp</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c_value</span><span class="o">+</span><span class="n">log</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span><span class="mi">10</span><span class="p">)),</span> <span class="n">_LM</span><span class="p">)</span>
+
+<span class="n">sol</span><span class="o">=</span><span class="n">solve</span><span class="p">(</span><span class="n">eq1</span><span class="p">,</span><span class="n">tr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Creep rupture would occur after </span><span class="si">{</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> hrs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creep rupture would occur after 0.166 hrs
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-closer-look-at-the-c-parameter-how-would-we-use-a-fitting-routine-to-find-the-value-c">
+<h2><span class="section-number">11.6. </span>A closer look at the <span class="math notranslate nohighlight">\(C\)</span> parameter.  How would we use a fitting routine to find the value <span class="math notranslate nohighlight">\(C\)</span> ?<a class="headerlink" href="#a-closer-look-at-the-c-parameter-how-would-we-use-a-fitting-routine-to-find-the-value-c" title="Permalink to this heading">#</a></h2>
+<p>The routine below will vary this C parameter until the optimal fit is achieved.  This is different from other fitting cases we have had in that our fitting parameter is actually changing the data set being fit.  We will use a “cost” function with a minimization method to do this, <code class="docutils literal notranslate"><span class="pre">optimize.minimize()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Parameters</span><span class="p">,</span> <span class="n">minimize</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we define our cost function which is the entire fitting routine we used above but now for a given value of “C” we calculate the error between the fit and the data points and return <span class="math notranslate nohighlight">\((1-r^2)\)</span> where <span class="math notranslate nohighlight">\(r^2\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">cal650C</span><span class="p">,</span> <span class="n">cal730C</span><span class="p">,</span> <span class="n">cal815C</span><span class="p">,</span> <span class="n">cal925C</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="nf">poly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">a0</span><span class="o">+</span><span class="n">a1</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">a3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">global</span> <span class="n">popt</span><span class="p">,</span> <span class="n">logσ</span><span class="p">,</span> <span class="n">lmparam</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">fit_vals</span> <span class="c1">#made these global so we have access to these after the minimize fit</span>
+    
+    <span class="n">lm650C</span><span class="o">=</span><span class="p">(</span><span class="mi">650</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">lm730C</span><span class="o">=</span><span class="p">(</span><span class="mi">730</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">lm815C</span><span class="o">=</span><span class="p">(</span><span class="mi">815</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">lm925C</span><span class="o">=</span><span class="p">(</span><span class="mi">925</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="c1">#appending all our data together</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cal650C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">cal730C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span><span class="n">cal815C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span><span class="n">cal925C</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lm650C</span><span class="p">,</span> <span class="n">lm730C</span><span class="p">),</span><span class="n">lm815C</span><span class="p">),</span><span class="n">lm925C</span><span class="p">)</span>
+    <span class="c1">#placing our data as x,y pairs using the function zip</span>
+    <span class="c1">#then sorting so the x values are in order </span>
+    <span class="n">temp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)))</span>  <span class="c1">#put all our data together as x,y pairs</span>
+    <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">temp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span> <span class="c1">#sort our data according to the x value</span>
+    
+    <span class="c1">#here&#39;s now the data we will fit</span>
+    <span class="n">logσ</span><span class="o">=</span><span class="n">temp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#the x data is actually the log of stress</span>
+    <span class="n">lmparam</span><span class="o">=</span><span class="n">temp</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#the y data is the larsen miller value calculated above</span>
+    
+    <span class="c1">###########</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span> 
+
+    <span class="n">params</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">()</span>
+    <span class="c1"># parameters given as: (NAME, VALUE, VARY, MIN,  MAX,  EXPR,  BRUTE_STEP)</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">add_many</span><span class="p">((</span><span class="s1">&#39;a0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s1">&#39;a1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s1">&#39;a2&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s1">&#39;a3&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">lmparam</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">logσ</span><span class="p">)</span> <span class="c1">#now we perform the fit to our x &amp; y data with the given params</span>
+    <span class="n">fit_vals</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">best_values</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="n">residuals</span> <span class="o">=</span> <span class="n">lmparam</span> <span class="o">-</span> <span class="n">poly</span><span class="p">(</span><span class="n">logσ</span><span class="p">,</span> <span class="o">*</span><span class="n">fit_vals</span><span class="p">)</span> <span class="c1">#calculate the difference between the fit and the data</span>
+    <span class="n">ss_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#calculate the sum of the squares</span>
+    <span class="n">ss_tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">lmparam</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">lmparam</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#calculate the sum of the squares relative to the mean value</span>
+    <span class="n">r_squared</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">ss_res</span> <span class="o">/</span> <span class="n">ss_tot</span><span class="p">)</span> <span class="c1"># now find the Rsquared value for the fit</span>
+   
+    <span class="k">return</span> <span class="mi">1</span><span class="o">-</span><span class="n">r_squared</span> <span class="c1">#return 1-Rsquared - this is what should be minimized on a good fit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see what our fits look like for a C of 15 vs a C of 20.  Remember the better fit is the one with the smallest value returned from our cost function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span>
+<span class="c1"># def printmd(string):</span>
+<span class="c1">#     display(Markdown(string))</span>
+<span class="c1"># printmd(&#39;**bold**&#39;)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$(1-r^2)$ for C=15 is: </span><span class="si">{</span><span class="n">cost</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="n">cal650C</span><span class="p">,</span><span class="w"> </span><span class="n">cal730C</span><span class="p">,</span><span class="w"> </span><span class="n">cal815C</span><span class="p">,</span><span class="w"> </span><span class="n">cal925C</span><span class="p">)</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$(1-r^2)$ for C=20 is: </span><span class="si">{</span><span class="n">cost</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">cal650C</span><span class="p">,</span><span class="w"> </span><span class="n">cal730C</span><span class="p">,</span><span class="w"> </span><span class="n">cal815C</span><span class="p">,</span><span class="w"> </span><span class="n">cal925C</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$(1-r^2)$ for C=21 is: </span><span class="si">{</span><span class="n">cost</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="n">cal650C</span><span class="p">,</span><span class="w"> </span><span class="n">cal730C</span><span class="p">,</span><span class="w"> </span><span class="n">cal815C</span><span class="p">,</span><span class="w"> </span><span class="n">cal925C</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>$(1-r^2)$ for C=15 is: 0.0261</p>
+<p>$(1-r^2)$ for C=20 is: 0.01084</p>
+<p>$(1-r^2)$ for C=21 is: 0.01084</p>
+</div>
+</div>
+<p>Interestingly C=21 looks just as good as C=20.  Let’s plot the cost function for C values from 20 to 21 and see where the minimum is located.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_list</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">20.</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">_cost</span><span class="o">=</span><span class="p">[</span><span class="n">cost</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">cal650C</span><span class="p">,</span> <span class="n">cal730C</span><span class="p">,</span> <span class="n">cal815C</span><span class="p">,</span> <span class="n">cal925C</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">c_list</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_list</span><span class="p">,</span> <span class="n">_cost</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;sci&#39;</span><span class="p">,</span><span class="n">useMathText</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">useOffset</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$1-r^2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ff496e8a743862fb9300a8a3f72700d2549a01fffbdb7611e23ba9beee6962f1.png" src="../_images/ff496e8a743862fb9300a8a3f72700d2549a01fffbdb7611e23ba9beee6962f1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$(1-r^2)$ for C=20 is: </span><span class="si">{</span><span class="n">cost</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">cal650C</span><span class="p">,</span><span class="w"> </span><span class="n">cal730C</span><span class="p">,</span><span class="w"> </span><span class="n">cal815C</span><span class="p">,</span><span class="w"> </span><span class="n">cal925C</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$(1-r^2)$ for C=20.5 is: </span><span class="si">{</span><span class="n">cost</span><span class="p">(</span><span class="mf">20.5</span><span class="p">,</span><span class="w"> </span><span class="n">cal650C</span><span class="p">,</span><span class="w"> </span><span class="n">cal730C</span><span class="p">,</span><span class="w"> </span><span class="n">cal815C</span><span class="p">,</span><span class="w"> </span><span class="n">cal925C</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$(1-r^2)$ for C=21 is: </span><span class="si">{</span><span class="n">cost</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="n">cal650C</span><span class="p">,</span><span class="w"> </span><span class="n">cal730C</span><span class="p">,</span><span class="w"> </span><span class="n">cal815C</span><span class="p">,</span><span class="w"> </span><span class="n">cal925C</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>$(1-r^2)$ for C=20 is: 0.010844</p>
+<p>$(1-r^2)$ for C=20.5 is: 0.010735</p>
+<p>$(1-r^2)$ for C=21 is: 0.010845</p>
+</div>
+</div>
+<p>Looks like the best fit is for a C near 20.5.  Let’s find this value using a minimization function.</p>
+<p>When we wrote the cost function, it is important that our variable(s) show up first in the function definition.  In our case we only have one variable in this case “C”.  The remaining variables listed are the arguments that have fixed values. In the minimize function we give it the function name “cost” and then the initial guess for our variable, “C”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the output here &quot;out&quot; will be the value of &quot;C&quot; that minimizes the cost function</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">cal650C</span><span class="p">,</span> <span class="n">cal730C</span><span class="p">,</span> <span class="n">cal815C</span><span class="p">,</span> <span class="n">cal925C</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;C: </span><span class="si">{</span><span class="n">out</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.7f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># this is from minimize function</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">fit_report</span><span class="p">())</span> <span class="c1"># this is from the model.fit() inside of the cost function</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C: 20.4975675
+[[Model]]
+    Model(poly)
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 50
+    # data points      = 13
+    # variables        = 4
+    chi-square         = 1788346.94
+    reduced chi-square = 198705.215
+    Akaike info crit   = 161.814088
+    Bayesian info crit = 164.073885
+[[Variables]]
+    a0:  90278.4618 +/- 30446.3182 (33.72%) (init = 1)
+    a1: -84187.1572 +/- 43183.8414 (51.30%) (init = 1)
+    a2:  38913.7787 +/- 20018.1254 (51.44%) (init = 1)
+    a3: -6504.77207 +/- 3037.82408 (46.70%) (init = 1)
+[[Correlations]] (unreported correlations are &lt; 0.100)
+    C(a2, a3) = -0.999
+    C(a1, a2) = -0.999
+    C(a0, a1) = -0.998
+    C(a1, a3) = 0.995
+    C(a0, a2) = 0.994
+    C(a0, a3) = -0.988
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logσ</span><span class="p">,</span> <span class="n">poly</span><span class="p">(</span><span class="n">logσ</span><span class="p">,</span> <span class="o">*</span><span class="n">fit_vals</span><span class="p">),</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logσ</span><span class="p">,</span> <span class="n">lmparam</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(σ), log(MPa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LM = T*(</span><span class="si">{</span><span class="n">out</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">+log($t_r$), K·log(hrs)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;C = </span><span class="si">{</span><span class="n">out</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e0268075ab17faf8c0de0eaa641163bfe9b6859cc2ca693fd9c0c867a12bc9a0.png" src="../_images/e0268075ab17faf8c0de0eaa641163bfe9b6859cc2ca693fd9c0c867a12bc9a0.png" />
+</div>
+</div>
+<p>You can see that we got a C value of 20.4976 which is better than the value of 20 used by the textbook - although the difference is minor.</p>
+<p>Let’s look at that example problem again:</p>
+<blockquote>
+<div><p>What is the rupture lifetime at 780 C under a stress load of 355 MPa?<br />
+We just need to calculate the LM parameter from our polynomial fit and set that equal to T*(20.4976+log(<span class="math notranslate nohighlight">\(t_r\)</span>)) and solve for the rupture time.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit_vals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_values([90278.46181151668, -84187.15721337295, 38913.77866746826, -6504.772065115747])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">solve</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">log</span>
+<span class="n">_LM</span><span class="o">=</span><span class="n">poly</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">355</span><span class="p">),</span><span class="o">*</span><span class="n">fit_vals</span><span class="p">)</span> <span class="c1"># LM value at 355 MPa</span>
+
+<span class="n">tr</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span><span class="n">real</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Eq(left hand side, right hand side) </span>
+<span class="n">temp</span><span class="o">=</span><span class="mi">780</span> <span class="c1">#Celsius</span>
+
+<span class="n">eq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">((</span><span class="n">temp</span><span class="o">+</span><span class="mi">273</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">20.4976</span><span class="o">+</span><span class="n">log</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span><span class="mi">10</span><span class="p">)),</span> <span class="n">_LM</span><span class="p">)</span>
+
+<span class="n">sol</span><span class="o">=</span><span class="n">solve</span><span class="p">(</span><span class="n">eq1</span><span class="p">,</span><span class="n">tr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Creep rupture would occur after </span><span class="si">{</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> hrs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creep rupture would occur after 0.171 hrs
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h2><span class="section-number">11.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<a class="reference internal image-reference" href="../_images/11_stress_rupture_data.png"><img alt="../_images/11_stress_rupture_data.png" class="align-center" src="../_images/11_stress_rupture_data.png" style="width: 700px;" /></a>
+<section id="problem-1">
+<h3><span class="section-number">11.7.1. </span>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<p><strong>(a)</strong> Pick either the High Stress Regime (fig a) or the Low Stress Regime (fig b) or you can do both!  Use selectdata() and cal() to grab all of the data points on the figure you chose and replot the figure.  Remember to be careful with the log axes when you find plotpts.  Each set of points should be in a different color. Like this:</p>
+<a class="reference internal image-reference" href="../_images/11_problem_1_a.png"><img alt="../_images/11_problem_1_a.png" class="align-center" src="../_images/11_problem_1_a.png" style="width: 400px;" /></a>
+<p><strong>(b)</strong> Collapse all your data to one curve on a Larsen-Miller plot by finding the factor “C”.  This is not trial and error.  Use a fitting routine to find “C” as developed in the lesson.  My data collapsed as shown:</p>
+<a class="reference internal image-reference" href="../_images/11_problem_1_b.png"><img alt="../_images/11_problem_1_b.png" class="align-center" src="../_images/11_problem_1_b.png" style="width: 400px;" /></a>
+<p><strong>(c)</strong> Print the value of C and also print the final values of the polynomial fit as done in the lesson.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons_3114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="10_peak_deconvolution.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Application: Peak Deconvolution</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="12_grain_size_measurement.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Image Analysis: Grain Size Measurement</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creep-rupture-data">11.1. Creep - Rupture data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#larsen-miller-plot">11.2. Larsen-Miller Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-l-m-data-to-a-polynomial">11.3. Fit L-M data to a polynomial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-above-data-to-a-polynomial">11.4. Fit the above data to a polynomial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-determining-rupture-lifetime-for-alloy-s-590">11.5. Example problem: Determining rupture lifetime for alloy S-590.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-closer-look-at-the-c-parameter-how-would-we-use-a-fitting-routine-to-find-the-value-c">11.6. A closer look at the <span class="math notranslate nohighlight">\(C\)</span> parameter.  How would we use a fitting routine to find the value <span class="math notranslate nohighlight">\(C\)</span> ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">11.7. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">11.7.1. Problem 1:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Corcoran
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

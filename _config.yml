@@ -1,0 +1,97 @@
+# Book settings
+# Learn more at https://jupyterbook.org/en/stable/customize/config.html
+
+#######################################################################################
+# Book settings
+title                       : "Python for MSE"
+author                      : Sean Corcoran
+copyright                   : "2023"  # Copyright year to be placed in the footer
+logo                        : Horizontal_VT_Full_Color_RGB.jpg
+# Auto-exclude files not in the toc
+only_build_toc_files        : true
+# Patterns to skip when building the book. Use if the above if false
+#exclude_patterns: [data_for_practice/*] 
+
+#######################################################################################
+# Execution settings
+execute:
+  execute_notebooks: 'off'
+#  exclude_patterns: 
+#      - '06_*'   # include lines like this if execute_notebooks is 'on'
+
+#######################################################################################
+# Parse and render settings
+
+parse:
+  myst_enable_extensions: 
+    - amsmath
+    - html_image
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - linkify
+    - smartquotes
+    - tasklist
+    - fieldlist
+#    - attrs_inline  #unknown extension
+#  myst_dmath_double_inline: True  ignored here, place in advanced settings below
+#  myst_dmath_allow_space: false
+  myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
+#######################################################################################
+# HTML-specific settings
+html:
+  announcement              : "Virginia Tech MSE 2114-3114 Python for MSE" # A banner announcement at the top of the site.
+  use_multitoc_numbering    : false   # Continuous numbering across parts/chapters
+  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar. 
+#  extra_footer              : "extra footer text goes here"  # Will be displayed underneath the footer.
+  google_analytics_id       : "G-Y46MLPCBH0"  # A GA id that can be used to track book views.
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+
+#######################################################################################
+# LaTeX-specific settings
+latex:
+  latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+  use_jupyterbook_latex     : true # use sphinx-jupyterbook-latex for pdf builds as default
+  latex_documents:
+    targetname: book.tex
+
+# Binder link settings
+# use_binder_button                : true  
+# use_show_widgets_button         : true 
+# use_thebelab_button : true  
+
+#######################################################################################
+# Launch button settings
+launch_buttons:
+  notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : "" # https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+  colab_url                 : "https://colab.research.google.com" # The URL of Google Colab (https://colab.research.google.com)
+
+repository:
+  url                       : https://github.com/sgcorcoran/Python-for-MSE  # The URL to your book's repository
+  path_to_book              : ""  # A path to your book's folder, relative to the repository root.
+  branch                    : main # Which branch of the repository should be used when creating links
+  
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+#######################################################################################
+# Advanced and power-user setting
+sphinx:
+  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
+  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
+  recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
+  config                    :   # key-value pairs to directly over-ride the Sphinx configuration 
+      bibtex_reference_style: author_year
+      myst_dmath_double_inline:  true  # doesn't work above parse section, needs to go here
+      html_js_files:
+        - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+# sphinx:
+#   config:
+#     html_js_files:
+#     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js

@@ -1,0 +1,1201 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>10. Advanced Plotting with matplotlib &#8212; Python for MSE</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_2114/10_advanced_plotting';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. Prepare for MSE 3114 next semester!" href="11_prep_for_3114.html" />
+    <link rel="prev" title="9. Application: Plastic wire coating data" href="09_wire_coating.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Math Programming for Materials Science and Engineering
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 2114 Python for MSE I</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_welcome_to_2114.html">1. Welcome to MSE 2114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Intro_Jupyter.html">2. Introduction to the Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_working_with_data.html">3. Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_plotting_and_equation_solving.html">4. Plotting and Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_numpy_essentials.html">5. Reviewing essential concepts of numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_creating_a_cheat_sheet.html">6. Creating a “Cheat Sheet”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_self_review_pandas.html">7. Self Review and Practice with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_more_practice.html">8. More Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_wire_coating.html">9. Application: Plastic wire coating data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Advanced Plotting with matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_prep_for_3114.html">11. Prepare for MSE 3114 next semester!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 3114 Python for MSE II</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/01_welcome_to_3114.html">1. Welcome to MSE 3114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/02_importing_your_own_functions.html">2. Importing Data from Files &amp; Importing Your Own Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/03_google_forms_and_pandas.html">3. Google Forms and Pandas Data Import and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/04_closer_look_at_pandas.html">4. Pandas DataFrames and Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/05_closer_look_at_matplotlib.html">5. matplotlib - Advanced Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/06_selecting_pixel_coordinates.html">6. Selecting pixel coordinates from an image file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/07_digitizing_literature_plots_part_1.html">7. Estimating Data Values from Plots in the Literature (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/08_digitizing_literature_plots_part_2.html">8. Estimating Data Values from Plots in the Literature (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/09_applications.html">9. Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/10_peak_deconvolution.html">10. Application: Peak Deconvolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/11_creep_analysis_log_scales.html">11. Collecting Data from Log scales: Creep Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/12_grain_size_measurement.html">12. Image Analysis: Grain Size Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/13_Analyzing_Particles_in_a_Matrix.html">13. Analyzing Particles in a Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/14_removing_perspective.html">14. Image Transformation using opencv</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="100_markdown_cells.html">1. Short Lesson: Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101_math_operations.html">2. Short Lesson: Math Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="102_Plotting_basics.html">3. Short Lesson: Plotting Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103_Plotting_functions.html">4. Short Lesson: Plotting functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="50_2114_course_support_files.html">5. MSE 2114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="51_2114_LinkedIn_Learning_Recommendations.html">6. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="52_2114_time_saving_tips.html">7. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="53_2114_updates.html">8. Updates &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/50_course_support_files.html">9. MSE 3114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/51_LinkedIn_Learning_Recommendations.html">10. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/52_time_saving_tips.html">11. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/53_updates.html">12. Updates &amp; FAQ</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_2114/10_advanced_plotting.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons_2114/10_advanced_plotting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Advanced Plotting with matplotlib</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-versus-axes-according-to-matplotlib">10.1. “Figure” versus “Axes” according to matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-rows-and-columns-of-axes">10.2. Creating rows and columns of axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-to-our-axes">10.3. Adding data to our axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advanced-layouts-span-rows-and-or-columns">10.4. More advanced layouts (span rows and/or columns)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-california-housing-data">10.5. Example 1 California housing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-county-income-data">10.6. Example 2 County income data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">10.7. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">10.7.1. Problem 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">10.7.2. Problem 2</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-plotting-with-matplotlib">
+<h1><span class="section-number">10. </span>Advanced Plotting with matplotlib<a class="headerlink" href="#advanced-plotting-with-matplotlib" title="Permalink to this heading">#</a></h1>
+<p>Figures and main concepts from:  <a class="reference external" href="https://realpython.com/python-matplotlib-guide/#:~:text=A%20Figure%20object%20is%20the,%E2%80%9D%20as%20we%20might%20expect">realpython.com</a>.</p>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>Be able to:</p>
+<ul class="simple">
+<li><p>Read a publically available file directly from google drive</p></li>
+<li><p>Use matplotlib’s advanced layout features for multiple plots</p></li>
+<li><p>Understand the difference between a “figure” and “axes” in matplotlib</p></li>
+</ul>
+<p>Date files needed:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1lcMbOh19eUUhCdvSloNs5mOYLBCMkIgz">california housing data (csv)</a></p>
+<ul>
+<li><p>file id: 1lcMbOh19eUUhCdvSloNs5mOYLBCMkIgz</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1rmIPRkMAqqfY3TNpWZ13aV4PfuKihguM">county income data (xlsx)</a></p>
+<ul>
+<li><p>file id: 1rmIPRkMAqqfY3TNpWZ13aV4PfuKihguM</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note" id="index-0">
+<p class="admonition-title">Note</p>
+<p>You can load data files directly from my google drive by using:<br />
+<code class="docutils literal notranslate"><span class="pre">raw=pd.read_csv('https://drive.google.com/uc?id=FILE_ID')</span></code><br />
+where “FILE_ID” is the google drive file identifier given previously.  Also, use either <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> or <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> as appropriate. For the california housing data, we would write:<br />
+<code class="docutils literal notranslate"><span class="pre">raw=pd.read_csv('https://drive.google.com/uc?id=1lcMbOh19eUUhCdvSloNs5mOYLBCMkIgz')</span></code></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="figure-versus-axes-according-to-matplotlib">
+<h2><span class="section-number">10.1. </span>“Figure” versus “Axes” according to matplotlib<a class="headerlink" href="#figure-versus-axes-according-to-matplotlib" title="Permalink to this heading">#</a></h2>
+<p id="index-1">In matplotlib, a “<strong>figure</strong>” is the outer container that might contain multiple plots.  The individual plots are referred to as “<strong>axes</strong>”.  That is, we create a set of <em>axes</em> for every plot that we want.  The plot itself can contain multiple curves by using multiple plt.plot() commands.  In all of our previous lessons, we have only defined a single set of axes using for example <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots(nrows=1,</span> <span class="pre">ncols=1)</span></code></p>
+<a class="reference internal image-reference" href="../_images/Axes_Figures_schematic.png"><img alt="fig vs axes" src="../_images/Axes_Figures_schematic.png" style="width: 300px;" /></a>
+<p>Examples<br />
+<code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots(nrows=1,</span> <span class="pre">ncols=1)</span></code> if we only have one axes (plot)<br />
+<code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">(ax1,</span> <span class="pre">ax2)</span> <span class="pre">=</span> <span class="pre">plt.subplots(nrows=1,</span> <span class="pre">ncols=2)</span></code> if we define 2 axes in one figure with the axes named “ax1” and “ax2”.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The names “fig”, “ax1”, “ax2” etc are up to you.  There is nothing special about these particular names other than they are descriptive (easy to read) and short.</p>
+</div>
+</section>
+<section id="creating-rows-and-columns-of-axes">
+<span id="index-2"></span><h2><span class="section-number">10.2. </span>Creating rows and columns of axes<a class="headerlink" href="#creating-rows-and-columns-of-axes" title="Permalink to this heading">#</a></h2>
+<p>The command <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> creates a figure with the number of axes specified by the call. For example,  <code class="docutils literal notranslate"><span class="pre">plt.subplots(nrows=2,</span> <span class="pre">ncols=3)</span></code> creates a figure with 6 sets of axes (2 rows by 3 columns) as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8976ca1bafa7164707cd0b216e870ff36d19135033b9c11270ea30eb55d7469d.png" src="../_images/8976ca1bafa7164707cd0b216e870ff36d19135033b9c11270ea30eb55d7469d.png" />
+</div>
+</div>
+<p>To make a plot within one of the axes, we need to access the axes by its name.  We can do this by naming each axes.  We usually call these ax1, ax2, etc. and specify them as a matrix. For example:<br />
+<code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">((ax1,</span> <span class="pre">ax2,</span> <span class="pre">ax3),(ax4,ax5,ax6))=plt.subplots(nrows=2,</span> <span class="pre">ncols=3)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">(ax1,</span> <span class="pre">ax2,</span> <span class="pre">ax3)=plt.subplots(nrows=1,</span> <span class="pre">ncols=3)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">(ax1,</span> <span class="pre">ax2,</span> <span class="pre">ax3)=plt.subplots(nrows=3,</span> <span class="pre">ncols=1)</span></code></p>
+<div class="cell docutils container" id="index-3">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">((</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">),(</span><span class="n">ax4</span><span class="p">,</span><span class="n">ax5</span><span class="p">,</span><span class="n">ax6</span><span class="p">))</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is &quot;ax1&quot;&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is &quot;ax5&quot;&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1"># this removes the overlap that we had above</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fcc39289f97a2409a5e9ffee1db672bed8505fb9c070882a9f5d3a3190a5e548.png" src="../_images/fcc39289f97a2409a5e9ffee1db672bed8505fb9c070882a9f5d3a3190a5e548.png" />
+</div>
+</div>
+<p>And for 2 axes in a row:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is &quot;ax1&quot;&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is &quot;ax2&quot;&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/180c337b114184b67cf165c595aedee6114faaf17fb58010756fd7f2435befea.png" src="../_images/180c337b114184b67cf165c595aedee6114faaf17fb58010756fd7f2435befea.png" />
+</div>
+</div>
+<p>or for 2 axes in a column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is axes 1&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;seagreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is axes 2&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/19ead127fa4d36585e1c9806c233c990ab4c2d005787909a3935358eb412c5f0.png" src="../_images/19ead127fa4d36585e1c9806c233c990ab4c2d005787909a3935358eb412c5f0.png" />
+</div>
+</div>
+</section>
+<section id="adding-data-to-our-axes">
+<h2><span class="section-number">10.3. </span>Adding data to our axes<a class="headerlink" href="#adding-data-to-our-axes" title="Permalink to this heading">#</a></h2>
+<p>Now let’s add some data to our axes and perhaps different plot types.  First, let’s generate some data to plot</p>
+<div class="cell docutils container" id="index-4">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> <span class="c1">#generate 50 random integers between 1 and 10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1">#generate 50 random integers between 1 and 4 and add to x</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#with numpy arrays we use different notation to slice elements as compared to pandas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2],
+       [ 6,  7],
+       [ 5,  7],
+       [ 8, 11],
+       [10, 13]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will add a few options and make some nice plots.</p>
+<div class="cell docutils container" id="index-5">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a figure with two axes in a row and adjust the overall figure size</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1"># make a scatter plot in the first axes (ax1)  </span>
+<span class="c1"># marker = circle, color = red, edgecolor = blue, size=75 points</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scatter: x versus y&#39;</span><span class="p">)</span> <span class="c1"># add title to ax1</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1"># add xlabel to ax1</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># add ylabel to ax1</span>
+
+<span class="c1"># now let&#39;s work on the second axes (ax2)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span><span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">))</span> <span class="c1">#define a histogram</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span> <span class="c1">#by using &quot;label&quot; in hist() we can now show a legend, location at 65% in horizontal and 80% in vertical direction</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequencies of x and y&#39;</span><span class="p">)</span> <span class="c1"># add title to ax2</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_right</span><span class="p">()</span> <span class="c1"># place the y-axis ticks on the right side rather than left</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1"># keep axes tight together but avoid overlap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8f4ef6b53d731d41c7822f9e8f8ebf6f77012364319655fe65fdbd17f6fa4bc3.png" src="../_images/8f4ef6b53d731d41c7822f9e8f8ebf6f77012364319655fe65fdbd17f6fa4bc3.png" />
+</div>
+</div>
+</section>
+<section id="more-advanced-layouts-span-rows-and-or-columns">
+<h2><span class="section-number">10.4. </span>More advanced layouts (span rows and/or columns)<a class="headerlink" href="#more-advanced-layouts-span-rows-and-or-columns" title="Permalink to this heading">#</a></h2>
+<p id="index-6">If you need more advanced layout beyond simple grids of graphs, then Matplotlib’s <strong>gridspec</strong> module allows for more subplot customization. Pyplot’s <strong>subplot2grid()</strong> interacts with this module.</p>
+<p>Say we want this setup:<br />
+<a class="reference internal" href="../_images/10_fig2.png"><img alt="fig vs axes" src="../_images/10_fig2.png" style="width: 300px;" /></a></p>
+<p>Set it up like a 3 row x 2 column grid (as shown below) then allow <strong>ax1</strong> to span 2 columns and 2 rows:<br />
+Notice below the numbering of the grid.  The upper left plot is at location <strong>(0,0)</strong> and the lower right would be <strong>(2,1)</strong>.<br />
+<a class="reference internal" href="../_images/10_fig3a.png"><img alt="fig vs axes" src="../_images/10_fig3a.png" style="width: 400px;" /></a></p>
+<div class="cell docutils container" id="index-7">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gridsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 3 rows x 2 columns</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> <span class="c1">#overall size of figure contains total grid 3x2</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># start at axes (0,0) and span 2 col and 2 rows</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1">#3rd row, 1st col</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1">#3rd row, 2nd col</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is axes 1&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is axes 2&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;This is axes 3&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c1d487fac6a296fc08018b7a58c4194489832cf9afcfe7e2301e6778e0092443.png" src="../_images/c1d487fac6a296fc08018b7a58c4194489832cf9afcfe7e2301e6778e0092443.png" />
+</div>
+</div>
+<p>You could make many creative layouts using the simple concepts shown in the previous output.</p>
+</section>
+<section id="example-1-california-housing-data">
+<h2><span class="section-number">10.5. </span>Example 1 California housing data<a class="headerlink" href="#example-1-california-housing-data" title="Permalink to this heading">#</a></h2>
+<p>Let’s take a look at some California housing data whose description can be found at <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/california-housing-data-description">https://developers.google.com/machine-learning/crash-course/california-housing-data-description</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://drive.google.com/uc?id=1lcMbOh19eUUhCdvSloNs5mOYLBCMkIgz&#39;</span><span class="p">)</span>
+
+<span class="n">housing</span><span class="o">=</span><span class="n">raw2</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">housing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>housing median age</th>
+      <th>total rooms</th>
+      <th>total bedrooms</th>
+      <th>population</th>
+      <th>households</th>
+      <th>median income (10k)</th>
+      <th>median house value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-122.23</td>
+      <td>37.88</td>
+      <td>41</td>
+      <td>880</td>
+      <td>129</td>
+      <td>322</td>
+      <td>126</td>
+      <td>8.3252</td>
+      <td>452600</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-122.22</td>
+      <td>37.86</td>
+      <td>21</td>
+      <td>7099</td>
+      <td>1106</td>
+      <td>2401</td>
+      <td>1138</td>
+      <td>8.3014</td>
+      <td>358500</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-122.24</td>
+      <td>37.85</td>
+      <td>52</td>
+      <td>1467</td>
+      <td>190</td>
+      <td>496</td>
+      <td>177</td>
+      <td>7.2574</td>
+      <td>352100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52</td>
+      <td>1274</td>
+      <td>235</td>
+      <td>558</td>
+      <td>219</td>
+      <td>5.6431</td>
+      <td>341300</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52</td>
+      <td>1627</td>
+      <td>280</td>
+      <td>565</td>
+      <td>259</td>
+      <td>3.8462</td>
+      <td>342200</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20635</th>
+      <td>-121.09</td>
+      <td>39.48</td>
+      <td>25</td>
+      <td>1665</td>
+      <td>374</td>
+      <td>845</td>
+      <td>330</td>
+      <td>1.5603</td>
+      <td>78100</td>
+    </tr>
+    <tr>
+      <th>20636</th>
+      <td>-121.21</td>
+      <td>39.49</td>
+      <td>18</td>
+      <td>697</td>
+      <td>150</td>
+      <td>356</td>
+      <td>114</td>
+      <td>2.5568</td>
+      <td>77100</td>
+    </tr>
+    <tr>
+      <th>20637</th>
+      <td>-121.22</td>
+      <td>39.43</td>
+      <td>17</td>
+      <td>2254</td>
+      <td>485</td>
+      <td>1007</td>
+      <td>433</td>
+      <td>1.7000</td>
+      <td>92300</td>
+    </tr>
+    <tr>
+      <th>20638</th>
+      <td>-121.32</td>
+      <td>39.43</td>
+      <td>18</td>
+      <td>1860</td>
+      <td>409</td>
+      <td>741</td>
+      <td>349</td>
+      <td>1.8672</td>
+      <td>84700</td>
+    </tr>
+    <tr>
+      <th>20639</th>
+      <td>-121.24</td>
+      <td>39.37</td>
+      <td>16</td>
+      <td>2785</td>
+      <td>616</td>
+      <td>1387</td>
+      <td>530</td>
+      <td>2.3886</td>
+      <td>89400</td>
+    </tr>
+  </tbody>
+</table>
+<p>20640 rows × 9 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">housing</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#home price</span>
+<span class="n">pop</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;population&#39;</span><span class="p">]</span> <span class="c1">#population</span>
+<span class="n">age</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;housing median age&#39;</span><span class="p">]</span> <span class="c1">#average age of home</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container" id="index-8">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create layout</span>
+<span class="n">gridsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span> <span class="c1">#overall size of figure</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">(</span><span class="n">gridsize</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">#fill layout with plots</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Home value as a function of home age &amp; area population&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">sctr</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">age</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">pop</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sctr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;$</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Histogram: home age&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+
+<span class="n">ax3</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Histogram: area population (log scl.)&#39;</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.9</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3032a124cc8a3faf8b53a55ab3ebe521090c61534611d2fa2214c6eac58f2236.png" src="../_images/3032a124cc8a3faf8b53a55ab3ebe521090c61534611d2fa2214c6eac58f2236.png" />
+</div>
+</div>
+</section>
+<section id="example-2-county-income-data">
+<h2><span class="section-number">10.6. </span>Example 2 County income data<a class="headerlink" href="#example-2-county-income-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;https://drive.google.com/uc?id=1rmIPRkMAqqfY3TNpWZ13aV4PfuKihguM&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;households&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;&lt;10k&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;10k_15k&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;15k_25k&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;25k_35k&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;35k_50k&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;50k_75k&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;75k_100k&#39;</span><span class="p">]</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>county</th>
+      <th>state</th>
+      <th>households</th>
+      <th>&lt;10k</th>
+      <th>10k_15k</th>
+      <th>15k_25k</th>
+      <th>25k_35k</th>
+      <th>35k_50k</th>
+      <th>50k_75k</th>
+      <th>75k_100k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Autauga</td>
+      <td>Alabama</td>
+      <td>21397</td>
+      <td>1417</td>
+      <td>1172</td>
+      <td>2219</td>
+      <td>1684</td>
+      <td>2721</td>
+      <td>3817</td>
+      <td>2931</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Baldwin</td>
+      <td>Alabama</td>
+      <td>80930</td>
+      <td>4068</td>
+      <td>3685</td>
+      <td>7092</td>
+      <td>8403</td>
+      <td>11245</td>
+      <td>14928</td>
+      <td>10374</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Barbour</td>
+      <td>Alabama</td>
+      <td>9345</td>
+      <td>1391</td>
+      <td>796</td>
+      <td>1641</td>
+      <td>1092</td>
+      <td>1331</td>
+      <td>1239</td>
+      <td>769</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bibb</td>
+      <td>Alabama</td>
+      <td>6891</td>
+      <td>570</td>
+      <td>554</td>
+      <td>897</td>
+      <td>610</td>
+      <td>1021</td>
+      <td>1100</td>
+      <td>1119</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Blount</td>
+      <td>Alabama</td>
+      <td>20847</td>
+      <td>1706</td>
+      <td>1145</td>
+      <td>2199</td>
+      <td>2600</td>
+      <td>2921</td>
+      <td>4050</td>
+      <td>2497</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4925</th>
+      <td>Sweetwater</td>
+      <td>Wyoming</td>
+      <td>15523</td>
+      <td>805</td>
+      <td>645</td>
+      <td>1202</td>
+      <td>868</td>
+      <td>1653</td>
+      <td>2605</td>
+      <td>2506</td>
+    </tr>
+    <tr>
+      <th>4926</th>
+      <td>Teton</td>
+      <td>Wyoming</td>
+      <td>9019</td>
+      <td>182</td>
+      <td>198</td>
+      <td>667</td>
+      <td>383</td>
+      <td>838</td>
+      <td>1552</td>
+      <td>1448</td>
+    </tr>
+    <tr>
+      <th>4927</th>
+      <td>Uinta</td>
+      <td>Wyoming</td>
+      <td>7597</td>
+      <td>382</td>
+      <td>232</td>
+      <td>559</td>
+      <td>791</td>
+      <td>934</td>
+      <td>1451</td>
+      <td>1241</td>
+    </tr>
+    <tr>
+      <th>4928</th>
+      <td>Washakie</td>
+      <td>Wyoming</td>
+      <td>3365</td>
+      <td>144</td>
+      <td>174</td>
+      <td>286</td>
+      <td>379</td>
+      <td>541</td>
+      <td>710</td>
+      <td>519</td>
+    </tr>
+    <tr>
+      <th>4929</th>
+      <td>Weston</td>
+      <td>Wyoming</td>
+      <td>2891</td>
+      <td>181</td>
+      <td>143</td>
+      <td>338</td>
+      <td>246</td>
+      <td>398</td>
+      <td>433</td>
+      <td>433</td>
+    </tr>
+  </tbody>
+</table>
+<p>4930 rows × 10 columns</p>
+</div></div></div>
+</div>
+<p>The above data shows the total number of households in each county of each state and a breakdown of the number of households that have an income in one of the indicated ranges.</p>
+<p>For example, 2931 households have an income between 75,000 and 100,000 in Autauga County, Alabama.  This represents 2931/21397*100 = 13.7% of all households in Autauga County.</p>
+</section>
+<section id="exercises">
+<h2><span class="section-number">10.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="problem-1">
+<h3><span class="section-number">10.7.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<p>Complete the following steps on the county income data:</p>
+<p><strong>First,</strong> you need to fix the data set to remove duplicates using <code class="docutils literal notranslate"><span class="pre">drop_duplicates()</span></code>.  Instead of 4930 rows you should get 3142 records.</p>
+<p><strong>Determine the following</strong>:</p>
+<ol class="arabic simple">
+<li><p>The number of households that have an income greater than 100,000 for each county across the USA.  Add this data to the dataframe.</p></li>
+<li><p>The percentage of households for each income range for each county, i.e. divide the data for each row by “households” and multiply by 100.</p></li>
+</ol>
+</section>
+<section id="problem-2">
+<h3><span class="section-number">10.7.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
+<p>Using the cleaned data from Problem 1, plot the following in the layout described below.</p>
+<ol class="arabic simple">
+<li><p>The percentage of households with an income less than 50,000 and the percentage of households with an income greater than 100,000 for every state in the US.</p></li>
+<li><p>The same data but now for every county in Virginia.</p></li>
+<li><p>A bar chart for the same data but now for Montgomery County, Virginia.</p></li>
+</ol>
+<p>The three plots should be laid out similar to the figure below where each plot is the same height but plot 1 has a width of 3, plot 2 has a width of 2 and plot 3 has a width of 1.<br />
+<a class="reference internal" href="../_images/10_exercise_fig.png"><img alt="fig vs axes" src="../_images/10_exercise_fig.png" style="width: 500px;" /></a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons_2114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="09_wire_coating.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Application: Plastic wire coating data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="11_prep_for_3114.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Prepare for MSE 3114 next semester!</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-versus-axes-according-to-matplotlib">10.1. “Figure” versus “Axes” according to matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-rows-and-columns-of-axes">10.2. Creating rows and columns of axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-to-our-axes">10.3. Adding data to our axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advanced-layouts-span-rows-and-or-columns">10.4. More advanced layouts (span rows and/or columns)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-california-housing-data">10.5. Example 1 California housing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-county-income-data">10.6. Example 2 County income data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">10.7. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">10.7.1. Problem 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">10.7.2. Problem 2</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Corcoran
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+.ipynb_checkpoints/
+archive/
+tools/
+ebook.jupyterlab-workspace
+Readme git jupyter-book.docx
+_build/
+editing_shortcuts.txt
+instructor_resources/
+data_for_practice/
+*_instructor*
+Readme Lesson*
+*_class_notes*
+*_pixel_data*
+*ignore*
+env_teaching_*
+*in_class*
+*lessons_3114/media*
+*MSE_download_*
+

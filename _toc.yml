@@ -1,0 +1,60 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Front Matter
+    numbered: false
+    chapters:
+    - file: genindex
+#    
+  - caption: MSE 2114 Python for MSE I
+    numbered: true
+    chapters:
+    - file: lessons_2114/01_welcome_to_2114
+    - file: lessons_2114/02_Intro_Jupyter
+    - file: lessons_2114/03_working_with_data
+    - file: lessons_2114/04_plotting_and_equation_solving
+    - file: lessons_2114/05_numpy_essentials
+    - file: lessons_2114/06_creating_a_cheat_sheet
+    - file: lessons_2114/07_self_review_pandas
+    - file: lessons_2114/08_more_practice
+    - file: lessons_2114/09_wire_coating
+    - file: lessons_2114/10_advanced_plotting
+    - file: lessons_2114/11_prep_for_3114
+#
+  - caption: MSE 3114 Python for MSE II
+    numbered: true
+    chapters:
+    - file: lessons_3114/01_welcome_to_3114
+    - file: lessons_3114/02_importing_your_own_functions
+    - file: lessons_3114/03_google_forms_and_pandas
+    - file: lessons_3114/04_closer_look_at_pandas
+    - file: lessons_3114/05_closer_look_at_matplotlib
+    - file: lessons_3114/06_selecting_pixel_coordinates
+    - file: lessons_3114/07_digitizing_literature_plots_part_1
+    - file: lessons_3114/08_digitizing_literature_plots_part_2
+    - file: lessons_3114/09_applications
+    - file: lessons_3114/10_peak_deconvolution
+    - file: lessons_3114/11_creep_analysis_log_scales
+    - file: lessons_3114/12_grain_size_measurement
+    - file: lessons_3114/13_Analyzing_Particles_in_a_Matrix
+    - file: lessons_3114/14_removing_perspective
+#
+  - caption: Appendix
+    numbered: true
+    chapters:
+    - file: lessons_2114/100_markdown_cells
+    - file: lessons_2114/101_math_operations
+    - file: lessons_2114/102_Plotting_basics
+    - file: lessons_2114/103_Plotting_functions
+    - file: lessons_2114/50_2114_course_support_files
+    - file: lessons_2114/51_2114_LinkedIn_Learning_Recommendations
+    - file: lessons_2114/52_2114_time_saving_tips
+    - file: lessons_2114/53_2114_updates
+    - file: lessons_3114/50_course_support_files
+    - file: lessons_3114/51_LinkedIn_Learning_Recommendations
+    - file: lessons_3114/52_time_saving_tips
+    - file: lessons_3114/53_updates
+

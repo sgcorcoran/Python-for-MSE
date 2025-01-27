@@ -1,0 +1,1302 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Application: Plastic wire coating data &#8212; Python for MSE</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_2114/09_wire_coating';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10. Advanced Plotting with matplotlib" href="10_advanced_plotting.html" />
+    <link rel="prev" title="8. More Practice" href="08_more_practice.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
+    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Math Programming for Materials Science and Engineering
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Front Matter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 2114 Python for MSE I</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_welcome_to_2114.html">1. Welcome to MSE 2114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Intro_Jupyter.html">2. Introduction to the Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_working_with_data.html">3. Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_plotting_and_equation_solving.html">4. Plotting and Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_numpy_essentials.html">5. Reviewing essential concepts of numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_creating_a_cheat_sheet.html">6. Creating a “Cheat Sheet”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_self_review_pandas.html">7. Self Review and Practice with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_more_practice.html">8. More Practice</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Application: Plastic wire coating data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_advanced_plotting.html">10. Advanced Plotting with matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_prep_for_3114.html">11. Prepare for MSE 3114 next semester!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MSE 3114 Python for MSE II</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/01_welcome_to_3114.html">1. Welcome to MSE 3114</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/02_importing_your_own_functions.html">2. Importing Data from Files &amp; Importing Your Own Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/03_google_forms_and_pandas.html">3. Google Forms and Pandas Data Import and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/04_closer_look_at_pandas.html">4. Pandas DataFrames and Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/05_closer_look_at_matplotlib.html">5. matplotlib - Advanced Layouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/06_selecting_pixel_coordinates.html">6. Selecting pixel coordinates from an image file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/07_digitizing_literature_plots_part_1.html">7. Estimating Data Values from Plots in the Literature (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/08_digitizing_literature_plots_part_2.html">8. Estimating Data Values from Plots in the Literature (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/09_applications.html">9. Application:  Crystallization Kinetics of Amorphous <span class="math notranslate nohighlight">\(TiO_2\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/10_peak_deconvolution.html">10. Application: Peak Deconvolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/11_creep_analysis_log_scales.html">11. Collecting Data from Log scales: Creep Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/12_grain_size_measurement.html">12. Image Analysis: Grain Size Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/13_Analyzing_Particles_in_a_Matrix.html">13. Analyzing Particles in a Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/14_removing_perspective.html">14. Image Transformation using opencv</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="100_markdown_cells.html">1. Short Lesson: Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101_math_operations.html">2. Short Lesson: Math Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="102_Plotting_basics.html">3. Short Lesson: Plotting Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103_Plotting_functions.html">4. Short Lesson: Plotting functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="50_2114_course_support_files.html">5. MSE 2114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="51_2114_LinkedIn_Learning_Recommendations.html">6. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="52_2114_time_saving_tips.html">7. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="53_2114_updates.html">8. Updates &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/50_course_support_files.html">9. MSE 3114 Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/51_LinkedIn_Learning_Recommendations.html">10. LinkedIn Learning Recommendations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/52_time_saving_tips.html">11. Time Saving Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons_3114/53_updates.html">12. Updates &amp; FAQ</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_2114/09_wire_coating.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons_2114/09_wire_coating.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Application: Plastic wire coating data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">9.1. Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-combine-and-clean-the-data">9.2. Read, Combine and Clean the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insulation-thickness-versus-line-speed">9.3. Insulation thickness versus line speed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data-using-conditionals">9.3.1. Filtering Data using Conditionals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.4. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">9.4.1. Problem 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">9.4.2. Problem 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">9.4.3. Problem 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">9.4.4. Problem 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">9.4.5. Problem  5</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="application-plastic-wire-coating-data">
+<h1><span class="section-number">9. </span>Application: Plastic wire coating data<a class="headerlink" href="#application-plastic-wire-coating-data" title="Permalink to this heading">#</a></h1>
+<section id="background">
+<h2><span class="section-number">9.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p id="index-0">In this lesson, we are going to look at over 2 million records containing data for the thickness of a PVC coating versus several processing parameters.  These records were taken over a 3 year period.</p>
+<a class="reference internal image-reference" href="../_images/09_extrusion.png"><img alt="extrusion diagram" src="../_images/09_extrusion.png" style="width: 500px;" /></a>
+<p>The basic operation of an coating extruder is shown above and details of the cooling pool is shown below.  Some of the machine parameters would be the wire coating speed (LineSpeed <span class="math notranslate nohighlight">\(m\ sec^{-1}\)</span>), temperature of the extruder (ExtrTemp <span class="math notranslate nohighlight">\(^{\circ} C\)</span>), temperature of the water in the cooling pool (WaterTemp <span class="math notranslate nohighlight">\(^{\circ} C\)</span>), date of the coating (Date) and perhaps the location of the machine (City).  Each of these variables will be included in our dataset along with the measured coating thickenss (Measure <span class="math notranslate nohighlight">\(\mu m\)</span>).</p>
+<a class="reference internal image-reference" href="../_images/extrusion_coating_cooling.jpg"><img alt="extrusion coating cooling" src="../_images/extrusion_coating_cooling.jpg" style="width: 300px;" /></a>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives  </p>
+<p>Be able to:</p>
+<ul class="simple">
+<li><p>Read two text files containing 1 million points each and combine into a single dataframe</p></li>
+<li><p>Perform all necessary cleaning, organizing, and sorting steps as needed</p></li>
+<li><p>Perform corrections on data values when spelling variations exist for the same same record (e.g. city name)</p></li>
+<li><p>Use conditionals to filter data when multiple conditions are required</p></li>
+<li><p>Display the data using matplotlib.pyplot</p></li>
+</ul>
+<p>Date files needed:</p>
+<ul class="simple">
+<li><p>First 1 million data records: <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1bWIIA9ivM9SdZi6fzUItj8WM1tu_Tirz">insulation1.csv</a></p></li>
+<li><p>Second 1 million data records: <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1PZp0scqkttXh4LnPlWQ6izrX1bJmCLDM">insulation2.csv</a></p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-combine-and-clean-the-data">
+<h2><span class="section-number">9.2. </span>Read, Combine and Clean the Data<a class="headerlink" href="#read-combine-and-clean-the-data" title="Permalink to this heading">#</a></h2>
+<p>Let’s read in the “insulation1.csv” data directly from the google drive it is stored. Every file in Drive has a unique identifyer that never changes.  If you hover over the links above or right click and select copy link you will see “<a class="reference external" href="https://drive.google.com/uc?export=download&amp;amp;id=1bWIIA9ivM9SdZi6fzUItj8WM1tu_Tirz">https://drive.google.com/uc?export=download&amp;id=1bWIIA9ivM9SdZi6fzUItj8WM1tu_Tirz</a>”.  The file identifyer is everything after  “id=” or in this case “1bWIIA9ivM9SdZi6fzUItj8WM1tu_Tirz”.  Now that we have the identifyer we can use pandas to read the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container" id="index-1">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://drive.google.com/uc?id=1bWIIA9ivM9SdZi6fzUItj8WM1tu_Tirz&#39;</span><span class="p">)</span>
+<span class="c1"># if I had a second file to read I would look at use concat to combine the files</span>
+<span class="c1"># example usage  new_df=pd.concat([df_1,df_2,df_3, etc...],ignore_index=True)</span>
+<span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1000003 entries, 0 to 1000002
+Data columns (total 8 columns):
+ #   Column     Non-Null Count    Dtype 
+---  ------     --------------    ----- 
+ 0   ID         1000003 non-null  int64 
+ 1   Date       1000003 non-null  object
+ 2   Shifts     1000001 non-null  object
+ 3   ExtrTemp   1000003 non-null  object
+ 4   LineSpeed  1000003 non-null  object
+ 5   WaterTemp  1000003 non-null  object
+ 6   Measure    1000003 non-null  object
+ 7   City       1000003 non-null  object
+dtypes: int64(1), object(7)
+memory usage: 61.0+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>You probably got a DtypeWarning but the file was read correctly.  Just ignore that for now.  Several of the data columns have entries other than numbers (e.g. “*”) so the data type for that column is set to “object.”  This is not memory efficient.  We will fix the data types now.  Let’s see what we currently have.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1000003 entries, 0 to 1000002
+Data columns (total 8 columns):
+ #   Column     Non-Null Count    Dtype 
+---  ------     --------------    ----- 
+ 0   ID         1000003 non-null  int64 
+ 1   Date       1000003 non-null  object
+ 2   Shifts     1000001 non-null  object
+ 3   ExtrTemp   1000003 non-null  object
+ 4   LineSpeed  1000003 non-null  object
+ 5   WaterTemp  1000003 non-null  object
+ 6   Measure    1000003 non-null  object
+ 7   City       1000003 non-null  object
+dtypes: int64(1), object(7)
+memory usage: 61.0+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we have just over 1 million entries.  Dtype “object” means that the column contains at least some text values (or non-numeric values).  We don’t want non-numeric values in Columns 3-6 so let’s convert these columns <code class="docutils literal notranslate"><span class="pre">to_numeric</span></code> and replace all non-numeric values with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> using the option <code class="docutils literal notranslate"><span class="pre">coerce</span></code>.  Likewise we will use <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code> to convert column 1.</p>
+<div class="cell docutils container" id="index-2">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ExtrTemp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ExtrTemp&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;LineSpeed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;LineSpeed&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;WaterTemp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;WaterTemp&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Measure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Measure&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID                    int64
+Date         datetime64[ns]
+Shifts               object
+ExtrTemp            float64
+LineSpeed           float64
+WaterTemp           float64
+Measure             float64
+City                 object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that in column “Measure” the “*” has been replaced with NaN.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Shifts</th>
+      <th>ExtrTemp</th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>234.83</td>
+      <td>55.28</td>
+      <td>26.67</td>
+      <td>170.67</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.09</td>
+      <td>54.13</td>
+      <td>26.97</td>
+      <td>182.86</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.09</td>
+      <td>54.33</td>
+      <td>27.46</td>
+      <td>182.74</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.05</td>
+      <td>55.00</td>
+      <td>26.83</td>
+      <td>175.49</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>234.99</td>
+      <td>54.03</td>
+      <td>27.04</td>
+      <td>NaN</td>
+      <td>Kairo</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We want a complete data set so let’s drop all rows that contain ‘NaN’ in columns 3 - 6.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 999995 entries, 0 to 1000002
+Data columns (total 8 columns):
+ #   Column     Non-Null Count   Dtype         
+---  ------     --------------   -----         
+ 0   ID         999995 non-null  int64         
+ 1   Date       999995 non-null  datetime64[ns]
+ 2   Shifts     999995 non-null  object        
+ 3   ExtrTemp   999995 non-null  float64       
+ 4   LineSpeed  999995 non-null  float64       
+ 5   WaterTemp  999995 non-null  float64       
+ 6   Measure    999995 non-null  float64       
+ 7   City       999995 non-null  object        
+dtypes: datetime64[ns](1), float64(4), int64(1), object(2)
+memory usage: 68.7+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>After dropping rows with missing values we are left with 999,995 records.</p>
+</section>
+<section id="insulation-thickness-versus-line-speed">
+<h2><span class="section-number">9.3. </span>Insulation thickness versus line speed<a class="headerlink" href="#insulation-thickness-versus-line-speed" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xdata</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;LineSpeed&#39;</span><span class="p">]</span>
+<span class="n">ydata</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Measure&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;k.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Linespeed, m/sec&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Measured Thickness, microns&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c26e444721f00ef092b5bc5b99d33c8b858d2d138a3afde34fac477a668e8931.png" src="../_images/c26e444721f00ef092b5bc5b99d33c8b858d2d138a3afde34fac477a668e8931.png" />
+</div>
+</div>
+<section id="filtering-data-using-conditionals">
+<h3><span class="section-number">9.3.1. </span>Filtering Data using Conditionals<a class="headerlink" href="#filtering-data-using-conditionals" title="Permalink to this heading">#</a></h3>
+<div class="admonition note" id="index-3">
+<p class="admonition-title">Note</p>
+<p>Let’s talk about selecting subsets of the data for analysis or plotting etc.  You can setup as many conditions as you want and combine them as needed. It is important here to use parentheses for grouping our conditions together between the logical operators in this case ‘&amp;’.</p>
+<p>Boolean operators we could use:</p>
+<p>‘&amp;’ = and<br />
+‘|’ = or  this is the pipe symbol above ‘’ on your keyboard<br />
+‘~’ = not<br />
+‘&gt;’ = greater than<br />
+‘&gt;=’ = greater than or equal to<br />
+‘&lt;’  = less than<br />
+‘&lt;=’ = less than or equal to<br />
+‘!=’ not equal to<br />
+‘==’ equal to</p>
+</div>
+<p>That is a lot of data.  What if we wanted to plot only the data from City Kairo and for the year 2016.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define our conditions in &quot;()&quot; </span>
+<span class="n">cond1</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Kairo&quot;</span><span class="p">)</span>
+<span class="n">cond2</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="s1">&#39;2016-01-01&#39;</span><span class="p">)</span>
+<span class="n">cond3</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="s1">&#39;2016-12-31&#39;</span><span class="p">)</span>
+
+<span class="c1">#use these to filter data with &quot;&amp;&quot; = AND and &quot;|&quot; = OR</span>
+<span class="n">df_slice</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">cond1</span><span class="o">&amp;</span><span class="n">cond2</span><span class="o">&amp;</span><span class="n">cond3</span><span class="p">]</span>
+<span class="n">df_slice</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Shifts</th>
+      <th>ExtrTemp</th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>234.83</td>
+      <td>55.28</td>
+      <td>26.67</td>
+      <td>170.67</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.09</td>
+      <td>54.13</td>
+      <td>26.97</td>
+      <td>182.86</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.09</td>
+      <td>54.33</td>
+      <td>27.46</td>
+      <td>182.74</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.05</td>
+      <td>55.00</td>
+      <td>26.83</td>
+      <td>175.49</td>
+      <td>Kairo</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>2016-02-01</td>
+      <td>Shifts2</td>
+      <td>235.04</td>
+      <td>55.26</td>
+      <td>26.62</td>
+      <td>172.80</td>
+      <td>Kairo</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all data</span>
+<span class="n">xdata</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;LineSpeed&#39;</span><span class="p">]</span>
+<span class="n">ydata</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Measure&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;k.&#39;</span><span class="p">)</span>
+<span class="c1"># only 2016 data in Kairo</span>
+<span class="n">xdata</span><span class="o">=</span><span class="n">df_slice</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;LineSpeed&#39;</span><span class="p">]</span>
+<span class="n">ydata</span><span class="o">=</span><span class="n">df_slice</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Measure&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;co&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Linespeed, m/sec&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Measured Thickness, microns&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ea4ee4232ab007b18f7ba5318295722ac906b6c0fd517d742bc86fa700ad6a56.png" src="../_images/ea4ee4232ab007b18f7ba5318295722ac906b6c0fd517d742bc86fa700ad6a56.png" />
+</div>
+</div>
+<p>Let’s take a look at what cities are included in our data.  We can use the <code class="docutils literal notranslate"><span class="pre">.unique()</span></code> function for this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Kairo&#39;, &#39;Cairo&#39;, &#39;CAI&#39;, &#39;Alexandria&#39;, &#39;Alex&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Interesting…  so “Cairo” shows up as both “Kairo” and “CAI” while “Alexandria” shows also as “Alex”</p>
+<p>We don’t want multiple labels this way so lets make the following substitutions:<br />
+<code class="docutils literal notranslate"><span class="pre">{'Kairo':'Cairo',</span> <span class="pre">'CAI':'Cairo',</span> <span class="pre">'Alex':'Alexandria'}</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;Kairo&#39;</span><span class="p">:</span><span class="s1">&#39;Cairo&#39;</span><span class="p">,</span> <span class="s1">&#39;CAI&#39;</span><span class="p">:</span><span class="s1">&#39;Cairo&#39;</span><span class="p">})</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Cairo&#39;, &#39;Alexandria&#39;, &#39;Alex&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We fixed the entries for Cairo.  We still have to fix those for Alexandria.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Shifts</th>
+      <th>ExtrTemp</th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>234.83</td>
+      <td>55.28</td>
+      <td>26.67</td>
+      <td>170.67</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.09</td>
+      <td>54.13</td>
+      <td>26.97</td>
+      <td>182.86</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.09</td>
+      <td>54.33</td>
+      <td>27.46</td>
+      <td>182.74</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2016-02-01</td>
+      <td>Shifts1</td>
+      <td>235.05</td>
+      <td>55.00</td>
+      <td>26.83</td>
+      <td>175.49</td>
+      <td>Cairo</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>2016-02-01</td>
+      <td>Shifts2</td>
+      <td>235.04</td>
+      <td>55.26</td>
+      <td>26.62</td>
+      <td>172.80</td>
+      <td>Cairo</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here’s an interesting case.  Say we want all cities except those labeled “Cairo”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define our conditions in &quot;()&quot; </span>
+<span class="n">cond1</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Cairo&quot;</span><span class="p">)</span>
+
+<span class="c1"># use &quot;~&quot; before a condition to indicate the reverse of the condition or NOT cond1</span>
+<span class="n">df_slice</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">cond1</span><span class="p">]</span>
+<span class="n">df_slice</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Shifts</th>
+      <th>ExtrTemp</th>
+      <th>LineSpeed</th>
+      <th>WaterTemp</th>
+      <th>Measure</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>437</th>
+      <td>438</td>
+      <td>2016-03-01</td>
+      <td>Shifts1</td>
+      <td>235.04</td>
+      <td>54.36</td>
+      <td>26.88</td>
+      <td>180.33</td>
+      <td>Alexandria</td>
+    </tr>
+    <tr>
+      <th>438</th>
+      <td>439</td>
+      <td>2016-03-01</td>
+      <td>Shifts1</td>
+      <td>234.86</td>
+      <td>55.66</td>
+      <td>27.15</td>
+      <td>169.56</td>
+      <td>Alexandria</td>
+    </tr>
+    <tr>
+      <th>439</th>
+      <td>440</td>
+      <td>2016-03-01</td>
+      <td>Shifts1</td>
+      <td>234.75</td>
+      <td>56.11</td>
+      <td>27.23</td>
+      <td>165.24</td>
+      <td>Alexandria</td>
+    </tr>
+    <tr>
+      <th>440</th>
+      <td>441</td>
+      <td>2016-03-01</td>
+      <td>Shifts1</td>
+      <td>235.10</td>
+      <td>54.52</td>
+      <td>26.80</td>
+      <td>179.43</td>
+      <td>Alexandria</td>
+    </tr>
+    <tr>
+      <th>441</th>
+      <td>442</td>
+      <td>2016-03-01</td>
+      <td>Shifts1</td>
+      <td>235.08</td>
+      <td>55.13</td>
+      <td>26.88</td>
+      <td>175.01</td>
+      <td>Alexandria</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#notice we filtered out &quot;Cairo&quot; with the above conditional</span>
+<span class="n">df_slice</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Alexandria&#39;, &#39;Alex&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container" id="index-4">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="c1"># unique values and number of times found in column</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alexandria    502458
+Cairo         497293
+Alex             244
+Name: City, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">9.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For all problems, use both the insulation1 and insulation2 datasets.  Combine these so that you have approximately 2 million data points.  For any problem below that uses a city name you should make sure you use all appropriate labels for that city.  That is, fix the city names as we did above in the lesson.  Use the <code class="docutils literal notranslate"><span class="pre">.unique()</span></code> function to make sure you fixed all the names.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If things are running slow, I would make a separate dataframe with only a few 100 rows until your code works.  Then use the full dataframe.  Try something like:<br />
+<code class="docutils literal notranslate"><span class="pre">ran_list=[np.random.randint(0,990000)</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(200)]</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">df_short=df.loc[ran_list,:]</span></code><br />
+to make a short dataframe “df_short” with 200 rows randomly selected from a dataframe named “df”</p>
+</div>
+<section id="problem-1">
+<h3><span class="section-number">9.4.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<p>Plot x=‘LineSpeed’, y=‘Measure’ for the following on one plot:</p>
+<ul class="simple">
+<li><p>Alexandria in blue circles</p></li>
+<li><p>Cairo in red points
+For the conditions:</p></li>
+<li><p>234.85 &lt; ExtrTemp &lt; 234.9 and 26.83 &lt; WaterTemp &lt; 26.9</p></li>
+</ul>
+</section>
+<section id="problem-2">
+<h3><span class="section-number">9.4.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
+<p>Plot the measured thickness ‘Measure’ vs the extruder temperature ‘ExtrTemp’ for</p>
+<ol class="arabic simple">
+<li><p>Alexandria  as black small filled circles ‘ko’</p></li>
+<li><p>Cairo  as green small points ‘g.’</p></li>
+</ol>
+<p>for:  55.0 &lt; LineSpeed &lt; 55.05 and 26.83 &lt; WaterTemp &lt; 26.9</p>
+</section>
+<section id="problem-3">
+<h3><span class="section-number">9.4.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
+<p>Plot the measured thickness ‘Measure’ vs the water temperature ‘WaterTemp’ for</p>
+<ol class="arabic simple">
+<li><p>Alexandria  as blue small points ‘b.’</p></li>
+<li><p>Cairo  as red small points ‘r.’</p></li>
+</ol>
+<p>for:  55.0 &lt; LineSpeed &lt; 55.05 and 234.85 &lt; ExtrTemp &lt; 234.9</p>
+</section>
+<section id="problem-4">
+<h3><span class="section-number">9.4.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
+<p>Plot the measured thickness ‘Measure’ vs the date ‘Date’ for</p>
+<p>Alexandria as blue small points ‘b.’
+Cairo as red small points ‘r.’
+for:</p>
+<blockquote>
+<div><p>55.0 &lt; LineSpeed &lt; 55.05 and<br />
+234.85 &lt; ExtrTemp &lt; 234.9 and<br />
+26.83 &lt; WaterTemp &lt; 26.9</p>
+</div></blockquote>
+</section>
+<section id="problem-5">
+<h3><span class="section-number">9.4.5. </span>Problem  5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h3>
+<p>Break up the data “Measure” into 20 groups based upon its value, i.e each group will have a size = ((max of Measure)-(min of Measure))/20.  For each group find the average of the “Measure” and average of the corresponding “LineSpeed”.  You should have 20 pairs of points when you are done: (Measure, Linespeed).  Plot these values with Linespeed on the y-axis.</p>
+<p>There are many ways to think about doing this.  You could create another column in your dataframe called “group” and assign a group number from 1 to 20 for everypoint in your dataframe based on the value of “Measure”.  Then you could use a groupby(‘group’).mean() to find the mean of all points in each group.</p>
+<p>You could find all records within a given range of “Measure” values, find the mean of this group and append the value to an array.  Then iterate through all the ranges for a for loop.</p>
+<p>You could make a new column of data in your dataframe with values equal to pd.cut(df[‘Measure’],20), then consider what groupby could do…</p>
+<p>… and many other options.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons_2114"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="08_more_practice.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>More Practice</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10_advanced_plotting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Advanced Plotting with matplotlib</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">9.1. Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-combine-and-clean-the-data">9.2. Read, Combine and Clean the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insulation-thickness-versus-line-speed">9.3. Insulation thickness versus line speed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data-using-conditionals">9.3.1. Filtering Data using Conditionals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.4. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">9.4.1. Problem 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">9.4.2. Problem 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">9.4.3. Problem 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">9.4.4. Problem 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">9.4.5. Problem  5</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Corcoran
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
