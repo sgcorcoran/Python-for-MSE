@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5. matplotlib - Advanced Layouts &#8212; Python for MSE</title>
   
@@ -15,48 +14,48 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,19 +63,25 @@
                 gtag('js', new Date());
                 gtag('config', 'G-Y46MLPCBH0');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_3114/05_closer_look_at_matplotlib';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="6. Selecting pixel coordinates from an image file" href="06_selecting_pixel_coordinates.html" />
     <link rel="prev" title="4. Pandas DataFrames and Data Visualization" href="04_closer_look_at_pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -84,32 +89,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -117,7 +106,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -125,22 +113,28 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
-
-  <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
-  </div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+</aside>
 
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -155,6 +149,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -168,11 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark pst-js-only" alt="Python for MSE - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -239,14 +242,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -255,14 +263,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -287,14 +295,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_3114/05_closer_look_at_matplotlib.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -369,27 +377,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -429,10 +429,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="matplotlib-advanced-layouts">
-<h1><span class="section-number">5. </span>matplotlib - Advanced Layouts<a class="headerlink" href="#matplotlib-advanced-layouts" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>matplotlib - Advanced Layouts<a class="headerlink" href="#matplotlib-advanced-layouts" title="Link to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -445,15 +445,15 @@ document.write(`
 <p>Much of the information and many of the figures in this notebook come from: “Python Plotting With Matplotlib (Guide)” written by <em>Brad Solomon</em> and published on <a class="reference external" href="http://realpython.com">realpython.com</a> at <a class="reference external" href="https://realpython.com/python-matplotlib-guide">https://realpython.com/python-matplotlib-guide</a>.  The website <a class="reference external" href="https://realpython.com/">realpython.com</a> is a great way to learn python and is filled with resources.</p>
 </div>
 <section id="data-file-for-lesson">
-<span id="id1"></span><h2><span class="section-number">5.1. </span>Data File for Lesson<a class="headerlink" href="#data-file-for-lesson" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2><span class="section-number">5.1. </span>Data File for Lesson<a class="headerlink" href="#data-file-for-lesson" title="Link to this heading">#</a></h2>
 <p>You will need the following data file for this lesson:<br />
-<a class="reference external" href="https://drive.google.com/uc?id=1l4YCgMuYTx4y4ax7uUcHevYbOVlYtajx&amp;export=download">cal_housing.data</a><br />
+<a class="reference external" href="https://drive.google.com/uc?id=1l4YCgMuYTx4y4ax7uUcHevYbOVlYtajx&amp;amp;export=download">cal_housing.data</a><br />
 Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statistics and Probability Letters, Volume 33, Number 3, May 5 1997, p. 291-297.</p>
 <p>A description of the data columns included in this dataset are reprinted below.</p>
 <figure class="align-default" id="calif-dataset">
 <a class="reference internal image-reference" href="../_images/housing_data_description.png"><img alt="../_images/housing_data_description.png" src="../_images/housing_data_description.png" style="height: 900px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Reprinted from <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/california-housing-data-description">https://developers.google.com/machine-learning/crash-course/california-housing-data-description</a></span><a class="headerlink" href="#calif-dataset" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Reprinted from <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/california-housing-data-description">https://developers.google.com/machine-learning/crash-course/california-housing-data-description</a></span><a class="headerlink" href="#calif-dataset" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="cell docutils container">
@@ -567,12 +567,12 @@ Pace, R. Kelley, and Ronald Barry, “Sparse Spatial Autoregressions,” Statist
 </div>
 </section>
 <section id="layout-using-subplot-figure-vs-axes">
-<h2><span class="section-number">5.2. </span>Layout using subplot: Figure vs Axes<a class="headerlink" href="#layout-using-subplot-figure-vs-axes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Layout using subplot: Figure vs Axes<a class="headerlink" href="#layout-using-subplot-figure-vs-axes" title="Link to this heading">#</a></h2>
 <p>In matplotlib, a “<strong>figure</strong>” is the outer container that might contain multiple plots for example in a row or grid or it might contain just one plot as shown below.  The individual plots are referred to as “<strong>axes</strong>”.</p>
 <figure class="align-default" id="figure-axes">
 <a class="reference internal image-reference" href="../_images/Axes_Figures_schematic.png"><img alt="../_images/Axes_Figures_schematic.png" src="../_images/Axes_Figures_schematic.png" style="height: 350px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">reprinted from <a class="reference external" href="https://realpython.com/python-matplotlib-guide/#the-matplotlib-object-hierarchy">https://realpython.com/python-matplotlib-guide/#the-matplotlib-object-hierarchy</a></span><a class="headerlink" href="#figure-axes" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">reprinted from <a class="reference external" href="https://realpython.com/python-matplotlib-guide/#the-matplotlib-object-hierarchy">https://realpython.com/python-matplotlib-guide/#the-matplotlib-object-hierarchy</a></span><a class="headerlink" href="#figure-axes" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If we name the Figure above “fig” and the Axes box as “ax”, we can create the layout with the code:</p>
@@ -1557,7 +1557,7 @@ if (typeof version == 'undefined') {
 <p><strong>So many things to tweak in the above code…</strong>  For example, it might be nice to move that legend in the second plot.  Currently, it is overlapping our bars.  Also, ‘edgecolor’ looks like an interesting option in the first plot.</p>
 </section>
 <section id="advanced-subplot-layouts-with-subplot2grid">
-<h2><span class="section-number">5.3. </span>Advanced subplot layouts with <code class="docutils literal notranslate"><span class="pre">.subplot2grid()</span></code><a class="headerlink" href="#advanced-subplot-layouts-with-subplot2grid" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>Advanced subplot layouts with <code class="docutils literal notranslate"><span class="pre">.subplot2grid()</span></code><a class="headerlink" href="#advanced-subplot-layouts-with-subplot2grid" title="Link to this heading">#</a></h2>
 <p>If you need more advanced layout beyond simple grids of graphs, then Matplotlib’s gridspec module allows for more subplot customization. Pyplot’s <strong>subplot2grid()</strong> interacts with this module.</p>
 <p>Say we want this setup:</p>
 <a class="reference internal image-reference" href="../_images/3114_05_layout.png"><img alt="../_images/3114_05_layout.png" src="../_images/3114_05_layout.png" style="height: 500px;" /></a>
@@ -1579,7 +1579,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 <section id="adding-data-to-our-layout">
-<h2><span class="section-number">5.4. </span>Adding Data to our Layout<a class="headerlink" href="#adding-data-to-our-layout" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Adding Data to our Layout<a class="headerlink" href="#adding-data-to-our-layout" title="Link to this heading">#</a></h2>
 <p>We already <a class="reference internal" href="#data-file-for-lesson"><span class="std std-ref">read California housing data</span></a> into variable “raw”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1808,28 +1808,28 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">5.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="problem-1">
-<h3><span class="section-number">5.5.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.5.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h3>
 <p>Create two blank plots (axes) named “ax1” and “ax2” layed out next to each other horizontally.</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">5.5.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
-<p>Import the stress-strain data from the excel file <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=14uBqZM8ekl1RoFgx3nwCJM7fe9N144RI">Al7075_out.xlsx</a>. 1) Reproduce the plot below <a class="reference internal" href="02_importing_your_own_functions.html#problem-1"><span class="std std-ref">see your previous weeks homework</span></a>. 2) Create an additional scatter plot where the stress is plotted to a maximum strain of 0.0075.  3) Layout these two plots next to each other horizontally.  4) Add x,y axis labels and title each plot. Your title for plot 2 should be descriptive of this “initial” region.</p>
+<h3><span class="section-number">5.5.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h3>
+<p>Import the stress-strain data from the excel file <a class="reference external" href="https://drive.google.com/uc?export=download&amp;amp;id=14uBqZM8ekl1RoFgx3nwCJM7fe9N144RI">Al7075_out.xlsx</a>. 1) Reproduce the plot below <a class="reference internal" href="02_importing_your_own_functions.html#problem-1"><span class="std std-ref">see your previous weeks homework</span></a>. 2) Create an additional scatter plot where the stress is plotted to a maximum strain of 0.0075.  3) Layout these two plots next to each other horizontally.  4) Add x,y axis labels and title each plot. Your title for plot 2 should be descriptive of this “initial” region.</p>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../_images/hw1_stress_strain_plot.png"><img alt="../_images/hw1_stress_strain_plot.png" src="../_images/hw1_stress_strain_plot.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Stress-Strain response for Al7075 in tension.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Stress-Strain response for Al7075 in tension.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">5.5.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.5.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h3>
 <p>Use the data from the titanic given in the previous lesson, to create 6 plots in the following layout:</p>
 <figure class="align-default" id="plot-layout">
 <a class="reference internal image-reference" href="../_images/3114_05_6_plot_layout.png"><img alt="../_images/3114_05_6_plot_layout.png" src="../_images/3114_05_6_plot_layout.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">6 plot layout template.</span><a class="headerlink" href="#plot-layout" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">6 plot layout template.</span><a class="headerlink" href="#plot-layout" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Plot 1</strong>: Scatter plot of ‘number of passengers’(y) vs ‘Age of passenger’(x).  You might try grouping by age and using .count().<br />
@@ -1839,19 +1839,19 @@ if (typeof version == 'undefined') {
 <figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="../_images/3114_05_ticket_price_sex_pclass.png"><img alt="../_images/3114_05_ticket_price_sex_pclass.png" src="../_images/3114_05_ticket_price_sex_pclass.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">Reproduce for Problem 3 Plot 3</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">Reproduce for Problem 3 Plot 3</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id4">
 <a class="reference internal image-reference" href="../_images/3114_05_passengers_survived_sex.png"><img alt="../_images/3114_05_passengers_survived_sex.png" src="../_images/3114_05_passengers_survived_sex.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">Reproduce for Problem 3 Plot 4</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">Reproduce for Problem 3 Plot 4</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="../_images/3114_05_pie_died_sex_class.png"><img alt="../_images/3114_05_pie_died_sex_class.png" src="../_images/3114_05_pie_died_sex_class.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Reproduce for Problem 3 Plot 5</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Reproduce for Problem 3 Plot 5</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1885,7 +1885,7 @@ if (typeof version == 'undefined') {
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1913,7 +1913,9 @@ if (typeof version == 'undefined') {
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1979,8 +1981,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

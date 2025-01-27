@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. Google Forms and Pandas Data Import and Visualization &#8212; Python for MSE</title>
   
@@ -15,48 +14,48 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,19 +63,25 @@
                 gtag('js', new Date());
                 gtag('config', 'G-Y46MLPCBH0');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_3114/03_google_forms_and_pandas';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Pandas DataFrames and Data Visualization" href="04_closer_look_at_pandas.html" />
     <link rel="prev" title="2. Importing Data from Files &amp; Importing Your Own Functions" href="02_importing_your_own_functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -84,32 +89,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -117,7 +106,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -125,22 +113,28 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
-
-  <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
-  </div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+</aside>
 
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -155,6 +149,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -168,11 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark pst-js-only" alt="Python for MSE - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -239,14 +242,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -255,14 +263,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -287,14 +295,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_3114/03_google_forms_and_pandas.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -369,27 +377,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -436,10 +436,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="google-forms-and-pandas-data-import-and-visualization">
-<h1><span class="section-number">3. </span>Google Forms and Pandas Data Import and Visualization<a class="headerlink" href="#google-forms-and-pandas-data-import-and-visualization" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Google Forms and Pandas Data Import and Visualization<a class="headerlink" href="#google-forms-and-pandas-data-import-and-visualization" title="Link to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -450,7 +450,7 @@ document.write(`
 </ul>
 </div>
 <section id="creating-your-own-poll-using-google-forms">
-<h2><span class="section-number">3.1. </span>Creating your own poll using Google forms<a class="headerlink" href="#creating-your-own-poll-using-google-forms" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Creating your own poll using Google forms<a class="headerlink" href="#creating-your-own-poll-using-google-forms" title="Link to this heading">#</a></h2>
 <p><br>Open a Google form from your browser using the “Google apps” navigator icon shown below. This assumes you are logged in to your google account.</p>
 <a class="reference internal image-reference" href="../_images/google_apps.png"><img alt="../_images/google_apps.png" class="align-center" src="../_images/google_apps.png" style="height: 200px;" /></a>
 <p><br>Scroll down and open “Forms”.</p>
@@ -462,7 +462,7 @@ document.write(`
 <p><br> Play around with this form to add questions, change question types, etc.  When you are finished with your form, click on the “Send” button.  In the “Send form”, shown below you can click on the link icon and copy the link address.  This can be pasted into an email and sent.</p>
 <a class="reference internal image-reference" href="../_images/get_form_link.png"><img alt="../_images/get_form_link.png" class="align-center" src="../_images/get_form_link.png" style="height: 350px;" /></a>
 <div class="admonition-active-poll admonition">
-<p class="admonition-title">Active Poll  </p>
+<p class="admonition-title">Active Poll</p>
 <p>Take this 30 second poll on your drink preference and then we will analyze the data below.  <a class="reference external" href="https://forms.gle/utT4aii7tWLdesZr9">https://forms.gle/utT4aii7tWLdesZr9</a></p>
 </div>
 <p>Send your survey to a few people so you can collect some data. Then, under the Responses tab of your created survey, you will see an option to download responses.</p>
@@ -475,7 +475,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/zip_folder_rename.png"><img alt="../_images/zip_folder_rename.png" class="align-center" src="../_images/zip_folder_rename.png" style="height: 250px;" /></a>
 </section>
 <section id="import-and-analyze-the-data">
-<h2><span class="section-number">3.2. </span>Import and analyze the data<a class="headerlink" href="#import-and-analyze-the-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Import and analyze the data<a class="headerlink" href="#import-and-analyze-the-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>  <span class="c1">#we use this to join our file path to our filename</span>
@@ -1886,13 +1886,13 @@ dtype: float64
 </div>
 </section>
 <section id="plotting-using-pandas">
-<h2><span class="section-number">3.3. </span>Plotting using pandas<a class="headerlink" href="#plotting-using-pandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Plotting using pandas<a class="headerlink" href="#plotting-using-pandas" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>pandas uses matplotlib to graphically represent data organized in DataFrames.  Using pandas allows us to make complicated figures with very little coding.  We will look at several examples.</p>
 </div>
 <section id="histogram">
-<h3><span class="section-number">3.3.1. </span>Histogram<a class="headerlink" href="#histogram" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>Histogram<a class="headerlink" href="#histogram" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  <span class="c1">#pandas plotting</span>
@@ -1916,7 +1916,7 @@ dtype: float64
 </div>
 </section>
 <section id="bar-charts">
-<h3><span class="section-number">3.3.2. </span>Bar charts<a class="headerlink" href="#bar-charts" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>Bar charts<a class="headerlink" href="#bar-charts" title="Link to this heading">#</a></h3>
 <p>We could also make a horizontal bar chart of our mean values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1941,7 +1941,7 @@ dtype: float64
 </div>
 </section>
 <section id="box-plot">
-<h3><span class="section-number">3.3.3. </span>Box plot<a class="headerlink" href="#box-plot" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.3. </span>Box plot<a class="headerlink" href="#box-plot" title="Link to this heading">#</a></h3>
 <p><br> Another type of plot that can be useful is the box plot. Here is the meaning of the box plot:</p>
 <a class="reference internal image-reference" href="../_images/box_plot.png"><img alt="../_images/box_plot.png" class="align-center" src="../_images/box_plot.png" style="height: 250px;" /></a>
 <div class="cell docutils container">
@@ -1956,7 +1956,7 @@ dtype: float64
 </div>
 </section>
 <section id="pie-chart">
-<h3><span class="section-number">3.3.4. </span>Pie chart<a class="headerlink" href="#pie-chart" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.4. </span>Pie chart<a class="headerlink" href="#pie-chart" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">data_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="n">explode</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">data_mean</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1969,7 +1969,7 @@ dtype: float64
 </div>
 </section>
 <section id="scipy-stats">
-<h3><span class="section-number">3.3.5. </span>scipy.stats<a class="headerlink" href="#scipy-stats" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.5. </span>scipy.stats<a class="headerlink" href="#scipy-stats" title="Link to this heading">#</a></h3>
 <p>Let’s use a paired t-test to see if the mean values for our data are significantly different from one another. We will use the standard p-value of &lt;= 0.05 to conclude that the means are significantly different.</p>
 <p>Here we test whether the preference to drink Pepsi over Coke is significantly different than the preference to drink Water over Almond Milk.</p>
 <div class="cell docutils container">
@@ -2012,15 +2012,15 @@ dtype: float64
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="problem-1">
-<h3><span class="section-number">3.4.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h3>
 <p>For homework, create your own survey in Google forms that will allow you to rank at least 4 features /items by collecting opinion data on 4 corresponding survey questions and have at least 10 people take it.  The more data you have the better if you can get more than 10.  Send it to family, friends, etc.  The 4 questions should use the same scale so that you will be able to compare.  Use the 5-point likert scale.</p>
 <p>Download your survey responses and find the mean, std, median, max and min values for each column.  Analyze your survey data by creating at least 3 different plots/charts summarizing aspects of your data.  Perform a t-test to compare the mean values between three pairs of data.  Indicate whether the mean values are significantly different from each another for each pair.</p>
 <p>At least one of your plots/charts should be something that I did not do in the lesson.</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">3.4.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SweetTeaNotUnsweet&#39;</span><span class="p">,</span> <span class="s1">&#39;WaterNotAlmondMilk&#39;</span><span class="p">,</span> <span class="s1">&#39;PepsiNotCoke&#39;</span><span class="p">])</span>
@@ -2161,13 +2161,13 @@ dtype: float64
 <p>Correct this line of code to give the desired output.</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">3.4.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h3>
 <p>I’m trying to find the sqrt of 3 using numpy but I’m getting the following error.  What is wrong?</p>
 <a class="reference internal image-reference" href="../_images/week_2_prob_3.png"><img alt="../_images/week_2_prob_3.png" class="align-center" src="../_images/week_2_prob_3.png" style="height: 225px;" /></a>
 <p>To do this problem, you want to open a new blank notebook.  Then type np.sqrt(3), in the first line and run it.</p>
 </section>
 <section id="problem-4">
-<h3><span class="section-number">3.4.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h3>
 <p>Why is the cosine of 90 degrees below giving me the wrong answer?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2212,7 +2212,7 @@ dtype: float64
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -2240,7 +2240,9 @@ dtype: float64
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2313,8 +2315,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

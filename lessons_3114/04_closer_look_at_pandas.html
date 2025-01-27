@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4. Pandas DataFrames and Data Visualization &#8212; Python for MSE</title>
   
@@ -15,48 +14,48 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Y46MLPCBH0"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,19 +63,25 @@
                 gtag('js', new Date());
                 gtag('config', 'G-Y46MLPCBH0');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Y46MLPCBH0');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lessons_3114/04_closer_look_at_pandas';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. matplotlib - Advanced Layouts" href="05_closer_look_at_matplotlib.html" />
     <link rel="prev" title="3. Google Forms and Pandas Data Import and Visualization" href="03_google_forms_and_pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -84,32 +89,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -117,7 +106,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -125,22 +113,28 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
-
-  <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
-  </div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">Virginia Tech MSE 2114-3114 Python for MSE</div>
+</aside>
 
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -155,6 +149,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -168,11 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-light" alt="Python for MSE - Home"/>
-    <script>document.write(`<img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark" alt="Python for MSE - Home"/>`);</script>
+    <img src="../_static/Horizontal_VT_Full_Color_RGB.jpg" class="logo__image only-dark pst-js-only" alt="Python for MSE - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -239,14 +242,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -255,14 +263,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -287,14 +295,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/sgcorcoran/Python-for-MSE/blob/main/lessons_3114/04_closer_look_at_pandas.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -369,27 +377,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -437,10 +437,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-dataframes-and-data-visualization">
-<h1><span class="section-number">4. </span>Pandas DataFrames and Data Visualization<a class="headerlink" href="#pandas-dataframes-and-data-visualization" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Pandas DataFrames and Data Visualization<a class="headerlink" href="#pandas-dataframes-and-data-visualization" title="Link to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -451,13 +451,13 @@ document.write(`
 </ul>
 </div>
 <section id="pandas-dataframe-goupby">
-<h2><span class="section-number">4.1. </span>pandas.DataFrame.goupby()<a class="headerlink" href="#pandas-dataframe-goupby" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>pandas.DataFrame.goupby()<a class="headerlink" href="#pandas-dataframe-goupby" title="Link to this heading">#</a></h2>
 <section id="reading-data">
-<h3><span class="section-number">4.1.1. </span>Reading Data<a class="headerlink" href="#reading-data" title="Permalink to this heading">#</a></h3>
-<p>You will need <a class="reference external" href="https://drive.google.com/uc?id=1ELCvnr0WjQcglNlmxhqzsAOK8DnPaHW_&amp;export=download">titanic.csv</a> data file for this lesson.</p>
+<h3><span class="section-number">4.1.1. </span>Reading Data<a class="headerlink" href="#reading-data" title="Link to this heading">#</a></h3>
+<p>You will need <a class="reference external" href="https://drive.google.com/uc?id=1ELCvnr0WjQcglNlmxhqzsAOK8DnPaHW_&amp;amp;export=download">titanic.csv</a> data file for this lesson.</p>
 <div class="admonition-an-aside admonition">
 <p class="admonition-title">An aside</p>
-<p>Many datasets can be found on line for analysis to practice data science methods.  These can be found from a simple <a class="reference external" href="https://www.google.com/search?q=open+datasets">google search</a> and include such sites as: <a class="reference external" href="https://code.datasciencedojo.com/datasciencedojo/datasets">data science dojo</a> or <a class="reference external" href="https://www.openml.org/search?type=data&amp;status=active">openml</a></p>
+<p>Many datasets can be found on line for analysis to practice data science methods.  These can be found from a simple <a class="reference external" href="https://www.google.com/search?q=open+datasets">google search</a> and include such sites as: <a class="reference external" href="https://code.datasciencedojo.com/datasciencedojo/datasets">data science dojo</a> or <a class="reference external" href="https://www.openml.org/search?type=data&amp;amp;status=active">openml</a></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1563,7 +1563,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 <section id="groupby-1-column">
-<span id="id1"></span><h3><span class="section-number">4.1.2. </span>groupby 1 column<a class="headerlink" href="#groupby-1-column" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h3><span class="section-number">4.1.2. </span>groupby 1 column<a class="headerlink" href="#groupby-1-column" title="Link to this heading">#</a></h3>
 <p>Let’s find the average ticket price paid for those that died and those that survived? We can accomplish this by grouping by the column ‘Survived.’ This will aggregate all the data according to whether the value in this column is a 0 (died) or a 1 (survived).  Then we just tell pandas what to do with this aggregated data.  In our case, we want the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1620,7 +1620,7 @@ if (typeof version == 'undefined') {
 </div>
 <p>You can see this gives us the mean value of Pclass, Age, and Fare for all those with a 0 (died) or 1 (survived) in the Survived column.  The column values (0 or 1) have now been set as the row index.</p>
 <div class="admonition-something-to-try admonition">
-<p class="admonition-title">Something to try  </p>
+<p class="admonition-title">Something to try</p>
 <p>What do you expect to get if you grouped by ‘Pclass’ rather than ‘Survived’ i.e. <code class="docutils literal notranslate"><span class="pre">data.groupby('Pclass').mean()</span></code> ?  Think about it first and then try it and see. The mean values given for ‘Survived’ is quite interesting.  How would you interpret these results?</p>
 </div>
 <p>Let’s get the mean Fare price for those that died and survived and present those results as a bar plot.</p>
@@ -1648,12 +1648,12 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="admonition-something-to-try admonition">
-<p class="admonition-title">Something to try  </p>
+<p class="admonition-title">Something to try</p>
 <p>Group by ‘Pclass’, <code class="docutils literal notranslate"><span class="pre">df=data.groupby('Pclass').mean()</span></code> and make a barchart for the data in column ‘Survived’, <code class="docutils literal notranslate"><span class="pre">dataforbar=df.loc[:,'Survived']</span></code>. How would you interpret these results for example, which class had the lowest survival rate?</p>
 </div>
 </section>
 <section id="groupby-2-columns">
-<h3><span class="section-number">4.1.3. </span>groupby 2 columns<a class="headerlink" href="#groupby-2-columns" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.3. </span>groupby 2 columns<a class="headerlink" href="#groupby-2-columns" title="Link to this heading">#</a></h3>
 <p>What is the average age of male and female passengers in 1st, 2nd, and 3rd class? To answer this we want to know about a feature “average age” broken out by two other features “Sex” and “Pclass.”  For this, we will groupby both Sex and Pclass.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2077,7 +2077,7 @@ Name: Age, dtype: float64
 <p>In general, the number of <code class="docutils literal notranslate"><span class="pre">unstack()</span></code> functions we apply is one less than the number of columns we used in our <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> so if we perform a 3 column groupby we will apply two unstack functions.</p>
 </div>
 <div class="admonition-basic-forms admonition">
-<p class="admonition-title">Basic Forms  </p>
+<p class="admonition-title">Basic Forms</p>
 <p>Basic format for finding the average of columns:<br />
 By <strong>one</strong> column:      <code class="docutils literal notranslate"><span class="pre">data.groupby().mean()</span></code><br />
 By <strong>two</strong> columns:     <code class="docutils literal notranslate"><span class="pre">data.groupby().mean().unstack()</span></code><br />
@@ -2091,7 +2091,7 @@ etc…</p>
 </div>
 </section>
 <section id="groupby-3-columns">
-<h3><span class="section-number">4.1.4. </span>groupby 3 columns<a class="headerlink" href="#groupby-3-columns" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.4. </span>groupby 3 columns<a class="headerlink" href="#groupby-3-columns" title="Link to this heading">#</a></h3>
 <p>What is the number of male and female passengers vs ticket class that died vs survived? To answer this question, we want to know about a feature “number of passengers” broken out by three other features “Sex”, “Pclass”, and “Survived.”  For this, we will <strong>groupby all three columns</strong> and <strong>use .count()</strong> rather than .mean() and we will use <strong>.unstack() twice</strong>.  We are also grabbing the count on the “Fare” data since this is complete while some records don’t have an age recorded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2186,7 +2186,7 @@ etc…</p>
 </div>
 </div>
 <div class="admonition-try-this admonition" id="groupby-3-columns-try-1">
-<p class="admonition-title">Try this…  </p>
+<p class="admonition-title">Try this…</p>
 <p>Replot the above but only using <strong>one .unstack()</strong> rather than two.  Notice how the labels and plot change relative to the groupby order: ‘Survived’,‘Sex’,‘Pclass’.  The last column in this list, ‘Pclass’ becomes the legend. The x-axis contains combinations of the first two, ‘Survived’ and ‘Sex’ with ‘Survived’ being ordered first so we get (died, female), (died,male), (survived, female), and (survived, male).</p>
 </div>
 <p>A pie chart might be a good way to represent our data.  See the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.pie.html">pandas documentation</a> for more information and examples of the pie chart.</p>
@@ -2418,7 +2418,7 @@ etc…</p>
 </div>
 <p>Now we can make a pie chart on the percentages of various classes of people that died (0) or survived (1).  Let’s look at those that survived.</p>
 <section id="using-pandas-plot">
-<h4><span class="section-number">4.1.4.1. </span>Using pandas plot:<a class="headerlink" href="#using-pandas-plot" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">4.1.4.1. </span>Using pandas plot:<a class="headerlink" href="#using-pandas-plot" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataforpie</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
@@ -2451,9 +2451,9 @@ etc…</p>
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">4.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="problem-1">
-<span id="exercises-problem-1"></span><h3><span class="section-number">4.2.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h3>
+<span id="exercises-problem-1"></span><h3><span class="section-number">4.2.1. </span>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h3>
 <p><a class="reference internal" href="#stop-and-think-1"><span class="std std-ref">Previously</span></a> in this lesson we had the code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We have </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> records.  Here are the first 5.&quot;</span><span class="p">)</span>
@@ -2468,20 +2468,20 @@ c. What does data.shape give you?<br />
 d. Replace data.head() with data.head(2) and data.head(5).  How does this compare to data.head()?</p>
 </section>
 <section id="problem-2">
-<h3><span class="section-number">4.2.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h3>
 <p>Group the titanic data <a class="reference internal" href="#groupby-1-column"><span class="std std-ref">see section: groupby 1 column</span></a> by ‘Pclass’, <code class="docutils literal notranslate"><span class="pre">df=data.groupby('Pclass').mean()</span></code> and make a barchart for the data ‘Survived’, <code class="docutils literal notranslate"><span class="pre">dataforbar=df.loc[:,'Survived']</span></code>. How would you interpret these results for example, which class had the lowest survival rate?</p>
 </section>
 <section id="problem-3">
-<h3><span class="section-number">4.2.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.3. </span>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h3>
 <p><em>2 column groupby</em>:  Make a bar chart showing the average ticket price for 1st, second, and third class passengers broken out by sex.  For this problem, put Pclass on the x-axis and plot a bar for each Sex (male or female) with a height equal to the average ticket price (y-axis).</p>
 </section>
 <section id="problem-4">
-<h3><span class="section-number">4.2.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.4. </span>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h3>
 <p>a. Re-plot the <a class="reference internal" href="#groupby-3-columns-try-1"><span class="std std-ref">example in “groupby 3 columns”</span></a> but now only using <strong>one</strong> .unstack() rather than two. Notice how the labels and plot change relative to the groupby order: ‘Survived’,‘Sex’,‘Pclass’. The last column in this list, ‘Pclass’ becomes the legend. The x-axis contains combinations of the first two, ‘Survived’ and ‘Sex’ with ‘Survived’ being ordered first so we get (died, female), (died,male), (survived, female), and (survived, male). Make sure you include an appropriate title and y-label.</p>
 <p>b. Now change the order of the groupby columns to: [‘Sex’,‘Pclass’,‘Survived’] and replot again using only one unstack(). Comment on how the order of the groupby corresponds to changes in your x-axis and legend.</p>
 </section>
 <section id="problem-5">
-<h3><span class="section-number">4.2.5. </span>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.5. </span>Problem 5<a class="headerlink" href="#problem-5" title="Link to this heading">#</a></h3>
 <p>Using <strong>pandas</strong>, make a pie chart showing the percentage of passengers that <u>died</u> on the titanic broken out by sex and ticket class.  Your pie chart should have 6 pieces: (1st class, female), (1st class, male)… (3rd class, male). Explode only the pie piece for (2nd class,male) by 0.25. Remove both the legend and y-label. Make sure you correct the title.</p>
 </section>
 </section>
@@ -2514,7 +2514,7 @@ d. Replace data.head() with data.head(2) and data.head(5).  How does this compar
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -2542,7 +2542,9 @@ d. Replace data.head() with data.head(2) and data.head(5).  How does this compar
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2616,8 +2618,8 @@ By Sean Corcoran
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
