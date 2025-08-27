@@ -1,0 +1,15 @@
+Category,Coverage_Count,Total_Objectives,Coverage_Percentage,Missing_Problems,Priority
+Historical & Career,0,3,0.0,3,HIGH
+Polymers,0,5,0.0,5,HIGH
+Ceramics,3,8,37.5,5,MEDIUM
+Defects,4,6,66.66666666666666,2,LOW
+Phase Transformations,7,10,70.0,3,LOW
+Data Analysis & Materials,5,7,71.42857142857143,2,LOW
+Metal Processing,3,4,75.0,1,LOW
+Phase Diagrams,7,8,87.5,1,LOW
+Failure,8,8,100.0,0,LOW
+Mechanical Properties,8,6,133.33333333333331,-2,LOW
+Bonding,7,5,140.0,-2,LOW
+Strengthening,6,4,150.0,-2,LOW
+Diffusion,11,6,183.33333333333331,-5,LOW
+Structures,17,8,212.5,-9,LOW
