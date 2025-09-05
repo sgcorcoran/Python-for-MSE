@@ -1,0 +1,14 @@
+criterion,awarded,max
+w3_prompt_design (max 4),4,4
+w3_comparison (max 3),3,3
+w3_reflection (max 2),2,2
+w3_ai_log (max 1),1,1
+w4_eda_plots (max 2),2,2
+w4_ai_interpretation (max 3),3,3
+w4_objective_constraints (max 1),1,1
+w4_optimization (max 3),3,3
+w4_ai_redteam_validation (max 3),3,3
+w4_final_critique (max 2),2,2
+Week 3 total,10,10
+Week 4 total,24,24
+Grand total,58,58
