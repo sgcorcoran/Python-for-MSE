@@ -1,5 +1,14 @@
 # Python-for-MSE
 
+## Notes
+
+* Need to add lesson on week 6 of 03 lesson. No current lesson on building a dashboard only the guided activity.
+
+## ChangeLog
+
+* [2025-09-05] Lesson 02 prompt engineering and case study finished
+* [2025-06-08] First drafts of 02.5 "bridge lesson" and 03 modern data tools introduction
+
 ## Fall 2025: Complete rework of course now with AI focus
 
 - Post `01_getting_started.pdf` to canvas so students can get started installing software. Until they do this, they can't read .ipynb files.
@@ -9,6 +18,6 @@
 
 ## Before Spring 2025
 
-A live version of this textbook can be found at <https://sgcorcoran.github.io/Python-for-MSE/intro.html>
+A live version of this textbook can be found at [https://sgcorcoran.github.io/Python-for-MSE/intro.html](https://sgcorcoran.github.io/Python-for-MSE/intro.html)
 This is a work in progress for MSE 2114 & MSE 3114 a 2 credit series of courses introducing students at Virginia Tech
-programming in python with applications in Materials Science and Engineering.  
+programming in python with applications in Materials Science and Engineering.
