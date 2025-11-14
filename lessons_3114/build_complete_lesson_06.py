@@ -1,0 +1,811 @@
+"""
+Complete Lesson 06 Notebook Builder
+Creates comprehensive Integrated Workflows & Research Efficiency notebook
+Matching format and quality of lessons 01-04
+"""
+
+import json
+
+def create_lesson_06():
+    """Create complete Lesson 06 notebook"""
+    
+    cells = []
+    
+    # === HEADER SECTION ===
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "# Lesson 6: Integrated Workflows & Research Efficiency\n",
+            "## Combining AI Tools for Efficient Materials Science Research\n",
+            "\n",
+            "**Duration**: 1 week (Week 10)  \n",
+            "**Weekly Workload**: 3 hours  \n",
+            "**Learning Focus**: Integrating AI tools, data processing, and analysis into efficient research workflows\n",
+            "\n",
+            "---\n",
+            "\n",
+            "## Learning Objectives\n",
+            "\n",
+            "By the end of this lesson, you will be able to:\n",
+            "- **Combine AI tools** into efficient research workflows\n",
+            "- **Use AI for literature analysis** and information extraction\n",
+            "- **Create reproducible workflows** that document AI usage\n",
+            "- **Optimize time** by using the right tool for the right task\n",
+            "- **Integrate** prompts, analysis, and documentation seamlessly\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## 📋 **SUBMISSION REQUIREMENTS**\n",
+            "\n",
+            "**Turn in this notebook with all cells run showing output.**\n",
+            "\n",
+            "**Your notebook should contain:**\n",
+            "- All literature analysis prompts and AI responses (Task 1)\n",
+            "- All extracted information summaries (Task 1)\n",
+            "- All workflow planning documentation (Task 2)\n",
+            "- All workflow execution code with output (Task 2)\n",
+            "- All AI usage logs completed (Task 3)\n",
+            "- All reflection questions answered\n",
+            "\n",
+            "**Optional but Recommended**: Export your AI chat logs (ChatGPT/Claude conversations) and include in submission. This helps demonstrate your AI interaction process.\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## Week 10: Integrated Workflows & Research Efficiency\n",
+            "\n",
+            "**Time Allocation**: 3 hours\n",
+            "- Mini-Lecture: 30 minutes\n",
+            "- Guided Activity 1 (Literature Analysis): 75 minutes\n",
+            "- Guided Activity 2 (Complete Workflow): 60 minutes\n",
+            "- Reflection & Synthesis: 15 minutes\n",
+            "\n",
+            "**Prerequisites**: \n",
+            "- Completed Lessons 01-05\n",
+            "- Access to ChatGPT and Claude\n",
+            "- Familiarity with all previous lessons' tools\n",
+            "\n",
+            "**💡 For Python Beginners**: This lesson focuses on workflows, not complex code. You'll combine what you've learned in previous lessons!\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    # === MINI-LECTURE ===
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## Mini-Lecture: Integrated Research Workflows (30 min)\n",
+            "\n",
+            "### The Problem: Disconnected Tools\n",
+            "\n",
+            "Throughout Lessons 01-05, you've learned:\n",
+            "- **AI tools** (ChatGPT, Claude, GitHub Copilot)\n",
+            "- **Data processing** (Polars, Pandas)\n",
+            "- **Visualization** (Matplotlib, Seaborn, Plotly, Streamlit)\n",
+            "- **Statistical analysis** (Scipy, hypothesis testing)\n",
+            "- **Validation** (Error detection, assumption checking)\n",
+            "\n",
+            "**But here's the question**: How do you use ALL of these together efficiently?\n",
+            "\n",
+            "### The Solution: Integrated Workflows\n",
+            "\n",
+            "**Integrated workflows** combine all your tools into seamless research processes that:\n",
+            "- Save time by automating repetitive tasks\n",
+            "- Reduce errors by standardizing procedures\n",
+            "- Improve reproducibility by documenting everything\n",
+            "- Enhance efficiency by using the right tool at the right time\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Research Workflow Stages\n",
+            "\n",
+            "A typical materials science research workflow has these stages:\n",
+            "\n",
+            "#### 1. **Literature Analysis** (What's already known?)\n",
+            "- Use AI to extract key findings from papers\n",
+            "- Summarize methods and results\n",
+            "- Identify gaps in knowledge\n",
+            "- **Tool**: ChatGPT/Claude for document analysis\n",
+            "\n",
+            "#### 2. **Data Collection** (Getting your data)\n",
+            "- Load data from files\n",
+            "- Validate data quality\n",
+            "- Clean and prepare data\n",
+            "- **Tool**: Pandas/Polars for data processing\n",
+            "\n",
+            "#### 3. **Analysis** (Making sense of data)\n",
+            "- Exploratory data analysis\n",
+            "- Statistical testing\n",
+            "- Model fitting\n",
+            "- **Tool**: Scipy, Scikit-learn, AI for test selection\n",
+            "\n",
+            "#### 4. **Visualization** (Communicating results)\n",
+            "- Create plots and dashboards\n",
+            "- Generate publication-ready figures\n",
+            "- **Tool**: Matplotlib, Seaborn, Plotly, Streamlit\n",
+            "\n",
+            "#### 5. **Documentation** (Recording your work)\n",
+            "- Document AI usage\n",
+            "- Record workflow steps\n",
+            "- Create reproducible notebooks\n",
+            "- **Tool**: Jupyter notebooks, AI-assisted documentation\n",
+            "\n",
+            "**Key Insight**: Each stage uses different tools, but they all work together!\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Tool Selection: Which AI Tool for Which Task?\n",
+            "\n",
+            "Not all AI tools are equal for all tasks. Here's a guide:\n",
+            "\n",
+            "| Task | Best Tool | Why |\n",
+            "|------|-----------|-----|\n",
+            "| **Code generation** | GitHub Copilot | Integrated in editor, suggests code as you type |\n",
+            "| **Complex reasoning** | Claude | Better at analysis and logical thinking |\n",
+            "| **Document analysis** | ChatGPT | Good at extracting information from PDFs |\n",
+            "| **Quick questions** | Either | Both work for simple queries |\n",
+            "| **Code review** | Claude or ChatGPT | Can review and suggest improvements |\n",
+            "\n",
+            "**Principle**: Use the tool that's best for the specific task, not just what's convenient!\n",
+            "\n",
+            "### Efficiency Principles\n",
+            "\n",
+            "**1. Minimize Redundancy**: Don't redo work you've already done\n",
+            "- Save prompts that work well\n",
+            "- Reuse code snippets\n",
+            "- Build on previous analyses\n",
+            "\n",
+            "**2. Maximize Automation**: Let computers do repetitive tasks\n",
+            "- Use functions instead of copy-pasting code\n",
+            "- Automate data processing pipelines\n",
+            "- Use AI for routine documentation\n",
+            "\n",
+            "**3. Document as You Go**: Record decisions and AI usage immediately\n",
+            "- Don't wait until the end to document\n",
+            "- Track which AI tools you used and when\n",
+            "- Save prompts and responses\n",
+            "\n",
+            "**4. Validate Continuously**: Check work at each stage, not just at the end\n",
+            "- Validate AI outputs immediately\n",
+            "- Check data quality early\n",
+            "- Verify results make sense\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    # === GUIDED ACTIVITY 1: LITERATURE ANALYSIS ===
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## Guided Activity 1: Literature Analysis Workflow (75 min)\n",
+            "\n",
+            "**Learning Goal**: Learn to use AI for efficient literature analysis.\n",
+            "\n",
+            "**Scenario**: You need to quickly understand key findings from research papers on aluminum alloy heat treatment. Instead of reading papers line-by-line, you'll use AI to extract key information.\n",
+            "\n",
+            "**What you'll do:**\n",
+            "1. Create structured prompts for literature analysis (15 min)\n",
+            "2. Use AI to extract information from papers (20 min)\n",
+            "3. Validate extracted information (20 min)\n",
+            "4. Create structured summary (20 min)\n",
+            "\n",
+            "**Why this matters**: Literature reviews can take days. AI can help extract key information quickly, but you must validate everything!\n",
+            "\n",
+            "**💡 Why This Matters**: AI can save hours of reading, but if you accept incorrect information, you'll waste even more time correcting mistakes. Always validate extracted information against the source!\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Task 1: Create Literature Analysis Prompt (15 min)\n",
+            "\n",
+            "**Your Task**: Create a structured prompt template for extracting information from research papers.\n",
+            "\n",
+            "**Instructions:**\n",
+            "1. Use the prompt engineering template from Lesson 02\n",
+            "2. Create a prompt that extracts: key findings, methods, results, conclusions\n",
+            "3. Include constraints (word limits, specific format)\n",
+            "4. Test your prompt with a simple example\n",
+            "\n",
+            "**💡 Prompt Template to Start With**:\n",
+            "\n",
+            "```\n",
+            "ROLE: Materials science research assistant\n",
+            "AUDIENCE: Materials science student\n",
+            "GOAL: Extract key information from research paper\n",
+            "\n",
+            "I'm analyzing a research paper on [TOPIC]. Please extract:\n",
+            "\n",
+            "1. **Key Findings** (3-5 main points, ≤200 words)\n",
+            "2. **Methods Used** (experimental or computational approach, ≤150 words)\n",
+            "3. **Main Results** (quantitative findings with units, ≤200 words)\n",
+            "4. **Conclusions** (what the authors claim, ≤150 words)\n",
+            "\n",
+            "CONSTRAINTS:\n",
+            "- Use bullet points for each section\n",
+            "- Include specific numbers and units where mentioned\n",
+            "- Be accurate - only extract what's actually in the paper\n",
+            "- Do not make inferences beyond what's stated\n",
+            "\n",
+            "Please format the output clearly with section headers.\n",
+            "```\n",
+            "\n",
+            "**Your Task**: Customize this prompt for materials science papers on heat treatment of aluminum alloys.\n",
+            "\n",
+            "**Write your customized prompt here:**\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Task 2: Use AI to Extract Information (20 min)\n",
+            "\n",
+            "**Your Task**: Use your prompt (or the template above) with ChatGPT or Claude to extract information from a materials science paper.\n",
+            "\n",
+            "**Options for Papers**:\n",
+            "1. Use a paper you're familiar with from another course\n",
+            "2. Use a recent paper on aluminum heat treatment (search Google Scholar)\n",
+            "3. Use the example paper provided (if available)\n",
+            "\n",
+            "**Instructions:**\n",
+            "1. Upload the paper PDF to ChatGPT or Claude (or paste relevant text)\n",
+            "2. Use your customized prompt\n",
+            "3. Copy the AI's response\n",
+            "4. Paste it in the cell below\n",
+            "\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### AI Extracted Information\n",
+            "\n",
+            "**Paste the AI's response here:**\n",
+            "\n",
+            "```\n",
+            "\n",
+            "\n",
+            "\n",
+            "```\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Task 3: Validate Extracted Information (20 min)\n",
+            "\n",
+            "**Your Task**: Critically evaluate the AI's extraction. Remember from Lesson 05 - always validate!\n",
+            "\n",
+            "**Validation Checklist:**\n",
+            "\n",
+            "#### 1. Accuracy Check\n",
+            "- [ ] Does the AI accurately reflect what's in the paper?\n",
+            "- [ ] Are numbers and units correct?\n",
+            "- [ ] Are key findings actually in the paper?\n",
+            "- [ ] Did AI make any claims not in the paper? (hallucinations)\n",
+            "\n",
+            "#### 2. Completeness Check\n",
+            "- [ ] Did AI capture the main findings?\n",
+            "- [ ] Are methods described adequately?\n",
+            "- [ ] Are results summarized appropriately?\n",
+            "- [ ] Are conclusions accurately represented?\n",
+            "\n",
+            "#### 3. Formatting Check\n",
+            "- [ ] Is the output well-organized?\n",
+            "- [ ] Are sections clearly marked?\n",
+            "- [ ] Are bullet points used appropriately?\n",
+            "- [ ] Is it easy to read?\n",
+            "\n",
+            "**Write your validation notes here:**\n",
+            "\n",
+            "- **Errors found**: \n",
+            "\n",
+            "- **Missing information**: \n",
+            "\n",
+            "- **Inaccuracies**: \n",
+            "\n",
+            "- **Overall assessment**: \n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Task 4: Create Structured Summary (20 min)\n",
+            "\n",
+            "**Your Task**: Create a clean, structured summary based on the validated AI extraction.\n",
+            "\n",
+            "**Instructions:**\n",
+            "1. Correct any errors found in validation\n",
+            "2. Add any missing information\n",
+            "3. Format clearly with section headers\n",
+            "4. Create a summary that would be useful for your research\n",
+            "\n",
+            "**You can use AI to help format, but YOU must verify accuracy!**\n",
+            "\n",
+            "**Write your structured summary here:**\n",
+            "\n",
+            "## Paper Summary: [Paper Title]\n",
+            "\n",
+            "### Key Findings\n",
+            "\n",
+            "\n",
+            "\n",
+            "### Methods\n",
+            "\n",
+            "\n",
+            "\n",
+            "### Results\n",
+            "\n",
+            "\n",
+            "\n",
+            "### Conclusions\n",
+            "\n",
+            "\n",
+            "\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    # === GUIDED ACTIVITY 2: COMPLETE WORKFLOW ===
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## Guided Activity 2: Complete Analysis Workflow (60 min)\n",
+            "\n",
+            "**Learning Goal**: Integrate all your tools into a complete workflow from data to results.\n",
+            "\n",
+            "**Scenario**: You have heat treatment data and want to complete a full analysis workflow: load data → explore → analyze → visualize → document.\n",
+            "\n",
+            "**What you'll do:**\n",
+            "1. Plan the complete workflow (10 min)\n",
+            "2. Execute the workflow step-by-step (40 min)\n",
+            "3. Document AI usage throughout (10 min)\n",
+            "\n",
+            "**Why this matters**: Real research requires combining many tools. Learning to do this efficiently saves hours!\n",
+            "\n",
+            "**💡 Why This Matters**: Efficient workflows can save 20-30% of research time. In a semester with limited time, this is critical! Plus, good workflows are reproducible - others can follow your process.\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### 📚 Worked Example: Complete Workflow (Practice)\n",
+            "\n",
+            "**Before you plan your own workflow, let's walk through one complete example!**\n",
+            "\n",
+            "**Scenario**: Analyze heat treatment data to compare hardness between two treatments.\n",
+            "\n",
+            "**Complete Workflow Example:**\n",
+            "\n",
+            "| Step | Task | Tool | AI Usage | Validation | Why This Step? |\n",
+            "|------|------|------|----------|-----------|----------------|\n",
+            "| 1 | Load data | Pandas | None | Check shape, head(), info() | Need data before analysis |\n",
+            "| 2 | Explore data | Matplotlib/Seaborn | ChatGPT for test selection | Verify plots show groups | Understand data structure |\n",
+            "| 3 | Check assumptions | Scipy | Validate AI recommendation | Normality test, variance check | Need valid test |\n",
+            "| 4 | Statistical test | Scipy | None | Verify test is correct | Quantify differences |\n",
+            "| 5 | Create visualization | Seaborn | None | Verify plots accurate | Communicate results |\n",
+            "| 6 | Document | Jupyter | Claude for report writing | Verify accuracy | Record for reproducibility |\n",
+            "\n",
+            "**Step-by-Step Process:**\n",
+            "\n",
+            "1. **Load Data** (5 min):\n",
+            "   - Tool: `pd.read_csv()`\n",
+            "   - Why: Can't analyze without data!\n",
+            "   - Validation: Check data shape, print first few rows\n",
+            "\n",
+            "2. **Explore Data** (15 min):\n",
+            "   - Tool: `sns.boxplot()`, `data.describe()`\n",
+            "   - AI: Ask ChatGPT \"What statistical test should I use?\"\n",
+            "   - Why: Understand data before choosing test\n",
+            "   - Validation: Do visualizations show groups clearly?\n",
+            "\n",
+            "3. **Select Test** (10 min):\n",
+            "   - Tool: AI recommendation + validation\n",
+            "   - AI: Get recommendation, then validate it (Lesson 05!)\n",
+            "   - Why: Need appropriate test for valid conclusions\n",
+            "   - Validation: Does test match your question?\n",
+            "\n",
+            "4. **Run Test** (10 min):\n",
+            "   - Tool: `stats.ttest_ind()` or `stats.mannwhitneyu()`\n",
+            "   - Why: Quantify whether difference is significant\n",
+            "   - Validation: Are p-values reasonable?\n",
+            "\n",
+            "5. **Visualize** (10 min):\n",
+            "   - Tool: `sns.boxplot()` with statistical annotation\n",
+            "   - Why: Communicate results clearly\n",
+            "   - Validation: Do plots match test results?\n",
+            "\n",
+            "6. **Document** (10 min):\n",
+            "   - Tool: Jupyter markdown + AI for report sections\n",
+            "   - AI: Use Claude to draft report sections\n",
+            "   - Why: Record work for reproducibility\n",
+            "   - Validation: Verify AI-generated text is accurate\n",
+            "\n",
+            "**💡 Why This Matters**: This workflow integrates all your tools systematically. Notice how AI is used strategically (not everywhere), and validation happens at each step!\n",
+            "\n",
+            "**Total Time**: 60 minutes for complete workflow\n",
+            "\n",
+            "**Now you're ready to plan your own workflow!**\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Task 1: Plan the Workflow (10 min)\n",
+            "\n",
+            "**Your Task**: Create a workflow plan before starting analysis.\n",
+            "\n",
+            "**💡 Why This Matters**: Planning your workflow saves time and helps you identify where to use AI strategically!\n",
+            "\n",
+            "**Instructions:**\n",
+            "1. List all the steps you'll take (data → exploration → analysis → visualization)\n",
+            "2. Identify which tools you'll use at each step\n",
+            "3. Plan where you'll use AI assistance (remember: use strategically, not everywhere!)\n",
+            "4. Identify validation points (where you'll check work - critical!)\n",
+            "\n",
+            "**Workflow Planning Template:**\n",
+            "\n",
+            "| Step | Task | Tool | AI Usage | Validation |\n",
+            "|------|------|------|----------|-----------|\n",
+            "| 1 | Load data | Pandas | None | Check data loaded correctly |\n",
+            "| 2 | Explore data | Matplotlib/Seaborn | AI for test selection | Verify visualizations |\n",
+            "| 3 | Statistical test | Scipy | Validate AI recommendation | Check assumptions |\n",
+            "| 4 | Create visualization | Plotly/Streamlit | None | Verify plots accurate |\n",
+            "| 5 | Document | Jupyter | AI for report writing | Verify accuracy |\n",
+            "\n",
+            "**Your Task**: Fill out the workflow table for analyzing heat treatment data:\n",
+            "\n",
+            "**Your Workflow Plan:**\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "source": [
+            "# === Task 2: Execute Complete Workflow (40 min) ===\n",
+            "\n",
+            "import pandas as pd\n",
+            "import numpy as np\n",
+            "import matplotlib.pyplot as plt\n",
+            "import seaborn as sns\n",
+            "from scipy import stats\n",
+            "import warnings\n",
+            "warnings.filterwarnings('ignore')\n",
+            "\n",
+            "print(\"=\"*70)\n",
+            "print(\"COMPLETE ANALYSIS WORKFLOW\")\n",
+            "print(\"=\"*70)\n",
+            "\n",
+            "# === Step 1: Load Data ===\n",
+            "print(\"\\nStep 1: Loading data...\")\n",
+            "# TODO: Load the heat treatment data\n",
+            "# data = pd.read_csv('heat_treatment_data.csv')\n",
+            "# print(f\"Data loaded: {data.shape}\")\n",
+            "# print(data.head())\n",
+            "\n",
+            "# === Step 2: Explore Data ===\n",
+            "print(\"\\nStep 2: Exploring data...\")\n",
+            "# TODO: Calculate descriptive statistics\n",
+            "# TODO: Create visualizations (boxplot, histogram)\n",
+            "# HINT: Use what you learned in Lesson 04!\n",
+            "\n",
+            "# === Step 3: Statistical Analysis ===\n",
+            "print(\"\\nStep 3: Statistical analysis...\")\n",
+            "# TODO: Separate data by treatment\n",
+            "# TODO: Check assumptions (normality, equal variances)\n",
+            "# TODO: Run appropriate statistical test\n",
+            "# HINT: Use what you learned in Lesson 04 and validated in Lesson 05!\n",
+            "\n",
+            "# === Step 4: Create Final Visualization ===\n",
+            "print(\"\\nStep 4: Creating visualization...\")\n",
+            "# TODO: Create publication-ready plot\n",
+            "# TODO: Include statistical results in plot\n",
+            "# HINT: Use matplotlib or seaborn for professional plots\n",
+            "\n",
+            "# === Step 5: Document AI Usage ===\n",
+            "print(\"\\nStep 5: Documenting AI usage...\")\n",
+            "# TODO: Create a markdown cell documenting:\n",
+            "# - Which AI tools you used\n",
+            "# - When you used them\n",
+            "# - What you asked them\n",
+            "# - How you validated their outputs\n",
+            "\n",
+            "print(\"\\n\" + \"=\"*70)\n",
+            "print(\"WORKFLOW COMPLETE!\")\n",
+            "print(\"=\"*70)\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Documentation: AI Usage Throughout Workflow\n",
+            "\n",
+            "**Your Task**: Document how you used AI tools at each step.\n",
+            "\n",
+            "**AI Usage Log Template:**\n",
+            "\n",
+            "| Step | AI Tool Used | What You Asked | How You Validated |\n",
+            "|------|--------------|----------------|-------------------|\n",
+            "| 1 | None or ChatGPT | [if used] | [if used] |\n",
+            "| 2 | ChatGPT/Claude | [what you asked] | [how you verified] |\n",
+            "| 3 | ChatGPT/Claude | [what you asked] | [how you verified] |\n",
+            "| 4 | None or ChatGPT | [if used] | [if used] |\n",
+            "| 5 | ChatGPT/Claude | [what you asked] | [how you verified] |\n",
+            "\n",
+            "**Fill out your AI usage log:**\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    # === REFLECTION & SYNTHESIS ===
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## Reflection & Synthesis (15 min)\n",
+            "\n",
+            "**Answer the following questions in your own words.**\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Reflection Question 1: Workflow Efficiency (≤150 words)\n",
+            "\n",
+            "**Question**: How did using integrated workflows save you time compared to doing tasks separately? What was the most time-saving step?\n",
+            "\n",
+            "**Your Answer**:\n",
+            "\n",
+            "\n",
+            "\n",
+            "\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Reflection Question 2: Tool Selection (≤150 words)\n",
+            "\n",
+            "**Question**: Which AI tools did you find most useful for which tasks? Would you use the same tools next time, or would you choose differently?\n",
+            "\n",
+            "**Your Answer**:\n",
+            "\n",
+            "\n",
+            "\n",
+            "\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "### Reflection Question 3: Future Application (≤150 words)\n",
+            "\n",
+            "**Question**: How will you apply integrated workflow strategies to your own research projects? What workflow will you use for your capstone project?\n",
+            "\n",
+            "**Your Answer**:\n",
+            "\n",
+            "\n",
+            "\n",
+            "\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    # === ASSIGNMENT DELIVERABLES ===
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## Assignment Deliverables\n",
+            "\n",
+            "**Due**: End of Week 10  \n",
+            "**Points**: 50 points\n",
+            "\n",
+            "### Required Submissions:\n",
+            "\n",
+            "1. **Completed Notebook** (40 points)\n",
+            "   - All workflow activities completed\n",
+            "   - Literature analysis summary\n",
+            "   - Complete analysis workflow executed\n",
+            "   - AI usage documented\n",
+            "   - All reflection questions answered\n",
+            "\n",
+            "\n",
+            "2. **Workflow Documentation** (10 points)\n",
+            "   - AI usage log completed\n",
+            "   - Workflow plan documented\n",
+            "   - Efficiency reflections included\n",
+            "\n",
+            "**Submission Format**:\n",
+            "- Notebook: `.ipynb` file (all cells run with output visible)\n",
+            "- AI chat logs: PDF or text file (optional)\n",
+            "- Workflow doc: Can be in notebook or separate PDF\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    # === GRADING RUBRIC ===
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## Grading Rubric (50 points)\n",
+            "\n",
+            "### Guided Activity 1: Literature Analysis (20 points)\n",
+            "\n",
+            "| Criterion | Excellent (full points) | Good (80%) | Satisfactory (60%) | Needs Improvement (<60%) | Points |\n",
+            "|-----------|------------------------|-----------|-------------------|--------------------------|--------|\n",
+            "| **Prompt Design** | Well-structured prompt following template, customized for materials science | Good prompt structure, some customization | Basic prompt, minimal customization | Unclear or incomplete prompt | 5 |\n",
+            "| **AI Extraction** | Used AI to extract information, documented interaction | Used AI, partial documentation | Attempted AI extraction | No AI extraction documented | 5 |\n",
+            "| **Validation** | Thoroughly validated extraction, identified errors/missing info | Basic validation completed | Some validation attempted | Minimal or no validation | 5 |\n",
+            "| **Structured Summary** | Clear, well-organized summary based on validated extraction | Good summary, minor issues | Summary present but needs improvement | Summary incomplete or unclear | 5 |\n",
+            "\n",
+            "### Guided Activity 2: Complete Workflow (20 points)\n",
+            "\n",
+            "| Criterion | Excellent (full points) | Good (80%) | Satisfactory (60%) | Needs Improvement (<60%) | Points |\n",
+            "|-----------|------------------------|-----------|-------------------|--------------------------|--------|\n",
+            "| **Workflow Planning** | Detailed workflow plan with tools and validation points | Good workflow plan | Basic plan | Minimal or no planning | 5 |\n",
+            "| **Workflow Execution** | All workflow steps completed successfully | Most steps completed | Some steps completed | Workflow incomplete | 8 |\n",
+            "| **Tool Integration** | Effectively combines multiple tools (AI, data processing, analysis) | Good tool integration | Basic integration | Poor integration | 7 |\n",
+            "\n",
+            "### Documentation & Reflection (10 points)\n",
+            "\n",
+            "| Criterion | Excellent (full points) | Good (80%) | Satisfactory (60%) | Needs Improvement (<60%) | Points |\n",
+            "|-----------|------------------------|-----------|-------------------|--------------------------|--------|\n",
+            "| **AI Usage Documentation** | Complete AI usage log with validation methods | Good documentation | Partial documentation | Minimal documentation | 5 |\n",
+            "| **Reflection Questions** | All 3 questions answered thoughtfully, within word limits | 2-3 questions answered well | 1-2 questions answered | Incomplete answers | 5 |\n",
+            "\n",
+            "**Note**: AI chat logs are optional but recommended - they help demonstrate your AI interaction process.\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    # === CONCLUSION ===
+    
+    cells.append({
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "## Congratulations! 🎉\n",
+            "\n",
+            "You've completed Lesson 6: Integrated Workflows & Research Efficiency!\n",
+            "\n",
+            "### Key Skills You've Learned:\n",
+            "\n",
+            "✅ **Workflow Integration**: How to combine all your tools seamlessly\n",
+            "✅ **Literature Analysis**: Using AI to extract information from papers\n",
+            "✅ **Tool Selection**: Choosing the right tool for the right task\n",
+            "✅ **Efficiency Strategies**: Saving time through workflow optimization\n",
+            "✅ **Documentation**: Tracking AI usage for reproducibility\n",
+            "\n",
+            "### What's Next?\n",
+            "\n",
+            "In **Lesson 7 (Capstone Project)**, you'll apply everything you've learned:\n",
+            "- AI tools for planning and analysis\n",
+            "- Data processing and validation\n",
+            "- Statistical analysis with verification\n",
+            "- Integrated workflows\n",
+            "- Complete documentation\n",
+            "\n",
+            "You'll work on a real materials science research question and demonstrate mastery of AI-augmented materials science!\n",
+            "\n",
+            "**Remember**: Efficiency comes from good workflows. Plan your work, document your steps, and validate your results!\n",
+            "\n",
+            "---\n"
+        ]
+    })
+    
+    return cells
+
+# Create notebook
+notebook = {
+    "cells": create_lesson_06(),
+    "metadata": {
+        "kernelspec": {
+            "display_name": "Python 3",
+            "language": "python",
+            "name": "python3"
+        },
+        "language_info": {
+            "name": "python",
+            "version": "3.8.0"
+        }
+    },
+    "nbformat": 4,
+    "nbformat_minor": 4
+}
+
+# Save notebook
+with open('06_integrated_workflows_research_efficiency.ipynb', 'w', encoding='utf-8') as f:
+    json.dump(notebook, f, indent=1, ensure_ascii=False)
+
+print(f"Lesson 06 notebook created with {len(notebook['cells'])} cells")
+print("Notebook saved as: 06_integrated_workflows_research_efficiency.ipynb")
+

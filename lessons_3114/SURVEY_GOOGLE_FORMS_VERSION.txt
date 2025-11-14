@@ -1,0 +1,150 @@
+MSE 3114: Mid-Course Evaluation Survey
+Anonymous feedback to improve remaining lessons (05-07)
+~5-7 minutes | No identifying information collected
+
+===========================================================
+PART 1: Your Experience So Far (Lessons 01-04)
+===========================================================
+
+Q1. Technical Comfort Level (Multiple Choice - Single Answer)
+On a scale of 1-5, how comfortable are you with Python programming now?
+[ ] 1 - Very uncomfortable (still struggle with basics)
+[ ] 2 - Somewhat uncomfortable (need significant help)
+[ ] 3 - Neutral (can follow along with guidance)
+[ ] 4 - Comfortable (can work independently most of the time)
+[ ] 5 - Very comfortable (confident in Python)
+
+Q2. Course Difficulty (Multiple Choice - Single Answer)
+How would you rate the overall difficulty of lessons 01-04?
+[ ] Too easy
+[ ] Just right
+[ ] Somewhat difficult
+[ ] Very difficult
+[ ] Overwhelming
+
+Q3. Pacing (Multiple Choice - Single Answer)
+How would you rate the pace of lessons 01-04?
+[ ] Too slow (not enough content per week)
+[ ] Just right
+[ ] Somewhat fast (hard to keep up)
+[ ] Too fast (often behind)
+[ ] Way too fast (constantly overwhelmed)
+
+Q4. Time Investment (Multiple Choice - Single Answer)
+On average, how many hours per week did you spend on this course?
+[ ] Less than 2 hours
+[ ] 2-3 hours (as expected)
+[ ] 4-5 hours
+[ ] 6-7 hours
+[ ] More than 7 hours
+
+===========================================================
+PART 2: What Helped or Hindered Your Learning
+===========================================================
+
+Q5. Most Helpful Aspects (Multiple Choice - Multiple Answers, up to 3)
+Select up to 3 things that helped you learn most:
+[ ] Jupyter notebook structure with clear instructions
+[ ] AI tool integration (ChatGPT, Claude, Cursor)
+[ ] Step-by-step tutorials and examples
+[ ] TODO scaffolding in code cells
+[ ] Materials science examples and context
+[ ] In-class discussions or activities
+[ ] Assignment rubrics
+[ ] Peer collaboration
+[ ] Other (specify): _________________
+
+Q6. Most Challenging Aspects (Multiple Choice - Multiple Answers, up to 3)
+Select up to 3 things that were most challenging:
+[ ] Python programming basics
+[ ] Setting up environments/tools
+[ ] Understanding AI prompts and responses
+[ ] Statistical concepts
+[ ] Time management
+[ ] Following complex workflows
+[ ] Debugging code errors
+[ ] Finding files/folders on computer
+[ ] Other (specify): _________________
+
+===========================================================
+PART 3: AI Tool Usage
+===========================================================
+
+Q7. AI Tool Usage Frequency (Multiple Choice - Single Answer)
+How often do you use AI tools (ChatGPT, Claude, Cursor) for course work?
+[ ] Never (I don't use AI tools)
+[ ] Rarely (less than once per assignment)
+[ ] Sometimes (a few times per assignment)
+[ ] Often (regularly throughout assignments)
+[ ] Always (essential to completing work)
+
+Q8. AI Tool Effectiveness (Multiple Choice - Single Answer)
+How helpful have AI tools been for your learning?
+[ ] Not helpful at all
+[ ] Somewhat helpful
+[ ] Moderately helpful
+[ ] Very helpful
+[ ] Extremely helpful
+
+Q9. AI Tool Challenges (Multiple Choice - Multiple Answers)
+What challenges have you faced using AI tools? (Select all that apply)
+[ ] Don't know how to write effective prompts
+[ ] AI responses are often wrong or confusing
+[ ] Don't trust AI-generated code
+[ ] Hard to know when AI is correct vs. incorrect
+[ ] AI gives too much or too little information
+[ ] No major challenges
+[ ] Other (specify): _________________
+
+===========================================================
+PART 4: Preparation for Upcoming Lessons
+===========================================================
+
+Q10. Concerns About Lessons 05-07 (Multiple Choice - Multiple Answers)
+What are you most concerned about for the remaining lessons? (Select all that apply)
+[ ] AI Validation (detecting errors) - sounds difficult
+[ ] Integrated workflows - combining multiple tools
+[ ] Capstone project - independent work
+[ ] Python coding challenges
+[ ] Time constraints
+[ ] Understanding statistical concepts
+[ ] Nothing - I'm ready
+[ ] Other (specify): _________________
+
+Q11. Support Needs (Multiple Choice - Multiple Answers, up to 2)
+What additional support would be most helpful for lessons 05-07? (Select up to 2)
+[ ] More Python basics review
+[ ] Step-by-step AI validation examples
+[ ] More worked examples of complete workflows
+[ ] Extra office hours or help sessions
+[ ] Clearer explanations of statistical concepts
+[ ] Peer collaboration opportunities
+[ ] Video tutorials
+[ ] Don't need additional support
+[ ] Other (specify): _________________
+
+===========================================================
+PART 5: Open Feedback (Optional but Valuable)
+===========================================================
+
+Q12. Short Answer (Paragraph)
+What aspects of the course have been most effective for your learning?
+(2-3 sentences)
+
+Q13. Short Answer (Paragraph)
+What specific changes would help you learn better in the remaining lessons?
+(2-3 sentences)
+
+Q14. Short Answer (Paragraph)
+Do you have specific suggestions for lessons 05-07? (e.g., pacing, content, examples, support)
+(Any length)
+
+Q15. Short Answer (Paragraph)
+Any other feedback you'd like to share?
+(Any length)
+
+===========================================================
+Thank You!
+Your feedback will directly inform improvements to remaining course content.
+===========================================================
+

@@ -1,5 +1,30 @@
 # Python-for-MSE
 
+## Cursor issue
+
+Workaround: Kernel selection not working in Cursor + Jupyter
+
+I was hitting the same issue where kernel selection in Cursor didn’t work. What fixed it for me was starting the Jupyter server manually and then attaching Cursor to that running server instead of letting Cursor start it.
+
+Steps:
+
+Start Jupyter yourself (from a terminal):
+
+jupyter lab
+# or
+jupyter notebook
+
+When it starts, copy the full URL from the terminal output, e.g. something like:
+
+http://localhost:8888/?token=XXXXXXXXXXXXXXXXXXXXXXXX
+
+Go back to Cursor.
+When it asks you to select a kernel / Jupyter server, choose the option to connect to an existing server (or wherever it lets you paste a URL).
+
+Paste the Jupyter URL you copied and confirm.
+
+After doing this, kernel selection works correctly and I can run cells from Cursor without issues.
+
 ## Notes
 
 * Need to add lesson on week 6 of 03 lesson. No current lesson on building a dashboard only the guided activity.
